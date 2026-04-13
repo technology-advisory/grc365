@@ -6,130 +6,37 @@
 <title>GRC365</title>
 
 <style>
-
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-    background: #0b0f1a;
-    color: white;
-}
-
-/* HERO */
-.hero {
-    position: relative;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    width: 100%;
-    overflow: hidden;
 }
 
-/* IMAGEN BIEN AJUSTADA */
-.hero img {
-    position: absolute;
+/* CONTENEDOR */
+.container {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* OVERLAY SUAVE */
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(11,15,26,0.85), rgba(11,15,26,0.2));
+/* IMAGEN */
+img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
-
-/* CONTENIDO */
-.content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    padding: 8%;
-}
-
-/* TEXTOS */
-h1 {
-    font-size: 72px;
-    margin: 0;
-}
-
-h1 span {
-    color: #2ea3ff;
-}
-
-h2 {
-    margin-top: 10px;
-    font-weight: 400;
-    color: #cbd5e1;
-}
-
-.highlight {
-    color: #2ea3ff;
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-p {
-    margin-top: 20px;
-    line-height: 1.6;
-    color: #cbd5e1;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-    .content {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 42px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    .highlight {
-        font-size: 16px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    /* Overlay más oscuro en móvil para legibilidad */
-    .overlay {
-        background: linear-gradient(to bottom, rgba(11,15,26,0.9), rgba(11,15,26,0.6));
-    }
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="hero">
-
-    <!-- IMAGEN -->
+<div class="container">
     <img src="hero.png" alt="GRC365">
-
-    <!-- CAPA OSCURA -->
-    <div class="overlay"></div>
-
-    <!-- TEXTO -->
-    <div class="content">
-        <h1>GRC<span>365</span></h1>
-
-        <h2>Seguridad, Riesgo y Cumplimiento</h2>
-
-        <div class="highlight">Siempre activos</div>
-
-        <p>
-        No es una auditoría.<br>
-        No es un proyecto.<br>
-        Es la capacidad de proteger tu negocio todos los días.
-        </p>
-    </div>
-
 </div>
 
 </body>
