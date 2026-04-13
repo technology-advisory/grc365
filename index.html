@@ -10,18 +10,19 @@
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #000; /* Fondo negro */
+            background-color: #000;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
         }
 
         /* Contenedor principal de la imagen */
         .container {
             width: 100%;
-            max-width: 1000px; /* Un poco más estrecho para que no sea infinita en PC */
+            max-width: 1000px; 
             display: flex;
             justify-content: center;
         }
@@ -34,10 +35,10 @@
 
         /* Footer con LinkedIn */
         footer {
-            padding: 40px 0;
+            padding: 60px 0; /* Más espacio para que respire */
             text-align: center;
             width: 100%;
-            background: linear-gradient(to bottom, #000, #050505);
+            background: linear-gradient(to top, #0a0a0a, #000);
         }
 
         .linkedin-link {
@@ -46,23 +47,31 @@
             display: inline-flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .linkedin-link:hover {
-            transform: translateY(-5px);
-            opacity: 0.8;
+            transform: scale(1.05); /* Un ligero zoom al pasar el ratón */
         }
 
         .linkedin-icon {
-            width: 40px; /* Tamaño del logo */
-            height: 40px;
-            margin-bottom: 10px;
+            width: 45px;
+            height: 45px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 0px 8px rgba(0, 119, 181, 0.4));
         }
 
         .text-link {
-            font-size: 14px;
-            letter-spacing: 1px;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            color: #00aaff; /* Un tono azulado similar a los detalles de tu imagen */
+        }
+
+        .sub-text {
+            font-size: 12px;
+            margin-top: 5px;
+            color: #666;
             text-transform: uppercase;
         }
     </style>
@@ -79,7 +88,8 @@
             <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
             </svg>
-            <span class="text-link"></span>
+            <span class="text-link">"Merece la pena la experiencia..."</span>
+            <span class="sub-text">Hablemos en LinkedIn</span>
         </a>
     </footer>
 
