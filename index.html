@@ -10,33 +10,60 @@
         body, html {
             margin: 0;
             padding: 0;
-            background-color: #000; /* Fondo negro como el de la imagen */
+            background-color: #000; /* Fondo negro */
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            font-family: Arial, sans-serif;
         }
 
-        /* Contenedor principal */
+        /* Contenedor principal de la imagen */
         .container {
             width: 100%;
-            max-width: 1200px; /* Evita que en pantallas 4K se estire demasiado y pierda calidad */
+            max-width: 1000px; /* Un poco más estrecho para que no sea infinita en PC */
             display: flex;
             justify-content: center;
         }
 
-        /* Imagen fluida */
-        img {
-            width: 100%;       /* Ocupa todo el ancho disponible */
-            height: auto;      /* Mantiene la proporción original */
-            display: block;    /* Elimina espacios fantasma debajo de la imagen */
+        img.hero {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        /* Optimización para móviles (pantallas pequeñas) */
-        @media (max-width: 768px) {
-            .container {
-                max-width: 100%;
-            }
+        /* Footer con LinkedIn */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            width: 100%;
+            background: linear-gradient(to bottom, #000, #050505);
+        }
+
+        .linkedin-link {
+            text-decoration: none;
+            color: #fff;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .linkedin-link:hover {
+            transform: translateY(-5px);
+            opacity: 0.8;
+        }
+
+        .linkedin-icon {
+            width: 40px; /* Tamaño del logo */
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .text-link {
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -44,8 +71,17 @@
 <body>
 
     <div class="container">
-        <img src="hero.jpg" alt="GRC365 Infografía">
+        <img src="hero.jpg" alt="GRC365 Infografía" class="hero">
     </div>
+
+    <footer>
+        <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="linkedin-link">
+            <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            <span class="text-link">Contactarel</span>
+        </a>
+    </footer>
 
 </body>
 </html>
