@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f5f3f0;
+    font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+    padding: 32px 28px;
+    color: #1a1a1a;
+  }
+
+  .card {
+    max-width: 640px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #dedad4;
+  }
+
+  /* HEADER */
+  .header {
+    padding: 44px 44px 32px;
+    border-bottom: 2px solid #cc2800;
+    background: #faf8f5;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 8.5px;
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    color: #cc2800;
+    text-transform: uppercase;
+    border: 1px solid #cc2800;
+    padding: 3px 9px;
+    margin-bottom: 22px;
+  }
+
+  .headline {
+    font-family: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.0;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+  }
+
+  .headline .accent { color: #cc2800; }
+  .headline .dim { color: #ccc; }
+
+  .subline {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: #777;
+    font-weight: normal;
+    line-height: 1.65;
+  }
+  .subline strong { color: #333; font-weight: bold; }
+
+  /* BODY */
+  .body { padding: 36px 44px; }
+  .block { margin-bottom: 32px; }
+
+  .block-label {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.22em;
+    color: #cc2800;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .block-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .block-text {
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.8;
+  }
+  .block-text strong { color: #111; font-weight: bold; }
+  .block-text .red { color: #cc2800; font-weight: bold; }
+
+  .divider { height: 1px; background: #e5e1db; margin: 4px 0 32px; }
+
+  /* DOS COLUMNAS — table layout para wkhtmltopdf */
+  .audience-split {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dedad4;
+    margin-bottom: 32px;
+  }
+
+  .audience-split td {
+    width: 50%;
+    padding: 22px 20px;
+    vertical-align: top;
+    border-right: 1px solid #dedad4;
+    background: #fdfcfb;
+  }
+  .audience-split td:last-child { border-right: none; }
+
+  .audience-head {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #cc2800;
+    margin-bottom: 10px;
+  }
+
+  .audience-title {
+    font-size: 13.5px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 9px;
+    line-height: 1.3;
+  }
+
+  .audience-text {
+    font-size: 11.5px;
+    color: #666;
+    line-height: 1.7;
+  }
+  .audience-text strong { color: #222; font-weight: bold; }
+
+  /* QUOTE */
+  .quote-block {
+    border-left: 3px solid #cc2800;
+    padding: 13px 20px;
+    margin: 16px 0;
+    background: #fdf5f3;
+  }
+  .quote-text {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 11px;
+    color: #555;
+    font-style: italic;
+    line-height: 1.65;
+  }
+  .quote-attr {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 8px;
+    color: #aaa;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 7px;
+  }
+
+  /* TENSION TABLE */
+  .tension-box {
+    border: 1px solid #dedad4;
+    background: #faf8f5;
+    padding: 0;
+    margin: 16px 0;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .tension-box tr { border-bottom: 1px solid #eae7e2; }
+  .tension-box tr:last-child { border-bottom: none; }
+
+  .tension-who {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    width: 90px;
+    padding: 12px 14px 12px 18px;
+    vertical-align: top;
+  }
+
+  .tension-says {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.55;
+    padding: 12px 18px 12px 6px;
+    vertical-align: top;
+  }
+  .tension-says strong { color: #1a1a1a; font-weight: bold; }
+  .tension-says .red { color: #cc2800; font-weight: bold; }
+
+  /* HIGHLIGHT ROW */
+  .tension-box tr.highlight-row {
+    background: #fff9f7;
+  }
+
+  /* CTA */
+  .cta-block {
+    border: 2px solid #cc2800;
+    padding: 30px 34px;
+    margin-top: 32px;
+    background: #fff9f7;
+    text-align: center;
+  }
+
+  .cta-headline {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1a1a1a;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .cta-headline span { color: #cc2800; }
+
+  .cta-sub {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .cta-sub strong { color: #333; font-weight: bold; }
+
+  .cta-pill {
+    display: inline-block;
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 9.5px;
+    font-weight: bold;
+    letter-spacing: 0.16em;
+    color: #ffffff;
+    background: #cc2800;
+    padding: 10px 24px;
+    text-transform: uppercase;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 22px 44px;
+    border-top: 1px solid #dedad4;
+    background: #faf8f5;
+    width: 100%;
+  }
+
+  .footer-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .author-name {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 11px;
+    color: #1a1a1a;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+  }
+  .author-title {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 8px;
+    color: #999;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .tags {
+    font-family: 'Liberation Mono', 'DejaVu Sans Mono', monospace;
+    font-size: 8.5px;
+    color: #bbb;
+    text-align: right;
+    line-height: 1.9;
+  }
+
+  /* Accent line top */
+  .accent-bar {
+    height: 4px;
+    background: #cc2800;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="accent-bar"></div>
+
+  <div class="header">
+    <div class="tag">vCISO &middot; Dos realidades, un mismo problema</div>
+    <div class="headline">
+      Hay empresas que<br>
+      <span class="accent">no ven</span> el riesgo.<br>
+      <span class="dim">Y empresas donde</span><br>
+      <span class="accent">nadie escucha</span><br>
+      <span class="dim">al que s&iacute; lo ve.</span>
+    </div>
+    <p class="subline">
+      El vCISO no es solo para quien no tiene seguridad.<br>
+      Es tambi&eacute;n para quien la tiene &mdash; <strong>pero habla a una pared.</strong>
+    </p>
+  </div>
+
+  <div class="body">
+
+    <table class="audience-split">
+      <tr>
+        <td>
+          <div class="audience-head">Caso 01 &middot; Peque&ntilde;a empresa</div>
+          <div class="audience-title">Nadie al mando</div>
+          <div class="audience-text">
+            IT lleva &ldquo;tambi&eacute;n lo de seguridad&rdquo;. Hay antivirus. Hay backup (en teor&iacute;a). Nadie ha revisado nada en meses.
+            <br><br>
+            Las decisiones de negocio se toman sin saber lo que se est&aacute; arriesgando. <strong>No porque no importe. Porque nadie lo ve.</strong>
+          </div>
+        </td>
+        <td>
+          <div class="audience-head">Caso 02 &middot; Mediana empresa</div>
+          <div class="audience-title">Alguien al mando. Nadie escuchando.</div>
+          <div class="audience-text">
+            Hay un CISO o responsable de seguridad. Sabe exactamente qu&eacute; hay que hacer. Lo ha dicho. Lo ha documentado. Lo ha presentado.
+            <br><br>
+            <strong>Y sigue esperando presupuesto.</strong> Desde hace dos a&ntilde;os.
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="divider"></div>
+
+    <div class="block">
+      <div class="block-label">La paradoja de la mediana empresa</div>
+      <div class="block-title">El problema no es que no sepan. Es que no les creen.</div>
+      <div class="block-text">
+        El responsable de seguridad lleva meses &mdash; a veces a&ntilde;os &mdash; se&ntilde;alando los mismos riesgos. Los mismos sistemas sin parchear. Las mismas dependencias cr&iacute;ticas sin documentar. El mismo plan de continuidad que nadie ha aprobado.
+        <br><br>
+        Direcci&oacute;n escucha. Asiente. Y sigue con la agenda.
+      </div>
+
+      <table class="tension-box">
+        <tr>
+          <td class="tension-who">CISO interno</td>
+          <td class="tension-says">&ldquo;Necesitamos segmentar la red. Si hay un incidente, se propaga a todo.&rdquo;</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Direcci&oacute;n</td>
+          <td class="tension-says">&ldquo;S&iacute;, lo miramos para el a&ntilde;o que viene.&rdquo;</td>
+        </tr>
+        <tr class="highlight-row">
+          <td class="tension-who">vCISO externo</td>
+          <td class="tension-says"><span class="red">&ldquo;Necesitan segmentar la red. Si hay un incidente, se propaga a todo.&rdquo;</span></td>
+        </tr>
+        <tr class="highlight-row">
+          <td class="tension-who">Direcci&oacute;n</td>
+          <td class="tension-says"><strong>&ldquo;&iquest;Cu&aacute;nto cuesta? Lo aprobamos este trimestre.&rdquo;</strong></td>
+        </tr>
+      </table>
+
+      <div class="block-text" style="margin-top:16px;">
+        Mismo mensaje. Mismo problema. Mismo riesgo.
+        <br><br>
+        Diferente resultado. Porque <strong>la voz externa tiene un peso que la interna nunca tendr&aacute;</strong> &mdash; por muy bien fundamentada que est&eacute;.
+        <br><br>
+        No es justo. Pero es real. Y el vCISO existe, en parte, para eso.
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="block">
+      <div class="block-label">Lo que aporta en cada caso</div>
+      <div class="block-title">Mismo rol. Dos funciones distintas.</div>
+
+      <div class="quote-block">
+        <div class="quote-text">
+          &ldquo;Para la peque&ntilde;a empresa, el vCISO es los ojos que nadie tiene.<br>
+          Para la mediana, es la voz que nadie escucha &mdash; hasta que viene de fuera.&rdquo;
+        </div>
+        <div class="quote-attr">&mdash; La diferencia que importa</div>
+      </div>
+
+      <div class="block-text">
+        En ambos casos, el resultado es el mismo: <strong>decisiones de negocio tomadas con informaci&oacute;n real.</strong>
+        <br><br>
+        No con intuici&oacute;n. No con optimismo. No con &ldquo;hasta ahora no ha pasado nada&rdquo;.
+        <br><br>
+        Con alguien que ve lo que t&uacute; no ves &mdash; o que dice en voz alta lo que ya sabes pero nadie quiere escuchar.
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-headline">&iquest;En cu&aacute;l de los<br><span>dos casos est&aacute;s?</span></div>
+      <div class="cta-sub">
+        Si no tienes a nadie &mdash; hablamos.<br>
+        Si tienes a alguien que no consigue que le escuchen &mdash; <strong>tambi&eacute;n hablamos.</strong>
+        <br><br>
+        Sin powerpoints. Sin venderte nada que no necesites.
+      </div>
+      <div class="cta-pill">DM abierto &rarr;</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <table class="footer-table">
+      <tr>
+        <td>
+          <div class="author-name">Miguel &Aacute;ngel &middot; vCISO</div>
+          <div class="author-title">Cybersecurity &amp; Infrastructure Architect &middot; ISO 27001 &middot; NIS2 &middot; ENS</div>
+        </td>
+        <td>
+          <div class="tags">
+            #vCISO #Ciberseguridad #PYME<br>
+            #Gobernanza #NIS2 #ISO27001<br>
+            #RiesgoEmpresarial #CISO
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
