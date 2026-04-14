@@ -1,108 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRCReal | Seguridad, Riesgo y Cumplimiento de verdad</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRCREAL</title>
 
-    <link rel="icon" href="https://fav.farm/🛡️">
+<style>
 
-    <style>
-        /* Reseteo y Estilo Base */
-        body, html {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: #fff;
-            overflow-x: hidden;
-        }
+/* BASE */
+body {
+    margin: 0;
+    font-family: -apple-system, Segoe UI, Roboto, Arial;
+    background: #f5f7fa; /* gris muy suave */
+}
 
-        /* Contenedor de la Infografía */
-        .container {
-            width: 100%;
-            max-width: 1000px; /* Tamaño óptimo para lectura en PC */
-            display: flex;
-            justify-content: center;
-            box-shadow: 0 0 50px rgba(0, 170, 255, 0.1); /* Sutil resplandor azul */
-        }
+/* CONTENEDOR GENERAL */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
 
-        img.hero {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+/* MARCO BLANCO */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
 
-        /* Footer / Call to Action */
-        footer {
-            padding: 80px 0;
-            text-align: center;
-            width: 100%;
-            background: linear-gradient(to top, #050505, #000);
-        }
+/* IMAGEN */
+.container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-        .linkedin-link {
-            text-decoration: none;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+/* MOBILE */
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 10px;
+    }
 
-        .linkedin-link:hover {
-            transform: scale(1.08);
-        }
+    .container {
+        border-radius: 8px;
+    }
+}
 
-        .linkedin-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0px 0px 12px rgba(0, 119, 181, 0.6));
-        }
-
-        .text-link {
-            font-size: 20px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            color: #00aaff;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-
-        .sub-text {
-            font-size: 13px;
-            color: #555;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* Ajuste para pantallas muy pequeñas */
-        @media (max-width: 480px) {
-            .text-link { font-size: 16px; }
-            footer { padding: 50px 0; }
-        }
-    </style>
+</style>
 </head>
 
 <body>
 
+<div class="wrapper">
+
     <div class="container">
-        <img src="hero.jpg" alt="GRCReal - Infografía de Seguridad" class="hero">
+        <img src="hero.png" alt="GRCREAL">
     </div>
 
-    <footer>
-        <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="linkedin-link">
-            <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-            <span class="text-link">"Merece la pena la experiencia..."</span>
-            <span class="sub-text">Hablemos en LinkedIn</span>
-        </a>
-    </footer>
+</div>
 
 </body>
 </html>
