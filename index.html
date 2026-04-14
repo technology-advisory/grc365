@@ -11,17 +11,17 @@
 body {
     margin: 0;
     font-family: -apple-system, Segoe UI, Roboto, Arial;
-    background: #f5f7fa; /* gris muy suave */
+    background: #f5f7fa;
 }
 
-/* CONTENEDOR GENERAL */
+/* CONTENEDOR */
 .wrapper {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
 }
 
-/* MARCO BLANCO */
+/* CAJA PRINCIPAL */
 .container {
     max-width: 1200px;
     width: 100%;
@@ -38,14 +38,78 @@ body {
     display: block;
 }
 
+/* FOOTER */
+.footer {
+    padding: 25px 30px;
+    border-top: 1px solid #eee;
+}
+
+.footer-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.author-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #111;
+}
+
+.author-title {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* LINKEDIN */
+.linkedin-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-decoration: none;
+    gap: 10px;
+}
+
+.linkedin-icon {
+    width: 28px;
+    height: 28px;
+}
+
+.linkedin-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-link {
+    font-size: 13px;
+    color: #0077B5;
+    font-weight: 500;
+}
+
+.sub-text {
+    font-size: 12px;
+    color: #666;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
+
     .wrapper {
         padding: 10px;
     }
 
     .container {
         border-radius: 8px;
+    }
+
+    .footer-table tr {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .linkedin-link {
+        justify-content: flex-start;
     }
 }
 
@@ -57,7 +121,33 @@ body {
 <div class="wrapper">
 
     <div class="container">
-        <img src="hero.jpg" alt="GRCREAL">
+
+        <!-- IMAGEN -->
+        <img src="hero.png" alt="GRCREAL">
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <table class="footer-table">
+                <tr>
+                    <td style="width: 55%;">
+                        <div class="author-name">Miguel Ángel Carriazo &middot; vCISO</div>
+                        <div class="author-title">Cybersecurity &amp; Infrastructure Architect &middot; ISO 27001 &middot; NIS2 &middot; ENS</div>
+                    </td>
+                    <td style="width: 45%;">
+                        <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="linkedin-link">
+                            <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            <div class="linkedin-text-group">
+                                <span class="text-link">"Merece la pena la experiencia..."</span>
+                                <span class="sub-text">Hablemos en LinkedIn →</span>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
     </div>
 
 </div>
