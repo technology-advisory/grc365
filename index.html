@@ -3,550 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Newsletter · Miguel Ángel Carriazo · vCISO</title>
+<title>GRCREAL</title>
 <style>
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* ── BRAND TOKENS ── cambia solo aquí para retocar la marca */
-:root {
-  --brand:       #0077B5;
-  --brand-dark:  #005a8e;
-  --brand-light: #e8f3fa;
-  --brand-mid:   #cce4f0;
-  --ink:         #1a1a1a;
-  --muted:       #666;
-  --faint:       #999;
-  --ghost:       #bbb;
-  --surface:     #faf9f7;
-  --border:      #dedad4;
-  --border-soft: #eae7e2;
-  --white:       #ffffff;
-  --mono: 'Liberation Mono', 'DejaVu Sans Mono', 'Courier New', monospace;
-  --sans: 'Liberation Sans', 'DejaVu Sans', Arial, sans-serif;
-}
-
-html { font-size: 20px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  background: #f2f0ed;
-  font-family: var(--sans);
-  padding: 32px 20px;
-  color: var(--ink);
-  font-size: 1rem;
+    font-family: -apple-system, Segoe UI, Roboto, Arial;
+    background: #f5f7fa;
 }
 
-.card {
-  max-width: 850px;
-  margin: 0 auto;
-  background: var(--white);
-  border: 1px solid var(--border);
+/* ── NAV ── */
+.nav {
+    width: 100%;
+    background: #fff;
+    border-bottom: 1px solid #e8edf2;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav-logo {
+    font-weight: 700;
+    font-size: 15px;
+    color: #0077B5;
+    letter-spacing: 0.04em;
+}
+.nav-logo span {
+    color: #111;
+    font-weight: 400;
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+}
+.nav-menu li a {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: #444;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+    cursor: default;
+}
+.nav-menu li a:hover {
+    background: #f0f7fc;
+    color: #0077B5;
+}
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #444;
+    border-radius: 2px;
 }
 
-/* ── ACCENT BAR ── */
-.accent-bar {
-  height: 4px;
-  background: var(--brand);
+/* ── WRAPPER ── */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 36px 20px;
 }
-
-/* ── HEADER ── */
-.header {
-  padding: 48px 48px 36px;
-  border-bottom: 2px solid var(--brand);
-  background: var(--surface);
+.container {
+    max-width: 1200px;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
-.tag {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 0.2em;
-  color: var(--brand);
-  text-transform: uppercase;
-  border: 1px solid var(--brand);
-  padding: 5px 14px;
-  margin-bottom: 26px;
+.container img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
-.headline {
-  font-size: 66px;
-  font-weight: bold;
-  line-height: 1.05;
-  color: var(--ink);
-  letter-spacing: -0.5px;
-}
-.headline .accent { color: var(--brand); }
-.headline .dim    { color: #c8c8c8; }
-.subline {
-  margin-top: 22px;
-  font-size: 17px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.subline strong { color: #333; font-weight: bold; }
-
-/* ── BODY ── */
-.body { padding: 40px 48px; }
-
-.block { margin-bottom: 36px; }
-.block-label {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  color: var(--brand);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.block-title {
-  font-size: 23px;
-  font-weight: bold;
-  color: var(--ink);
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-.block-text {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.85;
-}
-.block-text strong { color: #111; font-weight: bold; }
-.block-text .hi    { color: var(--brand); font-weight: bold; }
-
-.divider {
-  height: 1px;
-  background: var(--border-soft);
-  margin: 6px 0 36px;
-}
-
-/* ── DOS COLUMNAS ── */
-.split {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--border);
-  margin-bottom: 36px;
-}
-.split td {
-  width: 50%;
-  padding: 26px 24px;
-  vertical-align: top;
-  border-right: 1px solid var(--border);
-  background: #fdfcfb;
-}
-.split td:last-child { border-right: none; }
-.split-head {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--brand);
-  margin-bottom: 10px;
-}
-.split-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--ink);
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
-.split-text {
-  font-size: 15px;
-  color: #666;
-  line-height: 1.75;
-}
-.split-text strong { color: #222; font-weight: bold; }
-
-/* ── QUOTE ── */
-.quote-block {
-  border-left: 3px solid var(--brand);
-  padding: 16px 24px;
-  margin: 20px 0;
-  background: var(--brand-light);
-}
-.quote-text {
-  font-family: var(--mono);
-  font-size: 15px;
-  color: #444;
-  font-style: italic;
-  line-height: 1.7;
-}
-.quote-attr {
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--faint);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 8px;
-}
-
-/* ── TENSION TABLE ── */
-.tension {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-}
-.tension tr { border-bottom: 1px solid var(--border-soft); }
-.tension tr:last-child { border-bottom: none; }
-.tension-who {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ghost);
-  width: 110px;
-  padding: 14px 12px 14px 20px;
-  vertical-align: top;
-}
-.tension-says {
-  font-size: 15px;
-  color: #555;
-  line-height: 1.6;
-  padding: 14px 20px 14px 8px;
-  vertical-align: top;
-}
-.tension-says strong { color: var(--ink); font-weight: bold; }
-.tension-says .hi    { color: var(--brand); font-weight: bold; }
-.tension tr.hi-row   { background: var(--brand-light); }
-
-/* ── CTA ── */
-.cta-block {
-  border: 2px solid var(--brand);
-  padding: 36px 40px;
-  margin-top: 36px;
-  background: var(--brand-light);
-  text-align: center;
-}
-.cta-headline {
-  font-size: 40px;
-  font-weight: bold;
-  color: var(--ink);
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-.cta-headline span { color: var(--brand); }
-.cta-sub {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.75;
-  margin-bottom: 24px;
-}
-.cta-sub strong { color: #333; font-weight: bold; }
-.cta-pill {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 0.16em;
-  color: var(--white);
-  background: var(--brand);
-  padding: 14px 34px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.cta-pill:hover { background: var(--brand-dark); }
 
 /* ── FOOTER ── */
 .footer {
-  padding: 22px 48px 26px;
-  border-top: 1px solid var(--border);
-  background: var(--surface);
+    padding: 20px 28px 16px;
+    border-top: 1px solid #eee;
 }
 .footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
 }
 .author-block {
-  display: flex;
-  align-items: center;
-  gap: 13px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 .author-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #0077B5, #00a0dc);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 13px;
-  color: white;
-  flex-shrink: 0;
-  letter-spacing: 0.5px;
-  font-family: var(--sans);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0077B5, #00a0dc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    color: white;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
 }
 .author-name {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--ink);
-  font-weight: bold;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
+    font-weight: 600;
+    font-size: 14px;
+    color: #111;
+    white-space: nowrap;
 }
-.author-name span { color: var(--brand); }
+.author-name span { color: #0077B5; }
 .author-title {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--faint);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  margin-top: 4px;
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
 }
-.li-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  background: #f0f2f5;
-  padding: 9px 16px;
-  border-radius: 40px;
-  border: 1px solid var(--brand-mid);
-  flex-shrink: 0;
-  transition: background 0.2s, border-color 0.2s;
+.linkedin-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+    flex-shrink: 0;
+    background: #f0f7fc;
+    border: 1px solid #cce4f0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    transition: background 0.2s;
 }
-.li-btn:hover { background: var(--brand-light); border-color: var(--brand); }
-.li-icon { width: 22px; height: 22px; flex-shrink: 0; }
-.li-main {
-  font-family: var(--sans);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink);
-  font-style: italic;
-  display: block;
-  line-height: 1.3;
-}
-.li-sub {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: var(--brand);
-  text-transform: uppercase;
-  font-weight: bold;
-  display: block;
-  margin-top: 2px;
-}
+.linkedin-link:hover { background: #dbeef8; }
+.linkedin-icon { width: 22px; height: 22px; flex-shrink: 0; }
+.text-link { font-size: 12px; color: #0077B5; font-weight: 600; display: block; }
+.sub-text   { font-size: 11px; color: #888; display: block; margin-top: 1px; }
+
 .footer-tags {
-  width: 100%;
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--ghost);
-  text-align: right;
-  line-height: 2;
-  padding-top: 14px;
-  border-top: 1px solid var(--border-soft);
-  margin-top: 14px;
-  letter-spacing: 0.06em;
+    width: 100%;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #bbb;
+    text-align: right;
+    line-height: 2;
+    padding-top: 12px;
+    border-top: 1px solid #f0ede8;
+    margin-top: 14px;
+    letter-spacing: 0.05em;
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 620px) {
-  .header, .body { padding: 28px 22px; }
-  .footer { padding: 20px 22px; }
-  .headline { font-size: 42px; }
-  .cta-headline { font-size: 30px; }
-  .split td {
-    display: block;
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-  .split td:last-child { border-bottom: none; }
-  .footer-inner { flex-direction: column; align-items: flex-start; }
-  .li-btn { width: 100%; }
-  .footer-tags { text-align: left; }
+@media (max-width: 768px) {
+    .nav { padding: 0 18px; }
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 56px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #e8edf2;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 18px 16px;
+        gap: 2px;
+    }
+    .nav-menu.open { display: flex; }
+    .nav-menu li a { font-size: 14px; padding: 8px 10px; width: 100%; }
+    .nav-toggle { display: flex; }
+    .wrapper { padding: 12px; }
+    .container { border-radius: 8px; }
+    .footer { padding: 16px 18px 14px; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .linkedin-link { width: 100%; box-sizing: border-box; }
+    .footer-tags { text-align: left; }
 }
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="accent-bar"></div>
 
-  <!-- ═══════════════════════════════════════════════
-       CABECERA — cambia: etiqueta, titular, subtítulo
-       ═══════════════════════════════════════════════ -->
-  <div class="header">
-
-    <!-- ETIQUETA: tema del número -->
-    <div class="tag">vCISO &middot; Dos realidades, un mismo problema</div>
-
-    <!-- TITULAR: usa .accent (azul) y .dim (gris claro) para énfasis -->
-    <div class="headline">
-      Hay empresas que<br>
-      <span class="accent">no ven</span> el riesgo.<br>
-      <span class="dim">Y empresas donde</span><br>
-      <span class="accent">nadie escucha</span><br>
-      <span class="dim">al que s&iacute; lo ve.</span>
+<!-- ── NAV ── -->
+<nav class="nav">
+    <div class="nav-logo">GRC<span>real</span></div>
+    <ul class="nav-menu" id="navMenu">
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Enfoque</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Metodología</a></li>
+        <li><a href="#">Sobre mí</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle" onclick="document.getElementById('navMenu').classList.toggle('open')">
+        <span></span><span></span><span></span>
     </div>
+</nav>
 
-    <!-- SUBTÍTULO: una o dos frases de contexto -->
-    <p class="subline">
-      El vCISO no es solo para quien no tiene seguridad.<br>
-      Es tambi&eacute;n para quien la tiene &mdash; <strong>pero habla a una pared.</strong>
-    </p>
+<!-- ── CONTENIDO ── -->
+<div class="wrapper">
+    <div class="container">
 
-  </div>
-  <!-- /CABECERA -->
+        <img src="hero.png" alt="GRCREAL">
 
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-inner">
 
-  <div class="body">
+                <div class="author-block">
+                    <div class="author-avatar">MA</div>
+                    <div>
+                        <div class="author-name">Miguel Ángel Carriazo &middot; <span>vCISO</span></div>
+                        <div class="author-title">Cybersecurity &amp; Infrastructure Architect &nbsp;·&nbsp; ISO 27001 &nbsp;·&nbsp; NIS2 &nbsp;·&nbsp; ENS</div>
+                    </div>
+                </div>
 
-    <!-- ═══════════════════════════════════════════════
-         BLOQUE DOS COLUMNAS — cambia títulos y textos
-         ═══════════════════════════════════════════════ -->
-    <table class="split">
-      <tr>
-        <td>
-          <div class="split-head">Caso 01 &middot; Peque&ntilde;a empresa</div>
-          <div class="split-title">Nadie al mando</div>
-          <div class="split-text">
-            IT lleva &ldquo;tambi&eacute;n lo de seguridad&rdquo;. Hay antivirus. Hay backup (en teor&iacute;a). Nadie ha revisado nada en meses.
-            <br><br>
-            Las decisiones de negocio se toman sin saber lo que se est&aacute; arriesgando. <strong>No porque no importe. Porque nadie lo ve.</strong>
-          </div>
-        </td>
-        <td>
-          <div class="split-head">Caso 02 &middot; Mediana empresa</div>
-          <div class="split-title">Alguien al mando. Nadie escuchando.</div>
-          <div class="split-text">
-            Hay un CISO o responsable de seguridad. Sabe exactamente qu&eacute; hay que hacer. Lo ha dicho. Lo ha documentado. Lo ha presentado.
-            <br><br>
-            <strong>Y sigue esperando presupuesto.</strong> Desde hace dos a&ntilde;os.
-          </div>
-        </td>
-      </tr>
-    </table>
-    <!-- /DOS COLUMNAS -->
+                <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="linkedin-link">
+                    <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    <div>
+                        <span class="text-link">"Merece la pena la experiencia..."</span>
+                        <span class="sub-text">Hablemos en LinkedIn →</span>
+                    </div>
+                </a>
 
-    <div class="divider"></div>
+            </div>
 
-    <!-- ═══════════════════════════════════════════════
-         BLOQUE DE DESARROLLO — repite tantas veces como necesites
-         ═══════════════════════════════════════════════ -->
-    <div class="block">
-      <div class="block-label">La paradoja de la mediana empresa</div>
-      <div class="block-title">El problema no es que no sepan. Es que no les creen.</div>
-      <div class="block-text">
-        El responsable de seguridad lleva meses &mdash; a veces a&ntilde;os &mdash; se&ntilde;alando los mismos riesgos. Los mismos sistemas sin parchear. Las mismas dependencias cr&iacute;ticas sin documentar. El mismo plan de continuidad que nadie ha aprobado.
-        <br><br>
-        Direcci&oacute;n escucha. Asiente. Y sigue con la agenda.
-      </div>
+            <!-- HASHTAGS — cambia según el tema -->
+            <div class="footer-tags">
+                #vCISO &nbsp;&nbsp; #Ciberseguridad &nbsp;&nbsp; #ISO27001 &nbsp;&nbsp; #NIS2 &nbsp;&nbsp; #ENS &nbsp;&nbsp; #GRC &nbsp;&nbsp; #CybersecurityArchitect
+            </div>
 
-      <!-- TABLA DE TENSIÓN — opcional, quítala si no la necesitas -->
-      <table class="tension">
-        <tr>
-          <td class="tension-who">CISO interno</td>
-          <td class="tension-says">&ldquo;Necesitamos segmentar la red. Si hay un incidente, se propaga a todo.&rdquo;</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Direcci&oacute;n</td>
-          <td class="tension-says">&ldquo;S&iacute;, lo miramos para el a&ntilde;o que viene.&rdquo;</td>
-        </tr>
-        <tr class="hi-row">
-          <td class="tension-who">vCISO externo</td>
-          <td class="tension-says"><span class="hi">&ldquo;Necesitan segmentar la red. Si hay un incidente, se propaga a todo.&rdquo;</span></td>
-        </tr>
-        <tr class="hi-row">
-          <td class="tension-who">Direcci&oacute;n</td>
-          <td class="tension-says"><strong>&ldquo;&iquest;Cu&aacute;nto cuesta? Lo aprobamos este trimestre.&rdquo;</strong></td>
-        </tr>
-      </table>
-      <!-- /TABLA TENSIÓN -->
-
-      <div class="block-text" style="margin-top:20px;">
-        Mismo mensaje. Mismo problema. Mismo riesgo.
-        <br><br>
-        Diferente resultado. Porque <strong>la voz externa tiene un peso que la interna nunca tendr&aacute;</strong> &mdash; por muy bien fundamentada que est&eacute;.
-        <br><br>
-        No es justo. Pero es real. Y el vCISO existe, en parte, para eso.
-      </div>
-    </div>
-    <!-- /BLOQUE DESARROLLO -->
-
-    <div class="divider"></div>
-
-    <!-- ═══════════════════════════════════════════════
-         BLOQUE CON CITA — opcional
-         ═══════════════════════════════════════════════ -->
-    <div class="block">
-      <div class="block-label">Lo que aporta en cada caso</div>
-      <div class="block-title">Mismo rol. Dos funciones distintas.</div>
-
-      <div class="quote-block">
-        <div class="quote-text">
-          &ldquo;Para la peque&ntilde;a empresa, el vCISO es los ojos que nadie tiene.<br>
-          Para la mediana, es la voz que nadie escucha &mdash; hasta que viene de fuera.&rdquo;
         </div>
-        <div class="quote-attr">&mdash; La diferencia que importa</div>
-      </div>
-
-      <div class="block-text">
-        En ambos casos, el resultado es el mismo: <strong>decisiones de negocio tomadas con informaci&oacute;n real.</strong>
-        <br><br>
-        No con intuici&oacute;n. No con optimismo. No con &ldquo;hasta ahora no ha pasado nada&rdquo;.
-        <br><br>
-        Con alguien que ve lo que t&uacute; no ves &mdash; o que dice en voz alta lo que ya sabes pero nadie quiere escuchar.
-      </div>
-    </div>
-    <!-- /BLOQUE CITA -->
-
-
-    <!-- ═══════════════════════════════════════════════
-         CTA FINAL — cambia pregunta, subtexto y enlace
-         ═══════════════════════════════════════════════ -->
-    <div class="cta-block">
-      <div class="cta-headline">&iquest;En cu&aacute;l de los<br><span>dos casos est&aacute;s?</span></div>
-      <div class="cta-sub">
-        Si no tienes a nadie &mdash; hablamos.<br>
-        Si tienes a alguien que no consigue que le escuchen &mdash; <strong>tambi&eacute;n hablamos.</strong>
-        <br><br>
-        Primera sesi&oacute;n de diagn&oacute;stico sin coste. Sin powerpoints. Sin venderte nada que no necesites.
-      </div>
-      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="cta-pill">DM abierto &rarr;</a>
-    </div>
-    <!-- /CTA -->
-
-  </div>
-  <!-- /BODY -->
-
-
-  <!-- ═══════════════════════════════════════════════
-       FOOTER — FIJO, no tocar salvo los hashtags
-       ═══════════════════════════════════════════════ -->
-  <div class="footer">
-    <div class="footer-inner">
-
-      <div class="author-block">
-        <div class="author-avatar">MA</div>
-        <div>
-          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
-          <div class="author-title">Cybersecurity &amp; Infrastructure Architect &nbsp;&middot;&nbsp; ISO 27001 &nbsp;&middot;&nbsp; NIS2 &nbsp;&middot;&nbsp; ENS</div>
-        </div>
-      </div>
-
-      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
-        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-        <div>
-          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
-          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
-        </div>
-      </a>
+        <!-- /FOOTER -->
 
     </div>
-
-    <!-- HASHTAGS — cambia según el tema del número -->
-    <div class="footer-tags">
-      #vCISO &nbsp;&nbsp; #Ciberseguridad &nbsp;&nbsp; #PYME &nbsp;&nbsp; #Gobernanza &nbsp;&nbsp; #NIS2 &nbsp;&nbsp; #ISO27001 &nbsp;&nbsp; #RiesgoEmpresarial &nbsp;&nbsp; #CISO
-    </div>
-  </div>
-  <!-- /FOOTER -->
-
 </div>
+
 </body>
 </html>
