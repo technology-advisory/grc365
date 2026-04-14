@@ -312,8 +312,10 @@ body {
    CTA
    ══════════════════════════════════════ */
 .cta-block {
+  border: 2px solid var(--brand);
   padding: 36px 40px;
   margin-top: 36px;
+  background: var(--brand-light);
   text-align: center;
 }
 .cta-headline {
