@@ -32,9 +32,14 @@ html { font-size: 20px; }
 body {
   background: #f2f0ed;
   font-family: var(--sans);
-  padding: 32px 20px;
+  padding: 0;
   color: var(--ink);
   font-size: 1rem;
+}
+
+/* ── padding solo para newsletter card ── */
+.card-wrapper {
+  padding: 32px 20px;
 }
 
 /* ══════════════════════════════════════
@@ -497,6 +502,7 @@ body {
   .footer-inner {
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: space-between;
   }
   .li-btn { box-sizing: border-box; }
   .footer-tags { text-align: left; }
