@@ -6,7 +6,7 @@
 
 <title>Artículos · GRCReal</title>
 
-<!-- FAVICON (igual que el resto) -->
+<!-- FAVICON -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
 <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
 <rect width='32' height='32' rx='8' fill='%230077B5'/>
@@ -79,6 +79,25 @@ font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text>
   text-decoration: underline;
 }
 
+/* BOTÓN HOME */
+.home-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #1a73a8;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  z-index: 999;
+  transition: all 0.2s ease;
+}
+
+.home-btn:hover {
+  background: #155a85;
+}
+
 </style>
 
 </head>
@@ -129,19 +148,16 @@ font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text>
         </a>
       </div>
 
-      <!-- FUTURO ARTÍCULO -->
+      <!-- FUTURO -->
       <!--
       <div class="article-card">
         <div class="article-meta">GRC · Metodología</div>
-
         <div class="article-title">
           La metodología no es el proceso
         </div>
-
         <div class="article-desc">
           Cumplir no es controlar. La diferencia está en entender lo que hay detrás.
         </div>
-
         <a href="metodologia.html" class="article-link">
           Leer artículo →
         </a>
@@ -154,6 +170,9 @@ font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text>
 
 </div>
 </div>
+
+<!-- BOTÓN HOME -->
+<a href="/" class="home-btn">⌂ Home</a>
 
 </body>
 </html>
