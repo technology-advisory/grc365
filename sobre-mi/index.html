@@ -7,7 +7,7 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230077B5'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text></svg>">
 <link rel="stylesheet" href="../css/marca.css">
 
-<!-- ESTILOS EXCLUSIVOS PARA BADGES (no rompe marca.css) -->
+<!-- ESTILOS EXCLUSIVOS PARA BADGES Y MODAL (no rompe marca.css) -->
 <style>
 /* ── BADGES / CERTIFICACIONES VISUALES ── */
 .badges-grid {
@@ -29,6 +29,7 @@
   transition: all 0.2s ease;
   box-shadow: 0 1px 3px rgba(0,0,0,0.03);
   flex: 0 0 auto;
+  cursor: pointer;
 }
 
 .badge-card:hover {
@@ -42,6 +43,7 @@
   max-height: 75px;
   object-fit: contain;
   margin-bottom: 12px;
+  pointer-events: none; /* para que el clic lo gestione la card */
 }
 
 .badge-name {
@@ -51,9 +53,76 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   line-height: 1.4;
+  pointer-events: none;
 }
 
-/* Responsive para badges */
+/* ── MODAL LIGHTBOX ── */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-caption {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-family: 'Liberation Sans', Arial, sans-serif;
+  font-size: 14px;
+  background: rgba(0,0,0,0.7);
+  padding: 8px 16px;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10000;
+}
+
+.close-modal:hover {
+  color: #0077B5;
+}
+
+/* Responsive */
 @media (max-width: 620px) {
   .badges-grid {
     justify-content: center;
@@ -69,6 +138,15 @@
   }
   .badge-name {
     font-size: 9px;
+  }
+  .modal-caption {
+    font-size: 11px;
+    bottom: 20px;
+  }
+  .close-modal {
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
   }
 }
 
@@ -218,6 +296,13 @@
 
 </head>
 <body>
+
+<!-- MODAL LIGHTBOX (para aumentar imágenes al hacer clic) -->
+<div id="imageModal" class="modal" onclick="closeModal()">
+  <span class="close-modal" onclick="event.stopPropagation(); closeModal();">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div class="modal-caption" id="modalCaption"></div>
+</div>
 
 <!-- NAV -->
 <nav class="nav">
@@ -410,38 +495,41 @@
 
     <div class="divider"></div>
 
-    <!-- BADGES VISUALES DE CERTIFICACIONES -->
+    <!-- BADGES VISUALES DE CERTIFICACIONES (con clic para ampliar) -->
     <div class="block">
       <div class="block-label">Acreditaciones visuales</div>
       <div class="block-title" style="font-size:20px;">Formación continua & certificación profesional</div>
       <div class="badges-grid">
-        <div class="badge-card">
+        <div class="badge-card" onclick="openModal('ens.png', 'ENS Esquema Nacional de Seguridad')">
           <img src="ens.png" alt="ENS Esquema Nacional de Seguridad" class="badge-img">
           <div class="badge-name">ENS</div>
         </div>
-        <div class="badge-card">
+        <div class="badge-card" onclick="openModal('ISO_27001_lead.png', 'ISO 27001 Lead Implementer')">
           <img src="ISO_27001_lead.png" alt="ISO 27001 Lead Implementer" class="badge-img">
           <div class="badge-name">ISO 27001 Lead Implementer</div>
         </div>
-        <div class="badge-card">
+        <div class="badge-card" onclick="openModal('iso_27001_auditor.png', 'ISO 27001 Lead Auditor')">
           <img src="iso_27001_auditor.png" alt="ISO 27001 Lead Auditor" class="badge-img">
           <div class="badge-name">ISO 27001 Lead Auditor</div>
         </div>
-        <div class="badge-card">
+        <div class="badge-card" onclick="openModal('ISO_22301.png', 'ISO 22301 Internal Auditor')">
           <img src="ISO_22301.png" alt="ISO 22301 Internal Auditor" class="badge-img">
           <div class="badge-name">ISO 22301 Internal Auditor</div>
         </div>
-        <div class="badge-card">
+        <div class="badge-card" onclick="openModal('ISO_42001.png', 'ISO 42001 Internal Auditor')">
           <img src="ISO_42001.png" alt="ISO 42001 Internal Auditor" class="badge-img">
           <div class="badge-name">ISO 42001 Internal Auditor</div>
         </div>
         <!-- NIS2 - descomentar cuando tengas nis2.jpg
-        <div class="badge-card">
+        <div class="badge-card" onclick="openModal('nis2.jpg', 'NIS2 Directive')">
           <img src="nis2.jpg" alt="NIS2 Directive" class="badge-img">
           <div class="badge-name">NIS2</div>
         </div>
         -->
       </div>
+      <p style="font-size: 12px; color: #888; margin-top: 16px; text-align: center;">
+        💡 Haz clic en cualquier certificado para verlo ampliado
+      </p>
     </div>
 
     <div class="divider"></div>
@@ -484,6 +572,35 @@
 </div><!-- /card-wrapper -->
 
 <a href="../index.html" class="home-btn">⌂ Home</a>
+
+<!-- SCRIPT PARA EL MODAL DE IMÁGENES -->
+<script>
+function openModal(imgSrc, caption) {
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const modalCaption = document.getElementById('modalCaption');
+  
+  modal.style.display = 'flex';
+  modalImg.src = imgSrc;
+  modalCaption.textContent = caption;
+  
+  // Evitar scroll del body mientras el modal está abierto
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  const modal = document.getElementById('imageModal');
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Cerrar con tecla ESC
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+});
+</script>
 
 </body>
 </html>
