@@ -5,6 +5,64 @@
 <meta name="viewport" content="width=1024, initial-scale=1.0">
 <title>Artículos · GRCReal</title>
 <link rel="stylesheet" href="../css/marca.css">
+
+<style>
+.articles-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.article-card {
+  border: 1px solid #e3dfd9;
+  padding: 22px 24px;
+  background: #fcfbf9;
+  transition: all 0.2s ease;
+}
+
+.article-card:hover {
+  border-color: #1a73a8;
+  background: #f7fafd;
+}
+
+.article-meta {
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: #1a73a8;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.article-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.article-desc {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.article-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #1a73a8;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+}
+
+.article-link:hover {
+  text-decoration: underline;
+}
+</style>
+
 </head>
 <body>
 
@@ -17,7 +75,7 @@
     <div class="tag">Contenido</div>
 
     <div class="headline">
-      Newsletters<br>
+      Artículos<br>
       <span class="accent">GRCReal</span>
     </div>
 
@@ -31,15 +89,40 @@
     <div class="block">
       <div class="block-label">Últimos artículos</div>
       <div class="block-title">Contenido disponible</div>
-      <div class="block-text">
+    </div>
 
-        <a href="vciso-dos-realidades.html">→ vCISO · Dos realidades, un mismo problema</a>
-        <br><br>
+    <div class="articles-grid">
 
-        <!-- Aquí añadirás los siguientes -->
-        <!-- <a href="metodologia.html">→ Metodología en GRC</a> -->
-
+      <!-- ARTÍCULO -->
+      <div class="article-card">
+        <div class="article-meta">vCISO · Estrategia</div>
+        <div class="article-title">
+          Hay empresas que no ven el riesgo.
+        </div>
+        <div class="article-desc">
+          Dos realidades muy distintas con un mismo problema: la falta de visión real sobre el riesgo y su impacto en negocio.
+        </div>
+        <a href="vciso-dos-realidades.html" class="article-link">
+          Leer artículo →
+        </a>
       </div>
+
+      <!-- FUTUROS -->
+      <!--
+      <div class="article-card">
+        <div class="article-meta">GRC · Metodología</div>
+        <div class="article-title">
+          La metodología no es el proceso
+        </div>
+        <div class="article-desc">
+          Cumplir no es controlar. La diferencia está en entender lo que hay detrás.
+        </div>
+        <a href="metodologia.html" class="article-link">
+          Leer artículo →
+        </a>
+      </div>
+      -->
+
     </div>
 
   </div>
