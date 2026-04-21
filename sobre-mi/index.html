@@ -499,11 +499,9 @@
     <div class="block">
       <div class="block-label">Acreditaciones visuales</div>
       <div class="block-title" style="font-size:20px;">Formación continua & certificación profesional</div>
-      <div class="badges-grid">
-        <div class="badge-card" onclick="openModal('ens.png', 'ENS Esquema Nacional de Seguridad')">
-          <img src="ens.png" alt="ENS Esquema Nacional de Seguridad" class="badge-img">
-          <div class="badge-name">ENS</div>
-        </div>
+      
+      <!-- Primera línea: 4 ISO -->
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; margin-bottom: 20px;">
         <div class="badge-card" onclick="openModal('ISO_27001_lead.png', 'ISO 27001 Lead Implementer')">
           <img src="ISO_27001_lead.png" alt="ISO 27001 Lead Implementer" class="badge-img">
           <div class="badge-name">ISO 27001 Lead Implementer</div>
@@ -520,17 +518,24 @@
           <img src="ISO_42001.png" alt="ISO 42001 Internal Auditor" class="badge-img">
           <div class="badge-name">ISO 42001 Internal Auditor</div>
         </div>
-        <NIS2 - descomentar cuando tengas nis2.jpg
-        <div class="badge-card" onclick="openModal('nis2.png', 'NIS2 Directive')">
+      </div>
+      
+      <!-- Segunda línea: ENS y NIS2 -->
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start;">
+        <div class="badge-card" onclick="openModal('ens.png', 'ENS Esquema Nacional de Seguridad')">
+          <img src="ens.png" alt="ENS Esquema Nacional de Seguridad" class="badge-img">
+          <div class="badge-name">ENS</div>
+        </div>
+        <div class="badge-card" onclick="openModal('nis2.jpg', 'NIS2 Directive')">
           <img src="nis2.jpg" alt="NIS2 Directive" class="badge-img">
           <div class="badge-name">NIS2</div>
         </div>
-        
       </div>
+      
       <p style="font-size: 12px; color: #888; margin-top: 16px; text-align: center;">
         💡 Haz clic en cualquier certificado para verlo ampliado
       </p>
-    </div>
+    </div>>
 
     <div class="divider"></div>
 
