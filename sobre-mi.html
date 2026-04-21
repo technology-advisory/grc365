@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1024, initial-scale=1.0">
+<meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=3.0">
 
 <title>Sobre mí · GRCReal</title>
 
@@ -21,89 +21,166 @@ font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text>
 /* HERO */
 .hero-block {
   display: flex;
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 56px;
 }
 
 .hero-foto img {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 4px;
   border: 3px solid #0077B5;
 }
 
-.hero-texto {
-  flex: 1;
-}
+.hero-texto { flex: 1; }
 
 .hero-tag {
   font-family: monospace;
   font-size: 11px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #0077B5;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .hero-nombre {
-  font-size: 34px;
-  font-weight: bold;
+  font-size: 36px;
+  font-weight: 700;
   margin-bottom: 6px;
 }
 
-.hero-nombre span {
-  color: #0077B5;
-}
+.hero-nombre span { color: #0077B5; }
 
 .hero-cargo {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 18px;
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 24px;
 }
 
 .hero-frase {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   border-left: 3px solid #0077B5;
-  padding-left: 14px;
-  margin-bottom: 20px;
+  padding-left: 18px;
+  margin-bottom: 24px;
 }
 
 .hero-exp {
   display: inline-flex;
   gap: 10px;
-  background: #eef6fb;
-  padding: 8px 14px;
+  background: #e8f3fa;
+  border: 1px solid #cce4f0;
+  padding: 8px 18px;
 }
 
 .hero-exp-num {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 700;
   color: #0077B5;
 }
 
 /* DIVISOR */
-.divider {
+.seccion-divisor {
   height: 1px;
   background: #eae7e2;
-  margin: 40px 0;
+  margin: 48px 0;
 }
 
 /* BIO */
 .bio-label {
   font-family: monospace;
   font-size: 11px;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #0077B5;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
 .bio-texto {
-  max-width: 780px;
+  font-size: 16px;
   color: #444;
-  line-height: 1.8;
+  line-height: 1.9;
+  max-width: 780px;
+}
+
+/* GRID */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.area-card {
+  background: #faf9f7;
+  border: 1px solid #dedad4;
+  padding: 20px;
+  border-top: 3px solid #0077B5;
+}
+
+.area-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.area-desc {
+  font-size: 13px;
+  color: #666;
+}
+
+/* RESPONSABILIDADES */
+.resp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.resp-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  background: #faf9f7;
+  border: 1px solid #eae7e2;
+}
+
+.resp-dot {
+  width: 6px;
+  height: 6px;
+  background: #0077B5;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+/* CERTIFICACIONES */
+.cert-grupos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.cert-list {
+  list-style: none;
+  padding: 0;
+}
+
+.cert-list li {
+  margin-bottom: 6px;
+}
+
+/* 🔥 BADGES */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.badges img {
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #eae7e2;
 }
 
 /* BOTÓN HOME */
@@ -116,87 +193,71 @@ font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text>
   padding: 8px 14px;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 14px;
 }
 
 </style>
-
 </head>
+
 <body>
 
 <div class="card-wrapper">
 <div class="card">
 
-  <div class="accent-bar"></div>
+<div class="accent-bar"></div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="tag">Perfil</div>
+<!-- HEADER -->
+<div class="header">
+  <div class="tag">Perfil</div>
+  <div class="headline">Sobre mí <span class="accent">GRCReal</span></div>
+  <p class="subline">Arquitectura, seguridad y cumplimiento conectados con negocio.</p>
+</div>
 
-    <div class="headline">
-      Sobre mí <span class="accent">GRCReal</span>
-    </div>
+<div class="body">
 
-    <p class="subline">
-      Arquitectura, ciberseguridad y cumplimiento conectados con la realidad.
-    </p>
+<!-- HERO -->
+<div class="hero-block">
+  <div class="hero-foto">
+    <img src="foto.jpg">
   </div>
 
-  <!-- BODY -->
-  <div class="body">
-
-    <!-- HERO -->
-    <div class="hero-block">
-
-      <div class="hero-foto">
-        <img src="foto.jpg" alt="Miguel Ángel Carriazo">
-      </div>
-
-      <div class="hero-texto">
-        <div class="hero-tag">vCISO · Cybersecurity Architect</div>
-
-        <div class="hero-nombre">
-          Miguel Ángel Carriazo <span>Alvarez</span>
-        </div>
-
-        <div class="hero-cargo">
-          ISO 27001 · ENS · NIS2 · ISO 22301 · ISO 42001
-        </div>
-
-        <div class="hero-frase">
-          Arquitectura, cumplimiento y riesgo.<br>
-          Los tres tienen que hablar el mismo idioma.
-        </div>
-
-        <div class="hero-exp">
-          <div class="hero-exp-num">+25</div>
-          <div>años de experiencia</div>
-        </div>
-      </div>
-
+  <div class="hero-texto">
+    <div class="hero-tag">vCISO</div>
+    <div class="hero-nombre">Miguel Ángel Carriazo <span>Alvarez</span></div>
+    <div class="hero-cargo">ISO 27001 · ENS · NIS2 · ISO 22301 · ISO 42001</div>
+    <div class="hero-frase">Arquitectura, cumplimiento y riesgo deben hablar el mismo idioma.</div>
+    <div class="hero-exp">
+      <div class="hero-exp-num">+25</div>
+      <div>años experiencia</div>
     </div>
-
-    <div class="divider"></div>
-
-    <!-- BIO -->
-    <div class="bio-label">Quién soy</div>
-
-    <div class="bio-texto">
-      Ayudo a organizaciones a construir una seguridad que protege y habilita el negocio.
-      <br><br>
-      Mi trabajo conecta arquitectura, ciberseguridad y cumplimiento normativo con la realidad operativa.
-      <br><br>
-      He trabajado durante más de 25 años diseñando infraestructuras, respondiendo incidentes y evolucionando entornos críticos donde la disponibilidad y la seguridad no son opcionales.
-      <br><br>
-      Hoy aplico ese conocimiento en modelos de gobierno, riesgo y cumplimiento alineados con negocio.
-    </div>
-
   </div>
+</div>
+
+<div class="seccion-divisor"></div>
+
+<!-- BIO -->
+<div class="bio-label">Quién soy</div>
+<div class="bio-texto">
+  <p>Ayudo a organizaciones a construir seguridad que protege y habilita el negocio.</p>
+</div>
+
+<div class="seccion-divisor"></div>
+
+<!-- BADGES -->
+<div class="bio-label">Certificaciones (visual)</div>
+<div class="badges">
+
+<!-- EJEMPLOS -->
+<img src="badges/iso27001.png">
+<img src="badges/iso22301.png">
+<img src="badges/gcp.png">
+<img src="badges/fortinet.png">
+
+</div>
 
 </div>
 </div>
+</div>
 
-<!-- HOME -->
 <a href="/" class="home-btn">⌂ Home</a>
 
 </body>
