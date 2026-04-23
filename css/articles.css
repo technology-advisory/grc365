@@ -22,16 +22,14 @@
 /* ══════════════════════════════════════
    FOOTER — alineado exactamente al card
    card: max-width 850px, padding lateral 48px
-   El footer vive fuera del .card pero debe
-   quedar ancho y posición idénticos
    ══════════════════════════════════════ */
 .article-page .footer {
   max-width: 850px;
-  margin: 16px auto 0;
+  margin: 20px auto 0;
   padding: 18px 48px 20px;
-  border-top: 1px solid #eee;
-  background: transparent;
   box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #dedad4;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,6 +97,7 @@
   background: #dbeef8;
 }
 
+/* Icono LinkedIn — span vacío con background-image */
 .article-page .li-icon {
   width: 22px;
   height: 22px;
