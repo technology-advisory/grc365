@@ -2,329 +2,178 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=3.0">
-<title>GRCreal · Miguel Ángel Carriazo · vCISO</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230077B5'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text></svg>">
-<link rel="stylesheet" href="css/marca.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRCREAL</title>
+
 <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #1a1a1a;
+}
 
-  /* ── HOME ESPECÍFICO ── */
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 10%;
+  background: white;
+}
 
-  .home-hero {
-    padding: 64px 48px 56px;
-    background: var(--surface);
-    border-bottom: 2px solid var(--brand);
-  }
+.hero-left {
+  max-width: 500px;
+}
 
-  .home-hero-tag {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 0.22em;
-    color: var(--brand);
-    text-transform: uppercase;
-    border: 1px solid var(--brand);
-    padding: 5px 14px;
-    margin-bottom: 30px;
-  }
+.hero h1 {
+  font-size: 60px;
+  margin: 0;
+  font-weight: 800;
+}
 
-  .home-hero-title {
-    font-size: 80px;
-    font-weight: 900;
-    line-height: 1.0;
-    color: var(--ink);
-    letter-spacing: -2px;
-    margin-bottom: 10px;
-  }
+.hero h1 span {
+  color: #2f6df6;
+}
 
-  .home-hero-title span {
-    color: var(--brand);
-  }
+.hero p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
 
-  .home-hero-sub {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--brand);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
+.hero-sub {
+  color: #2f6df6;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
-  .home-hero-sub::before {
-    content: "— ";
-  }
+.hero img {
+  width: 400px;
+}
 
-  .home-hero-text {
-    font-size: 22px;
-    color: var(--ink);
-    line-height: 1.6;
-    max-width: 580px;
-  }
+/* TENSION */
+.tension {
+  background: #f0f2f7;
+  padding: 40px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 12px;
+  margin: 40px 10%;
+}
 
-  .home-hero-text span {
-    color: var(--brand);
-    font-weight: 700;
-  }
+.tension div {
+  text-align: center;
+}
 
-  /* ── TENSIÓN ── */
-  .home-tension {
-    padding: 48px 48px;
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 48px;
-  }
+.tension .bad {
+  color: red;
+}
 
-  .home-tension-left {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.4;
-    flex: 1;
-    min-width: 200px;
-  }
+.tension .good {
+  color: green;
+}
 
-  .home-tension-right {
-    font-size: 28px;
-    font-weight: 900;
-    color: var(--ink);
-    line-height: 1.3;
-    flex: 1;
-    border-left: 3px solid var(--brand);
-    padding-left: 32px;
-  }
+/* TARGET */
+.target {
+  text-align: center;
+  padding: 60px 10%;
+}
 
-  .home-tension-right span {
-    color: var(--brand);
-    display: block;
-  }
+.target-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 40px;
+}
 
-  /* ── PARA QUIÉN ── */
-  .home-forwhom {
-    padding: 48px 48px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-  }
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  flex: 1;
+}
 
-  .home-forwhom-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    color: var(--brand);
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
+/* CLOSING */
+.closing {
+  display: flex;
+  align-items: center;
+  padding: 80px 10%;
+  background: white;
+}
 
-  .home-forwhom-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
+.closing-text {
+  flex: 1;
+  font-size: 30px;
+  font-weight: bold;
+}
 
-  .home-forwhom-card {
-    border: 1px solid var(--border);
-    background: var(--white);
-    padding: 24px 20px;
-  }
+.closing-text span {
+  color: #2f6df6;
+}
 
-  .home-forwhom-card-icon {
-    font-size: 28px;
-    margin-bottom: 12px;
-  }
-
-  .home-forwhom-card-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 6px;
-  }
-
-  .home-forwhom-card-text {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  .home-forwhom-card.hi {
-    border-color: var(--brand);
-    background: var(--brand-light);
-  }
-
-  .home-forwhom-card.hi .home-forwhom-card-title {
-    color: var(--brand);
-  }
-
-  /* ── CIERRE ── */
-  .home-cierre {
-    padding: 64px 48px;
-    background: var(--ink);
-    text-align: center;
-  }
-
-  .home-cierre-text {
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--white);
-    line-height: 1.25;
-    max-width: 680px;
-    margin: 0 auto 32px;
-  }
-
-  .home-cierre-text span {
-    color: var(--brand);
-  }
-
-  .home-cierre-cta {
-    display: inline-block;
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: bold;
-    letter-spacing: 0.16em;
-    color: var(--white);
-    background: var(--brand);
-    padding: 14px 34px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .home-cierre-cta:hover {
-    background: var(--brand-dark);
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 768px) {
-    .home-hero { padding: 40px 24px; }
-    .home-hero-title { font-size: 52px; }
-    .home-tension { flex-direction: column; gap: 24px; padding: 36px 24px; }
-    .home-tension-right { border-left: none; border-top: 3px solid var(--brand); padding-left: 0; padding-top: 24px; }
-    .home-forwhom { padding: 36px 24px; }
-    .home-forwhom-grid { grid-template-columns: repeat(2, 1fr); }
-    .home-cierre { padding: 48px 24px; }
-    .home-cierre-text { font-size: 26px; }
-  }
-
-  @media (max-width: 480px) {
-    .home-forwhom-grid { grid-template-columns: 1fr; }
-  }
-
+.closing img {
+  width: 500px;
+}
 </style>
+
 </head>
+
 <body>
 
-<div class="wrapper">
-<div class="container">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <h1>GRC<span>REAL</span></h1>
+    <div class="hero-sub">Seguridad, Riesgo y Cumplimiento — Siempre Activos</div>
 
-  <!-- NAV -->
-  <nav class="nav" style="border-radius: 12px 12px 0 0;">
-    <div class="nav-logo">GRC<span>real</span></div>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="/enfoque/index.html">Enfoque</a></li>
-      <li><a href="/metodologia/index.html">Metodología</a></li>
-      <li><a href="/articulos/index.html">Artículos</a></li>
-      <li><a href="/sobre-mi/index.html">Sobre mí</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-    <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <div class="home-hero">
-    <div class="home-hero-tag">Cybersecurity · GRC · Arquitectura</div>
-    <div class="home-hero-title">GRC<span>REAL</span></div>
-    <div class="home-hero-sub">Siempre Activos</div>
-    <div class="home-hero-text">
+    <p>
       No es una auditoría.<br>
-      No es un proyecto.<br>
-      Es la capacidad de proteger tu negocio<br>
-      <span>todos los días.</span>
-    </div>
+      No es un proyecto.<br><br>
+      Es la capacidad de proteger tu negocio todos los días.
+    </p>
   </div>
 
-  <!-- TENSIÓN -->
-  <div class="home-tension">
-    <div class="home-tension-left">
-      La mayoría de empresas<br>creen que cumplen.
-    </div>
-    <div class="home-tension-right">
-      Y cuando llega el incidente...<br>
-      <span>ya es tarde.</span>
-    </div>
+  <img src="globo.png" alt="Globo digital">
+</section>
+
+<!-- TENSION -->
+<section class="tension">
+  <div>La mayoría de empresas creen que cumplen...</div>
+
+  <div class="good">✔ Auditoría pasada</div>
+  <div class="bad">✖ Riesgos sin entender</div>
+  <div class="bad">✖ Controles no validados</div>
+  <div class="bad">✖ Arquitectura sin gobernar</div>
+
+  <div>
+    Y cuando llega el incidente...<br>
+    <strong style="color:red">ya es tarde.</strong>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section class="target">
+  <h2>¿PARA QUIÉN ES GRCREAL?</h2>
+
+  <div class="target-grid">
+    <div class="card">Empresas sin CISO</div>
+    <div class="card">Equipos IT saturados</div>
+    <div class="card">Cumplen pero no controlan</div>
+    <div class="card">Han tenido un incidente</div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="closing-text">
+    El problema no es cumplir una norma.<br>
+    <span>Es no saber si mañana puedes seguir operando.</span>
   </div>
 
-  <!-- PARA QUIÉN -->
-  <div class="home-forwhom">
-    <div class="home-forwhom-label">¿Para quién es GRCReal?</div>
-    <div class="home-forwhom-grid">
-
-      <div class="home-forwhom-card">
-        <div class="home-forwhom-card-icon">🏢</div>
-        <div class="home-forwhom-card-title">Empresas sin CISO</div>
-        <div class="home-forwhom-card-text">Necesitan gobierno real sin estructura interna.</div>
-      </div>
-
-      <div class="home-forwhom-card">
-        <div class="home-forwhom-card-icon">⚙️</div>
-        <div class="home-forwhom-card-title">Equipos IT saturados</div>
-        <div class="home-forwhom-card-text">Criterio externo independiente, sin agenda comercial.</div>
-      </div>
-
-      <div class="home-forwhom-card">
-        <div class="home-forwhom-card-icon">📋</div>
-        <div class="home-forwhom-card-title">Cumplen pero no controlan</div>
-        <div class="home-forwhom-card-text">Documentos en orden. Control real, pendiente.</div>
-      </div>
-
-      <div class="home-forwhom-card hi">
-        <div class="home-forwhom-card-icon">⚠️</div>
-        <div class="home-forwhom-card-title">Han tenido un incidente</div>
-        <div class="home-forwhom-card-text">O lo tendrán.</div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- CIERRE -->
-  <div class="home-cierre">
-    <div class="home-cierre-text">
-      El problema no es cumplir una norma.<br>
-      Es no saber si mañana<br>
-      <span>puedes seguir operando.</span>
-    </div>
-    <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="home-cierre-cta">
-      Hablemos →
-    </a>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-inner">
-      <div class="author-block">
-        <div class="author-avatar">MA</div>
-        <div>
-          <div class="author-name">Miguel Ángel Carriazo &middot; <span>vCISO</span></div>
-          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
-        </div>
-      </div>
-      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
-        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-        <div>
-          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
-          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
-        </div>
-      </a>
-    </div>
-  </div>
-
-</div>
-</div>
+  <img src="city.png" alt="Ciudad">
+</section>
 
 </body>
 </html>
