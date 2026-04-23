@@ -2,15 +2,67 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=1024, initial-scale=1.0, maximum-scale=3.0">
+<meta name="viewport" content="width=1024, initial-scale=1.0">
+
 <title>EU AI Act · 5 pasos críticos</title>
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230077B5'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text></svg>">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+<rect width='32' height='32' rx='8' fill='%230077B5'/>
+<text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle'
+font-family='Arial' font-weight='700' font-size='13' fill='white'>MA</text>
+</svg>">
 
 <link rel="stylesheet" href="../css/marca.css">
+
+<style>
+
+/* LINKS COMO INDEX */
+.ai-act .tension-says a {
+  color: #1a73a8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ai-act .tension-says a:hover {
+  text-decoration: underline;
+}
+
+/* HOVER FILA COMPLETA */
+.ai-act .tension tr:hover {
+  background: #f7fafd;
+  cursor: pointer;
+}
+
+/* FOOTER ALINEADO CON CARD */
+.footer {
+  max-width: 1000px;
+  margin: 30px auto 40px;
+}
+
+/* BOTÓN HOME */
+.home-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #1a73a8;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  z-index: 999;
+}
+
+.home-btn:hover {
+  background: #155a85;
+}
+
+</style>
+
 </head>
 
-<body>
+<body class="ai-act">
 
 <div class="card-wrapper">
 <div class="card">
@@ -34,7 +86,6 @@
   </p>
 
 </div>
-<!-- /HEADER -->
 
 <div class="body">
 
@@ -77,32 +128,6 @@
 
   <div class="divider"></div>
 
-  <!-- ENFOQUE -->
-  <div class="block">
-    <div class="block-label">Enfoque</div>
-    <div class="block-title">No teoría. Prioridad operativa.</div>
-
-    <div class="block-text">
-      Como arquitecto de ciberseguridad e Infrastructure Architect con más de 21 años de experiencia,
-      y como auditor interno en ISO 42001, he estructurado los 5 pasos que considero críticos.
-      <br><br>
-      No son los únicos, pero sí los que marcan la diferencia entre:
-    </div>
-
-    <table class="tension">
-      <tr>
-        <td class="tension-who">Organización preparada</td>
-        <td class="tension-says">Llega a agosto de 2026 con control y evidencias</td>
-      </tr>
-      <tr class="hi-row">
-        <td class="tension-who">Organización reactiva</td>
-        <td class="tension-says"><span class="hi">Llega con no conformidades y riesgo sancionador</span></td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="divider"></div>
-
   <!-- PASOS -->
   <div class="block">
     <div class="block-label">Los 5 pasos críticos</div>
@@ -113,31 +138,31 @@
     </div>
 
     <table class="tension" style="margin-top:20px;">
-      <tr>
+      <tr onclick="location.href='#punto1'">
         <td class="tension-who">PUNTO 1</td>
         <td class="tension-says">
           <a href="#punto1">Inventario de todos los sistemas de IA en uso, incluidos SaaS</a>
         </td>
       </tr>
-      <tr>
+      <tr onclick="location.href='#punto2'">
         <td class="tension-who">PUNTO 2</td>
         <td class="tension-says">
           <a href="#punto2">Clasificación de riesgo por caso de uso concreto, no por tecnología</a>
         </td>
       </tr>
-      <tr>
+      <tr onclick="location.href='#punto3'">
         <td class="tension-who">PUNTO 3</td>
         <td class="tension-says">
           <a href="#punto3">Formación documentada del equipo (Art. 4 ya exigible)</a>
         </td>
       </tr>
-      <tr>
+      <tr onclick="location.href='#punto4'">
         <td class="tension-who">PUNTO 4</td>
         <td class="tension-says">
           <a href="#punto4">Revisar contratos con proveedores de IA</a>
         </td>
       </tr>
-      <tr class="hi-row">
+      <tr class="hi-row" onclick="location.href='#punto5'">
         <td class="tension-who">PUNTO 5</td>
         <td class="tension-says">
           <span class="hi">
@@ -163,12 +188,11 @@
     </div>
   </div>
 
-</div><!-- /BODY -->
-
 </div>
 </div>
+</div>
 
-<!-- FOOTER FUERA DEL CARD -->
+<!-- FOOTER ALINEADO -->
 <div class="footer">
   <div class="footer-inner">
 
@@ -181,11 +205,8 @@
     </div>
 
     <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
-      <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-      </svg>
       <div>
-        <span class="li-main">“Merece la pena la experiencia...”</span>
+        <span class="li-main">“Merece la pena la experiencia...”</span><br>
         <span class="li-sub">Hablemos en LinkedIn →</span>
       </div>
     </a>
@@ -193,8 +214,8 @@
   </div>
 </div>
 
-<!-- BOTÓN HOME -->
-<a href="index.html" class="home-btn">⌂ Home Artículos</a>
+<!-- HOME -->
+<a href="/" class="home-btn">⌂ Home</a>
 
 </body>
 </html>
