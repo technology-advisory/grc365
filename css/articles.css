@@ -1,0 +1,63 @@
+/* =========================
+   CONTEXTO ARTÍCULOS
+   ========================= */
+
+.article-page .tension-says a {
+  color: #1a73a8;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.article-page .tension-says a:hover {
+  text-decoration: underline;
+}
+
+/* HOVER FILAS */
+.article-page .tension tr:hover {
+  background: #f7fafd;
+  cursor: pointer;
+}
+
+/* =========================
+   FOOTER ALINEADO AL CARD
+   ========================= */
+
+.article-page .footer {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.article-page .footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================
+   CTA (ajuste fino opcional)
+   ========================= */
+
+.article-page .cta-block {
+  margin-top: 30px;
+}
+
+/* =========================
+   BOTÓN HOME (igual que index)
+   ========================= */
+
+.home-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #1a73a8;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  z-index: 999;
+}
+
+.home-btn:hover {
+  background: #155a85;
+}
