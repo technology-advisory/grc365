@@ -32,8 +32,33 @@
   </url>
 
   <url>
-    <loc>https://grcreal.com/articulos/aiact.html</loc>
+    <loc>https://grcreal.com/articulos/cumplir-no-es-estar-preparado.html</loc>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grcreal.com/articulos/vciso-que-es.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grcreal.com/articulos/backup-no-es-recuperacion.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grcreal.com/articulos/el-fallo-es-de-gobierno.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grcreal.com/articulos/auditoria-ens.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://grcreal.com/articulos/aiact.html</loc>
+    <priority>0.8</priority>
   </url>
 
   <url>
