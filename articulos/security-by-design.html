@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Security by Design: la seguridad no puede ser un parche · GRCreal</title>
+<meta name="description" content="Añadir seguridad al final de un proyecto cuesta diez veces más que diseñarla desde el principio. Por qué Security by Design no es una opción sino una necesidad.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Security by Design: por qué la seguridad no puede ser un parche al final">
+<meta property="og:description" content="La seguridad añadida al final cuesta diez veces más y funciona diez veces peor. Cómo diseñarla desde el principio.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://grcreal.com/articulos/security-by-design.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="../css/marca.css">
+<link rel="stylesheet" href="../css/articles.css">
+</head>
+<body class="article-page">
+<div class="card-wrapper">
+<div class="card">
+<div class="accent-bar"></div>
+
+<div class="header">
+  <div class="tag">Arquitectura · Security by Design · Infraestructura</div>
+  <div class="article-date">24 Abril 2026</div>
+  <div class="headline">
+    Security<br>
+    <span class="accent">by Design:</span><br>
+    <span class="dim">la seguridad no puede</span><br>
+    <span class="accent">ser un parche</span>
+  </div>
+  <p class="subline">
+    Añadir seguridad al final cuesta diez veces más<br>
+    <strong>y funciona diez veces peor.</strong>
+  </p>
+</div>
+
+<div class="body">
+
+  <div class="block">
+    <div class="block-label">El patrón que se repite</div>
+    <div class="block-title">Seguridad como afterthought</div>
+    <div class="block-text">
+      El proyecto se diseña, se desarrolla y se despliega. Cuando ya está en producción, alguien recuerda que hay que "revisar la seguridad".
+      <br><br>
+      Se llama a un consultor, se hace un análisis, se encuentran problemas. Y entonces empieza el trabajo más caro y más frustrante de la seguridad: intentar añadir controles a un sistema que no fue diseñado para tenerlos.
+      <br><br>
+      Parches sobre parches. Configuraciones que compensan decisiones de arquitectura que no se pueden cambiar fácilmente. Controles que funcionan a medias porque el sistema subyacente no los soporta bien.
+      <br><br>
+      <strong>Este patrón no es infrecuente. Es la norma en la mayoría de organizaciones que no aplican Security by Design desde el principio.</strong>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">Qué es Security by Design</div>
+    <div class="block-title">No es una metodología — es una mentalidad</div>
+    <div class="block-text">
+      Security by Design significa integrar los requisitos y controles de seguridad desde el inicio del diseño de cualquier sistema, aplicación o infraestructura — no al final.
+      <br><br>
+      No es una fase del proyecto. Es una forma de pensar que impregna todas las fases: desde los requisitos hasta el despliegue, desde la arquitectura hasta el código, desde la configuración hasta los procedimientos operativos.
+      <br><br>
+      La pregunta no es "¿cómo securizamos esto que ya hemos construido?". La pregunta correcta es "¿cómo diseñamos esto para que sea seguro por naturaleza?"
+      <br><br>
+      <strong>La diferencia entre las dos preguntas es la diferencia entre un sistema que hay que proteger constantemente y uno que ya incorpora la protección en su diseño.</strong>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">Los principios</div>
+    <div class="block-title">Lo que guía un diseño seguro</div>
+
+    <table class="tension" style="margin-top:20px;">
+      <tr>
+        <td class="tension-who">Mínimo privilegio</td>
+        <td class="tension-says">Cada componente, servicio y usuario tiene acceso solo a lo estrictamente necesario. Diseñado así desde el principio, no recortado después.</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Defensa en profundidad</td>
+        <td class="tension-says">Múltiples capas de control. Si una falla, la siguiente contiene el daño. No depender de un único punto de defensa.</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Fail secure</td>
+        <td class="tension-says">Cuando algo falla, falla de forma segura. El estado por defecto ante un error es el más restrictivo, no el más permisivo.</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Superficie de ataque mínima</td>
+        <td class="tension-says">Solo exponer lo necesario. Deshabilitar lo que no se usa. Cada puerto abierto, cada servicio activo, cada interfaz accesible es superficie de ataque.</td>
+      </tr>
+      <tr class="hi-row">
+        <td class="tension-who">Trazabilidad</td>
+        <td class="tension-says"><span class="hi">Diseñar para poder auditar. Los logs, los registros de acceso y los eventos de seguridad no son un añadido — son parte del diseño.</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">En la práctica</div>
+    <div class="block-title">Cómo se aplica en proyectos reales</div>
+    <div class="block-text">
+      En infraestructura: diseñar la segmentación de red antes de desplegar los sistemas, no después. Definir las políticas de firewall antes de conectar los servidores. Configurar el hardening base antes de la primera puesta en producción.
+      <br><br>
+      En proyectos de software: incluir requisitos de seguridad en las historias de usuario. Hacer revisiones de seguridad en el código antes del despliegue. Incluir pruebas de seguridad en el pipeline de CI/CD.
+      <br><br>
+      En migraciones cloud: definir el modelo de identidad y acceso antes de mover las cargas de trabajo. Diseñar la arquitectura de red segura antes de la migración. No replicar en cloud los problemas de seguridad del entorno on-premise.
+      <br><br>
+      <strong>El coste de incorporar seguridad en el diseño es una fracción del coste de añadirla después. Y el resultado es incomparablemente mejor.</strong>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">El argumento económico</div>
+    <div class="block-title">Por qué es más barato hacerlo bien desde el principio</div>
+    <div class="block-text">
+      Está documentado que corregir un problema de seguridad en producción cuesta entre 10 y 100 veces más que detectarlo y corregirlo en la fase de diseño.
+      <br><br>
+      Además del coste directo, hay que considerar el coste de la interrupción operativa, el riesgo regulatorio si el sistema procesa datos sensibles, y el coste reputacional si el problema se materializa en un incidente.
+      <br><br>
+      Frente a eso, el coste de dedicar tiempo y recursos a Security by Design desde el principio es consistentemente menor.
+      <br><br>
+      <strong>Security by Design no es un gasto extra. Es una inversión que evita costes mucho mayores.</strong>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <div class="cta-headline">
+      ¿Tus proyectos incorporan<br>
+      <span>seguridad desde el diseño?</span>
+    </div>
+    <div class="cta-sub">
+      Como arquitecto de infraestructura y ciberseguridad —<br>
+      <strong><a href="/contacto.html">puedo ayudarte a hacerlo bien desde el principio.</a></strong>
+    </div>
+  </div>
+
+</div>
+
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="author-block">
+        <div class="author-avatar">MA</div>
+        <div>
+          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
+          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
+        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        <div>
+          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
+          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</div>
+<a href="/articulos/index.html" class="home-btn">⌂ Home Artículos</a>
+</body>
+</html>
