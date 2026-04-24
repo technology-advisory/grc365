@@ -73,3 +73,13 @@
     padding: 16px 22px;
   }
 }
+
+
+.article-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--faint);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
