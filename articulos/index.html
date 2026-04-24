@@ -82,7 +82,7 @@
   letter-spacing: 0.16em;
   color: var(--brand);
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* ── TÍTULO ── */
@@ -92,7 +92,6 @@
   color: var(--ink);
   margin-bottom: 10px;
   line-height: 1.3;
-  flex: 1;
 }
 
 /* ── DESCRIPCIÓN ── */
@@ -100,7 +99,18 @@
   font-size: 14px;
   color: var(--muted);
   line-height: 1.65;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+/* ── FECHA ── */
+.article-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ghost);
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 /* ── LINK ── */
@@ -136,6 +146,18 @@
   border-radius: 2px;
 }
 
+/* ── SIN RESULTADOS ── */
+.no-results {
+  display: none;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px 24px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 620px) {
   .articles-grid {
@@ -167,13 +189,13 @@
   <div class="body">
 
     <!-- FILTROS -->
-    <div class="filters">
-      <button class="filter-btn active" onclick="filterArticles('all', this)">Todo</button>
-      <button class="filter-btn" onclick="filterArticles('vciso', this)">vCISO</button>
-      <button class="filter-btn" onclick="filterArticles('grc', this)">GRC</button>
-      <button class="filter-btn" onclick="filterArticles('ai', this)">AI Act</button>
-      <button class="filter-btn" onclick="filterArticles('tecnico', this)">Técnico</button>
-      <button class="filter-btn" onclick="filterArticles('ens', this)">ENS</button>
+    <div class="filters" id="filters">
+      <button class="filter-btn" data-filter="all" onclick="filterArticles('all', this)">Todo</button>
+      <button class="filter-btn" data-filter="vciso" onclick="filterArticles('vciso', this)">vCISO</button>
+      <button class="filter-btn" data-filter="grc" onclick="filterArticles('grc', this)">GRC</button>
+      <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai', this)">AI Act</button>
+      <button class="filter-btn" data-filter="tecnico" onclick="filterArticles('tecnico', this)">Técnico</button>
+      <button class="filter-btn" data-filter="ens" onclick="filterArticles('ens', this)">ENS</button>
     </div>
 
     <!-- GRID -->
@@ -186,6 +208,7 @@
           Cumplir no significa estar preparado
           <span class="article-badge">Nuevo</span>
         </div>
+        <div class="article-date">24 Abril 2026</div>
         <div class="article-desc">
           Certificado no es sinónimo de protegido. La diferencia entre cumplir un estándar y tener control real sobre tu seguridad.
         </div>
@@ -199,6 +222,7 @@
           vCISO: qué es y cuándo lo necesitas
           <span class="article-badge">Nuevo</span>
         </div>
+        <div class="article-date">24 Abril 2026</div>
         <div class="article-desc">
           Dirección de seguridad real sin CISO a jornada completa. Qué hace un vCISO y cuándo tiene sentido contratarlo.
         </div>
@@ -212,6 +236,7 @@
           Backup no es recuperación
           <span class="article-badge">Nuevo</span>
         </div>
+        <div class="article-date">24 Abril 2026</div>
         <div class="article-desc">
           Tener backup y poder recuperar son dos cosas completamente distintas. El error que sigue costando millones.
         </div>
@@ -225,6 +250,7 @@
           El mayor fallo en ciberseguridad no es técnico
           <span class="article-badge">Nuevo</span>
         </div>
+        <div class="article-date">24 Abril 2026</div>
         <div class="article-desc">
           Después de 21 años, el fallo más frecuente y más caro no es técnico. Es de gobierno.
         </div>
@@ -238,6 +264,7 @@
           Auditoría ENS: lo que nadie te cuenta
           <span class="article-badge">Nuevo</span>
         </div>
+        <div class="article-date">24 Abril 2026</div>
         <div class="article-desc">
           El ENS es más exigente de lo que cree la mayoría. Y confundirlo con ISO 27001 es el primer error.
         </div>
@@ -250,6 +277,7 @@
         <div class="article-title">
           El reloj corre y muchas empresas aún duermen
         </div>
+        <div class="article-date">24 Abril 2026</div>
         <div class="article-desc">
           Llevamos más de un año con el Reglamento Europeo de IA en vigor y todavía escucho la misma frase: "eso es para más adelante".
         </div>
@@ -262,10 +290,16 @@
         <div class="article-title">
           Hay empresas que no ven el riesgo
         </div>
+        <div class="article-date">Marzo 2026</div>
         <div class="article-desc">
           Dos realidades muy distintas con un mismo problema: la falta de visión real sobre el riesgo y su impacto en negocio.
         </div>
         <a href="vciso-dos-realidades.html" class="article-link">Leer artículo →</a>
+      </div>
+
+      <!-- SIN RESULTADOS -->
+      <div class="no-results" id="noResults">
+        No hay artículos en esta categoría todavía.
       </div>
 
     </div><!-- /articles-grid -->
@@ -305,20 +339,43 @@ function filterArticles(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 
+  // Guardar filtro en URL sin recargar
+  const url = new URL(window.location);
+  if (cat === 'all') {
+    url.searchParams.delete('cat');
+  } else {
+    url.searchParams.set('cat', cat);
+  }
+  history.replaceState(null, '', url);
+
   // Filtrar cards
+  let visible = 0;
   document.querySelectorAll('.article-card').forEach(card => {
     if (cat === 'all') {
       card.classList.remove('hidden');
+      visible++;
     } else {
       const cats = card.dataset.cat || '';
       if (cats.includes(cat)) {
         card.classList.remove('hidden');
+        visible++;
       } else {
         card.classList.add('hidden');
       }
     }
   });
+
+  // Mostrar mensaje si no hay resultados
+  document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
 }
+
+// Al cargar la página, leer el filtro de la URL
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat') || 'all';
+  const btn = document.querySelector(`[data-filter="${cat}"]`);
+  if (btn) filterArticles(cat, btn);
+});
 </script>
 
 </body>
