@@ -189,14 +189,17 @@
   <div class="body">
 
     <!-- FILTROS -->
-    <div class="filters" id="filters">
-      <button class="filter-btn" data-filter="all" onclick="filterArticles('all', this)">Todo</button>
-      <button class="filter-btn" data-filter="vciso" onclick="filterArticles('vciso', this)">vCISO</button>
-      <button class="filter-btn" data-filter="grc" onclick="filterArticles('grc', this)">GRC</button>
-      <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai', this)">AI Act</button>
-      <button class="filter-btn" data-filter="tecnico" onclick="filterArticles('tecnico', this)">Técnico</button>
-      <button class="filter-btn" data-filter="ens" onclick="filterArticles('ens', this)">ENS</button>
-    </div>
+		<div class="filters" id="filters">
+		  <button class="filter-btn" data-filter="all" onclick="filterArticles('all', this)">Todo</button>
+		  <button class="filter-btn" data-filter="vciso" onclick="filterArticles('vciso', this)">vCISO</button>
+		  <button class="filter-btn" data-filter="grc" onclick="filterArticles('grc', this)">GRC</button>
+		  <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai', this)">AI Act</button>
+		  <button class="filter-btn" data-filter="tecnico" onclick="filterArticles('tecnico', this)">Técnico</button>
+		  <button class="filter-btn" data-filter="ens" onclick="filterArticles('ens', this)">ENS</button>
+		  <button class="filter-btn" data-filter="iso27001" onclick="filterArticles('iso27001', this)">ISO 27001</button>
+		  <button class="filter-btn" data-filter="iso22301" onclick="filterArticles('iso22301', this)">ISO 22301</button>
+		  <button class="filter-btn" data-filter="iso42001" onclick="filterArticles('iso42001', this)">ISO 42001</button>
+		</div>
 
     <!-- GRID -->
     <div class="articles-grid" id="articlesGrid">
@@ -296,6 +299,20 @@
         </div>
         <a href="vciso-dos-realidades.html" class="article-link">Leer artículo →</a>
       </div>
+
+	  <!-- 8 -->
+      <div class="article-card" data-cat="iso27001" onclick="location.href='iso27001-lo-que-nadie-te-explica.html'">
+        <div class="article-meta">ISO 27001 · GRC</div>
+        <div class="article-title">
+          ISO 27001: lo que nadie te explica antes de empezar
+        </div>
+        <div class="article-date">25 Abril 2026</div>
+        <div class="article-desc">
+          El certificado no es el objetivo. El control es el objetivo. Lo que deberías saber antes de iniciar el proceso.
+        </div>
+        <a href="iso27001-lo-que-nadie-te-explica.html" class="article-link">Leer artículo →</a>
+      </div>
+
 
       <!-- SIN RESULTADOS -->
       <div class="no-results" id="noResults">
