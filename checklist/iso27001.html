@@ -17,6 +17,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../css/marca.css">
 
+<!-- jsPDF desde CDN confiable -->
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
 <style>
 
 /* ── SECCIONES ── */
@@ -900,26 +903,17 @@ function exportPDF() {
   btn.textContent = '⏳ Generando...';
   btn.disabled = true;
 
-  if (window.jspdf) {
+  if (window.jspdf && window.jspdf.jsPDF) {
     generatePDF(window.jspdf.jsPDF);
     btn.textContent = '⬇ Exportar PDF';
     btn.disabled = false;
     return;
   }
 
-  const script = document.createElement('script');
-  script.src = '/js/jspdf.umd.min.js';
-  script.onload = () => {
-    generatePDF(window.jspdf.jsPDF);
-    btn.textContent = '⬇ Exportar PDF';
-    btn.disabled = false;
-  };
-  script.onerror = () => {
-    alert('Error al cargar la librería de PDF. Comprueba tu conexión a internet.');
-    btn.textContent = '⬇ Exportar PDF';
-    btn.disabled = false;
-  };
-  document.head.appendChild(script);
+  console.error('jsPDF no está cargado');
+  alert('La librería PDF no está disponible. Verifica tu conexión a internet.');
+  btn.textContent = '⬇ Exportar PDF';
+  btn.disabled = false;
 }
 
 function generatePDF(jsPDF) {
@@ -996,29 +990,17 @@ function generatePDF(jsPDF) {
 
   // Badge de nivel
   doc.setFontSize(8);
-doc.setFont('helvetica', 'bold');
-
-// calcular ancho dinámico según texto
-const textWidth = doc.getTextWidth(statusLabel);
-const paddingX = 6;
-const badgeW = textWidth + paddingX * 2;
-const badgeH = 8;
-
-// posición (alineado derecha como en tu UI)
-const badgeX = margin + contentW - badgeW;
-const badgeY = y + 9;
-
-// fondo (colores ya unificados: rojo/naranja/amarillo/verde)
-doc.setFillColor(...statusColor);
-doc.roundedRect(badgeX, badgeY, badgeW, badgeH, 2, 2, 'F');
-
-// texto centrado verticalmente
-doc.setTextColor(...white);
-doc.text(
-  statusLabel,
-  badgeX + paddingX,
-  badgeY + 5.5
-);
+  doc.setFont('helvetica', 'bold');
+  const textWidth = doc.getTextWidth(statusLabel);
+  const paddingX = 6;
+  const badgeW = textWidth + paddingX * 2;
+  const badgeH = 8;
+  const badgeX = margin + contentW - badgeW;
+  const badgeY = y + 9;
+  doc.setFillColor(...statusColor);
+  doc.roundedRect(badgeX, badgeY, badgeW, badgeH, 2, 2, 'F');
+  doc.setTextColor(...white);
+  doc.text(statusLabel, badgeX + paddingX, badgeY + 5.5);
 
   // ── BARRA DE PROGRESO ──
   y += 30;
@@ -1055,6 +1037,7 @@ doc.text(
 
   y += 9;
   doc.setFont('helvetica', 'normal');
+  doc.setTextColor(...ink);
 
   let rowAlt = false;
   items.forEach(item => {
@@ -1071,7 +1054,7 @@ doc.text(
       doc.addPage();
       y = 20;
 
-      // Repetir cabecera de tabla
+      // Repetir cabecera de tabla en la nueva página
       doc.setFontSize(9);
       doc.setFont('helvetica', 'bold');
       doc.setTextColor(...white);
@@ -1082,6 +1065,7 @@ doc.text(
       doc.text('ESTADO', margin + contentW - 22, y + 5);
       y += 9;
       doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...ink);
       rowAlt = false;
     }
 
@@ -1146,8 +1130,6 @@ doc.text(
   doc.save(fileName);
 }
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 
 </body>
 </html>
