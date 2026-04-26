@@ -908,7 +908,7 @@ function exportPDF() {
   }
 
   const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js';
+  script.src = '/js/jspdf.umd.min.js';
   script.onload = () => {
     generatePDF(window.jspdf.jsPDF);
     btn.textContent = '⬇ Exportar PDF';
