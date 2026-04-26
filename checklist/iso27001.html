@@ -943,16 +943,16 @@ function generatePDF(jsPDF) {
   let statusColor, statusLabel;
   if (pct >= 80) {
     statusColor = [39, 174, 96];
-    statusLabel = 'NIVEL ALTO';
+    statusLabel = 'Madurez Avanzada';
   } else if (pct >= 60) {
-    statusColor = [241, 196, 15];
-    statusLabel = 'NIVEL MEDIO';
+    statusColor = [52, 152, 219];
+    statusLabel = 'Madurez Intermedia';
   } else if (pct >= 30) {
     statusColor = [230, 126, 34];
-    statusLabel = 'NIVEL BAJO';
+    statusLabel = 'Madurez Basica';
   } else {
-    statusColor = [231, 76, 60];
-    statusLabel = 'NIVEL CRÍTICO';
+    statusColor = [149, 165, 166];
+    statusLabel = 'Madurez Inicial';
   }
 
   const W = 210;
@@ -970,7 +970,7 @@ function generatePDF(jsPDF) {
 
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
-  doc.text('grcreal.com · Miguel Ángel Carriazo · vCISO', margin, 26);
+  doc.text('grcreal.com — Herramienta de autoevaluación orientativa', margin, 26);
 
   doc.setFontSize(13);
   doc.setFont('helvetica', 'bold');
@@ -1016,8 +1016,15 @@ function generatePDF(jsPDF) {
     doc.roundedRect(margin, y, (contentW * pct) / 100, 5, 2, 2, 'F');
   }
 
+  // ── NOTA ORIENTATIVA ──
+  y += 9;
+  doc.setFontSize(7.5);
+  doc.setFont('helvetica', 'italic');
+  doc.setTextColor(130, 130, 130);
+  doc.text('Esta autoevaluacion es orientativa. Los resultados reflejan los controles marcados como implementados por el evaluador.', margin, y);
+
   // ── TABLA DE CONTROLES ──
-  y += 14;
+  y += 12;
   doc.setFontSize(9);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(...white);
