@@ -896,8 +896,30 @@ function updateProgress() {
 window.addEventListener('DOMContentLoaded', updateProgress);
 
 function exportPDF() {
-  const { jsPDF } = window.jspdf;
-  generatePDF(jsPDF);
+  const btn = document.querySelector('button[onclick="exportPDF()"]');
+  btn.textContent = '⏳ Generando...';
+  btn.disabled = true;
+
+  if (window.jspdf) {
+    generatePDF(window.jspdf.jsPDF);
+    btn.textContent = '⬇ Exportar PDF';
+    btn.disabled = false;
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  script.onload = () => {
+    generatePDF(window.jspdf.jsPDF);
+    btn.textContent = '⬇ Exportar PDF';
+    btn.disabled = false;
+  };
+  script.onerror = () => {
+    alert('Error al cargar la librería de PDF. Comprueba tu conexión a internet.');
+    btn.textContent = '⬇ Exportar PDF';
+    btn.disabled = false;
+  };
+  document.head.appendChild(script);
 }
 
 function generatePDF(jsPDF) {
