@@ -815,6 +815,8 @@
 <script>
 
 function toggleItem(event, item) {
+  // Ignorar si el click viene del icono info o del tooltip
+  if (event.target.closest('.tooltip-wrap') || event.target.closest('.info-icon')) return;
   item.classList.toggle('checked');
   updateProgress();
 }
