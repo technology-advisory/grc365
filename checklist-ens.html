@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Checklist ENS · Básica, Media y Alta · GRCreal</title>
+<meta name="description" content="Checklist interactivo del Esquema Nacional de Seguridad para categorías Básica, Media y Alta. Autoevaluación gratuita sin registro.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Checklist ENS · Básica, Media y Alta">
+<meta property="og:description" content="Checklist interactivo del ENS para las tres categorías. Autoevaluación gratuita.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grcreal.com/checklists/ens.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="../css/marca.css">
+
+<style>
+
+/* ── TABS ── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--brand);
+  margin-bottom: 32px;
+}
+
+.tab-btn {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-right: 4px;
+}
+
+.tab-btn:hover {
+  background: var(--brand-light);
+  color: var(--brand);
+}
+
+.tab-btn.active {
+  background: var(--brand);
+  color: var(--white);
+  border-color: var(--brand);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ── CHECKLIST ── */
+.checklist-section {
+  margin-bottom: 32px;
+}
+
+.checklist-section-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-soft);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.checklist-item:last-child {
+  border-bottom: none;
+}
+
+.checklist-item:hover {
+  background: var(--brand-light);
+  margin: 0 -12px;
+  padding: 10px 12px;
+  border-radius: 4px;
+}
+
+.checklist-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  background: var(--white);
+}
+
+.checklist-item.checked .checklist-checkbox {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+
+.checklist-item.checked .checklist-checkbox::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.checklist-item.checked .checklist-text {
+  text-decoration: line-through;
+  color: var(--ghost);
+}
+
+.checklist-text {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.checklist-code {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--brand);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  margin-top: 3px;
+  min-width: 70px;
+}
+
+/* ── PROGRESO ── */
+.progress-bar-wrap {
+  background: var(--border-soft);
+  border-radius: 4px;
+  height: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+
+.progress-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.progress-label span {
+  color: var(--brand);
+  font-weight: bold;
+}
+
+/* ── RESET ── */
+.reset-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 24px;
+}
+
+.reset-btn:hover {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ── AVISO ── */
+.aviso {
+  background: var(--brand-light);
+  border-left: 3px solid var(--brand);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="card-wrapper">
+<div class="card">
+  <div class="accent-bar"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="tag">ENS · Checklist Interactivo</div>
+    <div class="headline">
+      Checklist<br>
+      <span class="accent">ENS</span><br>
+      <span class="dim">Básica · Media · Alta</span>
+    </div>
+    <p class="subline">
+      Autoevaluación interactiva del Esquema Nacional de Seguridad.<br>
+      <strong>Sin registro. Sin almacenamiento de datos.</strong>
+    </p>
+  </div>
+
+  <div class="body">
+
+    <div class="aviso">
+      Este checklist es una herramienta orientativa basada en el RD 311/2022. No sustituye a una auditoría formal ni a la Declaración de Aplicabilidad oficial. Los datos no se almacenan — al recargar la página se resetea.
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('basica', this)">Básica</button>
+      <button class="tab-btn" onclick="switchTab('media', this)">Media</button>
+      <button class="tab-btn" onclick="switchTab('alta', this)">Alta</button>
+    </div>
+
+    <!-- ═══════════════════════════════════
+         TAB: BÁSICA
+    ═══════════════════════════════════ -->
+    <div id="tab-basica" class="tab-content active">
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-basica"></div>
+      </div>
+      <div class="progress-label" id="label-basica">0 de 0 controles completados</div>
+      <button class="reset-btn" onclick="resetTab('basica')">↺ Reiniciar checklist</button>
+
+      <!-- MARCO ORGANIZATIVO -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Marco Organizativo</div>
+
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Política de seguridad aprobada por la dirección y comunicada a todo el personal</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Normativa de seguridad documentada y accesible</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Procedimientos de seguridad definidos para las operaciones habituales</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Proceso de autorización para entrada en operación de nuevos sistemas</div>
+        </div>
+      </div>
+
+      <!-- MARCO OPERACIONAL -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Planificación</div>
+
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.pl.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Análisis de riesgos realizado y documentado</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.pl.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Arquitectura de seguridad definida y documentada</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.pl.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Adquisición de nuevos componentes contempla requisitos de seguridad</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.pl.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Dimensionamiento y capacidad de los sistemas planificados</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.pl.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Componentes certificados o con garantías de seguridad cuando aplique</div>
+        </div>
+      </div>
+
+      <!-- CONTROL DE ACCESO -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Control de Acceso</div>
+
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Política de control de acceso definida y documentada</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión de derechos de acceso con proceso formal de alta, modificación y baja</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Identificación de usuarios — cuentas nominativas, no compartidas</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Autenticación mediante contraseña con política de robustez mínima</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Segregación de funciones en tareas críticas</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.6</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Actividad de los usuarios registrada (logs de acceso)</div>
+        </div>
+      </div>
+
+      <!-- EXPLOTACIÓN -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Explotación</div>
+
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Inventario de activos actualizado</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Configuración de seguridad de los equipos documentada</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión de la configuración con control de cambios</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Mantenimiento y actualizaciones de seguridad aplicadas</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión de incidentes de seguridad con procedimiento definido</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.6</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Protección frente a código dañino (antimalware)</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.7</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión del tráfico de red con filtrado básico</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.8</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Registro de la actividad de los sistemas (logs)</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.9</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Copias de seguridad realizadas y verificadas</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.10</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Protección de claves criptográficas cuando se usen</div>
+        </div>
+      </div>
+
+      <!-- MEDIDAS DE PROTECCIÓN -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Medidas de Protección</div>
+
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.if.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Áreas separadas con control de acceso físico</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.per.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Caracterización del puesto de trabajo (clasificación por sensibilidad)</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.per.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Formación y concienciación en seguridad para todo el personal</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.eq.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Puesto de trabajo despejado (política de mesa limpia)</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.eq.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Bloqueo de sesión por inactividad</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.eq.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Protección de equipos portátiles</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.com.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Perímetro de red seguro con cortafuegos</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.si.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Etiquetado de la información según clasificación</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.si.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Cifrado de la información cuando se almacena o transmite</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.si.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Borrado y destrucción segura de soportes</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.sw.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Uso de software autorizado — lista blanca de aplicaciones</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.info.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Datos de carácter personal tratados conforme al RGPD</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.cont.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Plan de continuidad básico ante interrupción de servicios</div>
+        </div>
+      </div>
+
+    </div><!-- /tab-basica -->
+
+    <!-- ═══════════════════════════════════
+         TAB: MEDIA
+    ═══════════════════════════════════ -->
+    <div id="tab-media" class="tab-content">
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-media"></div>
+      </div>
+      <div class="progress-label" id="label-media">0 de 0 controles completados</div>
+      <button class="reset-btn" onclick="resetTab('media')">↺ Reiniciar checklist</button>
+
+      <div class="aviso">
+        La categoría Media incluye todos los controles de Básica con mayor exigencia, más los controles adicionales específicos de este nivel.
+      </div>
+
+      <!-- MARCO ORGANIZATIVO MEDIA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Marco Organizativo — Nivel Media</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Política de seguridad revisada anualmente con aprobación formal de dirección</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Normativa de seguridad con desarrollo específico por ámbito</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Procedimientos detallados para todas las operaciones con impacto en seguridad</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">org.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Proceso formal de autorización con evidencia documentada</div>
+        </div>
+      </div>
+
+      <!-- CONTROL DE ACCESO MEDIA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Control de Acceso — Nivel Media</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Política de control de acceso basada en necesidad de conocer</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Revisión periódica de derechos de acceso (al menos anual)</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Autenticación de doble factor (MFA) en accesos privilegiados y remotos</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión de cuentas privilegiadas con procedimiento específico</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.6</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Monitorización de la actividad de usuarios privilegiados</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.7</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Acceso remoto controlado mediante VPN con autenticación fuerte</div>
+        </div>
+      </div>
+
+      <!-- EXPLOTACIÓN MEDIA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Explotación — Nivel Media</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión de configuración con línea base documentada y verificada</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Proceso formal de gestión de vulnerabilidades y parches con SLA definido</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión de incidentes con clasificación, escalado y lecciones aprendidas</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.7</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Segmentación de red con políticas de filtrado entre segmentos</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.8</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Registros de actividad con integridad garantizada y retención mínima de 6 meses</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.9</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Copias de seguridad con pruebas de restauración documentadas</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.mon.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Detección de intrusiones — IDS/IPS o monitorización equivalente</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.mon.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Sistema de métricas e indicadores de seguridad</div>
+        </div>
+      </div>
+
+      <!-- MEDIDAS DE PROTECCIÓN MEDIA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Medidas de Protección — Nivel Media</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.if.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Instalaciones con control de acceso físico registrado</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.if.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Identificación de visitantes y registro de accesos</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.if.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Protección frente a amenazas ambientales (incendio, inundación, temperatura)</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.per.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Habilitación del personal con acceso a información sensible</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.com.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Protección de la confidencialidad de las comunicaciones — cifrado TLS</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.com.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Protección de la autenticidad de las comunicaciones</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.si.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Cifrado de datos en reposo para información sensible</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.sw.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Actualizaciones de software con proceso de prueba previo a producción</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.cont.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Plan de continuidad probado con ejercicios documentados</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.cont.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Medios alternativos para continuación del servicio</div>
+        </div>
+      </div>
+
+      <!-- AUDITORÍA MEDIA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Auditoría — Nivel Media</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">aud.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Auditoría de seguridad bienal por entidad independiente</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">aud.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Declaración de Aplicabilidad (DoA) documentada y actualizada</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">aud.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Plan de mejora con seguimiento de no conformidades</div>
+        </div>
+      </div>
+
+    </div><!-- /tab-media -->
+
+    <!-- ═══════════════════════════════════
+         TAB: ALTA
+    ═══════════════════════════════════ -->
+    <div id="tab-alta" class="tab-content">
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-alta"></div>
+      </div>
+      <div class="progress-label" id="label-alta">0 de 0 controles completados</div>
+      <button class="reset-btn" onclick="resetTab('alta')">↺ Reiniciar checklist</button>
+
+      <div class="aviso">
+        La categoría Alta incluye todos los controles de Media con máxima exigencia, más controles adicionales específicos orientados a la protección de servicios esenciales y datos críticos.
+      </div>
+
+      <!-- CONTROL DE ACCESO ALTA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Control de Acceso — Nivel Alta</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Autenticación de doble factor obligatoria para TODOS los accesos — no solo privilegiados</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Modelo de administración por niveles (Tier 0/1/2) implementado y documentado</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.6</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Grabación de sesiones privilegiadas con revisión periódica</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.acc.7</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Acceso remoto con autenticación de certificado y canal cifrado</div>
+        </div>
+      </div>
+
+      <!-- EXPLOTACIÓN ALTA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Explotación — Nivel Alta</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión de vulnerabilidades con SLA crítico — parches críticos en menos de 24h</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.7</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Microsegmentación de red con inspección profunda de paquetes (DPI)</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.8</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">SIEM o equivalente con correlación de eventos y alertas en tiempo real</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.9</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Copias de seguridad inmutables con almacenamiento air-gap o cloud aislado</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.exp.10</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Gestión centralizada de claves criptográficas con HSM o equivalente</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.mon.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">SOC propio o externalizado con cobertura 24x7</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">op.mon.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Vigilancia y seguimiento de amenazas (Threat Intelligence)</div>
+        </div>
+      </div>
+
+      <!-- MEDIDAS DE PROTECCIÓN ALTA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Medidas de Protección — Nivel Alta</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.if.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">CPD con control de acceso biométrico y CCTV con retención mínima de 30 días</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.if.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Alimentación eléctrica redundante con SAI y grupo electrógeno</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.if.6</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Instalaciones alternativas para continuidad operativa</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.per.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Habilitación de seguridad formal para personal con acceso a sistemas de nivel Alto</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.com.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Cifrado de grado alto en comunicaciones — algoritmos aprobados por CCN</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.si.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Cifrado de grado alto para datos en reposo — algoritmos aprobados por CCN</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.sw.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Análisis de seguridad del código fuente en aplicaciones críticas</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.cont.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Plan de continuidad probado anualmente con simulacro completo documentado</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">mp.cont.5</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">RTO y RPO verificados mediante pruebas reales, no estimados</div>
+        </div>
+      </div>
+
+      <!-- AUDITORÍA ALTA -->
+      <div class="checklist-section">
+        <div class="checklist-section-title">Auditoría — Nivel Alta</div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">aud.1</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Auditoría de seguridad anual por entidad acreditada por ENAC</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">aud.2</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Declaración de Aplicabilidad actualizada y alineada con el análisis de riesgos vigente</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">aud.3</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Plan de mejora con plazos definidos y seguimiento trimestral</div>
+        </div>
+        <div class="checklist-item" onclick="toggle(this)">
+          <div class="checklist-code">aud.4</div>
+          <div class="checklist-checkbox"></div>
+          <div class="checklist-text">Informe de estado de seguridad remitido al CCN-CERT según procedimiento</div>
+        </div>
+      </div>
+
+    </div><!-- /tab-alta -->
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-headline">
+        ¿Necesitas ayuda con<br>
+        <span>el cumplimiento del ENS?</span>
+      </div>
+      <div class="cta-sub">
+        Este checklist es orientativo. Una auditoría real requiere análisis del entorno concreto.<br><br>
+        <strong><a href="/contacto.html">Hablemos sin compromiso.</a></strong>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="author-block">
+        <div class="author-avatar">MA</div>
+        <div>
+          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
+          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
+        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        <div>
+          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
+          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /card -->
+</div><!-- /card-wrapper -->
+
+<a href="/index.html" class="home-btn">⌂ Home</a>
+
+<script>
+function toggle(item) {
+  item.classList.toggle('checked');
+  updateProgress();
+}
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  btn.classList.add('active');
+  updateProgress();
+}
+
+function resetTab(tab) {
+  const tabEl = document.getElementById('tab-' + tab);
+  tabEl.querySelectorAll('.checklist-item').forEach(item => item.classList.remove('checked'));
+  updateProgress();
+}
+
+function updateProgress() {
+  ['basica', 'media', 'alta'].forEach(tab => {
+    const tabEl = document.getElementById('tab-' + tab);
+    if (!tabEl) return;
+    const items = tabEl.querySelectorAll('.checklist-item');
+    const checked = tabEl.querySelectorAll('.checklist-item.checked');
+    const total = items.length;
+    const done = checked.length;
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+
+    const bar = document.getElementById('progress-' + tab);
+    const label = document.getElementById('label-' + tab);
+    if (bar) bar.style.width = pct + '%';
+    if (label) label.innerHTML = '<span>' + done + ' de ' + total + '</span> controles completados (' + pct + '%)';
+  });
+}
+
+// Inicializar contadores
+window.addEventListener('DOMContentLoaded', updateProgress);
+</script>
+
+</body>
+</html>

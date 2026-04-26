@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Checklist ISO 27001:2022 · GRCreal</title>
+<meta name="description" content="Checklist interactivo de ISO 27001:2022 para autoevaluación de tu SGSI. Controles del Anexo A organizados por categoría. Sin registro ni almacenamiento de datos.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Checklist ISO 27001:2022 — Autoevaluación interactiva">
+<meta property="og:description" content="Checklist interactivo de ISO 27001:2022. Controles del Anexo A por categoría. Gratuito y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grcreal.com/checklists/iso27001.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="../css/marca.css">
+
+<style>
+.checklist-section { margin-bottom: 32px; }
+.checklist-section-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-soft);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item:hover {
+  background: var(--brand-light);
+  margin: 0 -12px;
+  padding: 10px 12px;
+  border-radius: 4px;
+}
+.checklist-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  background: var(--white);
+}
+.checklist-item.checked .checklist-checkbox {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.checklist-item.checked .checklist-checkbox::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+.checklist-item.checked .checklist-text {
+  text-decoration: line-through;
+  color: var(--ghost);
+}
+.checklist-text { font-size: 15px; color: #444; line-height: 1.5; flex: 1; }
+.checklist-code {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--brand);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  margin-top: 3px;
+  min-width: 60px;
+}
+.progress-bar-wrap {
+  background: var(--border-soft);
+  border-radius: 4px;
+  height: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+.progress-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+.progress-label span { color: var(--brand); font-weight: bold; }
+.reset-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 24px;
+}
+.reset-btn:hover { border-color: var(--brand); color: var(--brand); }
+.aviso {
+  background: var(--brand-light);
+  border-left: 3px solid var(--brand);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+</style>
+</head>
+<body>
+
+<div class="card-wrapper">
+<div class="card">
+  <div class="accent-bar"></div>
+
+  <div class="header">
+    <div class="tag">ISO 27001:2022 · Checklist Interactivo</div>
+    <div class="headline">
+      Checklist<br>
+      <span class="accent">ISO 27001</span><br>
+      <span class="dim">Autoevaluación</span>
+    </div>
+    <p class="subline">
+      Controles del Anexo A organizados por categoría.<br>
+      <strong>Sin registro. Sin almacenamiento de datos.</strong>
+    </p>
+  </div>
+
+  <div class="body">
+
+    <div class="aviso">
+      Este checklist cubre los controles más relevantes del Anexo A de ISO 27001:2022. No sustituye a un análisis de brecha formal ni a una auditoría. Los datos no se almacenan — al recargar la página se resetea.
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-label" id="progress-label">0 de 0 controles completados</div>
+    <button class="reset-btn" onclick="resetAll()">↺ Reiniciar checklist</button>
+
+    <!-- A.5 ORGANIZACIONALES -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">A.5 · Controles Organizacionales</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.1</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Políticas de seguridad de la información documentadas, aprobadas y comunicadas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.2</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Roles y responsabilidades de seguridad definidos y asignados</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Segregación de funciones implementada en tareas críticas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.7</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Inteligencia de amenazas — recopilación y análisis de información sobre amenazas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.8</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de la información integrada en la gestión de proyectos</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.9</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Inventario de activos de información actualizado</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.10</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Uso aceptable de la información definido y comunicado</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.11</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Devolución de activos al finalizar el empleo o contrato</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.12</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Clasificación de la información según esquema definido</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.14</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Transferencia de información con acuerdos y controles adecuados</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.15</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Control de acceso basado en necesidad de negocio y mínimo privilegio</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.16</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Gestión de identidades con ciclo de vida completo (alta, modificación, baja)</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.17</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Información de autenticación gestionada y protegida adecuadamente</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.18</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Derechos de acceso revisados periódicamente y revocados cuando no son necesarios</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.19</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de la información en las relaciones con proveedores definida</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.20</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Requisitos de seguridad incluidos en contratos con proveedores</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.23</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de la información en el uso de servicios cloud</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.24</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Planificación y preparación de la gestión de incidentes de seguridad</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.25</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Evaluación y decisión sobre eventos de seguridad de la información</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.26</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Respuesta a incidentes de seguridad documentada y ejecutada</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.29</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de la información durante una interrupción — plan de continuidad</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.30</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Preparación de las TIC para la continuidad de negocio probada</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.31</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Requisitos legales, estatutarios, reglamentarios y contractuales identificados</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.33</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Protección de registros — integridad, disponibilidad y acceso controlado</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.36</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Cumplimiento de políticas y normas de seguridad verificado periódicamente</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.5.37</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Procedimientos de operación de TI documentados y accesibles</div>
+      </div>
+    </div>
+
+    <!-- A.6 PERSONAS -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">A.6 · Controles de Personas</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.1</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Verificación de antecedentes del personal antes de la contratación</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.2</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Responsabilidades de seguridad incluidas en los contratos de empleo</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Concienciación, educación y formación en seguridad de la información</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.4</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Proceso disciplinario formal para incumplimientos de seguridad</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.5</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Responsabilidades de seguridad tras la terminación del empleo definidas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.6</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Acuerdos de confidencialidad o no divulgación firmados</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.7</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Controles para el trabajo remoto implementados</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.6.8</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Canal de notificación de eventos de seguridad disponible y conocido</div>
+      </div>
+    </div>
+
+    <!-- A.7 FÍSICOS -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">A.7 · Controles Físicos</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.1</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Perímetros de seguridad física definidos y protegidos</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.2</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Controles de entrada física — solo personal autorizado accede a áreas seguras</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Oficinas, salas e instalaciones protegidas físicamente</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.4</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Monitorización de seguridad física de las instalaciones</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.7</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Política de mesa limpia y pantalla limpia implementada</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.8</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Equipos ubicados y protegidos adecuadamente</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.9</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de activos fuera de las instalaciones</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.10</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Soportes de almacenamiento gestionados durante su ciclo de vida</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.7.14</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Eliminación o reutilización segura de equipos — borrado verificado</div>
+      </div>
+    </div>
+
+    <!-- A.8 TECNOLÓGICOS -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">A.8 · Controles Tecnológicos</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.1</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Dispositivos de usuario final gestionados y protegidos</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.2</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Gestión de accesos privilegiados con controles específicos</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Restricción de acceso a la información según clasificación</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.4</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Acceso al código fuente controlado</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.5</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Autenticación segura — MFA donde aplique, contraseñas robustas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.7</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Protección contra malware implementada y actualizada</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.8</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Gestión de vulnerabilidades técnicas con proceso de parcheo</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.9</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Gestión de la configuración — línea base de seguridad definida</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.10</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Eliminación de información — datos borrados de forma segura</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.12</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Prevención de fuga de datos (DLP) implementada donde aplique</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.13</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Copias de seguridad realizadas, verificadas y con pruebas de restauración</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.15</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Registro de actividad (logging) de sistemas y aplicaciones críticas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.16</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Monitorización de actividades y eventos de seguridad</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.20</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de redes — segmentación y controles de tráfico</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.21</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de los servicios de red — SLAs y controles de proveedores</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.22</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Segregación de redes — separación de entornos críticos</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.24</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Uso de criptografía — política y gestión de claves</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.25</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Ciclo de vida de desarrollo seguro — seguridad integrada desde el diseño</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.28</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Codificación segura — prácticas de desarrollo seguro aplicadas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-code">A.8.29</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Pruebas de seguridad en el desarrollo y aceptación</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-headline">
+        ¿Necesitas un análisis de brecha<br>
+        <span>real de ISO 27001?</span>
+      </div>
+      <div class="cta-sub">
+        Este checklist es orientativo. Un análisis formal requiere revisar el entorno concreto.<br><br>
+        <strong><a href="/contacto.html">Hablemos sin compromiso.</a></strong>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="author-block">
+        <div class="author-avatar">MA</div>
+        <div>
+          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
+          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
+        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        <div>
+          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
+          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</div>
+<a href="/index.html" class="home-btn">⌂ Home</a>
+
+<script>
+function toggle(item) {
+  item.classList.toggle('checked');
+  updateProgress();
+}
+function resetAll() {
+  document.querySelectorAll('.checklist-item').forEach(i => i.classList.remove('checked'));
+  updateProgress();
+}
+function updateProgress() {
+  const items = document.querySelectorAll('.checklist-item');
+  const checked = document.querySelectorAll('.checklist-item.checked');
+  const total = items.length;
+  const done = checked.length;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-label').innerHTML = '<span>' + done + ' de ' + total + '</span> controles completados (' + pct + '%)';
+}
+window.addEventListener('DOMContentLoaded', updateProgress);
+</script>
+
+</body>
+</html>

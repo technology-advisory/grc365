@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Checklist NIS2 · Autoevaluación · GRCreal</title>
+<meta name="description" content="Checklist interactivo de NIS2 para verificar el cumplimiento de la Directiva de Seguridad de Redes y Sistemas de Información. Sin registro ni almacenamiento.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Checklist NIS2 — Autoevaluación interactiva">
+<meta property="og:description" content="Verifica el cumplimiento de NIS2 con este checklist interactivo. Gratuito y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grcreal.com/checklists/nis2.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="../css/marca.css">
+
+<style>
+.checklist-section { margin-bottom: 32px; }
+.checklist-section-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand);
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-soft);
+  cursor: pointer;
+}
+.checklist-item:last-child { border-bottom: none; }
+.checklist-item:hover {
+  background: var(--brand-light);
+  margin: 0 -12px;
+  padding: 10px 12px;
+  border-radius: 4px;
+}
+.checklist-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  background: var(--white);
+}
+.checklist-item.checked .checklist-checkbox {
+  background: var(--brand);
+  border-color: var(--brand);
+}
+.checklist-item.checked .checklist-checkbox::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+.checklist-item.checked .checklist-text {
+  text-decoration: line-through;
+  color: var(--ghost);
+}
+.checklist-text { font-size: 15px; color: #444; line-height: 1.5; flex: 1; }
+.checklist-art {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--brand);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  margin-top: 3px;
+  min-width: 55px;
+}
+.progress-bar-wrap {
+  background: var(--border-soft);
+  border-radius: 4px;
+  height: 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--brand);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+.progress-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+.progress-label span { color: var(--brand); font-weight: bold; }
+.reset-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-bottom: 24px;
+}
+.reset-btn:hover { border-color: var(--brand); color: var(--brand); }
+.aviso {
+  background: var(--brand-light);
+  border-left: 3px solid var(--brand);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+</style>
+</head>
+<body>
+
+<div class="card-wrapper">
+<div class="card">
+  <div class="accent-bar"></div>
+
+  <div class="header">
+    <div class="tag">NIS2 · Checklist Interactivo</div>
+    <div class="headline">
+      Checklist<br>
+      <span class="accent">NIS2</span><br>
+      <span class="dim">Autoevaluación</span>
+    </div>
+    <p class="subline">
+      Verifica tu nivel de cumplimiento con la Directiva NIS2.<br>
+      <strong>Sin registro. Sin almacenamiento de datos.</strong>
+    </p>
+  </div>
+
+  <div class="body">
+
+    <div class="aviso">
+      Este checklist está basado en los requisitos del Artículo 21 de la Directiva NIS2 y su transposición en España. Es orientativo y no sustituye a una evaluación formal. Los datos no se almacenan — al recargar la página se resetea.
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-label" id="progress-label">0 de 0 requisitos completados</div>
+    <button class="reset-btn" onclick="resetAll()">↺ Reiniciar checklist</button>
+
+    <!-- PASO 0: ALCANCE -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">Paso previo · Determinación del alcance</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Se ha determinado si la organización es entidad esencial o importante según los criterios de tamaño y sector</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Se ha evaluado si los proveedores de la organización están afectados por NIS2 (cadena de suministro)</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 27</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">La organización se ha registrado ante la autoridad competente si es preceptivo</div>
+      </div>
+    </div>
+
+    <!-- GOBERNANZA -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">Gobernanza y responsabilidad</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 20</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Los órganos de dirección han aprobado las medidas de gestión de riesgos de ciberseguridad</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 20</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Los miembros de dirección han recibido formación en ciberseguridad</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 20</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Existe un responsable de seguridad (CISO o equivalente) con mandato definido</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 20</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">La dirección supervisa periódicamente el estado de la ciberseguridad</div>
+      </div>
+    </div>
+
+    <!-- GESTIÓN DE RIESGOS -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">Gestión de riesgos · Art. 21</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.a</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Políticas de análisis de riesgos y seguridad de los sistemas de información documentadas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.a</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Análisis de riesgos realizado y actualizado periódicamente</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.b</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Gestión de incidentes — procedimiento de detección, análisis, contención y recuperación</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.c</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Continuidad de negocio — BCP/DRP documentado y probado</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.c</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Gestión de copias de seguridad con pruebas de restauración documentadas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.c</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Gestión de crisis — plan de comunicación ante incidentes graves</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.d</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de la cadena de suministro — requisitos de seguridad en contratos con proveedores</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.d</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Evaluación de la postura de seguridad de proveedores críticos</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.e</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad en la adquisición, desarrollo y mantenimiento de sistemas — Security by Design</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.f</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Políticas y procedimientos para evaluar la eficacia de las medidas de seguridad</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.g</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Higiene informática básica — actualizaciones, contraseñas, concienciación</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.g</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Formación en ciberseguridad para todo el personal</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.h</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Política y uso de criptografía — cifrado de datos en tránsito y en reposo</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.i</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Seguridad de los recursos humanos — gestión de altas, bajas y cambios de rol</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.i</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Control de acceso — principio de mínimo privilegio implementado</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.i</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Autenticación multifactor (MFA) implementada en accesos críticos</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.j</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Uso de autenticación multifactor o continua en todos los accesos sensibles</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">21.2.j</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Comunicaciones de voz, vídeo y texto seguras donde aplique</div>
+      </div>
+    </div>
+
+    <!-- NOTIFICACIÓN DE INCIDENTES -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">Notificación de incidentes · Art. 23</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 23</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Existe un procedimiento para detectar incidentes significativos y evaluar su impacto</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 23</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Alerta temprana a la autoridad competente en menos de 24 horas tras detectar un incidente significativo</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 23</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Notificación completa del incidente en menos de 72 horas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 23</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Informe final del incidente en el plazo de un mes</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 23</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Se conoce cuál es la autoridad competente para notificar en España (INCIBE / CCN-CERT según sector)</div>
+      </div>
+    </div>
+
+    <!-- CUMPLIMIENTO -->
+    <div class="checklist-section">
+      <div class="checklist-section-title">Cumplimiento y supervisión</div>
+
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 32</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">La organización está preparada para auditorías e inspecciones de la autoridad supervisora</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 32</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Evidencias de las medidas de seguridad implementadas disponibles y organizadas</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 21</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Las medidas de seguridad son proporcionales al riesgo y están documentadas como tales</div>
+      </div>
+      <div class="checklist-item" onclick="toggle(this)">
+        <div class="checklist-art">Art. 21</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Revisión periódica de la eficacia de las medidas implementadas</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-headline">
+        ¿No sabes si NIS2<br>
+        <span>aplica a tu organización?</span>
+      </div>
+      <div class="cta-sub">
+        Es la primera pregunta que hay que responder. Y muchas organizaciones se equivocan.<br><br>
+        <strong><a href="/contacto.html">Hablemos sin compromiso.</a></strong>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="author-block">
+        <div class="author-avatar">MA</div>
+        <div>
+          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
+          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
+        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        <div>
+          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
+          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</div>
+<a href="/index.html" class="home-btn">⌂ Home</a>
+
+<script>
+function toggle(item) {
+  item.classList.toggle('checked');
+  updateProgress();
+}
+function resetAll() {
+  document.querySelectorAll('.checklist-item').forEach(i => i.classList.remove('checked'));
+  updateProgress();
+}
+function updateProgress() {
+  const items = document.querySelectorAll('.checklist-item');
+  const checked = document.querySelectorAll('.checklist-item.checked');
+  const total = items.length;
+  const done = checked.length;
+  const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-label').innerHTML = '<span>' + done + ' de ' + total + '</span> requisitos completados (' + pct + '%)';
+}
+window.addEventListener('DOMContentLoaded', updateProgress);
+</script>
+
+</body>
+</html>
