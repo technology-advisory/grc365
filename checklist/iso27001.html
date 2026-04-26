@@ -1,4 +1,8 @@
+<!-- SOLO TE PONGO LA PARTE QUE CAMBIA (generatePDF) -->
+<!-- TODO LO DEMÁS DE TU HTML SE QUEDA IGUAL -->
+
 <script>
+
 function generatePDF(jsPDF) {
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
@@ -17,7 +21,7 @@ function generatePDF(jsPDF) {
   const light = [232, 243, 250];
   const white = [255, 255, 255];
 
-  // ── NIVEL ──
+  // ── NUEVO SISTEMA DE NIVELES ──
   let statusColor, statusLabel;
 
   if (pct >= 80) {
@@ -57,13 +61,11 @@ function generatePDF(jsPDF) {
 
   // ── BLOQUE INFO ──
   let y = 52;
-
   doc.setFillColor(...light);
   doc.rect(margin, y, contentW, 22, 'F');
 
   doc.setTextColor(...muted);
   doc.setFontSize(8);
-  doc.setFont('helvetica', 'normal');
   doc.text('NORMA', margin + 4, y + 7);
   doc.text('FECHA DE EVALUACIÓN', margin + 60, y + 7);
   doc.text('RESULTADO', margin + 130, y + 7);
@@ -74,9 +76,9 @@ function generatePDF(jsPDF) {
   doc.text('ISO/IEC 27001:2022', margin + 4, y + 15);
   doc.text(today, margin + 60, y + 15);
 
-  // ── BADGE RESULTADO (CORREGIDO) ──
+  // ── 🔥 BADGE RESULTADO CORREGIDO ──
   doc.setFillColor(...statusColor);
-  doc.rect(margin + 128, y + 8, 54, 11, 'F'); // MÁS CUADRADO
+  doc.rect(margin + 128, y + 8, 54, 11, 'F'); // RECTANGULAR (NO roundedRect)
 
   doc.setTextColor(...white);
   doc.setFontSize(8);
@@ -85,14 +87,12 @@ function generatePDF(jsPDF) {
 
   // ── PROGRESO ──
   y += 30;
-
   doc.setTextColor(...ink);
   doc.setFontSize(10);
   doc.setFont('helvetica', 'bold');
   doc.text(`${done} de ${total} controles completados (${pct}%)`, margin, y);
 
   y += 5;
-
   doc.setFillColor(220, 220, 220);
   doc.rect(margin, y, contentW, 5, 'F');
 
@@ -110,7 +110,6 @@ function generatePDF(jsPDF) {
 
   // ── TABLA ──
   y += 12;
-
   doc.setFontSize(9);
   doc.setFont('helvetica', 'bold');
   doc.setTextColor(...white);
@@ -122,7 +121,6 @@ function generatePDF(jsPDF) {
   doc.text('ESTADO', margin + contentW - 22, y + 5);
 
   y += 9;
-
   doc.setFont('helvetica', 'normal');
 
   let rowAlt = false;
@@ -181,7 +179,6 @@ function generatePDF(jsPDF) {
 
   // ── FOOTER ──
   const pages = doc.getNumberOfPages();
-
   for (let i = 1; i <= pages; i++) {
     doc.setPage(i);
 
@@ -197,4 +194,5 @@ function generatePDF(jsPDF) {
   const fileName = `GRCreal_ISO27001_${today.replace(/ /g, '_')}.pdf`;
   doc.save(fileName);
 }
+
 </script>
