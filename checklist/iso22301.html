@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
-<title>Checklist NIS2 — Autoevaluación · GRCreal</title>
-<meta name="description" content="Checklist interactivo Checklist NIS2 — Autoevaluación. Autoevaluación gratuita sin registro ni almacenamiento.">
+<title>Checklist ISO 22301:2019 — Continuidad de Negocio · GRCreal</title>
+<meta name="description" content="Checklist interactivo Checklist ISO 22301:2019 — Continuidad de Negocio. Autoevaluación gratuita sin registro ni almacenamiento.">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Checklist NIS2 — Autoevaluación">
+<meta property="og:title" content="Checklist ISO 22301:2019 — Continuidad de Negocio">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://grcreal.com/checklists/nis2.html">
+<meta property="og:url" content="https://grcreal.com/checklists/iso22301.html">
 <meta property="og:image" content="https://grcreal.com/grcreal.png">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -275,12 +275,12 @@
 <div class="card">
   <div class="accent-bar"></div>
   <div class="header">
-    <div class="tag">NIS2 · Checklist Interactivo</div>
-    <div class="headline">Checklist<br><span class="accent">NIS2</span><br><span class="dim">Autoevaluación</span></div>
-    <p class="subline">Directiva NIS2 — Artículo 21.<br><strong>Sin registro. Sin almacenamiento de datos.</strong></p>
+    <div class="tag">ISO 22301:2019 · Checklist Interactivo</div>
+    <div class="headline">Checklist<br><span class="accent">ISO 22301</span><br><span class="dim">Continuidad de Negocio</span></div>
+    <p class="subline">ISO 22301:2019 — Sistema de Gestión de Continuidad de Negocio.<br><strong>Sin registro. Sin almacenamiento de datos.</strong></p>
   </div>
   <div class="body">
-    <div class="aviso">Checklist orientativo basado en los requisitos del Art. 21 de la Directiva NIS2 y su transposición en España. No sustituye a una evaluación formal. Los datos no se almacenan.</div>
+    <div class="aviso">Checklist orientativo de ISO 22301:2019. Evalúa la madurez de tu SGCN. No sustituye a un análisis formal. Los datos no se almacenan.</div>
     <div class="progress-bar-wrap">
       <div class="progress-bar" id="progress-bar"></div>
     </div>
@@ -298,265 +298,314 @@
       <div class="leyenda-item" style="margin-left:auto;"><div class="info-icon" style="cursor:default;">i</div><span>= explicaci&#243;n</span></div>
     </div>
     <div class="checklist-section">
-      <div class="checklist-section-title">Paso previo · Determinación del alcance</div>
+      <div class="checklist-section-title">Contexto y Gobernanza · Cláusulas 4-5</div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.3</div>
+        <div class="checklist-code">4.1</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Se ha determinado si la organización es entidad esencial o importante</div>
+        <div class="checklist-text">Contexto interno y externo de la organización analizado para el SGCN</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Evaluar tamaño (10+ empleados o 2M+ facturación) y sector. Evidencia: análisis documentado, sectores del Anexo I y II revisados.</div>
+          <div class="tooltip">Factores que pueden afectar la continuidad. Evidencia: análisis DAFO o equivalente, factores internos y externos documentados.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.3</div>
+        <div class="checklist-code">4.2</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Se ha evaluado si los proveedores están afectados por NIS2 (cadena de suministro)</div>
+        <div class="checklist-text">Partes interesadas y sus requisitos de continuidad identificados</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Los proveedores críticos también pueden estar sujetos a NIS2. Evidencia: inventario de proveedores con evaluación de alcance.</div>
+          <div class="tooltip">Clientes, reguladores y proveedores con SLAs. Evidencia: registro de partes interesadas, requisitos documentados.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.27</div>
+        <div class="checklist-code">4.3</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">La organización se ha registrado ante la autoridad competente si es preceptivo</div>
+        <div class="checklist-text">Alcance del SGCN definido y documentado</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Registro obligatorio para entidades esenciales. Evidencia: confirmación de registro, fecha.</div>
-        </div>
-      </div>
-    </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Gobernanza y responsabilidad · Art. 20</div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.20</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Los órganos de dirección han aprobado las medidas de gestión de riesgos</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">La dirección aprueba formalmente las medidas. Evidencia: actas de aprobación, fecha.</div>
+          <div class="tooltip">Qué procesos y ubicaciones cubre el SGCN. Evidencia: documento de alcance firmado por dirección.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.20</div>
+        <div class="checklist-code">5.1</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Los miembros de dirección han recibido formación en ciberseguridad</div>
+        <div class="checklist-text">Compromiso y liderazgo de la dirección con la continuidad</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Formación obligatoria para la dirección. Evidencia: registros de formación, contenido cubierto.</div>
+          <div class="tooltip">La dirección aprueba recursos y revisa el SGCN. Evidencia: política de continuidad firmada, actas de revisión.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.20</div>
+        <div class="checklist-code">5.2</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Existe un responsable de seguridad (CISO o equivalente) con mandato definido</div>
+        <div class="checklist-text">Política de continuidad de negocio documentada y comunicada</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">CISO designado con responsabilidades claras. Evidencia: nombramiento formal, descripción de funciones.</div>
+          <div class="tooltip">Política que establece el compromiso. Evidencia: política publicada, comunicación al personal.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.20</div>
+        <div class="checklist-code">5.3</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">La dirección supervisa periódicamente el estado de la ciberseguridad</div>
+        <div class="checklist-text">Roles y responsabilidades del SGCN asignados</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Revisión periódica por dirección. Evidencia: actas de revisión, KPIs de seguridad reportados.</div>
+          <div class="tooltip">Equipo de continuidad designado. Evidencia: organigrama del equipo, descripción de funciones.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Gestión de riesgos · Art. 21</div>
+      <div class="checklist-section-title">Análisis de Impacto en el Negocio · Cláusula 8</div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.a</div>
+        <div class="checklist-code">8.2.1</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Políticas de análisis de riesgos documentadas</div>
+        <div class="checklist-text">BIA — Procesos críticos identificados y priorizados</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Metodología de riesgos definida y aprobada. Evidencia: política de riesgos, metodología usada.</div>
+          <div class="tooltip">Análisis de Impacto en el Negocio realizado. Evidencia: documento BIA con todos los procesos evaluados, propietarios asignados.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.a</div>
+        <div class="checklist-code">8.2.2</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Análisis de riesgos realizado y actualizado periódicamente</div>
+        <div class="checklist-text">Impacto de la interrupción evaluado para cada proceso crítico</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Riesgos identificados y evaluados. Evidencia: último análisis de riesgos, fecha de revisión.</div>
+          <div class="tooltip">Impacto económico, reputacional y regulatorio cuantificado. Evidencia: matriz de impacto por proceso, escalas de valoración definidas.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.b</div>
+        <div class="checklist-code">8.2.3</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Gestión de incidentes — procedimiento de detección, análisis, contención y recuperación</div>
+        <div class="checklist-text">RTO definido para cada proceso crítico</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Proceso de respuesta a incidentes. Evidencia: procedimiento documentado, equipo designado.</div>
+          <div class="tooltip">Tiempo máximo de recuperación por proceso. Evidencia: RTO documentado por proceso, aprobado por dirección.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.c</div>
+        <div class="checklist-code">8.2.3</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Continuidad de negocio — BCP/DRP documentado y probado</div>
+        <div class="checklist-text">RPO definido para cada proceso crítico</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Plan de continuidad y recuperación. Evidencia: BCP/DRP documentado, registro de pruebas.</div>
+          <div class="tooltip">Pérdida máxima de datos aceptable. Evidencia: RPO documentado por proceso, alineado con política de backup.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.c</div>
+        <div class="checklist-code">8.2.4</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Gestión de copias de seguridad con pruebas de restauración</div>
+        <div class="checklist-text">MTPD — tiempo máximo tolerable de interrupción definido</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Backup verificado. Evidencia: política de backup, registros de copias y restauraciones.</div>
+          <div class="tooltip">Límite a partir del cual el impacto es irreversible. Evidencia: MTPD por proceso, base para definir el RTO.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.c</div>
+        <div class="checklist-code">8.2.5</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Plan de comunicación ante incidentes graves</div>
+        <div class="checklist-text">Dependencias de recursos identificadas para cada proceso crítico</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Protocolo de comunicación de crisis. Evidencia: plan de comunicación, portavoz designado, plantillas.</div>
-        </div>
-      </div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.d</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Seguridad de la cadena de suministro — requisitos en contratos con proveedores</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Requisitos de seguridad en contratos. Evidencia: cláusulas de seguridad en contratos, evaluación de proveedores.</div>
-        </div>
-      </div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.e</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Seguridad en adquisición y desarrollo de sistemas — Security by Design</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Seguridad integrada desde el diseño. Evidencia: requisitos de seguridad en proyectos, revisión de código.</div>
-        </div>
-      </div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.f</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Políticas para evaluar la eficacia de las medidas de seguridad</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Medición de la efectividad. Evidencia: KPIs definidos, informes de métricas, revisión periódica.</div>
-        </div>
-      </div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.g</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Higiene informática básica — actualizaciones, contraseñas, concienciación</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Controles básicos de higiene. Evidencia: política de actualizaciones, gestión de contraseñas, formación.</div>
-        </div>
-      </div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.h</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Uso de criptografía — cifrado de datos en tránsito y en reposo</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Cifrado implementado. Evidencia: política de criptografía, TLS en comunicaciones, cifrado en disco.</div>
-        </div>
-      </div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.i</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Control de acceso — mínimo privilegio implementado</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Acceso mínimo necesario. Evidencia: matriz de roles, revisión periódica de accesos.</div>
-        </div>
-      </div>
-      <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">21.2.j</div>
-        <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Autenticación multifactor (MFA) en todos los accesos sensibles</div>
-        <div class="tooltip-wrap" onclick="event.stopPropagation()">
-          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">MFA implantado. Evidencia: MFA en correo, VPN y sistemas críticos, política documentada.</div>
+          <div class="tooltip">Personal clave, sistemas y proveedores por proceso. Evidencia: mapa de dependencias documentado.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Notificación de incidentes · Art. 23</div>
+      <div class="checklist-section-title">Estrategia y Plan de Continuidad · Cláusula 8</div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.23</div>
+        <div class="checklist-code">8.3</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Procedimiento para detectar y evaluar el impacto de incidentes significativos</div>
+        <div class="checklist-text">Estrategias de continuidad definidas y aprobadas</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Criterios de significatividad definidos. Evidencia: umbrales definidos, proceso de clasificación.</div>
+          <div class="tooltip">Cómo se va a mantener cada proceso crítico. Evidencia: estrategias documentadas, análisis coste-beneficio, aprobación.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.23</div>
+        <div class="checklist-code">8.4.1</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Alerta temprana a la autoridad competente en menos de 24 horas</div>
+        <div class="checklist-text">Plan de Continuidad de Negocio (BCP) documentado</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Notificación inicial en 24h. Evidencia: procedimiento con plazos, contacto de la autoridad identificado.</div>
+          <div class="tooltip">Procedimientos de activación y recuperación. Evidencia: BCP documentado, versiones controladas.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.23</div>
+        <div class="checklist-code">8.4.2</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Notificación completa del incidente en menos de 72 horas</div>
+        <div class="checklist-text">Plan de Recuperación ante Desastres (DRP) documentado</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Informe detallado en 72h. Evidencia: plantilla de notificación, proceso documentado.</div>
+          <div class="tooltip">Plan técnico de recuperación de sistemas. Evidencia: DRP por sistema crítico, pasos detallados.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.23</div>
+        <div class="checklist-code">8.4.3</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Informe final del incidente en el plazo de un mes</div>
+        <div class="checklist-text">Procedimientos de respuesta a incidentes integrados en el BCP</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Informe post-incidente en 30 días. Evidencia: plantilla de informe final, registro de incidentes previos.</div>
+          <div class="tooltip">Cómo se activa el BCP ante un incidente. Evidencia: umbrales de activación, árbol de decisiones, roles.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.23</div>
+        <div class="checklist-code">8.4.4</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Se conoce cuál es la autoridad competente para notificar en España</div>
+        <div class="checklist-text">Plan de comunicación de crisis documentado</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">INCIBE (entidades importantes) o CCN-CERT (sector público/esencial). Evidencia: contacto identificado y documentado.</div>
+          <div class="tooltip">Cómo se comunica durante una interrupción. Evidencia: árbol de llamadas, plantillas de comunicación, portavoz designado.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">8.4.5</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Medios alternativos para continuidad operativa identificados</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Oficinas alternativas, sistemas redundantes. Evidencia: lista de alternativas, contratos o acuerdos vigentes.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Cumplimiento y supervisión</div>
+      <div class="checklist-section-title">Gestión de recursos · Cláusula 7</div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.32</div>
+        <div class="checklist-code">7.1</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Preparada para auditorías e inspecciones de la autoridad supervisora</div>
+        <div class="checklist-text">Recursos necesarios para el SGCN identificados y asignados</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Documentación organizada y accesible. Evidencia: repositorio de evidencias, índice de documentación.</div>
+          <div class="tooltip">Personal, tecnología y presupuesto. Evidencia: presupuesto aprobado, recursos asignados al equipo de continuidad.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.21</div>
+        <div class="checklist-code">7.2</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Las medidas de seguridad son proporcionales al riesgo y están documentadas</div>
+        <div class="checklist-text">Competencias del equipo de continuidad verificadas</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Proporcionalidad justificada. Evidencia: análisis de riesgos alineado con las medidas implementadas.</div>
+          <div class="tooltip">El equipo sabe qué hacer. Evidencia: formación recibida, registros de competencias, suplentes identificados.</div>
         </div>
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
-        <div class="checklist-code">Art.21</div>
+        <div class="checklist-code">7.3</div>
         <div class="checklist-checkbox"></div>
-        <div class="checklist-text">Revisión periódica de la eficacia de las medidas implementadas</div>
+        <div class="checklist-text">Concienciación sobre continuidad en toda la organización</div>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
-          <div class="tooltip">Mejora continua documentada. Evidencia: revisiones periódicas, plan de mejora con seguimiento.</div>
+          <div class="tooltip">El personal conoce los planes. Evidencia: formación a todo el personal, comunicaciones internas.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">7.4</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Comunicación interna y externa sobre continuidad definida</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Protocolos de comunicación. Evidencia: matriz de comunicación, canales alternativos identificados.</div>
+        </div>
+      </div>
+    </div>    <div class="checklist-section">
+      <div class="checklist-section-title">Pruebas y Ejercicios · Cláusula 8</div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">8.5</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Programa de pruebas y ejercicios de continuidad establecido</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Plan de pruebas anual. Evidencia: calendario de pruebas, tipos de ejercicios definidos.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">8.5</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Ejercicios de continuidad realizados y documentados</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Pruebas ejecutadas con registro. Evidencia: informes de ejercicios, participantes, resultados, desviaciones.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">8.5</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">RTO y RPO verificados mediante pruebas reales</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Los tiempos se han medido, no estimado. Evidencia: registros de pruebas con tiempos reales vs objetivos.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">8.5</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Plan de mejora derivado de los ejercicios con seguimiento</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Las lecciones aprendidas se implementan. Evidencia: plan de mejora post-ejercicio, estado de cada acción.</div>
+        </div>
+      </div>
+    </div>    <div class="checklist-section">
+      <div class="checklist-section-title">Evaluación y Mejora · Cláusulas 9-10</div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">9.1</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Indicadores de rendimiento del SGCN definidos y medidos</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">KPIs de continuidad. Evidencia: indicadores definidos, datos de seguimiento, informes periódicos.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">9.2</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Auditoría interna del SGCN realizada</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Auditoría interna documentada. Evidencia: informe de auditoría interna, no conformidades, seguimiento.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">9.3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Revisión por la dirección del SGCN documentada</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Revisión anual por dirección. Evidencia: actas con entradas y decisiones, compromisos de recursos.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">10.1</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">No conformidades gestionadas con acciones correctivas</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Las desviaciones se corrigen. Evidencia: registro de no conformidades, acciones correctivas, verificación.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">10.2</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Mejora continua del SGCN documentada</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">El sistema mejora con el tiempo. Evidencia: historial de mejoras, comparativa entre revisiones.</div>
+        </div>
+      </div>
+    </div>    <div class="checklist-section">
+      <div class="checklist-section-title">Proveedores críticos</div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">8.3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Proveedores críticos identificados con SLAs que soportan los RTO</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Los SLAs de proveedores son coherentes con el RTO. Evidencia: contratos con SLAs verificados, análisis de coherencia.</div>
+        </div>
+      </div>
+      <div class="checklist-item" onclick="toggleItem(event, this)">
+        <div class="checklist-code">8.3</div>
+        <div class="checklist-checkbox"></div>
+        <div class="checklist-text">Planes de contingencia para fallo de proveedores críticos</div>
+        <div class="tooltip-wrap" onclick="event.stopPropagation()">
+          <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
+          <div class="tooltip">Qué pasa si falla un proveedor clave. Evidencia: alternativas identificadas, planes de contingencia por proveedor.</div>
         </div>
       </div>
     </div>
@@ -759,7 +808,7 @@ function generatePDF(jsPDF) {
 
   doc.setFontSize(13);
   doc.setFont('helvetica', 'bold');
-  doc.text('Checklist NIS2 — Autoevaluación', margin, 36);
+  doc.text('Checklist ISO 22301 — Autoevaluación', margin, 36);
 
   // ── INFO EVALUACIÓN ──
   let y = 52;
@@ -776,7 +825,7 @@ function generatePDF(jsPDF) {
   doc.setTextColor(...ink);
   doc.setFontSize(10);
   doc.setFont('helvetica', 'bold');
-  doc.text('Directiva NIS2 — Art. 21', margin + 4, y + 15);
+  doc.text('ISO 22301:2019', margin + 4, y + 15);
   doc.text(today, margin + 60, y + 15);
 
   // Badge de nivel
@@ -918,7 +967,7 @@ function generatePDF(jsPDF) {
   }
 
   // ── DESCARGA ──
-  const fileName = `GRCreal_checklist-nis2_${today.replace(/ /g, '_')}.pdf`;
+  const fileName = `GRCreal_checklist-iso22301_${today.replace(/ /g, '_')}.pdf`;
   doc.save(fileName);
 }
 
