@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="../css/marca.css">
 
 <!-- jsPDF desde CDN confiable -->
-<script src="/js/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
 <style>
 
@@ -910,10 +910,24 @@ function exportPDF() {
     return;
   }
 
-  console.error('jsPDF no está cargado');
-  alert('La librería PDF no está disponible. Verifica tu conexión a internet.');
-  btn.textContent = '⬇ Exportar PDF';
-  btn.disabled = false;
+  // Esperar a que cargue jsPDF
+  const checkInterval = setInterval(() => {
+    if (window.jspdf && window.jspdf.jsPDF) {
+      clearInterval(checkInterval);
+      generatePDF(window.jspdf.jsPDF);
+      btn.textContent = '⬇ Exportar PDF';
+      btn.disabled = false;
+    }
+  }, 100);
+  
+  setTimeout(() => {
+    clearInterval(checkInterval);
+    if (btn.disabled) {
+      alert('La librería PDF no está disponible. Verifica tu conexión a internet.');
+      btn.textContent = '⬇ Exportar PDF';
+      btn.disabled = false;
+    }
+  }, 5000);
 }
 
 function generatePDF(jsPDF) {
@@ -934,7 +948,7 @@ function generatePDF(jsPDF) {
   const light = [245, 247, 250];
   const white = [255, 255, 255];
   
-  // ⚠️ CORREGIDO: Colores según nivel (mismos que en la UI)
+  // Colores según nivel (mismos que en la UI)
   let statusColor, statusLabel;
   if (pct >= 80) {
     statusColor = [39, 174, 96];    // Verde
@@ -946,7 +960,7 @@ function generatePDF(jsPDF) {
     statusColor = [230, 126, 34];   // Naranja
     statusLabel = 'Madurez Básica';
   } else {
-    statusColor = [231, 76, 60];    // Rojo (no gris)
+    statusColor = [231, 76, 60];    // Rojo
     statusLabel = 'Madurez Inicial';
   }
 
@@ -971,7 +985,7 @@ function generatePDF(jsPDF) {
   doc.setFont('helvetica', 'bold');
   doc.text('Checklist ISO 27001:2022 — Autoevaluación', margin, 36);
 
-  // ── INFO EVALUACIÓN (CORREGIDO: badge dentro de la celda resultado) ──
+  // ── INFO EVALUACIÓN ──
   let y = 52;
   doc.setFillColor(...light);
   doc.rect(margin, y, contentW, 22, 'F');
@@ -989,14 +1003,13 @@ function generatePDF(jsPDF) {
   doc.text('ISO/IEC 27001:2022', margin + 4, y + 15);
   doc.text(today, margin + 60, y + 15);
 
-  // ✅ Badge de nivel (ahora dentro de la celda RESULTADO, con colores corregidos)
+  // Badge de nivel
   doc.setFontSize(8);
   doc.setFont('helvetica', 'bold');
   const textWidth = doc.getTextWidth(statusLabel);
   const paddingX = 6;
   const badgeW = textWidth + paddingX * 2;
   const badgeH = 8;
-  // Posición: alineado a la derecha dentro de la celda RESULTADO
   const badgeX = margin + 130 + 2;
   const badgeY = y + 9;
   
@@ -1005,7 +1018,7 @@ function generatePDF(jsPDF) {
   doc.setTextColor(...white);
   doc.text(statusLabel, badgeX + paddingX, badgeY + 5.5);
 
-  // ── BARRA DE PROGRESO (con el color correspondiente al nivel) ──
+  // ── BARRA DE PROGRESO ──
   y += 30;
   doc.setTextColor(...ink);
   doc.setFontSize(10);
@@ -1027,5 +1040,113 @@ function generatePDF(jsPDF) {
   doc.setTextColor(130, 130, 130);
   doc.text('Esta autoevaluacion es orientativa. Los resultados reflejan los controles marcados como implementados por el evaluador.', margin, y);
 
-  // ... resto de la función (tabla de controles, pie de página) igual que antes
+  // ── TABLA DE CONTROLES ──
+  y += 12;
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'bold');
+  doc.setTextColor(...white);
+  doc.setFillColor(...brand);
+  doc.rect(margin, y, contentW, 7, 'F');
+  doc.text('CÓDIGO', margin + 2, y + 5);
+  doc.text('CONTROL', margin + 22, y + 5);
+  doc.text('ESTADO', margin + contentW - 22, y + 5);
+
+  y += 9;
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(...ink);
+
+  let rowAlt = false;
+  items.forEach(item => {
+    const code = item.querySelector('.checklist-code')?.textContent?.trim() || '';
+    const text = item.querySelector('.checklist-text')?.textContent?.trim() || '';
+    const isChecked = item.classList.contains('checked');
+
+    // Calcular altura de fila
+    const lines = doc.splitTextToSize(text, contentW - 40);
+    const rowH = Math.max(8, lines.length * 4.5 + 3);
+
+    // Salto de página
+    if (y + rowH > 275) {
+      doc.addPage();
+      y = 20;
+
+      // Repetir cabecera de tabla
+      doc.setFontSize(9);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(...white);
+      doc.setFillColor(...brand);
+      doc.rect(margin, y, contentW, 7, 'F');
+      doc.text('CÓDIGO', margin + 2, y + 5);
+      doc.text('CONTROL', margin + 22, y + 5);
+      doc.text('ESTADO', margin + contentW - 22, y + 5);
+      y += 9;
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...ink);
+      rowAlt = false;
+    }
+
+    // Fondo alternado
+    if (rowAlt) {
+      doc.setFillColor(248, 249, 250);
+      doc.rect(margin, y, contentW, rowH, 'F');
+    }
+
+    // Código
+    doc.setTextColor(...brand);
+    doc.setFontSize(7.5);
+    doc.setFont('helvetica', 'bold');
+    doc.text(code, margin + 2, y + 5);
+
+    // Texto
+    doc.setTextColor(...ink);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.text(lines, margin + 22, y + 5);
+
+    // Estado
+    if (isChecked) {
+      doc.setFillColor(...[39, 174, 96]);
+      doc.roundedRect(margin + contentW - 22, y + 1.5, 18, 5, 1, 1, 'F');
+      doc.setTextColor(...white);
+      doc.setFontSize(7);
+      doc.setFont('helvetica', 'bold');
+      doc.text('✓  OK', margin + contentW - 20.5, y + 5.2);
+    } else {
+      doc.setFillColor(240, 240, 240);
+      doc.roundedRect(margin + contentW - 22, y + 1.5, 18, 5, 1, 1, 'F');
+      doc.setTextColor(...muted);
+      doc.setFontSize(7);
+      doc.setFont('helvetica', 'normal');
+      doc.text('Pendiente', margin + contentW - 21, y + 5.2);
+    }
+
+    // Línea separadora
+    doc.setDrawColor(230, 230, 230);
+    doc.line(margin, y + rowH, margin + contentW, y + rowH);
+
+    y += rowH;
+    rowAlt = !rowAlt;
+  });
+
+  // ── PIE DE PÁGINA ──
+  const pages = doc.getNumberOfPages();
+  for (let i = 1; i <= pages; i++) {
+    doc.setPage(i);
+    doc.setFillColor(...brand);
+    doc.rect(0, 287, W, 10, 'F');
+    doc.setTextColor(...white);
+    doc.setFontSize(7);
+    doc.setFont('helvetica', 'normal');
+    doc.text('GRCreal · grcreal.com · Miguel Ángel Carriazo vCISO', margin, 293.5);
+    doc.text(`Página ${i} de ${pages}`, W - margin - 16, 293.5);
+  }
+
+  // ── DESCARGA ──
+  const fileName = `GRCreal_ISO27001_${today.replace(/ /g, '_')}.pdf`;
+  doc.save(fileName);
 }
+
+</script>
+
+</body>
+</html>
