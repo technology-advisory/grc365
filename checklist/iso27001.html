@@ -896,14 +896,11 @@ function updateProgress() {
 window.addEventListener('DOMContentLoaded', updateProgress);
 
 function exportPDF() {
-  const script = document.createElement('script');
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-  script.onload = generatePDF;
-  document.head.appendChild(script);
+  const { jsPDF } = window.jspdf;
+  generatePDF(jsPDF);
 }
 
-function generatePDF() {
-  const { jsPDF } = window.jspdf;
+function generatePDF(jsPDF) {
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
   const items = document.querySelectorAll('.checklist-item');
@@ -1100,7 +1097,9 @@ function generatePDF() {
   const fileName = `GRCreal_ISO27001_${today.replace(/ /g, '_')}.pdf`;
   doc.save(fileName);
 }
+</script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 
 </body>
 </html>
