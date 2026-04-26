@@ -845,9 +845,11 @@ function toggleTooltip(event, icon) {
   }
 }
 
-// Cerrar tooltips al hacer clic fuera
-document.addEventListener('click', () => {
-  document.querySelectorAll('.tooltip-wrap.open').forEach(w => w.classList.remove('open'));
+// Cerrar tooltips al hacer clic fuera — sin interferir con los items
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.tooltip-wrap')) {
+    document.querySelectorAll('.tooltip-wrap.open').forEach(w => w.classList.remove('open'));
+  }
 });
 
 function resetAll() {
