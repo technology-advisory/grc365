@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Checklists de Cumplimiento · GRCreal</title>
+<meta name="description" content="Checklists interactivos de cumplimiento normativo: ENS (Básica, Media, Alta), ISO 27001 y NIS2. Autoevaluación gratuita sin registro ni almacenamiento de datos.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Checklists de Cumplimiento — ENS, ISO 27001 y NIS2">
+<meta property="og:description" content="Checklists interactivos gratuitos para autoevaluar tu cumplimiento normativo. Sin registro ni almacenamiento.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grcreal.com/checklists/">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="../css/marca.css">
+
+<style>
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.checklist-card {
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.checklist-card:hover {
+  border-color: var(--brand);
+  background: var(--brand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,119,181,0.08);
+}
+
+.checklist-card-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 12px;
+}
+
+.checklist-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.checklist-card-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.checklist-card-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.checklist-card-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--brand);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.checklist-card.featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+.checklist-card.featured .checklist-card-body {
+  flex: 1;
+}
+
+.checklist-card.featured .checklist-card-levels {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.level-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--white);
+}
+
+.aviso {
+  background: var(--brand-light);
+  border-left: 3px solid var(--brand);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 620px) {
+  .checklist-grid { grid-template-columns: 1fr; }
+  .checklist-card.featured { flex-direction: column; }
+  .checklist-card.featured .checklist-card-levels { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="card-wrapper">
+<div class="card">
+  <div class="accent-bar"></div>
+
+  <div class="header">
+    <div class="tag">Checklists · Cumplimiento</div>
+    <div class="headline">
+      Checklists<br>
+      <span class="accent">interactivos</span><br>
+      <span class="dim">de cumplimiento</span>
+    </div>
+    <p class="subline">
+      Autoevaluación orientativa para ENS, ISO 27001 y NIS2.<br>
+      <strong>Sin registro. Sin almacenamiento de datos. Gratuito.</strong>
+    </p>
+  </div>
+
+  <div class="body">
+
+    <div class="aviso">
+      Estos checklists son herramientas orientativas para una primera autoevaluación. No sustituyen a una auditoría formal ni a una Declaración de Aplicabilidad oficial. Los datos marcados no se almacenan en ningún servidor — al cerrar o recargar la página se resetean.
+    </div>
+
+    <div class="checklist-grid">
+
+      <!-- ENS — DESTACADO -->
+      <a href="ens.html" class="checklist-card featured">
+        <div class="checklist-card-body">
+          <div class="checklist-card-tag">Esquema Nacional de Seguridad · RD 311/2022</div>
+          <div class="checklist-card-title">Checklist ENS</div>
+          <div class="checklist-card-desc">
+            Controles del ENS organizados por categoría. Selecciona tu nivel — Básica, Media o Alta — y evalúa qué controles tienes implementados.
+          </div>
+          <div class="checklist-card-count">3 categorías · Básica / Media / Alta</div>
+          <div class="checklist-card-link">Abrir checklist →</div>
+        </div>
+        <div class="checklist-card-levels">
+          <div class="level-badge">Básica</div>
+          <div class="level-badge">Media</div>
+          <div class="level-badge">Alta</div>
+        </div>
+      </a>
+
+      <!-- ISO 27001 -->
+      <a href="iso27001.html" class="checklist-card">
+        <div class="checklist-card-tag">ISO/IEC 27001:2022 · Anexo A</div>
+        <div class="checklist-card-title">Checklist ISO 27001</div>
+        <div class="checklist-card-desc">
+          Controles del Anexo A organizados por categoría — Organizacionales, Personas, Físicos y Tecnológicos. Evalúa el estado de tu SGSI.
+        </div>
+        <div class="checklist-card-count">93 controles · 4 categorías</div>
+        <div class="checklist-card-link">Abrir checklist →</div>
+      </a>
+
+      <!-- NIS2 -->
+      <a href="nis2.html" class="checklist-card">
+        <div class="checklist-card-tag">Directiva NIS2 · Art. 21</div>
+        <div class="checklist-card-title">Checklist NIS2</div>
+        <div class="checklist-card-desc">
+          Requisitos de la Directiva NIS2 organizados por ámbito — gobernanza, gestión de riesgos, notificación de incidentes y cumplimiento.
+        </div>
+        <div class="checklist-card-count">Requisitos del Art. 21 y Art. 23</div>
+        <div class="checklist-card-link">Abrir checklist →</div>
+      </a>
+
+    </div><!-- /checklist-grid -->
+
+    <!-- CTA -->
+    <div class="cta-block" style="margin-top: 40px;">
+      <div class="cta-headline">
+        ¿Necesitas ir más allá<br>
+        <span>de un checklist?</span>
+      </div>
+      <div class="cta-sub">
+        Un checklist dice qué tienes. Una auditoría real dice si funciona.<br><br>
+        <strong><a href="/contacto.html">Hablemos sin compromiso.</a></strong>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="author-block">
+        <div class="author-avatar">MA</div>
+        <div>
+          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
+          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
+        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        <div>
+          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
+          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</div>
+<a href="/index.html" class="home-btn">⌂ Home</a>
+
+</body>
+</html>
