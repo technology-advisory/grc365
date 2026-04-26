@@ -930,6 +930,7 @@ function switchTab(tab, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + tab).classList.add('active');
   btn.classList.add('active');
+  updateProgress();
 }
 
 
@@ -975,13 +976,15 @@ document.addEventListener('click', (e) => {
 });
 
 function resetAll() {
-  document.querySelectorAll('.checklist-item').forEach(i => i.classList.remove('checked'));
+  const activeTab = document.querySelector('.tab-content.active') || document;
+  activeTab.querySelectorAll('.checklist-item').forEach(i => i.classList.remove('checked'));
   updateProgress();
 }
 
 function updateProgress() {
-  const items = document.querySelectorAll('.checklist-item');
-  const checked = document.querySelectorAll('.checklist-item.checked');
+  const activeTab = document.querySelector('.tab-content.active') || document;
+  const items = activeTab.querySelectorAll('.checklist-item');
+  const checked = activeTab.querySelectorAll('.checklist-item.checked');
   const total = items.length;
   const done = checked.length;
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
@@ -1050,8 +1053,9 @@ function exportPDF() {
 function generatePDF(jsPDF) {
   const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
-  const items = document.querySelectorAll('.checklist-item');
-  const checked = document.querySelectorAll('.checklist-item.checked');
+  const activeTab = document.querySelector('.tab-content.active') || document;
+  const items = activeTab.querySelectorAll('.checklist-item');
+  const checked = activeTab.querySelectorAll('.checklist-item.checked');
   const total = items.length;
   const done = checked.length;
   const pct = total > 0 ? Math.round((done / total) * 100) : 0;
@@ -1100,7 +1104,7 @@ function generatePDF(jsPDF) {
 
   doc.setFontSize(13);
   doc.setFont('helvetica', 'bold');
-  doc.text('Checklist ENS — Autoevaluación', margin, 36);
+  doc.text('Checklist ENS ' + (document.querySelector('.tab-btn.active')?.textContent?.trim() || '') + ' — Autoevaluación', margin, 36);
 
   // ── INFO EVALUACIÓN ──
   let y = 52;
