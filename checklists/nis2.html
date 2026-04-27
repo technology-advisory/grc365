@@ -267,6 +267,56 @@
   flex-shrink: 0;
 }
 
+/* ── MODO DUAL ── */
+.modo-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  width: fit-content;
+}
+.modo-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: none;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.modo-btn.active {
+  background: var(--brand);
+  color: #fff;
+}
+.modo-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 10px;
+}
+/* Textos por modo */
+.pyme-text { display: none; font-size: 15px; color: #444; line-height: 1.5; flex: 1; min-width: 0; }
+.pyme-badge { display: none; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; margin-left: 6px; flex-shrink: 0; margin-top: 4px; }
+.pyme-badge.facil { background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+.pyme-badge.medio { background: #fef3e2; color: #d35400; border: 1px solid #f5cba7; }
+.pyme-badge.complejo { background: #fde; color: #c0392b; border: 1px solid #fab; }
+/* Modo pyme activo */
+body.modo-pyme .checklist-text { display: none !important; }
+body.modo-pyme .pyme-text { display: flex !important; flex: 1; }
+body.modo-pyme .checklist-code { display: none !important; }
+body.modo-pyme .pyme-badge { display: inline-flex !important; align-items: center; }
+body.modo-pyme .info-icon { display: none !important; }
+body.modo-pyme .checklist-section-title { font-size: 13px; letter-spacing: 0.1em; }
+
+
 </style>
 <style></style>
 </head>
@@ -281,6 +331,15 @@
   </div>
   <div class="body">
     <div class="aviso">Checklist orientativo basado en los requisitos del Art. 21 de la Directiva NIS2 y su transposición en España. No sustituye a una evaluación formal. Los datos no se almacenan.</div>
+    <!-- MODO TOGGLE -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+      <span class="modo-label">Modo vista:</span>
+      <div class="modo-toggle">
+        <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">Auditor</button>
+        <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">Pyme</button>
+      </div>
+    </div>
+
     <div class="progress-bar-wrap">
       <div class="progress-bar" id="progress-bar"></div>
     </div>
@@ -298,11 +357,13 @@
       <div class="leyenda-item" style="margin-left:auto;"><div class="info-icon" style="cursor:default;">i</div><span>= explicaci&#243;n</span></div>
     </div>
     <div class="checklist-section">
-      <div class="checklist-section-title">Paso previo · Determinación del alcance</div>
+      <div class="checklist-section-title"><span class="auditor-title">Paso previo · Determinación del alcance</span><span class="pyme-title" style="display:none;">¿Os aplica NIS2?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Se ha determinado si la organización es entidad esencial o importante</div>
+        <span class="pyme-text">¿Sabéis si vuestra empresa está obligada por NIS2? Depende del tamaño y del sector.</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Evaluar tamaño (10+ empleados o 2M+ facturación) y sector. Evidencia: análisis documentado, sectores del Anexo I y II revisados.</div>
@@ -310,8 +371,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Se ha evaluado si los proveedores están afectados por NIS2 (cadena de suministro)</div>
+        <span class="pyme-text">¿Habéis evaluado si vuestros proveedores clave también están sujetos a NIS2?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los proveedores críticos también pueden estar sujetos a NIS2. Evidencia: inventario de proveedores con evaluación de alcance.</div>
@@ -319,19 +382,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.27</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">La organización se ha registrado ante la autoridad competente si es preceptivo</div>
+        <span class="pyme-text">¿Os habéis registrado ante el organismo regulador correspondiente?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Registro obligatorio para entidades esenciales. Evidencia: confirmación de registro, fecha.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Gobernanza y responsabilidad · Art. 20</div>
+      <div class="checklist-section-title"><span class="auditor-title">Gobernanza y responsabilidad · Art. 20</span><span class="pyme-title" style="display:none;">Quién manda y quién responde</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.20</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Los órganos de dirección han aprobado las medidas de gestión de riesgos</div>
+        <span class="pyme-text">¿Alguien con poder en vuestra empresa ha revisado y aprobado el plan de ciberseguridad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La dirección aprueba formalmente las medidas. Evidencia: actas de aprobación, fecha.</div>
@@ -339,8 +406,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.20</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Los miembros de dirección han recibido formación en ciberseguridad</div>
+        <span class="pyme-text">¿Los directivos han recibido formación básica en ciberseguridad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Formación obligatoria para la dirección. Evidencia: registros de formación, contenido cubierto.</div>
@@ -348,8 +417,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.20</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Existe un responsable de seguridad (CISO o equivalente) con mandato definido</div>
+        <span class="pyme-text">¿Hay alguien responsable de la seguridad con autoridad real para decidir?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">CISO designado con responsabilidades claras. Evidencia: nombramiento formal, descripción de funciones.</div>
@@ -357,19 +428,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.20</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">La dirección supervisa periódicamente el estado de la ciberseguridad</div>
+        <span class="pyme-text">¿La dirección revisa periódicamente cómo está la seguridad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Revisión periódica por dirección. Evidencia: actas de revisión, KPIs de seguridad reportados.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Gestión de riesgos · Art. 21</div>
+      <div class="checklist-section-title"><span class="auditor-title">Gestión de riesgos · Art. 21</span><span class="pyme-title" style="display:none;">Qué medidas tenéis que tener</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.a</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Políticas de análisis de riesgos documentadas</div>
+        <span class="pyme-text">¿Tenéis documentado qué riesgos corre vuestra empresa en materia de ciberseguridad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Metodología de riesgos definida y aprobada. Evidencia: política de riesgos, metodología usada.</div>
@@ -377,8 +452,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.a</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Análisis de riesgos realizado y actualizado periódicamente</div>
+        <span class="pyme-text">¿Ese análisis se actualiza cuando cambia algo importante en la empresa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Riesgos identificados y evaluados. Evidencia: último análisis de riesgos, fecha de revisión.</div>
@@ -386,8 +463,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.b</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de incidentes — procedimiento de detección, análisis, contención y recuperación</div>
+        <span class="pyme-text">Si os hackean, ¿sabéis qué hacer? ¿Quién actúa, en qué orden, a quién se avisa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Proceso de respuesta a incidentes. Evidencia: procedimiento documentado, equipo designado.</div>
@@ -395,8 +474,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.c</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Continuidad de negocio — BCP/DRP documentado y probado</div>
+        <span class="pyme-text">¿Podéis seguir operando si caen vuestros sistemas principales?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Plan de continuidad y recuperación. Evidencia: BCP/DRP documentado, registro de pruebas.</div>
@@ -404,8 +485,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.c</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de copias de seguridad con pruebas de restauración</div>
+        <span class="pyme-text">¿Hacéis copias de seguridad y las habéis probado de verdad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Backup verificado. Evidencia: política de backup, registros de copias y restauraciones.</div>
@@ -413,8 +496,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.c</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de comunicación ante incidentes graves</div>
+        <span class="pyme-text">¿Tenéis preparado cómo comunicar una crisis a clientes, empleados y medios?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Protocolo de comunicación de crisis. Evidencia: plan de comunicación, portavoz designado, plantillas.</div>
@@ -422,8 +507,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.d</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Seguridad de la cadena de suministro — requisitos en contratos con proveedores</div>
+        <span class="pyme-text">¿Los contratos con proveedores clave incluyen obligaciones de seguridad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Requisitos de seguridad en contratos. Evidencia: cláusulas de seguridad en contratos, evaluación de proveedores.</div>
@@ -431,8 +518,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.e</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Seguridad en adquisición y desarrollo de sistemas — Security by Design</div>
+        <span class="pyme-text">¿Habéis evaluado qué tan seguros son vuestros proveedores más críticos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Seguridad integrada desde el diseño. Evidencia: requisitos de seguridad en proyectos, revisión de código.</div>
@@ -440,8 +529,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.f</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Políticas para evaluar la eficacia de las medidas de seguridad</div>
+        <span class="pyme-text">Cuando compráis o desarrolláis software, ¿la seguridad se tiene en cuenta desde el principio?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Medición de la efectividad. Evidencia: KPIs definidos, informes de métricas, revisión periódica.</div>
@@ -449,8 +540,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.g</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Higiene informática básica — actualizaciones, contraseñas, concienciación</div>
+        <span class="pyme-text">¿Medís si las medidas de seguridad que tenéis realmente funcionan?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Controles básicos de higiene. Evidencia: política de actualizaciones, gestión de contraseñas, formación.</div>
@@ -458,8 +551,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.h</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Uso de criptografía — cifrado de datos en tránsito y en reposo</div>
+        <span class="pyme-text">¿Los empleados saben lo básico de ciberseguridad? ¿Reciben formación periódica?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cifrado implementado. Evidencia: política de criptografía, TLS en comunicaciones, cifrado en disco.</div>
@@ -467,8 +562,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.i</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Control de acceso — mínimo privilegio implementado</div>
+        <span class="pyme-text">¿Los datos importantes van cifrados — en internet, en el correo, en los discos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Acceso mínimo necesario. Evidencia: matriz de roles, revisión periódica de accesos.</div>
@@ -476,19 +573,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">21.2.j</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Autenticación multifactor (MFA) en todos los accesos sensibles</div>
+        <span class="pyme-text">¿Cada empleado accede solo a lo que necesita para su trabajo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">MFA implantado. Evidencia: MFA en correo, VPN y sistemas críticos, política documentada.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Notificación de incidentes · Art. 23</div>
+      <div class="checklist-section-title"><span class="auditor-title">Notificación de incidentes · Art. 23</span><span class="pyme-title" style="display:none;">Qué hacer si os ataquen</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.23</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Procedimiento para detectar y evaluar el impacto de incidentes significativos</div>
+        <span class="pyme-text">¿Usáis doble factor — contraseña más código en el móvil — en accesos importantes?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Criterios de significatividad definidos. Evidencia: umbrales definidos, proceso de clasificación.</div>
@@ -496,8 +597,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.23</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Alerta temprana a la autoridad competente en menos de 24 horas</div>
+        <span class="pyme-text">¿Sabéis identificar un incidente "significativo" que obliga a notificar al regulador?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Notificación inicial en 24h. Evidencia: procedimiento con plazos, contacto de la autoridad identificado.</div>
@@ -505,8 +608,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.23</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Notificación completa del incidente en menos de 72 horas</div>
+        <span class="pyme-text">¿Sabéis que tenéis 24 horas para hacer una alerta inicial al regulador tras un incidente grave?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Informe detallado en 72h. Evidencia: plantilla de notificación, proceso documentado.</div>
@@ -514,8 +619,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.23</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Informe final del incidente en el plazo de un mes</div>
+        <span class="pyme-text">La notificación completa debe enviarse en 72 horas. ¿Tenéis la plantilla preparada?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Informe post-incidente en 30 días. Evidencia: plantilla de informe final, registro de incidentes previos.</div>
@@ -523,19 +630,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.23</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Se conoce cuál es la autoridad competente para notificar en España</div>
+        <span class="pyme-text">El informe final debe entregarse en un mes. ¿Sabéis cómo hacerlo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">INCIBE (entidades importantes) o CCN-CERT (sector público/esencial). Evidencia: contacto identificado y documentado.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Cumplimiento y supervisión</div>
+      <div class="checklist-section-title"><span class="auditor-title">Cumplimiento y supervisión</span><span class="pyme-title" style="display:none;">Demostrar que lo cumplís</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.32</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Preparada para auditorías e inspecciones de la autoridad supervisora</div>
+        <span class="pyme-text">¿Sabéis a quién notificar en España? INCIBE o CCN-CERT según vuestro sector.</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Documentación organizada y accesible. Evidencia: repositorio de evidencias, índice de documentación.</div>
@@ -543,8 +654,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.21</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Las medidas de seguridad son proporcionales al riesgo y están documentadas</div>
+        <span class="pyme-text">¿Tenéis la documentación ordenada por si viene una inspección?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Proporcionalidad justificada. Evidencia: análisis de riesgos alineado con las medidas implementadas.</div>
@@ -552,8 +665,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">Art.21</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Revisión periódica de la eficacia de las medidas implementadas</div>
+        <span class="pyme-text">¿Podéis demostrar con evidencias que tenéis las medidas implementadas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Mejora continua documentada. Evidencia: revisiones periódicas, plan de mejora con seguimiento.</div>
@@ -669,6 +784,27 @@ function updateProgress() {
   } else {
     status.className = 'progress-status red';
     status.textContent = '⚠ Nivel crítico — ' + pct + '% completado';
+  }
+}
+
+
+function setModo(modo) {
+  const body = document.body;
+  const btnAuditor = document.getElementById('btn-auditor');
+  const btnPyme = document.getElementById('btn-pyme');
+
+  if (modo === 'pyme') {
+    body.classList.add('modo-pyme');
+    btnPyme.classList.add('active');
+    btnAuditor.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'inline');
+  } else {
+    body.classList.remove('modo-pyme');
+    btnAuditor.classList.add('active');
+    btnPyme.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'inline');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'none');
   }
 }
 

@@ -267,6 +267,56 @@
   flex-shrink: 0;
 }
 
+/* ── MODO DUAL ── */
+.modo-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  width: fit-content;
+}
+.modo-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: none;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.modo-btn.active {
+  background: var(--brand);
+  color: #fff;
+}
+.modo-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 10px;
+}
+/* Textos por modo */
+.pyme-text { display: none; font-size: 15px; color: #444; line-height: 1.5; flex: 1; min-width: 0; }
+.pyme-badge { display: none; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; margin-left: 6px; flex-shrink: 0; margin-top: 4px; }
+.pyme-badge.facil { background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+.pyme-badge.medio { background: #fef3e2; color: #d35400; border: 1px solid #f5cba7; }
+.pyme-badge.complejo { background: #fde; color: #c0392b; border: 1px solid #fab; }
+/* Modo pyme activo */
+body.modo-pyme .checklist-text { display: none !important; }
+body.modo-pyme .pyme-text { display: flex !important; flex: 1; }
+body.modo-pyme .checklist-code { display: none !important; }
+body.modo-pyme .pyme-badge { display: inline-block !important; }
+body.modo-pyme .info-icon { display: none !important; }
+body.modo-pyme .checklist-section-title { font-size: 13px; letter-spacing: 0.1em; }
+
+
 </style>
 <style>
 .tabs{display:flex;gap:0;border-bottom:2px solid var(--brand);margin-bottom:32px;}
@@ -304,6 +354,15 @@
       <div class="leyenda-item"><div class="leyenda-dot" style="background:#27ae60"></div>80-100% Avanzada</div>
       <div class="leyenda-item" style="margin-left:auto;"><div class="info-icon" style="cursor:default;">i</div><span>= explicaci&#243;n</span></div>
     </div>
+    <!-- MODO TOGGLE -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+      <span class="modo-label">Modo vista:</span>
+      <div class="modo-toggle">
+        <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">Auditor</button>
+        <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">Pyme</button>
+      </div>
+    </div>
+
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('basica',this)">B&#225;sica</button>
       <button class="tab-btn" onclick="switchTab('media',this)">Media</button>
@@ -313,11 +372,13 @@
     <!-- TAB BÁSICA -->
     <div id="tab-basica" class="tab-content active">
     <div class="checklist-section">
-      <div class="checklist-section-title">Marco Organizativo</div>
+      <div class="checklist-section-title"><span class="auditor-title">Marco Organizativo</span><span class="pyme-title" style="display:none;">Las reglas escritas de seguridad</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">org.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Política de seguridad aprobada por la dirección y comunicada a todo el personal</div>
+        <span class="pyme-text">¿Tenéis un documento firmado por la dirección con las reglas de seguridad? ¿Lo conocen todos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Debe existir una política de seguridad firmada por la alta dirección, accesible y comunicada. Evidencia: documento de política, actas de comunicación, fecha de última revisión.</div>
@@ -325,8 +386,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">org.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Normativa de seguridad documentada y accesible</div>
+        <span class="pyme-text">¿Hay normas escritas de seguridad que el personal pueda consultar?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Conjunto de normas que desarrollan la política. Evidencia: documentación accesible al personal, índice de normativa actualizado.</div>
@@ -334,8 +397,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">org.3</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Procedimientos de seguridad definidos para las operaciones habituales</div>
+        <span class="pyme-text">¿Los procesos más importantes tienen procedimientos escritos paso a paso?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los procesos críticos tienen procedimientos escritos. Evidencia: catálogo de procedimientos, fecha de última actualización.</div>
@@ -343,19 +408,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">org.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Proceso de autorización para entrada en operación de nuevos sistemas</div>
+        <span class="pyme-text">¿Ningún sistema nuevo entra en producción sin que alguien lo apruebe formalmente?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Ningún sistema entra en producción sin autorización formal. Evidencia: registros de autorización, responsable designado.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Planificación</div>
+      <div class="checklist-section-title"><span class="auditor-title">Planificación</span><span class="pyme-title" style="display:none;">Cómo planificáis la seguridad</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.pl.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Análisis de riesgos realizado y documentado</div>
+        <span class="pyme-text">¿Habéis analizado qué riesgos tiene vuestra información y vuestros sistemas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El ENS exige un análisis de riesgos formal. Evidencia: metodología usada, inventario de activos, amenazas y vulnerabilidades identificadas, fecha.</div>
@@ -363,8 +432,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.pl.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Arquitectura de seguridad definida y documentada</div>
+        <span class="pyme-text">¿Tenéis un diagrama actualizado de cómo está montada vuestra red y vuestros sistemas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Diagrama de red y arquitectura de seguridad actualizados. Evidencia: diagramas firmados con fecha de revisión.</div>
@@ -372,8 +443,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.pl.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Adquisición de nuevos componentes contempla requisitos de seguridad</div>
+        <span class="pyme-text">Cuando compráis software o hardware nuevo, ¿evaluáis si es seguro antes de comprarlo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Al comprar software o hardware se evalúa la seguridad. Evidencia: proceso de compra con criterios de seguridad, validación previa.</div>
@@ -381,19 +454,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.pl.4</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Dimensionamiento y capacidad de los sistemas planificados</div>
+        <span class="pyme-text">¿Tenéis capacidad suficiente en los sistemas para que no fallen por sobrecarga?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los sistemas tienen capacidad suficiente para los picos de uso. Evidencia: plan de capacidad, alertas de uso.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Control de Acceso</div>
+      <div class="checklist-section-title"><span class="auditor-title">Control de Acceso</span><span class="pyme-title" style="display:none;">Quién puede acceder a qué</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Política de control de acceso definida</div>
+        <span class="pyme-text">¿Tenéis claro quién puede acceder a qué en vuestra empresa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Reglas claras sobre quién accede a qué. Evidencia: política de control de acceso, matriz de roles.</div>
@@ -401,8 +478,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de derechos de acceso con proceso formal de alta, modificación y baja</div>
+        <span class="pyme-text">Cuando alguien entra o sale de la empresa, ¿hay un proceso formal para gestionar sus accesos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Ciclo de vida completo de cuentas. Evidencia: procedimiento de altas/bajas, registros de solicitudes.</div>
@@ -410,8 +489,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.3</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Identificación de usuarios — cuentas nominativas, no compartidas</div>
+        <span class="pyme-text">¿Cada empleado tiene su propia cuenta? ¿No se comparten usuarios entre personas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cada usuario tiene su propia cuenta. Evidencia: política de cuentas, ausencia de cuentas genéricas en sistemas críticos.</div>
@@ -419,8 +500,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.4</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Autenticación con contraseña robusta</div>
+        <span class="pyme-text">¿Las contraseñas tienen una longitud mínima y no son fáciles de adivinar?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Política de contraseñas con longitud mínima, complejidad y renovación. Evidencia: configuración de sistemas, política documentada.</div>
@@ -428,8 +511,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.5</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Segregación de funciones en tareas críticas</div>
+        <span class="pyme-text">¿Nadie controla un proceso crítico de principio a fin sin que otra persona lo supervise?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Nadie controla un proceso sensible de principio a fin. Evidencia: matriz de segregación, controles en sistemas.</div>
@@ -437,19 +522,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.6</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Actividad de los usuarios registrada (logs de acceso)</div>
+        <span class="pyme-text">¿Los accesos a los sistemas quedan registrados — quién entró, cuándo y a qué?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los accesos quedan registrados. Evidencia: logs activados, política de retención, responsable de revisión.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Explotación</div>
+      <div class="checklist-section-title"><span class="auditor-title">Explotación</span><span class="pyme-title" style="display:none;">Operación diaria de los sistemas</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Inventario de activos actualizado</div>
+        <span class="pyme-text">¿Tenéis una lista de todos los sistemas, servidores y equipos que usáis?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Todos los sistemas y datos inventariados con propietario. Evidencia: inventario con fecha de actualización.</div>
@@ -457,8 +546,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Configuración de seguridad de los equipos documentada</div>
+        <span class="pyme-text">¿Los equipos están configurados de forma segura, sin programas ni servicios innecesarios?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Línea base de configuración por tipo de sistema. Evidencia: guías de configuración, verificación periódica.</div>
@@ -466,8 +557,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.4</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Mantenimiento y actualizaciones de seguridad aplicadas</div>
+        <span class="pyme-text">¿Actualizáis el software y aplicáis parches de seguridad regularmente?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Proceso de gestión de parches. Evidencia: registro de parches, SLA de aplicación.</div>
@@ -475,8 +568,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.5</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de incidentes de seguridad con procedimiento definido</div>
+        <span class="pyme-text">Si ocurre un incidente de seguridad, ¿sabéis qué hacer? ¿Hay un procedimiento?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Procedimiento de respuesta a incidentes. Evidencia: procedimiento documentado, registro de incidentes.</div>
@@ -484,8 +579,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.6</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Protección frente a código dañino (antimalware)</div>
+        <span class="pyme-text">¿Todos los equipos tienen antivirus instalado y actualizado?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Antimalware en todos los endpoints. Evidencia: software instalado y actualizado, gestión centralizada.</div>
@@ -493,19 +590,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.9</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Copias de seguridad realizadas y verificadas</div>
+        <span class="pyme-text">¿Hacéis copias de seguridad y verificáis que funcionan restaurándolas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Backup con pruebas de restauración. Evidencia: política de backup, registros de copias y pruebas.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Medidas de Protección</div>
+      <div class="checklist-section-title"><span class="auditor-title">Medidas de Protección</span><span class="pyme-title" style="display:none;">Protecciones específicas</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.if.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Áreas separadas con control de acceso físico</div>
+        <span class="pyme-text">¿Las zonas donde están los servidores tienen acceso físico restringido?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Zonas de seguridad con acceso controlado. Evidencia: planos de instalaciones, controles de acceso.</div>
@@ -513,8 +614,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.per.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Formación y concienciación en seguridad para todo el personal</div>
+        <span class="pyme-text">¿Los empleados reciben formación básica en ciberseguridad al menos una vez al año?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Todo el personal recibe formación en seguridad. Evidencia: plan de formación, registros de asistencia.</div>
@@ -522,8 +625,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.eq.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Puesto de trabajo despejado (política de mesa limpia)</div>
+        <span class="pyme-text">¿Los empleados dejan la mesa limpia y sin documentos sensibles cuando se van?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">No dejar información sensible visible. Evidencia: política documentada, verificaciones periódicas.</div>
@@ -531,8 +636,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.eq.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Bloqueo de sesión por inactividad</div>
+        <span class="pyme-text">¿La pantalla se bloquea automáticamente si el equipo lleva un rato sin usarse?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Pantalla bloqueada automáticamente. Evidencia: configuración de sistemas, tiempo máximo definido.</div>
@@ -540,8 +647,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.com.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Perímetro de red seguro con cortafuegos</div>
+        <span class="pyme-text">¿Vuestra red tiene un firewall en el perímetro que controla el tráfico exterior?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Firewall en el perímetro. Evidencia: diagrama de red, reglas de firewall, logs.</div>
@@ -549,8 +658,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.si.3</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Borrado y destrucción segura de soportes</div>
+        <span class="pyme-text">¿Los discos y soportes se borran de forma segura antes de desecharlos o reutilizarlos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Proceso de borrado seguro. Evidencia: procedimiento, registros de bajas de equipos.</div>
@@ -558,8 +669,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.info.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Datos de carácter personal tratados conforme al RGPD</div>
+        <span class="pyme-text">¿El tratamiento de datos personales cumple el RGPD?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cumplimiento del RGPD verificado. Evidencia: registro de tratamientos, DPO designado si aplica.</div>
@@ -567,8 +680,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.cont.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de continuidad básico ante interrupción de servicios</div>
+        <span class="pyme-text">¿Tenéis un plan básico para seguir operando si algo crítico falla?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">BCP básico documentado. Evidencia: plan de continuidad, procedimientos de emergencia.</div>
@@ -581,11 +696,13 @@
     <div id="tab-media" class="tab-content">
     <div class="aviso" style="margin-bottom:20px;">La categoría Media incluye todos los controles de Básica con mayor nivel de exigencia, más los controles adicionales siguientes.</div>
     <div class="checklist-section">
-      <div class="checklist-section-title">Control de Acceso — Nivel Media</div>
+      <div class="checklist-section-title"><span class="auditor-title">Control de Acceso — Nivel Media</span><span class="pyme-title" style="display:none;">Acceso más controlado</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Autenticación de doble factor (MFA) en accesos privilegiados y remotos</div>
+        <span class="pyme-text">¿Los administradores y el personal remoto usan doble factor de autenticación (MFA)?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">MFA obligatorio para administradores y acceso remoto. Evidencia: MFA configurado en VPN, sistemas de administración, registro de configuración.</div>
@@ -593,8 +710,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.5</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de cuentas privilegiadas con procedimiento específico</div>
+        <span class="pyme-text">¿Las cuentas de administrador tienen controles especiales, separadas de las de uso diario?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las cuentas de administrador tienen controles adicionales. Evidencia: procedimiento de cuentas privilegiadas, revisión periódica.</div>
@@ -602,8 +721,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.6</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Monitorización de la actividad de usuarios privilegiados</div>
+        <span class="pyme-text">¿Los accesos de los administradores se auditan y se revisan activamente?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los accesos privilegiados se auditan. Evidencia: logs de actividad privilegiada, alertas configuradas, revisión periódica.</div>
@@ -611,19 +732,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.7</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Acceso remoto controlado mediante VPN con autenticación fuerte</div>
+        <span class="pyme-text">¿Todo acceso remoto pasa por VPN con doble factor obligatorio?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Toda conexión remota pasa por VPN con MFA. Evidencia: política de acceso remoto, configuración de VPN.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Explotación — Nivel Media</div>
+      <div class="checklist-section-title"><span class="auditor-title">Explotación — Nivel Media</span><span class="pyme-title" style="display:none;">Operación más rigurosa</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Proceso formal de gestión de vulnerabilidades con SLA definido</div>
+        <span class="pyme-text">¿Los parches de seguridad críticos se aplican en un plazo definido?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los parches críticos se aplican en plazo definido. Evidencia: proceso documentado, SLA por criticidad, registros de cumplimiento.</div>
@@ -631,8 +756,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.5</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de incidentes con clasificación, escalado y lecciones aprendidas</div>
+        <span class="pyme-text">¿Los incidentes se clasifican, escalan y se aprende de ellos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los incidentes se gestionan, clasifican y analizan. Evidencia: registro de incidentes, informes post-incidente.</div>
@@ -640,8 +767,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.7</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Segmentación de red con políticas de filtrado entre segmentos</div>
+        <span class="pyme-text">¿La red está segmentada — servidores separados de puestos de trabajo y wifi de visitas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Redes separadas por funcionalidad. Evidencia: diagrama de VLANs, reglas de firewall entre segmentos.</div>
@@ -649,8 +778,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.8</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Registros de actividad con integridad garantizada y retención mínima de 6 meses</div>
+        <span class="pyme-text">¿Los registros de actividad están protegidos contra modificación y se guardan al menos 6 meses?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Logs protegidos contra modificación. Evidencia: configuración de logs, política de retención, controles de integridad.</div>
@@ -658,19 +789,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.mon.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Detección de intrusiones — IDS/IPS o monitorización equivalente</div>
+        <span class="pyme-text">¿Tenéis algún sistema que detecte accesos o comportamientos sospechosos — IDS/IPS?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Sistema de detección activo. Evidencia: herramienta desplegada, alertas configuradas, procedimiento de respuesta.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Medidas de Protección — Nivel Media</div>
+      <div class="checklist-section-title"><span class="auditor-title">Medidas de Protección — Nivel Media</span><span class="pyme-title" style="display:none;">Protecciones adicionales</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.if.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Protección frente a amenazas ambientales (incendio, inundación, temperatura)</div>
+        <span class="pyme-text">¿Hay protección contra incendios, inundaciones y temperatura en el CPD?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">CPD con protección ambiental. Evidencia: sistemas de detección y extinción, climatización redundante.</div>
@@ -678,8 +813,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.com.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Protección de la confidencialidad de las comunicaciones — cifrado TLS</div>
+        <span class="pyme-text">¿Las comunicaciones externas importantes van cifradas — HTTPS, TLS?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Comunicaciones cifradas. Evidencia: certificados TLS actualizados, configuración de versiones mínimas.</div>
@@ -687,8 +824,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.si.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Cifrado de datos en reposo para información sensible</div>
+        <span class="pyme-text">¿Los datos sensibles están cifrados en disco?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Datos sensibles cifrados en disco. Evidencia: política de cifrado, herramientas usadas, cobertura.</div>
@@ -696,19 +835,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.cont.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de continuidad probado con ejercicios documentados</div>
+        <span class="pyme-text">¿El plan de continuidad se ha probado con ejercicios reales documentados?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El BCP se ha probado. Evidencia: registros de ejercicios, resultados, plan de mejora.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Auditoría — Nivel Media</div>
+      <div class="checklist-section-title"><span class="auditor-title">Auditoría — Nivel Media</span><span class="pyme-title" style="display:none;">Verificación externa</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">aud.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Auditoría de seguridad bienal por entidad independiente</div>
+        <span class="pyme-text">¿Hay una auditoría de seguridad cada dos años por entidad independiente?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Auditoría cada 2 años. Evidencia: informe de última auditoría, entidad auditora, fecha.</div>
@@ -716,8 +859,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">aud.2</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Declaración de Aplicabilidad (DoA) documentada y actualizada</div>
+        <span class="pyme-text">¿Tenéis la Declaración de Aplicabilidad documentada y actualizada?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">DoA alineada con el análisis de riesgos. Evidencia: documento DoA con fecha y firma.</div>
@@ -725,8 +870,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">aud.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de mejora con seguimiento de no conformidades</div>
+        <span class="pyme-text">¿Las no conformidades tienen plan de mejora con responsable y seguimiento?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las no conformidades se gestionan. Evidencia: plan de mejora, estado de cada acción.</div>
@@ -739,11 +886,13 @@
     <div id="tab-alta" class="tab-content">
     <div class="aviso" style="margin-bottom:20px;">La categoría Alta incluye todos los controles de Media con máxima exigencia, más los controles adicionales siguientes.</div>
     <div class="checklist-section">
-      <div class="checklist-section-title">Control de Acceso — Nivel Alta</div>
+      <div class="checklist-section-title"><span class="auditor-title">Control de Acceso — Nivel Alta</span><span class="pyme-title" style="display:none;">Acceso de máxima seguridad</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">MFA obligatorio para TODOS los accesos, no solo privilegiados</div>
+        <span class="pyme-text">¿El doble factor es obligatorio para TODOS los accesos, sin excepciones?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Doble factor en todos los accesos a sistemas. Evidencia: MFA desplegado en todos los sistemas, sin excepciones.</div>
@@ -751,8 +900,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.5</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Modelo de administración por niveles implementado y documentado</div>
+        <span class="pyme-text">¿Tenéis separación de niveles de administración según el nivel de riesgo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Separación de Tier 0/1/2. Evidencia: arquitectura de administración documentada, controles técnicos implementados.</div>
@@ -760,19 +911,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.acc.6</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Grabación de sesiones privilegiadas con revisión periódica</div>
+        <span class="pyme-text">¿Las sesiones de administración se graban y se revisan periódicamente?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las sesiones de administración quedan grabadas. Evidencia: herramienta de grabación, política de revisión, registros.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Explotación — Nivel Alta</div>
+      <div class="checklist-section-title"><span class="auditor-title">Explotación — Nivel Alta</span><span class="pyme-title" style="display:none;">Operación de máxima exigencia</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.4</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Parches críticos aplicados en menos de 24 horas</div>
+        <span class="pyme-text">¿Los parches críticos se aplican en menos de 24 horas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">SLA extremo para vulnerabilidades críticas. Evidencia: proceso de emergencia, registros de cumplimiento.</div>
@@ -780,8 +935,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.7</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Microsegmentación de red con inspección profunda de paquetes (DPI)</div>
+        <span class="pyme-text">¿Tenéis microsegmentación de red con inspección profunda de paquetes?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Segmentación granular con DPI. Evidencia: arquitectura de red, políticas de microsegmentación, herramienta DPI.</div>
@@ -789,8 +946,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.8</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">SIEM con correlación de eventos y alertas en tiempo real</div>
+        <span class="pyme-text">¿Tenéis un SIEM con correlación de eventos y alertas en tiempo real?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">SIEM desplegado y operativo. Evidencia: plataforma SIEM, reglas de correlación, procedimiento de respuesta.</div>
@@ -798,8 +957,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.exp.9</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Copias de seguridad inmutables con almacenamiento air-gap o cloud aislado</div>
+        <span class="pyme-text">¿Las copias de seguridad son inmutables y están aisladas de la red principal?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Backup protegido contra ransomware. Evidencia: arquitectura de backup inmutable, pruebas de restauración.</div>
@@ -807,19 +968,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">op.mon.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">SOC propio o externalizado con cobertura 24x7</div>
+        <span class="pyme-text">¿Tenéis un SOC con cobertura 24x7, propio o externalizado?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Monitorización continua. Evidencia: contrato SOC o equipo propio, SLA de respuesta, registros.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Medidas de Protección — Nivel Alta</div>
+      <div class="checklist-section-title"><span class="auditor-title">Medidas de Protección — Nivel Alta</span><span class="pyme-title" style="display:none;">Protecciones de máximo nivel</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.if.4</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">CPD con control de acceso biométrico y CCTV con retención mínima 30 días</div>
+        <span class="pyme-text">¿El CPD tiene control de acceso biométrico y CCTV con retención de 30 días?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Seguridad física de máximo nivel. Evidencia: sistema biométrico, CCTV con retención, registros de acceso.</div>
@@ -827,8 +992,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.if.5</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Alimentación eléctrica redundante con SAI y grupo electrógeno</div>
+        <span class="pyme-text">¿Tenéis SAI y grupo electrógeno con pruebas periódicas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Continuidad eléctrica garantizada. Evidencia: SAI instalado, grupo electrógeno, pruebas periódicas.</div>
@@ -836,8 +1003,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.com.4</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Cifrado de grado alto en comunicaciones — algoritmos aprobados por CCN</div>
+        <span class="pyme-text">¿El cifrado de comunicaciones usa algoritmos aprobados por el CCN?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cifrado con algoritmos del CCN. Evidencia: lista de algoritmos usados, conformidad con guías CCN-STIC.</div>
@@ -845,8 +1014,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.si.4</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Cifrado de grado alto para datos en reposo — algoritmos aprobados por CCN</div>
+        <span class="pyme-text">¿El cifrado de datos en reposo usa algoritmos aprobados por el CCN?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cifrado fuerte en disco y bases de datos. Evidencia: herramientas y algoritmos, conformidad CCN.</div>
@@ -854,8 +1025,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.cont.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de continuidad probado anualmente con simulacro completo documentado</div>
+        <span class="pyme-text">¿El plan de continuidad se prueba anualmente con un simulacro completo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Ejercicio anual completo. Evidencia: informe de ejercicio, participantes, resultados, plan de mejora.</div>
@@ -863,19 +1036,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">mp.cont.5</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">RTO y RPO verificados mediante pruebas reales, no estimados</div>
+        <span class="pyme-text">¿Los tiempos de recuperación se han medido en pruebas reales, no estimados?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Tiempos de recuperación medidos en producción. Evidencia: registros de pruebas con tiempos reales vs objetivos.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Auditoría — Nivel Alta</div>
+      <div class="checklist-section-title"><span class="auditor-title">Auditoría — Nivel Alta</span><span class="pyme-title" style="display:none;">Verificación de máximo rigor</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">aud.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Auditoría de seguridad anual por entidad acreditada por ENAC</div>
+        <span class="pyme-text">¿La auditoría es anual y la realiza una entidad acreditada por ENAC?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Auditoría anual por entidad ENAC. Evidencia: informe anual, acreditación de la entidad.</div>
@@ -883,8 +1060,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">aud.4</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Informe de estado de seguridad remitido al CCN-CERT</div>
+        <span class="pyme-text">¿Se envía el informe de estado de seguridad al CCN-CERT?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Reporte al CCN-CERT según procedimiento. Evidencia: último informe enviado, acuse de recibo.</div>
@@ -1013,6 +1192,27 @@ function updateProgress() {
   } else {
     status.className = 'progress-status red';
     status.textContent = '⚠ Nivel crítico — ' + pct + '% completado';
+  }
+}
+
+
+function setModo(modo) {
+  const body = document.body;
+  const btnAuditor = document.getElementById('btn-auditor');
+  const btnPyme = document.getElementById('btn-pyme');
+
+  if (modo === 'pyme') {
+    body.classList.add('modo-pyme');
+    btnPyme.classList.add('active');
+    btnAuditor.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'inline');
+  } else {
+    body.classList.remove('modo-pyme');
+    btnAuditor.classList.add('active');
+    btnPyme.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'inline');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'none');
   }
 }
 

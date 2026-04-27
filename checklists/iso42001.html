@@ -267,6 +267,56 @@
   flex-shrink: 0;
 }
 
+/* ── MODO DUAL ── */
+.modo-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  width: fit-content;
+}
+.modo-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: none;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.modo-btn.active {
+  background: var(--brand);
+  color: #fff;
+}
+.modo-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 10px;
+}
+/* Textos por modo */
+.pyme-text { display: none; font-size: 15px; color: #444; line-height: 1.5; flex: 1; min-width: 0; }
+.pyme-badge { display: none; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; margin-left: 6px; flex-shrink: 0; margin-top: 4px; }
+.pyme-badge.facil { background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+.pyme-badge.medio { background: #fef3e2; color: #d35400; border: 1px solid #f5cba7; }
+.pyme-badge.complejo { background: #fde; color: #c0392b; border: 1px solid #fab; }
+/* Modo pyme activo */
+body.modo-pyme .checklist-text { display: none !important; }
+body.modo-pyme .pyme-text { display: flex !important; flex: 1; }
+body.modo-pyme .checklist-code { display: none !important; }
+body.modo-pyme .pyme-badge { display: inline-flex !important; align-items: center; }
+body.modo-pyme .info-icon { display: none !important; }
+body.modo-pyme .checklist-section-title { font-size: 13px; letter-spacing: 0.1em; }
+
+
 </style>
 <style></style>
 </head>
@@ -281,6 +331,15 @@
   </div>
   <div class="body">
     <div class="aviso">Checklist orientativo de ISO 42001:2023. Evalúa la madurez de tu gobernanza de IA. No sustituye a un análisis formal. Los datos no se almacenan.</div>
+    <!-- MODO TOGGLE -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+      <span class="modo-label">Modo vista:</span>
+      <div class="modo-toggle">
+        <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">Auditor</button>
+        <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">Pyme</button>
+      </div>
+    </div>
+
     <div class="progress-bar-wrap">
       <div class="progress-bar" id="progress-bar"></div>
     </div>
@@ -298,11 +357,13 @@
       <div class="leyenda-item" style="margin-left:auto;"><div class="info-icon" style="cursor:default;">i</div><span>= explicaci&#243;n</span></div>
     </div>
     <div class="checklist-section">
-      <div class="checklist-section-title">Contexto y Gobernanza · Cláusulas 4-5</div>
+      <div class="checklist-section-title"><span class="auditor-title">Contexto y Gobernanza · Cláusulas 4-5</span><span class="pyme-title" style="display:none;">Las bases — quién manda y qué reglas hay</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">4.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Contexto de la organización en relación con la IA analizado</div>
+        <span class="pyme-text">¿Habéis analizado cómo afecta la IA a vuestra empresa y qué riesgos conlleva?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Identificar cómo afecta la IA a la organización. Evidencia: análisis de contexto, factores internos y externos documentados.</div>
@@ -310,8 +371,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">4.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Partes interesadas y sus necesidades respecto a la IA identificadas</div>
+        <span class="pyme-text">¿Sabéis qué esperan clientes, empleados y reguladores de cómo usáis la IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Clientes, reguladores, empleados y sociedad. Evidencia: registro de partes interesadas, requisitos documentados.</div>
@@ -319,8 +382,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">4.3</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Alcance del sistema de gestión de IA definido</div>
+        <span class="pyme-text">¿Habéis definido a qué sistemas de IA se aplican vuestras reglas de gobernanza?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Qué sistemas y usos de IA están dentro del SGAI. Evidencia: documento de alcance firmado.</div>
@@ -328,8 +393,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">5.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Liderazgo y compromiso de la dirección con el SGAI</div>
+        <span class="pyme-text">¿La dirección apoya activamente el uso responsable de la IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La dirección apoya y dirige el SGAI. Evidencia: política de IA aprobada, recursos asignados.</div>
@@ -337,8 +404,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">5.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Política de IA responsable documentada y comunicada</div>
+        <span class="pyme-text">¿Tenéis una política escrita sobre cómo usáis la IA de forma responsable?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Política que define los principios de uso de IA. Evidencia: política publicada, comunicación al personal.</div>
@@ -346,19 +415,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">5.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Roles y responsabilidades de IA asignados</div>
+        <span class="pyme-text">¿Hay alguien responsable de que la IA se use bien en vuestra empresa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Responsable de IA o AI Officer designado. Evidencia: nombramiento, descripción de funciones.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Evaluación de riesgos y oportunidades · Cláusula 6</div>
+      <div class="checklist-section-title"><span class="auditor-title">Evaluación de riesgos y oportunidades · Cláusula 6</span><span class="pyme-title" style="display:none;">¿Qué puede salir mal con la IA?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">6.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Riesgos y oportunidades de los sistemas de IA evaluados</div>
+        <span class="pyme-text">¿Habéis evaluado qué puede salir mal con los sistemas de IA que usáis?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Análisis de riesgos específico para IA. Evidencia: metodología de riesgos IA, inventario de sistemas con evaluación.</div>
@@ -366,8 +439,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">6.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Evaluación de impacto en derechos fundamentales realizada</div>
+        <span class="pyme-text">¿Habéis evaluado si vuestros sistemas de IA pueden afectar negativamente a personas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">DPIA o evaluación equivalente. Evidencia: evaluaciones de impacto por sistema de IA, medidas de mitigación.</div>
@@ -375,19 +450,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">6.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Objetivos del SGAI definidos y medibles</div>
+        <span class="pyme-text">¿Tenéis objetivos concretos sobre cómo queréis gestionar la IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">KPIs de gobernanza de IA establecidos. Evidencia: objetivos documentados, métricas de seguimiento.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Inventario y clasificación de sistemas de IA · Anexo A</div>
+      <div class="checklist-section-title"><span class="auditor-title">Inventario y clasificación de sistemas de IA · Anexo A</span><span class="pyme-title" style="display:none;">¿Qué sistemas de IA tenéis?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.2.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Inventario de sistemas de IA actualizado</div>
+        <span class="pyme-text">¿Tenéis una lista de todos los sistemas de IA que usáis — propios y de proveedores?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Todos los sistemas de IA identificados y documentados. Evidencia: inventario con: nombre, proveedor, uso, datos que procesa, riesgo.</div>
@@ -395,8 +474,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.2.3</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Sistemas de IA clasificados según su nivel de riesgo</div>
+        <span class="pyme-text">¿Sabéis qué riesgo tiene cada sistema de IA? ¿Cuáles son de alto riesgo según el AI Act?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Clasificación según AI Act (inaceptable/alto/limitado/mínimo). Evidencia: clasificación documentada por sistema.</div>
@@ -404,19 +485,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.2.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Ciclo de vida de los sistemas de IA gestionado</div>
+        <span class="pyme-text">¿Tenéis un proceso para dar de alta y de baja sistemas de IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Alta, operación, modificación y baja de sistemas. Evidencia: procedimiento de ciclo de vida, registros.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Datos y calidad · Anexo A</div>
+      <div class="checklist-section-title"><span class="auditor-title">Datos y calidad · Anexo A</span><span class="pyme-title" style="display:none;">Los datos que alimentan la IA</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Política de gestión de datos para IA documentada</div>
+        <span class="pyme-text">¿Tenéis reglas claras sobre qué datos se pueden usar para entrenar o alimentar la IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Reglas sobre qué datos se usan y cómo. Evidencia: política de datos, alineación con RGPD.</div>
@@ -424,8 +509,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.2</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Calidad de los datos de entrenamiento verificada</div>
+        <span class="pyme-text">¿Los datos que usa vuestra IA son correctos, completos y representativos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los datos usados son representativos y precisos. Evidencia: proceso de validación de datos, documentación de datasets.</div>
@@ -433,8 +520,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.3</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Datos de entrenamiento libres de sesgos injustificados</div>
+        <span class="pyme-text">¿Habéis comprobado si vuestros sistemas de IA pueden discriminar a ciertos grupos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Proceso de detección y mitigación de sesgos. Evidencia: análisis de sesgo, métricas de equidad.</div>
@@ -442,19 +531,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Datos personales tratados conforme al RGPD en sistemas de IA</div>
+        <span class="pyme-text">¿El uso de datos personales en vuestros sistemas de IA cumple el RGPD?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cumplimiento RGPD verificado para datos de IA. Evidencia: DPIA, base jurídica de tratamiento, derechos de los interesados.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Transparencia y explicabilidad · Anexo A</div>
+      <div class="checklist-section-title"><span class="auditor-title">Transparencia y explicabilidad · Anexo A</span><span class="pyme-title" style="display:none;">¿Podéis explicar lo que hace la IA?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Los sistemas de IA documentan cómo toman decisiones</div>
+        <span class="pyme-text">¿Podéis explicar, aunque sea de forma básica, cómo toman decisiones vuestros sistemas de IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Documentación de la lógica de los modelos. Evidencia: documentación técnica, nivel de explicabilidad por sistema.</div>
@@ -462,8 +555,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Los usuarios son informados cuando interactúan con IA</div>
+        <span class="pyme-text">¿Los usuarios saben cuándo están interactuando con IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Comunicación clara del uso de IA. Evidencia: avisos en interfaces, política de transparencia.</div>
@@ -471,19 +566,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Existe proceso de revisión humana para decisiones automatizadas de alto impacto</div>
+        <span class="pyme-text">¿En las decisiones importantes que toma la IA, hay un humano que las revisa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Human-in-the-loop implementado. Evidencia: procedimiento de revisión, registro de decisiones revisadas.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Seguridad y robustez · Anexo A</div>
+      <div class="checklist-section-title"><span class="auditor-title">Seguridad y robustez · Anexo A</span><span class="pyme-title" style="display:none;">¿Qué pasa si alguien intenta engañar a la IA?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Los sistemas de IA han sido evaluados frente a ataques adversariales</div>
+        <span class="pyme-text">¿Habéis probado si vuestros sistemas de IA pueden ser engañados o manipulados?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Pruebas de robustez realizadas. Evidencia: resultados de pruebas, medidas de mitigación.</div>
@@ -491,8 +590,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Monitorización del rendimiento de los modelos en producción</div>
+        <span class="pyme-text">¿Alguien revisa si los sistemas de IA siguen funcionando bien después de ponerlos en marcha?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los modelos se monitorizan tras el despliegue. Evidencia: sistema de monitorización, alertas de degradación.</div>
@@ -500,19 +601,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Proceso de actualización y retirada de modelos obsoletos o sesgados</div>
+        <span class="pyme-text">¿Tenéis un proceso para actualizar o retirar sistemas de IA que ya no funcionan bien?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los modelos se actualizan y retiran cuando es necesario. Evidencia: criterios de actualización, registro de versiones.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Proveedores de IA · Anexo A</div>
+      <div class="checklist-section-title"><span class="auditor-title">Proveedores de IA · Anexo A</span><span class="pyme-title" style="display:none;">Los proveedores que os dan herramientas de IA</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Proveedores de IA evaluados antes de su adopción</div>
+        <span class="pyme-text">¿Antes de adoptar una herramienta de IA de un proveedor, evaluáis su seguridad y sus condiciones?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Due diligence de proveedores IA. Evidencia: proceso de evaluación, cuestionario de seguridad, resultados.</div>
@@ -520,8 +625,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Contratos con proveedores de IA incluyen requisitos de gobernanza</div>
+        <span class="pyme-text">¿Los contratos con proveedores de IA incluyen cómo deben tratar vuestros datos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cláusulas de IA responsable en contratos. Evidencia: contratos revisados, cláusulas específicas de IA.</div>
@@ -529,19 +636,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Ubicación y tratamiento de datos en sistemas de IA de terceros verificados</div>
+        <span class="pyme-text">¿Sabéis dónde procesan los datos vuestros proveedores de IA? ¿Dentro de la UE?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Se sabe dónde procesan los datos los proveedores IA. Evidencia: inventario de ubicaciones, acuerdos de procesamiento.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Mejora continua · Cláusula 10</div>
+      <div class="checklist-section-title"><span class="auditor-title">Mejora continua · Cláusula 10</span><span class="pyme-title" style="display:none;">¿Aprendéis y mejoráis?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">10.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">No conformidades del SGAI gestionadas con acciones correctivas</div>
+        <span class="pyme-text">Cuando algo falla en vuestros sistemas de IA, ¿lo corregís y documentáis?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las desviaciones se corrigen. Evidencia: registro de no conformidades, acciones correctivas.</div>
@@ -549,8 +660,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">10.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Revisión por la dirección del SGAI realizada periódicamente</div>
+        <span class="pyme-text">¿La dirección revisa periódicamente cómo va la gobernanza de la IA?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Revisión anual del sistema. Evidencia: actas de revisión, decisiones adoptadas.</div>
@@ -666,6 +779,27 @@ function updateProgress() {
   } else {
     status.className = 'progress-status red';
     status.textContent = '⚠ Nivel crítico — ' + pct + '% completado';
+  }
+}
+
+
+function setModo(modo) {
+  const body = document.body;
+  const btnAuditor = document.getElementById('btn-auditor');
+  const btnPyme = document.getElementById('btn-pyme');
+
+  if (modo === 'pyme') {
+    body.classList.add('modo-pyme');
+    btnPyme.classList.add('active');
+    btnAuditor.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'inline');
+  } else {
+    body.classList.remove('modo-pyme');
+    btnAuditor.classList.add('active');
+    btnPyme.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'inline');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'none');
   }
 }
 

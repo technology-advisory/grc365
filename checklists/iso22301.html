@@ -267,6 +267,56 @@
   flex-shrink: 0;
 }
 
+/* ── MODO DUAL ── */
+.modo-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  width: fit-content;
+}
+.modo-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: none;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.modo-btn.active {
+  background: var(--brand);
+  color: #fff;
+}
+.modo-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 10px;
+}
+/* Textos por modo */
+.pyme-text { display: none; font-size: 15px; color: #444; line-height: 1.5; flex: 1; min-width: 0; }
+.pyme-badge { display: none; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; margin-left: 6px; flex-shrink: 0; margin-top: 4px; }
+.pyme-badge.facil { background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+.pyme-badge.medio { background: #fef3e2; color: #d35400; border: 1px solid #f5cba7; }
+.pyme-badge.complejo { background: #fde; color: #c0392b; border: 1px solid #fab; }
+/* Modo pyme activo */
+body.modo-pyme .checklist-text { display: none !important; }
+body.modo-pyme .pyme-text { display: flex !important; flex: 1; }
+body.modo-pyme .checklist-code { display: none !important; }
+body.modo-pyme .pyme-badge { display: inline-flex !important; align-items: center; }
+body.modo-pyme .info-icon { display: none !important; }
+body.modo-pyme .checklist-section-title { font-size: 13px; letter-spacing: 0.1em; }
+
+
 </style>
 <style></style>
 </head>
@@ -281,6 +331,15 @@
   </div>
   <div class="body">
     <div class="aviso">Checklist orientativo de ISO 22301:2019. Evalúa la madurez de tu SGCN. No sustituye a un análisis formal. Los datos no se almacenan.</div>
+    <!-- MODO TOGGLE -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+      <span class="modo-label">Modo vista:</span>
+      <div class="modo-toggle">
+        <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">Auditor</button>
+        <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">Pyme</button>
+      </div>
+    </div>
+
     <div class="progress-bar-wrap">
       <div class="progress-bar" id="progress-bar"></div>
     </div>
@@ -298,11 +357,13 @@
       <div class="leyenda-item" style="margin-left:auto;"><div class="info-icon" style="cursor:default;">i</div><span>= explicaci&#243;n</span></div>
     </div>
     <div class="checklist-section">
-      <div class="checklist-section-title">Contexto y Gobernanza · Cláusulas 4-5</div>
+      <div class="checklist-section-title"><span class="auditor-title">Contexto y Gobernanza · Cláusulas 4-5</span><span class="pyme-title" style="display:none;">Las bases — quién manda y qué cubre el plan</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">4.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Contexto interno y externo de la organización analizado para el SGCN</div>
+        <span class="pyme-text">¿Habéis analizado qué factores externos e internos pueden afectar a la continuidad de vuestro negocio?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Factores que pueden afectar la continuidad. Evidencia: análisis DAFO o equivalente, factores internos y externos documentados.</div>
@@ -310,8 +371,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">4.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Partes interesadas y sus requisitos de continuidad identificados</div>
+        <span class="pyme-text">¿Sabéis qué esperan clientes, reguladores y proveedores en términos de continuidad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Clientes, reguladores y proveedores con SLAs. Evidencia: registro de partes interesadas, requisitos documentados.</div>
@@ -319,8 +382,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">4.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Alcance del SGCN definido y documentado</div>
+        <span class="pyme-text">¿Tenéis claro qué parte de la empresa cubre vuestro plan de continuidad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Qué procesos y ubicaciones cubre el SGCN. Evidencia: documento de alcance firmado por dirección.</div>
@@ -328,8 +393,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">5.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Compromiso y liderazgo de la dirección con la continuidad</div>
+        <span class="pyme-text">¿La dirección apoya activamente el plan de continuidad y dedica recursos a él?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La dirección aprueba recursos y revisa el SGCN. Evidencia: política de continuidad firmada, actas de revisión.</div>
@@ -337,8 +404,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">5.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Política de continuidad de negocio documentada y comunicada</div>
+        <span class="pyme-text">¿Tenéis una política escrita de continuidad de negocio firmada por la dirección?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Política que establece el compromiso. Evidencia: política publicada, comunicación al personal.</div>
@@ -346,19 +415,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">5.3</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Roles y responsabilidades del SGCN asignados</div>
+        <span class="pyme-text">¿Hay un equipo de continuidad designado que sabe qué hacer cuando pasa algo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Equipo de continuidad designado. Evidencia: organigrama del equipo, descripción de funciones.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Análisis de Impacto en el Negocio · Cláusula 8</div>
+      <div class="checklist-section-title"><span class="auditor-title">Análisis de Impacto en el Negocio · Cláusula 8</span><span class="pyme-title" style="display:none;">¿Qué pasa si algo falla?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.2.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">BIA — Procesos críticos identificados y priorizados</div>
+        <span class="pyme-text">¿Sabéis cuáles son los procesos más críticos de vuestra empresa — sin los que no podéis operar?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Análisis de Impacto en el Negocio realizado. Evidencia: documento BIA con todos los procesos evaluados, propietarios asignados.</div>
@@ -366,8 +439,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.2.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Impacto de la interrupción evaluado para cada proceso crítico</div>
+        <span class="pyme-text">¿Habéis calculado cuánto dinero o daño os costaría que cada proceso crítico se pare?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Impacto económico, reputacional y regulatorio cuantificado. Evidencia: matriz de impacto por proceso, escalas de valoración definidas.</div>
@@ -375,8 +450,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.2.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">RTO definido para cada proceso crítico</div>
+        <span class="pyme-text">¿Sabéis cuánto tiempo máximo podéis estar sin cada proceso crítico antes de que sea catastrófico?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Tiempo máximo de recuperación por proceso. Evidencia: RTO documentado por proceso, aprobado por dirección.</div>
@@ -384,8 +461,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.2.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">RPO definido para cada proceso crítico</div>
+        <span class="pyme-text">¿Sabéis cuántos datos máximo podéis perder de cada sistema crítico?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Pérdida máxima de datos aceptable. Evidencia: RPO documentado por proceso, alineado con política de backup.</div>
@@ -393,8 +472,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.2.4</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">MTPD — tiempo máximo tolerable de interrupción definido</div>
+        <span class="pyme-text">¿Sabéis cuándo un incidente es tan grave que ya no hay marcha atrás?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Límite a partir del cual el impacto es irreversible. Evidencia: MTPD por proceso, base para definir el RTO.</div>
@@ -402,19 +483,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.2.5</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Dependencias de recursos identificadas para cada proceso crítico</div>
+        <span class="pyme-text">¿Tenéis mapeado de qué sistemas, personas y proveedores depende cada proceso crítico?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Personal clave, sistemas y proveedores por proceso. Evidencia: mapa de dependencias documentado.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Estrategia y Plan de Continuidad · Cláusula 8</div>
+      <div class="checklist-section-title"><span class="auditor-title">Estrategia y Plan de Continuidad · Cláusula 8</span><span class="pyme-title" style="display:none;">El plan — qué hacéis cuando pasa algo</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Estrategias de continuidad definidas y aprobadas</div>
+        <span class="pyme-text">¿Tenéis definido cómo mantener cada proceso crítico si falla algo importante?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cómo se va a mantener cada proceso crítico. Evidencia: estrategias documentadas, análisis coste-beneficio, aprobación.</div>
@@ -422,8 +507,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.4.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de Continuidad de Negocio (BCP) documentado</div>
+        <span class="pyme-text">¿Tenéis un plan escrito de cómo actuar cuando el negocio se interrumpe?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Procedimientos de activación y recuperación. Evidencia: BCP documentado, versiones controladas.</div>
@@ -431,8 +518,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.4.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de Recuperación ante Desastres (DRP) documentado</div>
+        <span class="pyme-text">¿Tenéis un plan técnico de cómo recuperar los sistemas si caen?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Plan técnico de recuperación de sistemas. Evidencia: DRP por sistema crítico, pasos detallados.</div>
@@ -440,8 +529,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.4.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Procedimientos de respuesta a incidentes integrados en el BCP</div>
+        <span class="pyme-text">¿Sabéis exactamente cuándo activar el plan de continuidad y quién da la orden?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cómo se activa el BCP ante un incidente. Evidencia: umbrales de activación, árbol de decisiones, roles.</div>
@@ -449,8 +540,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.4.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de comunicación de crisis documentado</div>
+        <span class="pyme-text">¿Tenéis preparado cómo comunicar una crisis a empleados, clientes y proveedores?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cómo se comunica durante una interrupción. Evidencia: árbol de llamadas, plantillas de comunicación, portavoz designado.</div>
@@ -458,19 +551,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.4.5</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Medios alternativos para continuidad operativa identificados</div>
+        <span class="pyme-text">Si vuestra oficina o servidor principal no está disponible, ¿tenéis alternativas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Oficinas alternativas, sistemas redundantes. Evidencia: lista de alternativas, contratos o acuerdos vigentes.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Gestión de recursos · Cláusula 7</div>
+      <div class="checklist-section-title"><span class="auditor-title">Gestión de recursos · Cláusula 7</span><span class="pyme-title" style="display:none;">Personas y medios para la continuidad</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">7.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Recursos necesarios para el SGCN identificados y asignados</div>
+        <span class="pyme-text">¿Tenéis presupuesto y personal dedicado a mantener el plan de continuidad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Personal, tecnología y presupuesto. Evidencia: presupuesto aprobado, recursos asignados al equipo de continuidad.</div>
@@ -478,8 +575,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">7.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Competencias del equipo de continuidad verificadas</div>
+        <span class="pyme-text">¿El equipo de continuidad sabe qué hacer de verdad, no solo en teoría?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El equipo sabe qué hacer. Evidencia: formación recibida, registros de competencias, suplentes identificados.</div>
@@ -487,8 +586,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">7.3</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Concienciación sobre continuidad en toda la organización</div>
+        <span class="pyme-text">¿Todos los empleados saben que hay un plan de continuidad y qué papel tienen en él?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El personal conoce los planes. Evidencia: formación a todo el personal, comunicaciones internas.</div>
@@ -496,19 +597,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">7.4</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Comunicación interna y externa sobre continuidad definida</div>
+        <span class="pyme-text">¿Tenéis definido cómo comunicaros internamente y con el exterior si los canales habituales fallan?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Protocolos de comunicación. Evidencia: matriz de comunicación, canales alternativos identificados.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Pruebas y Ejercicios · Cláusula 8</div>
+      <div class="checklist-section-title"><span class="auditor-title">Pruebas y Ejercicios · Cláusula 8</span><span class="pyme-title" style="display:none;">¿Habéis probado que funciona?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.5</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Programa de pruebas y ejercicios de continuidad establecido</div>
+        <span class="pyme-text">¿Hacéis simulacros o pruebas del plan de continuidad al menos una vez al año?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Plan de pruebas anual. Evidencia: calendario de pruebas, tipos de ejercicios definidos.</div>
@@ -516,8 +621,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.5</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Ejercicios de continuidad realizados y documentados</div>
+        <span class="pyme-text">¿Tenéis registrado cómo fueron esas pruebas y qué habría que mejorar?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Pruebas ejecutadas con registro. Evidencia: informes de ejercicios, participantes, resultados, desviaciones.</div>
@@ -525,8 +632,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.5</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">RTO y RPO verificados mediante pruebas reales</div>
+        <span class="pyme-text">¿Habéis verificado en una prueba real que podéis recuperar los sistemas en el tiempo previsto?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los tiempos se han medido, no estimado. Evidencia: registros de pruebas con tiempos reales vs objetivos.</div>
@@ -534,19 +643,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.5</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Plan de mejora derivado de los ejercicios con seguimiento</div>
+        <span class="pyme-text">¿Después de cada prueba o incidente real, mejoráis el plan?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las lecciones aprendidas se implementan. Evidencia: plan de mejora post-ejercicio, estado de cada acción.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Evaluación y Mejora · Cláusulas 9-10</div>
+      <div class="checklist-section-title"><span class="auditor-title">Evaluación y Mejora · Cláusulas 9-10</span><span class="pyme-title" style="display:none;">¿Aprendéis y mejoráis?</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">9.1</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Indicadores de rendimiento del SGCN definidos y medidos</div>
+        <span class="pyme-text">¿Medís si el plan de continuidad funciona con indicadores concretos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">KPIs de continuidad. Evidencia: indicadores definidos, datos de seguimiento, informes periódicos.</div>
@@ -554,8 +667,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">9.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Auditoría interna del SGCN realizada</div>
+        <span class="pyme-text">¿Hacéis auditoría interna del plan de continuidad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Auditoría interna documentada. Evidencia: informe de auditoría interna, no conformidades, seguimiento.</div>
@@ -563,8 +678,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">9.3</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Revisión por la dirección del SGCN documentada</div>
+        <span class="pyme-text">¿La dirección revisa el plan de continuidad al menos una vez al año?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Revisión anual por dirección. Evidencia: actas con entradas y decisiones, compromisos de recursos.</div>
@@ -572,8 +689,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">10.1</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">No conformidades gestionadas con acciones correctivas</div>
+        <span class="pyme-text">¿Las desviaciones que encontráis se corrigen formalmente?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las desviaciones se corrigen. Evidencia: registro de no conformidades, acciones correctivas, verificación.</div>
@@ -581,19 +700,23 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">10.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Mejora continua del SGCN documentada</div>
+        <span class="pyme-text">¿El plan mejora con el tiempo y se adapta a los cambios de la empresa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El sistema mejora con el tiempo. Evidencia: historial de mejoras, comparativa entre revisiones.</div>
         </div>
       </div>
     </div>    <div class="checklist-section">
-      <div class="checklist-section-title">Proveedores críticos</div>
+      <div class="checklist-section-title"><span class="auditor-title">Proveedores críticos</span><span class="pyme-title" style="display:none;">Los proveedores de los que dependéis</span></div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.3</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Proveedores críticos identificados con SLAs que soportan los RTO</div>
+        <span class="pyme-text">¿Los SLAs de vuestros proveedores críticos son compatibles con vuestros tiempos de recuperación?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los SLAs de proveedores son coherentes con el RTO. Evidencia: contratos con SLAs verificados, análisis de coherencia.</div>
@@ -601,8 +724,10 @@
       </div>
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">8.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Planes de contingencia para fallo de proveedores críticos</div>
+        <span class="pyme-text">¿Tenéis un plan B si falla un proveedor crítico?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Qué pasa si falla un proveedor clave. Evidencia: alternativas identificadas, planes de contingencia por proveedor.</div>
@@ -718,6 +843,27 @@ function updateProgress() {
   } else {
     status.className = 'progress-status red';
     status.textContent = '⚠ Nivel crítico — ' + pct + '% completado';
+  }
+}
+
+
+function setModo(modo) {
+  const body = document.body;
+  const btnAuditor = document.getElementById('btn-auditor');
+  const btnPyme = document.getElementById('btn-pyme');
+
+  if (modo === 'pyme') {
+    body.classList.add('modo-pyme');
+    btnPyme.classList.add('active');
+    btnAuditor.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'inline');
+  } else {
+    body.classList.remove('modo-pyme');
+    btnAuditor.classList.add('active');
+    btnPyme.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'inline');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'none');
   }
 }
 

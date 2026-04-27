@@ -271,6 +271,56 @@
   flex-shrink: 0;
 }
 
+
+/* ── MODO DUAL ── */
+.modo-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  width: fit-content;
+}
+.modo-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 18px;
+  border: none;
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.modo-btn.active {
+  background: var(--brand);
+  color: #fff;
+}
+.modo-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 10px;
+}
+/* Textos por modo */
+.pyme-text { display: none; font-size: 15px; color: #444; line-height: 1.5; flex: 1; min-width: 0; }
+.pyme-badge { display: none; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px; margin-left: 6px; flex-shrink: 0; margin-top: 4px; }
+.pyme-badge.facil { background: #eafaf1; color: #1e8449; border: 1px solid #a9dfbf; }
+.pyme-badge.medio { background: #fef3e2; color: #d35400; border: 1px solid #f5cba7; }
+.pyme-badge.complejo { background: #fde; color: #c0392b; border: 1px solid #fab; }
+/* Modo pyme activo */
+body.modo-pyme .checklist-text { display: none !important; }
+body.modo-pyme .pyme-text { display: flex !important; flex: 1; }
+body.modo-pyme .checklist-code { display: none !important; }
+body.modo-pyme .pyme-badge { display: inline-flex !important; align-items: center; }
+body.modo-pyme .info-icon { display: none !important; }
+body.modo-pyme .checklist-section-title { font-size: 13px; letter-spacing: 0.1em; }
+
 </style>
 </head>
 <body>
@@ -298,6 +348,15 @@
       Este checklist cubre los controles más relevantes del Anexo A de ISO 27001:2022. Pasa el ratón sobre el icono <strong>i</strong> para ver la explicación de cada control. No sustituye a un análisis de brecha formal. Los datos no se almacenan.
     </div>
 
+    <!-- MODO TOGGLE -->
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+      <span class="modo-label">Modo vista:</span>
+      <div class="modo-toggle">
+        <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">Auditor</button>
+        <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">Pyme</button>
+      </div>
+    </div>
+
     <!-- PROGRESO -->
     <div class="progress-bar-wrap">
       <div class="progress-bar" id="progress-bar"></div>
@@ -323,12 +382,14 @@
 
     <!-- A.5 ORGANIZACIONALES -->
     <div class="checklist-section">
-      <div class="checklist-section-title">A.5 · Controles Organizacionales</div>
+      <div class="checklist-section-title"><span class="auditor-title">A.5 · Controles Organizacionales</span><span class="pyme-title" style="display:none;">Organización y gestión — las reglas del juego</span></div>
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Políticas de seguridad de la información documentadas, aprobadas y comunicadas</div>
+        <span class="pyme-text">¿Tienes un documento firmado por el jefe que diga cómo protegéis la información? ¿Lo conocen todos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Debe existir una política de seguridad aprobada por la dirección, comunicada a todo el personal y revisada periódicamente. Evidencia: documento de política firmado, actas de comunicación, registro de revisión.</div>
@@ -337,8 +398,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Roles y responsabilidades de seguridad definidos y asignados</div>
+        <span class="pyme-text">¿Hay alguien responsable de la seguridad? ¿Sabe que lo es y qué implica?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cada función de seguridad debe tener un responsable designado. Evidencia: organigrama de seguridad, descripciones de puesto con responsabilidades de seguridad, nombramiento del CISO o equivalente.</div>
@@ -347,8 +410,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.3</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Segregación de funciones implementada en tareas críticas</div>
+        <span class="pyme-text">¿Alguien puede hacer transferencias Y aprobarlas solo? ¿O siempre hay dos personas en tareas importantes?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Ninguna persona debe controlar un proceso crítico de principio a fin sin supervisión. Evidencia: matriz de roles y permisos, controles en sistemas que impidan acciones sin doble aprobación en tareas sensibles.</div>
@@ -357,8 +422,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.7</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Inteligencia de amenazas — recopilación y análisis de información</div>
+        <span class="pyme-text">¿Estáis al tanto de los ciberataques que afectan a empresas como la vuestra? ¿Alguien os avisa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La organización debe estar al tanto de las amenazas relevantes para su sector. Evidencia: suscripción a fuentes de threat intelligence (INCIBE, CCN-CERT, ISACs sectoriales), registros de análisis de amenazas.</div>
@@ -367,8 +434,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.8</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Seguridad de la información integrada en la gestión de proyectos</div>
+        <span class="pyme-text">Cuando lanzáis un proyecto nuevo, ¿alguien pregunta qué datos manejará y cómo los protegeréis?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Todo proyecto que afecte a sistemas de información debe incluir requisitos de seguridad desde el inicio. Evidencia: plantillas de proyecto con sección de seguridad, revisiones de seguridad en hitos del proyecto.</div>
@@ -377,8 +446,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.9</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Inventario de activos de información actualizado</div>
+        <span class="pyme-text">¿Tenéis una lista de todos los sistemas, ordenadores y aplicaciones que usáis? ¿Está actualizada?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Debe existir un inventario de todos los activos que procesan o almacenan información. Evidencia: listado actualizado con propietario, clasificación y ubicación de cada activo. Sin inventario no hay seguridad real.</div>
@@ -387,8 +458,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.12</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Clasificación de la información según esquema definido</div>
+        <span class="pyme-text">¿Sabéis qué información es confidencial y cuál no? ¿Los empleados lo saben también?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La información debe clasificarse por sensibilidad (ej. Pública, Interna, Confidencial, Secreta). Evidencia: política de clasificación, etiquetado de documentos y sistemas, formación al personal sobre cómo clasificar.</div>
@@ -397,8 +470,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.15</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Control de acceso basado en necesidad de negocio y mínimo privilegio</div>
+        <span class="pyme-text">¿Cada empleado accede solo a lo que necesita para su trabajo? ¿O todo el mundo puede ver todo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cada usuario accede solo a lo que necesita para su función. Evidencia: política de control de acceso, matriz de permisos por rol, evidencia de que no hay accesos genéricos o excesivos.</div>
@@ -407,8 +482,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.16</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de identidades con ciclo de vida completo</div>
+        <span class="pyme-text">Cuando alguien entra a trabajar, ¿le creáis los accesos? Y cuando se va, ¿los elimináis el mismo día?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Proceso formal para crear, modificar y eliminar cuentas de usuario. Evidencia: procedimiento de altas/bajas/modificaciones, registros de solicitudes, evidencia de que las cuentas se eliminan al cesar la relación laboral.</div>
@@ -417,8 +494,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.18</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Derechos de acceso revisados y revocados cuando no son necesarios</div>
+        <span class="pyme-text">¿Revisáis una vez al año si los accesos que tiene cada empleado siguen siendo los correctos?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los accesos deben revisarse al menos anualmente. Evidencia: registros de revisiones periódicas firmados por responsables, evidencia de revocaciones realizadas tras cambios de rol o baja del personal.</div>
@@ -427,8 +506,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.19</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Seguridad de la información en las relaciones con proveedores</div>
+        <span class="pyme-text">¿Los proveedores que acceden a vuestros sistemas tienen obligaciones de seguridad firmadas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los proveedores que acceden a información deben cumplir requisitos de seguridad. Evidencia: política de proveedores, listado de proveedores con acceso a información, evaluación de riesgos por proveedor.</div>
@@ -437,8 +518,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.20</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Requisitos de seguridad incluidos en contratos con proveedores</div>
+        <span class="pyme-text">¿Vuestros contratos con proveedores incluyen cláusulas sobre cómo deben proteger vuestra información?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los contratos con proveedores deben incluir cláusulas de seguridad, confidencialidad y derechos de auditoría. Evidencia: contratos revisados con cláusulas de seguridad, DPA firmados cuando aplica el RGPD.</div>
@@ -447,8 +530,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.24</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Planificación y preparación de la gestión de incidentes</div>
+        <span class="pyme-text">Si os hackean mañana, ¿sabéis qué hacer? ¿Quién decide, quién llama a quién, en qué orden?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Debe existir un procedimiento de respuesta a incidentes antes de que ocurran. Evidencia: plan de respuesta a incidentes documentado, roles definidos, canal de notificación interno, formación del equipo de respuesta.</div>
@@ -457,8 +542,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.26</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Respuesta a incidentes de seguridad documentada y ejecutada</div>
+        <span class="pyme-text">Cuando ocurre un problema de seguridad, ¿lo documentáis y aprendéis de él para que no se repita?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los incidentes deben gestionarse, documentarse y analizarse para aprender. Evidencia: registro de incidentes, informes post-incidente, lecciones aprendidas aplicadas a mejoras del sistema.</div>
@@ -467,8 +554,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.29</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Seguridad de la información durante una interrupción</div>
+        <span class="pyme-text">Si caen vuestros sistemas por un incidente, ¿tenéis un plan para seguir operando mientras los recuperáis?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La seguridad debe mantenerse durante una crisis o interrupción. Evidencia: plan de continuidad que contempla la seguridad de la información, procedimientos de emergencia con controles de seguridad integrados.</div>
@@ -477,8 +566,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.31</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Requisitos legales, estatutarios y contractuales identificados</div>
+        <span class="pyme-text">¿Sabéis qué leyes de seguridad y privacidad os aplican? ¿RGPD, ENS, NIS2, sector específico?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La organización debe conocer todas sus obligaciones legales en materia de información. Evidencia: registro de requisitos legales (RGPD, ENS, NIS2, sector específico), responsable de cumplimiento designado.</div>
@@ -487,8 +578,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.5.36</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Cumplimiento de políticas verificado periódicamente</div>
+        <span class="pyme-text">¿Comprobáis periódicamente que las normas de seguridad que tenéis escritas se cumplen de verdad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">No basta con tener políticas — hay que verificar que se cumplen. Evidencia: registros de auditorías internas, revisiones técnicas de configuraciones, informes de cumplimiento con plan de mejora.</div>
@@ -499,12 +592,14 @@
 
     <!-- A.6 PERSONAS -->
     <div class="checklist-section">
-      <div class="checklist-section-title">A.6 · Controles de Personas</div>
+      <div class="checklist-section-title"><span class="auditor-title">A.6 · Controles de Personas</span><span class="pyme-title" style="display:none;">Personas — quién hace qué y cómo</span></div>
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Verificación de antecedentes antes de la contratación</div>
+        <span class="pyme-text">¿Cuando contratáis a alguien para un puesto con acceso a información sensible, verificáis sus referencias?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Para puestos con acceso a información sensible debe verificarse la identidad, historial laboral y en algunos casos antecedentes penales. Evidencia: proceso documentado de verificación, registros de comprobaciones realizadas.</div>
@@ -513,8 +608,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.2</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Responsabilidades de seguridad en los contratos de empleo</div>
+        <span class="pyme-text">¿Los contratos de trabajo incluyen que el empleado debe proteger la información de la empresa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los empleados deben conocer y aceptar sus obligaciones de seguridad. Evidencia: contratos que incluyen cláusulas de confidencialidad y seguridad, acuses de recibo de políticas firmados.</div>
@@ -523,8 +620,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.3</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Concienciación, educación y formación en seguridad</div>
+        <span class="pyme-text">¿Los empleados reciben formación sobre cómo proteger la información? ¿Al menos una vez al año?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Todo el personal debe recibir formación en seguridad adecuada a su rol. Evidencia: plan de formación, registros de asistencia o completación, simulaciones de phishing, evaluaciones de conocimiento.</div>
@@ -533,8 +632,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.5</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Responsabilidades de seguridad tras la terminación del empleo</div>
+        <span class="pyme-text">Cuando alguien deja la empresa, ¿le quitáis todos los accesos ese mismo día y le pedís que devuelva el equipo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Al finalizar la relación laboral deben revocarse todos los accesos y recuperarse los activos. Evidencia: checklist de offboarding con seguridad, registro de revocaciones, devolución de equipos documentada.</div>
@@ -543,8 +644,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.6</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Acuerdos de confidencialidad firmados</div>
+        <span class="pyme-text">¿Todos los empleados y colaboradores externos han firmado un acuerdo de confidencialidad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Todo el personal y colaboradores externos con acceso a información deben firmar NDA. Evidencia: NDAs firmados archivados, proceso para nuevas contrataciones y proveedores externos.</div>
@@ -553,8 +656,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.7</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Controles para el trabajo remoto implementados</div>
+        <span class="pyme-text">¿Los que trabajan desde casa tienen normas claras? ¿VPN obligatoria, equipo cifrado, sin wifi pública?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El trabajo remoto introduce riesgos adicionales que deben controlarse. Evidencia: política de teletrabajo, VPN obligatoria, cifrado de equipos portátiles, prohibición de redes wifi públicas sin VPN.</div>
@@ -563,8 +668,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.6.8</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Canal de notificación de eventos de seguridad disponible</div>
+        <span class="pyme-text">¿Saben vuestros empleados a quién avisar si sospechan que algo raro está pasando con la seguridad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El personal debe saber cómo y a quién reportar un incidente o sospecha. Evidencia: canal de reporte conocido (email, helpdesk, formulario), formación sobre qué reportar, cultura de notificación sin represalias.</div>
@@ -575,12 +682,14 @@
 
     <!-- A.7 FÍSICOS -->
     <div class="checklist-section">
-      <div class="checklist-section-title">A.7 · Controles Físicos</div>
+      <div class="checklist-section-title"><span class="auditor-title">A.7 · Controles Físicos</span><span class="pyme-title" style="display:none;">Seguridad física — lo que se puede tocar</span></div>
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.1</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Perímetros de seguridad física definidos y protegidos</div>
+        <span class="pyme-text">¿Las zonas donde guardáis información importante tienen acceso restringido? ¿Solo entra quien debe?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las áreas donde se procesa información sensible deben estar físicamente delimitadas y protegidas. Evidencia: planos con zonas de seguridad definidas, controles de acceso físico en cada zona, política de acceso a instalaciones.</div>
@@ -589,8 +698,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.2</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Controles de entrada física — solo personal autorizado</div>
+        <span class="pyme-text">¿Para entrar a la sala de servidores o zonas sensibles hace falta identificarse o tener tarjeta?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El acceso a áreas seguras debe requerir identificación y autorización. Evidencia: tarjetas de acceso, registros de entradas/salidas, visitantes siempre acompañados, CCTV en zonas críticas.</div>
@@ -599,8 +710,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.7</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Política de mesa limpia y pantalla limpia implementada</div>
+        <span class="pyme-text">¿Los empleados bloquean el ordenador cuando se levantan? ¿Y no dejan papeles con información sensible en la mesa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La información sensible no debe quedar visible o accesible cuando el puesto está desatendido. Evidencia: política documentada, bloqueo automático de pantalla configurado, ausencia de documentos sensibles en mesas desatendidas.</div>
@@ -609,8 +722,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.9</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Seguridad de activos fuera de las instalaciones</div>
+        <span class="pyme-text">¿Tenéis normas para los portátiles que salen de la oficina? ¿Qué pasa si se pierde o roban uno?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los equipos que salen de la organización deben estar protegidos. Evidencia: política de uso de equipos fuera de instalaciones, cifrado de portátiles, prohibición de dejar equipos en vehículos, gestión de pérdidas y robos.</div>
@@ -619,8 +734,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.10</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Soportes de almacenamiento gestionados durante su ciclo de vida</div>
+        <span class="pyme-text">¿Controláis los USB y discos externos que se usan en la empresa? ¿O cualquiera puede conectar cualquier cosa?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">USB, discos externos, cintas y otros soportes deben controlarse. Evidencia: inventario de soportes, política de uso de medios removibles, controles técnicos que limiten su uso no autorizado.</div>
@@ -629,8 +746,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.7.14</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Eliminación o reutilización segura de equipos</div>
+        <span class="pyme-text">Cuando dais de baja un ordenador o disco, ¿borráis los datos de forma que no se puedan recuperar?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Antes de desechar o reutilizar equipos, los datos deben destruirse de forma segura. Evidencia: procedimiento de borrado seguro, registros de equipos dados de baja con método de borrado aplicado, certificados de destrucción cuando aplique.</div>
@@ -641,12 +760,14 @@
 
     <!-- A.8 TECNOLÓGICOS -->
     <div class="checklist-section">
-      <div class="checklist-section-title">A.8 · Controles Tecnológicos</div>
+      <div class="checklist-section-title"><span class="auditor-title">A.8 · Controles Tecnológicos</span><span class="pyme-title" style="display:none;">Tecnología — sistemas, redes y datos</span></div>
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.2</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de accesos privilegiados con controles específicos</div>
+        <span class="pyme-text">¿Las personas que administran vuestros sistemas tienen una cuenta especial para eso, separada de su cuenta normal?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las cuentas con privilegios elevados (administradores) requieren controles adicionales. Evidencia: cuentas privilegiadas separadas de las cuentas de uso diario, MFA obligatorio, registro de todas las acciones privilegiadas, revisión periódica de quién tiene privilegios.</div>
@@ -655,8 +776,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.5</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Autenticación segura — MFA en accesos críticos</div>
+        <span class="pyme-text">¿Para acceder al correo, la VPN y los sistemas importantes se necesita algo más que la contraseña — como un código en el móvil?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El acceso a sistemas críticos debe requerir más de un factor de autenticación. Evidencia: MFA implementado en correo, VPN, sistemas de administración y aplicaciones críticas. Política de contraseñas con longitud mínima y sin reutilización.</div>
@@ -665,8 +788,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.7</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Protección contra malware implementada y actualizada</div>
+        <span class="pyme-text">¿Todos los ordenadores tienen antivirus instalado y actualizado?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Todos los sistemas deben estar protegidos contra código malicioso. Evidencia: antimalware instalado y actualizado en todos los endpoints, gestión centralizada, alertas activas, escaneos periódicos.</div>
@@ -675,8 +800,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.8</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de vulnerabilidades técnicas con proceso de parcheo</div>
+        <span class="pyme-text">¿Actualizáis el software regularmente? ¿Tenéis alguien pendiente de los parches de seguridad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Las vulnerabilidades conocidas deben identificarse y corregirse sistemáticamente. Evidencia: proceso de gestión de vulnerabilidades, escaneos periódicos, SLA para aplicación de parches por criticidad, registro de vulnerabilidades pendientes.</div>
@@ -685,8 +812,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.9</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Gestión de la configuración — línea base de seguridad</div>
+        <span class="pyme-text">¿Los ordenadores y servidores están configurados de forma segura — sin programas innecesarios, sin puertos abiertos que no usáis?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los sistemas deben configurarse según estándares de seguridad documentados. Evidencia: líneas base de configuración por tipo de sistema, proceso de hardening, control de cambios de configuración, verificación periódica de desviaciones.</div>
@@ -695,8 +824,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.10</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Eliminación de información — borrado seguro de datos</div>
+        <span class="pyme-text">¿Cuando eliminéis un archivo con datos sensibles, lo hacéis de forma que no se pueda recuperar?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Cuando la información ya no es necesaria, debe eliminarse de forma que no sea recuperable. Evidencia: procedimiento de borrado seguro, herramientas certificadas, registros de eliminación, consideración especial para entornos cloud y virtualizados.</div>
@@ -705,8 +836,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.13</div>
+        <span class="pyme-badge facil">facil</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Copias de seguridad con pruebas de restauración documentadas</div>
+        <span class="pyme-text">¿Hacéis copias de seguridad? ¿Las habéis probado alguna vez para ver si se pueden recuperar de verdad?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Tener backup no es suficiente — debe verificarse que se puede restaurar. Evidencia: política de backup, registros de copias realizadas, registros de pruebas de restauración con tiempos reales, RTO y RPO definidos y verificados.</div>
@@ -715,8 +848,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.15</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Registro de actividad de sistemas y aplicaciones críticas</div>
+        <span class="pyme-text">¿Los sistemas guardan un registro de quién ha accedido a qué y cuándo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los eventos de seguridad deben registrarse para permitir su análisis. Evidencia: logs activados en sistemas críticos, política de retención de logs, protección de integridad de registros, revisión periódica.</div>
@@ -725,8 +860,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.16</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Monitorización de actividades y eventos de seguridad</div>
+        <span class="pyme-text">¿Alguien revisa esos registros de actividad? ¿O solo están ahí por si pasa algo?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los registros deben analizarse activamente para detectar amenazas. Evidencia: SIEM o herramienta equivalente, alertas configuradas para eventos críticos, procedimiento de respuesta a alertas, responsable de monitorización designado.</div>
@@ -735,8 +872,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.20</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Seguridad de redes — segmentación y controles de tráfico</div>
+        <span class="pyme-text">¿Vuestra red está dividida? ¿Los ordenadores de oficina están separados de los servidores y del wifi de visitas?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La red debe estar segmentada para limitar el movimiento lateral. Evidencia: diagrama de red actualizado, VLANs con políticas de firewall entre segmentos, separación de redes de usuario, servidores, backup y gestión.</div>
@@ -745,8 +884,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.22</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Segregación de redes — separación de entornos críticos</div>
+        <span class="pyme-text">¿El entorno de desarrollo o pruebas está separado del sistema que usan los clientes?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">Los entornos de producción, desarrollo y pruebas deben estar separados. Evidencia: redes separadas físicamente o lógicamente, controles que impidan el acceso cruzado no autorizado, no usar datos reales en entornos de prueba.</div>
@@ -755,8 +896,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.24</div>
+        <span class="pyme-badge medio">medio</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Uso de criptografía — política y gestión de claves</div>
+        <span class="pyme-text">¿Las comunicaciones importantes van cifradas? ¿HTTPS en la web, cifrado en el correo si manejáis datos sensibles?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">El cifrado debe usarse sistemáticamente para proteger información sensible. Evidencia: política de criptografía, algoritmos y longitudes de clave definidas, proceso de gestión del ciclo de vida de claves, cifrado en tránsito (TLS) y en reposo.</div>
@@ -765,8 +908,10 @@
 
       <div class="checklist-item" onclick="toggleItem(event, this)">
         <div class="checklist-code">A.8.25</div>
+        <span class="pyme-badge complejo">complejo</span>
         <div class="checklist-checkbox"></div>
         <div class="checklist-text">Ciclo de vida de desarrollo seguro</div>
+        <span class="pyme-text">Si desarrolláis software, ¿la seguridad se tiene en cuenta desde el principio, no como un añadido al final?</span>
         <div class="tooltip-wrap" onclick="event.stopPropagation()">
           <div class="info-icon" onclick="toggleTooltip(event, this)">i</div>
           <div class="tooltip">La seguridad debe integrarse en el desarrollo de software desde el inicio. Evidencia: requisitos de seguridad en el análisis, revisiones de código, pruebas de seguridad antes del despliegue, gestión de dependencias de terceros.</div>
@@ -893,6 +1038,27 @@ function updateProgress() {
   } else {
     status.className = 'progress-status red';
     status.textContent = '⚠ Nivel crítico — ' + pct + '% completado';
+  }
+}
+
+
+function setModo(modo) {
+  const body = document.body;
+  const btnAuditor = document.getElementById('btn-auditor');
+  const btnPyme = document.getElementById('btn-pyme');
+
+  if (modo === 'pyme') {
+    body.classList.add('modo-pyme');
+    btnPyme.classList.add('active');
+    btnAuditor.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'inline');
+  } else {
+    body.classList.remove('modo-pyme');
+    btnAuditor.classList.add('active');
+    btnPyme.classList.remove('active');
+    document.querySelectorAll('.auditor-title').forEach(el => el.style.display = 'inline');
+    document.querySelectorAll('.pyme-title').forEach(el => el.style.display = 'none');
   }
 }
 
