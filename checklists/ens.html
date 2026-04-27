@@ -354,14 +354,43 @@ body.modo-pyme .checklist-section-title { font-size: 13px; letter-spacing: 0.1em
       <div class="leyenda-item"><div class="leyenda-dot" style="background:#27ae60"></div>80-100% Avanzada</div>
       <div class="leyenda-item" style="margin-left:auto;"><div class="info-icon" style="cursor:default;">i</div><span>= explicaci&#243;n</span></div>
     </div>
-    <!-- MODO TOGGLE -->
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-      <span class="modo-label">Modo vista:</span>
-      <div class="modo-toggle">
-        <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">Auditor</button>
-        <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">Pyme</button>
+    <!-- MODO TOGGLE MEJORADO -->
+    <div style="margin-bottom:24px; padding:14px; border:1px solid #e5e7eb; border-radius:6px; background:#f9fbfd;">
+    
+      <!-- TITULAR -->
+      <div style="font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#0077B5; margin-bottom:6px;">
+        ¿Cómo quieres ver este checklist?
       </div>
-    </div>
+    
+      <!-- DESCRIPCIÓN -->
+      <div style="font-size:13px; color:#666; margin-bottom:12px;">
+        Elige el enfoque según tu realidad:
+        <strong>Auditor</strong> (cumplimiento y evidencia) · 
+        <strong>Pyme</strong> (lenguaje claro y práctico)
+      </div>
+      
+      <!-- MENSAJE -->
+        <div style="font-size:12px; color:#444;">
+          Cambia la forma de entender la seguridad en un clic
+        </div> <br>
+    
+      <!-- BOTONES -->
+      <div style="display:flex; align-items:center; gap:12px;">
+        
+        <div class="modo-toggle">
+          <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">
+            🧾 Auditor
+          </button>
+          <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">
+            🏢 Pyme
+          </button>
+        </div>
+    
+        
+    
+      </div>
+
+</div>
 
     <div class="tabs">
       <button class="tab-btn active" onclick="switchTab('basica',this)">B&#225;sica</button>
