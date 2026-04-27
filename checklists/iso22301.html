@@ -331,14 +331,43 @@ body.modo-pyme .checklist-section-title { font-size: 13px; letter-spacing: 0.1em
   </div>
   <div class="body">
     <div class="aviso">Checklist orientativo de ISO 22301:2019. Evalúa la madurez de tu SGCN. No sustituye a un análisis formal. Los datos no se almacenan.</div>
-    <!-- MODO TOGGLE -->
-    <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-      <span class="modo-label">Modo vista:</span>
-      <div class="modo-toggle">
-        <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">Auditor</button>
-        <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">Pyme</button>
+<!-- MODO TOGGLE MEJORADO -->
+    <div style="margin-bottom:24px; padding:14px; border:1px solid #e5e7eb; border-radius:6px; background:#f9fbfd;">
+    
+      <!-- TITULAR -->
+      <div style="font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#0077B5; margin-bottom:6px;">
+        ¿Cómo quieres ver este checklist?
       </div>
-    </div>
+    
+      <!-- DESCRIPCIÓN -->
+      <div style="font-size:13px; color:#666; margin-bottom:12px;">
+        Elige el enfoque según tu realidad:
+        <strong>Auditor</strong> (cumplimiento y evidencia) · 
+        <strong>Pyme</strong> (lenguaje claro y práctico)
+      </div>
+      
+      <!-- MENSAJE -->
+        <div style="font-size:12px; color:#444;">
+          Cambia la forma de entender la seguridad en un clic
+        </div> <br>
+    
+      <!-- BOTONES -->
+      <div style="display:flex; align-items:center; gap:12px;">
+        
+        <div class="modo-toggle">
+          <button class="modo-btn active" id="btn-auditor" onclick="setModo('auditor')">
+            🧾 Auditor
+          </button>
+          <button class="modo-btn" id="btn-pyme" onclick="setModo('pyme')">
+            🏢 Pyme
+          </button>
+        </div>
+    
+        
+    
+      </div>
+
+</div>
 
     <div class="progress-bar-wrap">
       <div class="progress-bar" id="progress-bar"></div>
