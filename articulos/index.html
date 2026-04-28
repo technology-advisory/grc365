@@ -622,5 +622,50 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+	// contar Articulos
+	<script>
+function updateCategoryCounts() {
+  const counts = {};
+
+  // Inicializar contadores
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    const cat = btn.dataset.filter;
+    if (cat !== 'all') counts[cat] = 0;
+  });
+
+  let total = 0;
+
+  // Contar artículos
+  document.querySelectorAll('.article-card').forEach(card => {
+    const cats = (card.dataset.cat || '').split(' ');
+    total++;
+
+    cats.forEach(cat => {
+      if (counts.hasOwnProperty(cat)) {
+        counts[cat]++;
+      }
+    });
+  });
+
+  // Pintar números en botones
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    const cat = btn.dataset.filter;
+
+    if (cat === 'all') {
+      btn.innerText = `Todo (${total})`;
+    } else {
+      const baseText = btn.innerText.split(' (')[0];
+      btn.innerText = `${baseText} (${counts[cat] || 0})`;
+    }
+  });
+}
+
+// Ejecutar cuando cargue la página
+window.addEventListener('DOMContentLoaded', () => {
+  updateCategoryCounts();
+});
+</script>
+	// Fin contar articulos
+
 </body>
 </html>
