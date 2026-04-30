@@ -14,53 +14,9 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="../css/marca.css">
 <link rel="stylesheet" href="../css/articles.css">
-
-<style>
-.share-block {
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:16px 24px;
-  border-top:1px solid var(--border-soft);
-  border-bottom:1px solid var(--border-soft);
-  margin-top: 30px;
-}
-
-.share-label {
-  font-family:var(--mono);
-  font-size:11px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
-.share-btn {
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-family:var(--mono);
-  font-size:11px;
-  font-weight:bold;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:#0077B5;
-  text-decoration:none;
-  border:1px solid #0077B5;
-  padding:7px 14px;
-  border-radius:3px;
-  transition:all 0.15s;
-}
-
-.share-btn:hover {
-  background:#0077B5;
-  color:#fff;
-}
-</style>
-
 </head>
 
 <body class="article-page">
-
 <div class="card-wrapper">
 <div class="card">
 <div class="accent-bar"></div>
@@ -82,7 +38,75 @@
 
 <div class="body">
 
-  <!-- CONTENIDO (sin cambios) -->
+  <div class="block">
+    <div class="block-label">El patrón que se repite</div>
+    <div class="block-title">Seguridad como afterthought</div>
+    <div class="block-text">
+      El proyecto se diseña, se desarrolla y se despliega. Cuando ya está en producción, alguien recuerda que hay que "revisar la seguridad".
+      <br><br>
+      Se llama a un consultor, se hace un análisis, se encuentran problemas. Y entonces empieza el trabajo más caro y más frustrante de la seguridad: intentar añadir controles a un sistema que no fue diseñado para tenerlos.
+      <br><br>
+      Parches sobre parches. Configuraciones que compensan decisiones de arquitectura que no se pueden cambiar fácilmente. Controles que funcionan a medias porque el sistema subyacente no los soporta bien.
+      <br><br>
+      <strong>Este patrón no es infrecuente. Es la norma en la mayoría de organizaciones que no aplican Security by Design desde el principio.</strong>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">Qué es Security by Design</div>
+    <div class="block-title">No es una metodología — es una mentalidad</div>
+    <div class="block-text">
+      Security by Design significa integrar los requisitos y controles de seguridad desde el inicio del diseño de cualquier sistema, aplicación o infraestructura — no al final.
+      <br><br>
+      No es una fase del proyecto. Es una forma de pensar que impregna todas las fases.
+      <br><br>
+      <strong>La diferencia está en diseñar sistemas seguros, no en intentar protegerlos después.</strong>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">Los principios</div>
+    <div class="block-title">Lo que guía un diseño seguro</div>
+
+    <table class="tension" style="margin-top:20px;">
+      <tr>
+        <td class="tension-who">Mínimo privilegio</td>
+        <td class="tension-says">Acceso solo a lo necesario.</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Defensa en profundidad</td>
+        <td class="tension-says">Capas de protección.</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Fail secure</td>
+        <td class="tension-says">Fallar de forma segura.</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Superficie mínima</td>
+        <td class="tension-says">Exponer solo lo necesario.</td>
+      </tr>
+      <tr class="hi-row">
+        <td class="tension-who">Trazabilidad</td>
+        <td class="tension-says"><span class="hi">Diseñar para auditar.</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">En la práctica</div>
+    <div class="block-title">Cómo se aplica</div>
+    <div class="block-text">
+      Infraestructura, software y cloud deben diseñarse con seguridad desde el inicio.
+      <br><br>
+      <strong>El coste es menor. El resultado es infinitamente mejor.</strong>
+    </div>
+  </div>
 
   <div class="cta-block">
     <div class="cta-headline">
@@ -90,24 +114,37 @@
       <span>seguridad desde el diseño?</span>
     </div>
     <div class="cta-sub">
-      Como arquitecto de infraestructura y ciberseguridad —<br>
-      <strong>hacerlo bien desde el principio marca la diferencia.</strong>
+      <strong><a href="/contacto.html">Hablemos.</a></strong>
     </div>
   </div>
 
-  <!-- SHARE -->
-  <div class="share-block">
-    <span class="share-label">¿Te ha resultado útil?</span>
-    <a id="share-linkedin" href="#" target="_blank" class="share-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5" width="16" height="16">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-      </svg>
-      Compartir en LinkedIn
-    </a>
-  </div>
+</div>
 
-</div><!-- body -->
+<!-- SHARE BLOCK -->
+<div class="share-block">
+  <span class="share-label">¿Te ha resultado útil?</span>
+  <a id="share-linkedin" href="#" target="_blank" class="share-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5" width="16" height="16">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+    </svg>
+    Compartir en LinkedIn
+  </a>
+</div>
 
+<style>
+.share-block { display:flex; align-items:center; gap:14px; padding:16px 24px; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft); }
+.share-label { font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+.share-btn { display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px; font-weight:bold; letter-spacing:0.1em; text-transform:uppercase; color:#0077B5; text-decoration:none; border:1px solid #0077B5; padding:7px 14px; border-radius:3px; transition:all 0.15s; }
+.share-btn:hover { background:#0077B5; color:#fff; }
+</style>
+
+<script>
+document.getElementById('share-linkedin').href =
+  'https://www.linkedin.com/sharing/share-offsite/?url=' +
+  encodeURIComponent(window.location.href);
+</script>
+
+<!-- FOOTER -->
 <div class="footer">
   <div class="footer-inner">
     <div class="author-block">
@@ -117,15 +154,6 @@
         <div class="author-title">Cybersecurity & Infrastructure Architect</div>
       </div>
     </div>
-    <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
-      <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-      </svg>
-      <div>
-        <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
-        <span class="li-sub">Reflexiones en LinkedIn &rarr;</span>
-      </div>
-    </a>
   </div>
 </div>
 
@@ -133,14 +161,6 @@
 </div>
 
 <a href="/articulos/index.html" class="home-btn">⌂ Home Artículos</a>
-
-<script>
-const shareBtn = document.getElementById('share-linkedin');
-if (shareBtn) {
-  const url = encodeURIComponent(window.location.href);
-  shareBtn.href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-}
-</script>
 
 </body>
 </html>
