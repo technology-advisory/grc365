@@ -578,12 +578,49 @@
 <a href="/index.html" class="home-btn">⌂ Home</a>
 
 <script>
+// ==============================
+// PARSEAR FECHA EN ESPAÑOL
+// ==============================
+function parseSpanishDate(text) {
+  const months = {
+    enero: 0, febrero: 1, marzo: 2, abril: 3,
+    mayo: 4, junio: 5, julio: 6, agosto: 7,
+    septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11
+  };
+
+  const parts = text.toLowerCase().split(' ');
+  const day = parseInt(parts[0]);
+  const month = months[parts[1]];
+  const year = parseInt(parts[2]);
+
+  return new Date(year, month, day);
+}
+
+// ==============================
+// ORDENAR ARTÍCULOS POR FECHA
+// ==============================
+function sortArticles() {
+  const grid = document.getElementById('articlesGrid');
+  const cards = Array.from(grid.querySelectorAll('.article-card'));
+
+  cards.sort((a, b) => {
+    const dateA = parseSpanishDate(a.querySelector('.article-date').innerText);
+    const dateB = parseSpanishDate(b.querySelector('.article-date').innerText);
+    return dateB - dateA; // más nuevos arriba
+  });
+
+  cards.forEach(card => grid.appendChild(card));
+}
+
+// ==============================
+// FILTRAR ARTÍCULOS
+// ==============================
 function filterArticles(cat, btn) {
-  // Actualizar botones
+  // Botones activos
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 
-  // Guardar filtro en URL sin recargar
+  // Guardar en URL
   const url = new URL(window.location);
   if (cat === 'all') {
     url.searchParams.delete('cat');
@@ -592,7 +629,7 @@ function filterArticles(cat, btn) {
   }
   history.replaceState(null, '', url);
 
-  // Filtrar cards
+  // Filtrar
   let visible = 0;
   document.querySelectorAll('.article-card').forEach(card => {
     if (cat === 'all') {
@@ -609,25 +646,19 @@ function filterArticles(cat, btn) {
     }
   });
 
-  // Mostrar mensaje si no hay resultados
+  // Mensaje vacío
   document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+
+  // 🔥 ORDENAR DESPUÉS DE FILTRAR
+  sortArticles();
 }
 
-// Al cargar la página, leer el filtro de la URL
-window.addEventListener('DOMContentLoaded', () => {
-  const params = new URLSearchParams(window.location.search);
-  const cat = params.get('cat') || 'all';
-  const btn = document.querySelector(`[data-filter="${cat}"]`);
-  if (btn) filterArticles(cat, btn);
-});
-</script>
-
-	// contar Articulos
-	<script>
+// ==============================
+// CONTAR ARTÍCULOS POR CATEGORÍA
+// ==============================
 function updateCategoryCounts() {
   const counts = {};
 
-  // Inicializar contadores
   document.querySelectorAll('.filter-btn').forEach(btn => {
     const cat = btn.dataset.filter;
     if (cat !== 'all') counts[cat] = 0;
@@ -635,7 +666,6 @@ function updateCategoryCounts() {
 
   let total = 0;
 
-  // Contar artículos
   document.querySelectorAll('.article-card').forEach(card => {
     const cats = (card.dataset.cat || '').split(' ');
     total++;
@@ -647,7 +677,6 @@ function updateCategoryCounts() {
     });
   });
 
-  // Pintar números en botones
   document.querySelectorAll('.filter-btn').forEach(btn => {
     const cat = btn.dataset.filter;
 
@@ -660,12 +689,25 @@ function updateCategoryCounts() {
   });
 }
 
-// Ejecutar cuando cargue la página
+// ==============================
+// INICIO
+// ==============================
 window.addEventListener('DOMContentLoaded', () => {
+
+  // 1. Ordenar primero
+  sortArticles();
+
+  // 2. Contadores
   updateCategoryCounts();
+
+  // 3. Filtro desde URL
+  const params = new URLSearchParams(window.location.search);
+  const cat = params.get('cat') || 'all';
+  const btn = document.querySelector(`[data-filter="${cat}"]`);
+
+  if (btn) filterArticles(cat, btn);
 });
 </script>
-	// Fin contar articulos
 
 </body>
 </html>
