@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>BIA · RTO/RPO · BCP/DRP · GRCreal</title>
+<meta name="description" content="Herramienta guiada para Análisis de Impacto de Negocio (BIA), definición de RTO/RPO y planes de continuidad. Alineado con ISO 27001, ISO 22301 y ENS.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="../css/marca.css">
+
+<style>
+
+/* ── VARIABLES BASE ── */
+:root {
+  --brand: #2c7da0;
+  --brand-dark: #1f5e7a;
+  --brand-light: #e8f4f8;
+  --brand-mid: #a9d6e5;
+  --border: #d4d9e2;
+  --border-soft: #e9ecef;
+  --muted: #6c757d;
+  --white: #ffffff;
+  --surface: #f8f9fa;
+  --danger: #e63946;
+  --warning: #f4a261;
+  --success: #2a9d8f;
+  --info: #2c7da0;
+  --mono: 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Code', monospace;
+  --sans: system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f0f2f5;
+  font-family: var(--sans);
+  line-height: 1.5;
+  padding: 24px 16px;
+}
+
+.card-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.accent-bar {
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand), var(--success), var(--brand));
+  width: 100%;
+}
+
+.header {
+  padding: 32px 32px 0 32px;
+}
+
+.tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: var(--brand-light);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.headline {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.headline .accent { color: var(--brand); }
+.headline .dim { color: #adb5bd; }
+
+.subline {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 600px;
+}
+
+.body {
+  padding: 32px;
+}
+
+/* ── WIZARD NAV ── */
+.wizard-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 16px;
+}
+.wizard-step {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  color: var(--muted);
+  background: var(--white);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.wizard-step.active {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.wizard-step.done {
+  background: var(--brand-light);
+  color: var(--brand);
+  border-color: var(--brand-mid);
+}
+.wizard-step:hover:not(.active) {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+/* ── PROGRESS ── */
+.progress-bar-wrap {
+  background: var(--border-soft);
+  border-radius: 20px;
+  height: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+  width: 0%;
+  background-color: var(--brand);
+}
+.progress-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.progress-label span { color: var(--brand); font-weight: bold; }
+.progress-status {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  padding: 4px 12px;
+  display: inline-block;
+  border-radius: 20px;
+}
+
+/* ── PANTALLAS ── */
+.inicio-screen { display: block; }
+.preguntas-screen { display: none; }
+.informe-screen { display: none; }
+
+/* ── FORMULARIO ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.form-grid .full { grid-column: 1 / -1; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.form-input, .form-select, .form-textarea {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: var(--sans);
+  color: #1a1a2e;
+  background: var(--white);
+  transition: all 0.2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--brand);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44,125,160,0.1);
+}
+.form-textarea { resize: vertical; min-height: 70px; }
+
+/* ── BLOQUE PREGUNTAS ── */
+.bloque-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--brand-light);
+}
+.bloque-code {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  background: var(--brand-light);
+  color: var(--brand);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.bloque-titulo { font-size: 20px; font-weight: 700; color: #1a1a2e; }
+.bloque-ref {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* ── PROCESO ITEM ── */
+.proceso-item {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-soft);
+  transition: all 0.2s;
+}
+.proceso-item:hover {
+  border-color: var(--brand-mid);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.proceso-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.proceso-nombre {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+.proceso-critico {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.critico-alto { background: #fee; color: #c0392b; border: 1px solid #fcc; }
+.critico-medio { background: #fef3e2; color: #d35400; border: 1px solid #f5cba7; }
+.critico-bajo { background: #e8f8f5; color: #1e8449; border: 1px solid #a9dfbf; }
+
+.grid-rto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+.rto-field {
+  background: var(--white);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+}
+.rto-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 6px;
+}
+.rto-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brand);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.rto-value input {
+  font-size: 20px;
+  width: 80px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-weight: 700;
+}
+.rto-unit {
+  font-size: 12px;
+  font-weight: normal;
+  color: var(--muted);
+}
+.proceso-obs textarea {
+  width: 100%;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+/* ── BOTONES ── */
+.nav-btns {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border: none;
+  background: var(--brand);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 40px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--brand-dark); transform: translateY(-1px); }
+.btn-secondary {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 40px;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--brand); color: var(--brand); }
+.btn-pdf {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: 1px solid var(--brand);
+  background: var(--white);
+  color: var(--brand);
+  cursor: pointer;
+  border-radius: 40px;
+}
+.btn-pdf:hover { background: var(--brand); color: #fff; }
+.reset-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 40px;
+}
+.reset-btn:hover { border-color: var(--danger); color: var(--danger); }
+
+/* ── AVISO ── */
+.aviso {
+  background: var(--brand-light);
+  border-left: 4px solid var(--brand);
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #2c3e50;
+  margin-bottom: 24px;
+}
+
+/* ── INFORME ── */
+.informe-section {
+  margin-bottom: 32px;
+}
+.informe-section-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand);
+  border-bottom: 2px solid var(--brand-light);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+.resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.resumen-card {
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+.resumen-num {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+.resumen-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.resumen-card.proceso { background: #e8f4f8; }
+.resumen-card.rto-avg { background: #e8f8f5; }
+.resumen-card.rpo-avg { background: #fef3e2; }
+
+.proceso-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.proceso-table th {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 12px 10px;
+  text-align: left;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border-soft);
+}
+.proceso-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--border-soft);
+  vertical-align: top;
+}
+.badge-critico {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.bc-alto { background: #fee; color: #c0392b; }
+.bc-medio { background: #fef3e2; color: #d35400; }
+.bc-bajo { background: #e8f8f5; color: #1e8449; }
+
+@media (max-width: 700px) {
+  .headline { font-size: 32px; }
+  .body { padding: 20px; }
+  .header { padding: 24px 20px 0 20px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .resumen-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-rto { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="card-wrapper">
+<div class="card">
+  <div class="accent-bar"></div>
+
+  <div class="header">
+    <div class="tag">BCP · DRP · BIA · ISO 22301</div>
+    <div class="headline">
+      Análisis de<br>
+      <span class="accent">Continuidad</span><br>
+      <span class="dim">de Negocio</span>
+    </div>
+    <p class="subline">
+      Define tus procesos críticos, establece RTO/RPO y genera un plan de continuidad (BCP/DRP) alineado con ISO 27001 e ISO 22301.<br>
+      <strong>Sin registro. Sin almacenamiento. Todo en tu navegador.</strong>
+    </p>
+  </div>
+
+  <div class="body">
+
+    <!-- ══════════════════════════════ -->
+    <!-- PANTALLA 0: INICIO            -->
+    <!-- ══════════════════════════════ -->
+    <div class="inicio-screen" id="screenInicio">
+      <div class="aviso">
+        Esta herramienta te guía para documentar tu Análisis de Impacto de Negocio (BIA), definir RTO/RPO por proceso y elaborar un plan base de continuidad/recuperación. 
+        <strong>Ningún dato sale de tu navegador</strong> — al cerrar la pestaña todo desaparece.
+      </div>
+
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.14em;color:var(--muted);margin-bottom:16px;">Datos de la organización</div>
+
+      <div class="form-grid">
+        <div class="form-group full">
+          <label class="form-label">Nombre de la empresa *</label>
+          <input class="form-input" id="f-empresa" type="text" placeholder="Ej: Acme Software S.L.">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Responsable del BIA/BCP *</label>
+          <input class="form-input" id="f-responsable" type="text" placeholder="Nombre y cargo">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fecha del análisis</label>
+          <input class="form-input" id="f-fecha" type="date">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Alcance del BCP</label>
+          <select class="form-select" id="f-alcance">
+            <option value="">Seleccionar...</option>
+            <option>Toda la organización</option>
+            <option>Solo TI / Sistemas críticos</option>
+            <option>Departamento específico</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Ubicaciones / Sedes</label>
+          <input class="form-input" id="f-ubicaciones" type="text" placeholder="Ej: Madrid, Barcelona, Cloud">
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <button class="btn-primary" onclick="iniciarBIA()">INICIAR BIA →</button>
+        <span style="font-family:var(--mono);font-size:10px;color:var(--muted);">Define procesos · ~15 min · Sin registro</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!-- PANTALLA 1: PREGUNTAS (BIA)   -->
+    <!-- ══════════════════════════════ -->
+    <div class="preguntas-screen" id="screenPreguntas">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="progress-label" id="progress-label">0 de X procesos definidos</div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
+        <span class="progress-status" id="progress-status">⚙ Configurando procesos</span>
+        <button class="reset-btn" onclick="resetAll()">↺ Reiniciar</button>
+      </div>
+
+      <div class="wizard-nav" id="wizardNav"></div>
+      <div id="bloqueContainer"></div>
+
+      <div class="nav-btns" id="navBtns"></div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!-- PANTALLA 2: INFORME           -->
+    <!-- ══════════════════════════════ -->
+    <div class="informe-screen" id="screenInforme">
+      <div id="informeContenido"></div>
+      <div class="nav-btns" style="margin-top:24px;">
+        <button class="btn-primary" onclick="exportarPDF()">⬇ Exportar BIA/BCP</button>
+        <button class="btn-secondary" onclick="volverPreguntas()">← Volver y editar</button>
+        <button class="reset-btn" onclick="nuevoAnalisis()">↺ Nuevo análisis</button>
+      </div>
+    </div>
+
+    <div class="footer" style="margin-top:32px;padding-top:24px;border-top:1px solid #e9ecef;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--muted);">
+      <div>© GRCreal · Miguel Ángel Carriazo, vCISO</div>
+      <div><a href="/herramientas/index.html" style="color:var(--brand);">← Volver a herramientas</a></div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<script src="/js/jspdf.umd.min.js"></script>
+<script>
+
+// ── PROCESOS PREDEFINIDOS ──
+const PROCESOS_POR_DEFECTO = [
+  { id: 'p01', nombre: '📧 Correo electrónico y comunicaciones', critico: 'alto', rto_horas: 4, rpo_horas: 1, dependencias: ['Internet', 'Office 365/Gmail', 'DNS'], observaciones: '' },
+  { id: 'p02', nombre: '💾 Backup y recuperación de datos', critico: 'critico', rto_horas: 8, rpo_horas: 24, dependencias: ['Sistema de backups', 'Almacenamiento externo'], observaciones: '' },
+  { id: 'p03', nombre: '👥 Atención al cliente / Soporte', critico: 'alto', rto_horas: 6, rpo_horas: 2, dependencias: ['CRM', 'Teléfono', 'Email'], observaciones: '' },
+  { id: 'p04', nombre: '🖥 Desarrollo / CI/CD', critico: 'medio', rto_horas: 24, rpo_horas: 12, dependencias: ['Repositorios', 'Sistemas de integración continua'], observaciones: '' },
+  { id: 'p05', nombre: '💳 Facturación y cobros', critico: 'critico', rto_horas: 2, rpo_horas: 1, dependencias: ['ERP', 'Pasarela de pago', 'Banco'], observaciones: '' },
+  { id: 'p06', nombre: '📁 Gestión documental / DMS', critico: 'medio', rto_horas: 12, rpo_horas: 6, dependencias: ['SharePoint/Drive', 'Sistema de ficheros'], observaciones: '' },
+  { id: 'p07', nombre: '🔐 Gestión de accesos y SSO', critico: 'alto', rto_horas: 1, rpo_horas: 1, dependencias: ['Directory Service', 'MFA'], observaciones: '' },
+  { id: 'p08', nombre: '🌐 Sitio web / Portal público', critico: 'bajo', rto_horas: 48, rpo_horas: 24, dependencias: ['Hosting', 'CDN'], observaciones: '' },
+];
+
+let procesos = JSON.parse(JSON.stringify(PROCESOS_POR_DEFECTO));
+let bloqueActual = 0;
+let datosFirma = {};
+
+// ── UI ──
+function iniciarBIA() {
+  const emp = document.getElementById('f-empresa').value.trim();
+  const resp = document.getElementById('f-responsable').value.trim();
+  if (!emp || !resp) {
+    alert('Introduce el nombre de la empresa y el responsable del análisis.');
+    return;
+  }
+  datosFirma = {
+    empresa: emp,
+    responsable: resp,
+    fecha: document.getElementById('f-fecha').value || new Date().toLocaleDateString('es-ES'),
+    alcance: document.getElementById('f-alcance').value,
+    ubicaciones: document.getElementById('f-ubicaciones').value || 'No especificado'
+  };
+  mostrarPantalla('preguntas');
+  construirNav();
+  renderBloque(0);
+}
+
+function mostrarPantalla(p) {
+  document.getElementById('screenInicio').style.display = p === 'inicio' ? 'block' : 'none';
+  document.getElementById('screenPreguntas').style.display = p === 'preguntas' ? 'block' : 'none';
+  document.getElementById('screenInforme').style.display = p === 'informe' ? 'block' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function construirNav() {
+  const nav = document.getElementById('wizardNav');
+  nav.innerHTML = `<button class="wizard-step active" onclick="renderBloque(0)">PROCESOS CRÍTICOS</button>`;
+}
+
+function renderBloque() {
+  let html = `
+    <div class="bloque-header">
+      <span class="bloque-code">BIA · 1/1</span>
+      <div>
+        <div class="bloque-titulo">Procesos del Negocio</div>
+        <div class="bloque-ref">Define para cada proceso el RTO/RPO y clasifica su criticidad</div>
+      </div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <button class="btn-secondary" style="padding:8px 16px;" onclick="agregarProceso()">+ Añadir proceso</button>
+    </div>
+  `;
+
+  procesos.forEach((p, idx) => {
+    const criticoClass = p.critico === 'critico' ? 'critico-alto' : (p.critico === 'alto' ? 'critico-alto' : (p.critico === 'medio' ? 'critico-medio' : 'critico-bajo'));
+    const criticoLabel = p.critico === 'critico' ? '◉ CRÍTICO' : (p.critico === 'alto' ? '▲ ALTO' : (p.critico === 'medio' ? '◆ MEDIO' : '● BAJO'));
+    
+    html += `
+      <div class="proceso-item" id="proc-${p.id}">
+        <div class="proceso-header">
+          <span class="proceso-nombre">${p.nombre}</span>
+          <select class="proceso-critico ${criticoClass}" onchange="actualizarCritico('${p.id}', this.value)">
+            <option value="critico" ${p.critico === 'critico' ? 'selected' : ''}>◉ CRÍTICO (parada máxima 0-4h)</option>
+            <option value="alto" ${p.critico === 'alto' ? 'selected' : ''}>▲ ALTO (parada máxima 4-12h)</option>
+            <option value="medio" ${p.critico === 'medio' ? 'selected' : ''}>◆ MEDIO (parada máxima 12-48h)</option>
+            <option value="bajo" ${p.critico === 'bajo' ? 'selected' : ''}>● BAJO (parada máxima >48h)</option>
+          </select>
+        </div>
+        
+        <div class="grid-rto">
+          <div class="rto-field">
+            <span class="rto-label">RTO · Recovery Time Objective</span>
+            <div class="rto-value">
+              <input type="number" id="rto-${p.id}" value="${p.rto_horas}" step="0.5" min="0.5" onchange="actualizarRTO('${p.id}', this.value)">
+              <span class="rto-unit">horas</span>
+            </div>
+            <div style="font-size:10px;color:var(--muted);margin-top:4px;">Tiempo máximo hasta recuperar el servicio</div>
+          </div>
+          <div class="rto-field">
+            <span class="rto-label">RPO · Recovery Point Objective</span>
+            <div class="rto-value">
+              <input type="number" id="rpo-${p.id}" value="${p.rpo_horas}" step="0.5" min="0.5" onchange="actualizarRPO('${p.id}', this.value)">
+              <span class="rto-unit">horas</span>
+            </div>
+            <div style="font-size:10px;color:var(--muted);margin-top:4px;">Pérdida máxima de datos tolerable</div>
+          </div>
+        </div>
+        
+        <div class="rto-field" style="margin-top:8px;">
+          <span class="rto-label">Dependencias (tecnológicas, proveedores, internas)</span>
+          <input type="text" style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;" 
+                 placeholder="Ej: Internet, CRM, ERP, Base de Datos..." value="${p.dependencias.join(', ')}"
+                 onchange="actualizarDeps('${p.id}', this.value)">
+        </div>
+        
+        <div class="proceso-obs">
+          <textarea rows="2" placeholder="Observaciones, estrategia de recuperación específica..." 
+                    onchange="actualizarObs('${p.id}', this.value)">${p.observaciones}</textarea>
+        </div>
+        
+        <div style="margin-top:12px; text-align:right;">
+          <button class="reset-btn" style="padding:4px 12px;font-size:10px;" onclick="eliminarProceso('${p.id}')">🗑 Eliminar</button>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById('bloqueContainer').innerHTML = html;
+  
+  const navBtns = document.getElementById('navBtns');
+  navBtns.innerHTML = `
+    <button class="btn-primary" onclick="generarInforme()">Generar BIA/BCP →</button>
+    <button class="btn-pdf" onclick="generarInforme()">Ver informe completo</button>
+  `;
+  
+  actualizarProgreso();
+}
+
+function agregarProceso() {
+  const newId = 'p' + (procesos.length + 1).toString().padStart(2, '0');
+  procesos.push({
+    id: newId,
+    nombre: `Nuevo proceso ${procesos.length + 1}`,
+    critico: 'medio',
+    rto_horas: 12,
+    rpo_horas: 6,
+    dependencias: [],
+    observaciones: ''
+  });
+  renderBloque();
+}
+
+function eliminarProceso(id) {
+  procesos = procesos.filter(p => p.id !== id);
+  renderBloque();
+}
+
+function actualizarCritico(id, val) {
+  const p = procesos.find(p => p.id === id);
+  if (p) p.critico = val;
+}
+
+function actualizarRTO(id, val) {
+  const p = procesos.find(p => p.id === id);
+  if (p) p.rto_horas = parseFloat(val) || 0;
+}
+
+function actualizarRPO(id, val) {
+  const p = procesos.find(p => p.id === id);
+  if (p) p.rpo_horas = parseFloat(val) || 0;
+}
+
+function actualizarDeps(id, val) {
+  const p = procesos.find(p => p.id === id);
+  if (p) p.dependencias = val.split(',').map(s => s.trim()).filter(s => s);
+}
+
+function actualizarObs(id, val) {
+  const p = procesos.find(p => p.id === id);
+  if (p) p.observaciones = val;
+}
+
+function actualizarProgreso() {
+  const total = procesos.length;
+  const bar = document.getElementById('progress-bar');
+  const lbl = document.getElementById('progress-label');
+  const sts = document.getElementById('progress-status');
+  
+  bar.style.width = '100%';
+  lbl.innerHTML = `<span>${total}</span> procesos definidos`;
+  sts.className = 'progress-status';
+  sts.style.background = '#e8f4f8';
+  sts.style.color = '#2c7da0';
+  sts.textContent = `✓ ${total} procesos · RTO/RPO configurados`;
+}
+
+function resetAll() {
+  if (!confirm('¿Reiniciar todos los procesos y valores?')) return;
+  procesos = JSON.parse(JSON.stringify(PROCESOS_POR_DEFECTO));
+  renderBloque();
+}
+
+// ── GENERAR INFORME ──
+function generarInforme() {
+  const criticos = procesos.filter(p => p.critico === 'critico').length;
+  const altos = procesos.filter(p => p.critico === 'alto').length;
+  const medios = procesos.filter(p => p.critico === 'medio').length;
+  const bajos = procesos.filter(p => p.critico === 'bajo').length;
+  
+  const avgRTO = Math.round(procesos.reduce((sum, p) => sum + p.rto_horas, 0) / procesos.length);
+  const avgRPO = Math.round(procesos.reduce((sum, p) => sum + p.rpo_horas, 0) / procesos.length);
+  
+  const rtoMin = Math.min(...procesos.map(p => p.rto_horas));
+  const rtoMax = Math.max(...procesos.map(p => p.rto_horas));
+  
+  // Tabla de procesos
+  const filas = procesos.map(p => {
+    const criticoLabel = p.critico === 'critico' ? 'CRÍTICO' : (p.critico === 'alto' ? 'ALTO' : (p.critico === 'medio' ? 'MEDIO' : 'BAJO'));
+    const criticoClass = p.critico === 'critico' ? 'bc-alto' : (p.critico === 'alto' ? 'bc-alto' : (p.critico === 'medio' ? 'bc-medio' : 'bc-bajo'));
+    return `
+      <tr>
+        <td style="font-weight:600;">${p.nombre}</td>
+        <td><span class="badge-critico ${criticoClass}">${criticoLabel}</span></td>
+        <td style="font-family:monospace;">${p.rto_horas} h</td>
+        <td style="font-family:monospace;">${p.rpo_horas} h</td>
+        <td style="font-size:12px;">${p.dependencias.join(', ') || '—'}</td>
+        <td style="font-size:11px;color:#666;">${p.observaciones || '—'}</td>
+      </tr>
+    `;
+  }).join('');
+
+  // Plan BCP base
+  const criticosRapidos = procesos.filter(p => p.critico === 'critico' && p.rto_horas <= 4);
+  const estrategias = criticosRapidos.length > 0 
+    ? `Los procesos críticos (${criticosRapidos.map(p=>p.nombre).join(', ')}) requieren estrategias de alta disponibilidad (clúster, failover automático, hot standby).` 
+    : `Implementar estrategias de recuperación priorizando los procesos con menor RTO (${rtoMin} horas).`;
+    
+  const dependenciasCriticas = [...new Set(procesos.filter(p=>p.critico==='critico').flatMap(p=>p.dependencias))];
+  
+  const bcpPlan = `
+    <div class="informe-section">
+      <div class="informe-section-title">📋 Estrategia de Continuidad (BCP)</div>
+      <div class="aviso" style="background:#e8f4f8;">
+        <strong>RTO global mínimo:</strong> ${rtoMin} horas · <strong>RTO máximo:</strong> ${rtoMax} horas · <strong>RPO promedio:</strong> ${avgRPO} horas
+      </div>
+      <ul style="margin-left:20px;line-height:1.8;">
+        <li><strong>Prioridad de recuperación:</strong> ${procesos.filter(p=>p.critico==='critico').map(p=>p.nombre).join(', ') || 'Procesos críticos'}</li>
+        <li><strong>Estrategia recomendada:</strong> ${estrategias}</li>
+        <li><strong>Dependencias críticas:</strong> ${dependenciasCriticas.join(', ') || 'Identificar dependencias principales'}</li>
+        <li><strong>Backup y restauración:</strong> Verificar que las copias de seguridad cumplen con el RPO de ${avgRPO} horas.</li>
+        <li><strong>Plan de comunicación:</strong> Establecer cadena de mando y comunicación a clientes/stakeholders ante incidente.</li>
+        <li><strong>Pruebas del plan:</strong> Realizar simulacros al menos cada 6 meses.</li>
+      </ul>
+    </div>
+  `;
+
+  const drpPlan = `
+    <div class="informe-section">
+      <div class="informe-section-title">🖥 Plan de Recuperación ante Desastres (DRP)</div>
+      <ul style="margin-left:20px;line-height:1.8;">
+        <li><strong>Equipo de respuesta:</strong> ${datosFirma.responsable} como responsable de coordinación.</li>
+        <li><strong>Infraestructura alternativa:</strong> Definir centro de respaldo (cloud secundario, oficina alternativa).</li>
+        <li><strong>Procedimiento de activación:</strong> Escalar según criticidad del incidente (nivel 1-3).</li>
+        <li><strong>Checklist de restauración:</strong> 
+          <ul><li>Restaurar desde backups (RPO objetivo ${avgRPO}h)</li>
+          <li>Validar integridad de datos</li>
+          <li>Desviar tráfico a sitio alternativo</li>
+          <li>Comunicar a usuarios/partes interesadas</li></ul>
+        </li>
+        <li><strong>Retorno a operación normal (fallback):</strong> Plan de reversión documentado.</li>
+      </ul>
+    </div>
+  `;
+
+  document.getElementById('informeContenido').innerHTML = `
+    <div class="informe-section">
+      <div class="informe-section-title">🏢 Identificación del documento</div>
+      <table style="width:100%;font-size:13px;">
+        <tr><td style="padding:6px 0;width:160px;color:var(--muted);font-family:monospace;">ORGANIZACIÓN</td><td style="font-weight:600;">${datosFirma.empresa}</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);font-family:monospace;">RESPONSABLE BCP</td><td>${datosFirma.responsable}</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);font-family:monospace;">FECHA BIA</td><td>${datosFirma.fecha}</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);font-family:monospace;">ALCANCE</td><td>${datosFirma.alcance || 'Toda la organización'}</td></tr>
+        <tr><td style="padding:6px 0;color:var(--muted);font-family:monospace;">UBICACIONES</td><td>${datosFirma.ubicaciones}</td></tr>
+      </table>
+    </div>
+
+    <div class="informe-section">
+      <div class="informe-section-title">📊 Resumen BIA (Análisis de Impacto)</div>
+      <div class="resumen-grid">
+        <div class="resumen-card"><div class="resumen-num">${criticos}</div><div class="resumen-label">Críticos</div></div>
+        <div class="resumen-card"><div class="resumen-num">${altos}</div><div class="resumen-label">Altos</div></div>
+        <div class="resumen-card"><div class="resumen-num">${medios}</div><div class="resumen-label">Medios</div></div>
+        <div class="resumen-card"><div class="resumen-num">${bajos}</div><div class="resumen-label">Bajos</div></div>
+      </div>
+      <div class="resumen-grid">
+        <div class="resumen-card rto-avg"><div class="resumen-num">${avgRTO}</div><div class="resumen-label">RTO Promedio (h)</div></div>
+        <div class="resumen-card rpo-avg"><div class="resumen-num">${avgRPO}</div><div class="resumen-label">RPO Promedio (h)</div></div>
+        <div class="resumen-card"><div class="resumen-num">${rtoMin}</div><div class="resumen-label">RTO Mínimo (h)</div></div>
+        <div class="resumen-card"><div class="resumen-num">${rtoMax}</div><div class="resumen-label">RTO Máximo (h)</div></div>
+      </div>
+    </div>
+
+    <div class="informe-section">
+      <div class="informe-section-title">📋 Procesos y RTO/RPO</div>
+      <table class="proceso-table">
+        <thead><tr>
+          <th>Proceso</th><th>Criticidad</th><th>RTO</th><th>RPO</th><th>Dependencias</th><th>Observaciones</th>
+        </tr></thead>
+        <tbody>${filas}</tbody>
+      </table>
+    </div>
+
+    ${bcpPlan}
+    ${drpPlan}
+
+    <div class="informe-section">
+      <div class="informe-section-title">✅ Próximos pasos</div>
+      <ul style="margin-left:20px;line-height:1.8;">
+        <li>📌 <strong>Aprobar formalmente</strong> este BIA/BCP por la dirección</li>
+        <li>🔄 <strong>Revisión periódica:</strong> Actualizar al menos anualmente o tras cambios significativos</li>
+        <li>🧪 <strong>Pruebas:</strong> Programar simulacro de recuperación en <strong>${Math.min(3, Math.floor(avgRTO/24) || 1)} meses</strong></li>
+        <li>📚 <strong>Formación:</strong> Comunicar el plan a los equipos involucrados</li>
+        <li>🔐 <strong>Integración con ISO 27001:</strong> Vincular este BIA con el A.5.29 (Continuidad de la seguridad de la información)</li>
+      </ul>
+    </div>
+
+    <div style="font-family:monospace;font-size:10px;color:var(--muted);text-align:center;padding-top:24px;border-top:1px solid var(--border-soft);">
+      Documento generado con herramienta de <strong>GRCreal.com</strong> · Miguel Ángel Carriazo, vCISO · 
+      Análisis de Impacto de Negocio (BIA) y Planes de Continuidad/DRP. Sin almacenamiento de datos.
+    </div>
+  `;
+
+  mostrarPantalla('informe');
+}
+
+function volverPreguntas() {
+  mostrarPantalla('preguntas');
+  renderBloque();
+}
+
+function nuevoAnalisis() {
+  if (!confirm('¿Iniciar un nuevo análisis? Se perderán todos los datos.')) return;
+  procesos = JSON.parse(JSON.stringify(PROCESOS_POR_DEFECTO));
+  datosFirma = {};
+  document.getElementById('f-empresa').value = '';
+  document.getElementById('f-responsable').value = '';
+  document.getElementById('f-fecha').value = new Date().toISOString().split('T')[0];
+  document.getElementById('f-alcance').value = '';
+  document.getElementById('f-ubicaciones').value = '';
+  mostrarPantalla('inicio');
+}
+
+// ── EXPORT PDF ──
+function exportarPDF() {
+  const btn = document.querySelector('.btn-primary[onclick="exportarPDF()"]');
+  if (btn) { btn.textContent = '⏳ Generando PDF...'; btn.disabled = true; }
+
+  const tryGenerar = () => {
+    if (window.jspdf && window.jspdf.jsPDF) {
+      generarPDF(window.jspdf.jsPDF);
+      if (btn) { btn.textContent = '⬇ Exportar BIA/BCP'; btn.disabled = false; }
+      return;
+    }
+    const iv = setInterval(() => {
+      if (window.jspdf && window.jspdf.jsPDF) {
+        clearInterval(iv);
+        generarPDF(window.jspdf.jsPDF);
+        if (btn) { btn.textContent = '⬇ Exportar BIA/BCP'; btn.disabled = false; }
+      }
+    }, 100);
+    setTimeout(() => {
+      clearInterval(iv);
+      if (btn && btn.disabled) {
+        alert('La librería PDF no está disponible.');
+        btn.textContent = '⬇ Exportar BIA/BCP';
+        btn.disabled = false;
+      }
+    }, 6000);
+  };
+  tryGenerar();
+}
+
+function generarPDF(jsPDF) {
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const W = 210, margin = 16, cW = W - margin * 2;
+  const brand = [44,125,160];
+  
+  // Cabecera
+  doc.setFillColor(...brand);
+  doc.rect(0,0,W,40,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFontSize(18); doc.setFont('helvetica','bold');
+  doc.text('GRCreal', margin, 16);
+  doc.setFontSize(9);
+  doc.text('Herramienta de Continuidad de Negocio', margin, 26);
+  doc.setFontSize(11);
+  doc.text(`BIA / BCP / DRP · ${datosFirma.empresa || 'Organización'}`, margin, 36);
+  
+  let y = 52;
+  doc.setTextColor(0,0,0);
+  doc.setFontSize(10); doc.setFont('helvetica','bold');
+  doc.text('RESUMEN DEL ANÁLISIS', margin, y);
+  y += 6;
+  doc.setFontSize(9); doc.setFont('helvetica','normal');
+  doc.text(`Procesos críticos: ${procesos.filter(p=>p.critico==='critico').length}`, margin, y);
+  doc.text(`RTO promedio: ${Math.round(procesos.reduce((s,p)=>s+p.rto_horas,0)/procesos.length)} horas`, margin + 70, y);
+  doc.text(`RPO promedio: ${Math.round(procesos.reduce((s,p)=>s+p.rpo_horas,0)/procesos.length)} horas`, margin + 130, y);
+  
+  y += 12;
+  doc.setFontSize(10); doc.setFont('helvetica','bold');
+  doc.text('PROCESOS CON RTO/RPO', margin, y);
+  y += 5;
+  
+  for (const p of procesos) {
+    if (y > 260) { doc.addPage(); y = 20; }
+    doc.setFontSize(9); doc.setFont('helvetica','bold');
+    doc.text(p.nombre, margin, y);
+    doc.setFontSize(8); doc.setFont('helvetica','normal');
+    doc.text(`RTO: ${p.rto_horas}h / RPO: ${p.rpo_horas}h · Criticidad: ${p.critico.toUpperCase()}`, margin, y + 5);
+    if (p.dependencias.length) doc.text(`Dependencias: ${p.dependencias.join(', ')}`, margin, y + 9);
+    y += 14;
+  }
+  
+  y += 8;
+  doc.setFontSize(10); doc.setFont('helvetica','bold');
+  doc.text('ESTRATEGIA BCP RECOMENDADA', margin, y);
+  y += 6;
+  doc.setFontSize(9);
+  doc.text('1. Priorizar recuperación de procesos críticos', margin, y);
+  doc.text('2. Asegurar backups que cumplan RPO definido', margin, y+5);
+  doc.text('3. Realizar simulacros de recuperación periódicos', margin, y+10);
+  doc.text('4. Documentar y mantener actualizado el plan', margin, y+15);
+  
+  const pages = doc.getNumberOfPages();
+  for(let i=1;i<=pages;i++){
+    doc.setPage(i);
+    doc.setFontSize(7);
+    doc.setTextColor(120,120,120);
+    doc.text(`GRCreal.com · BCP/DRP · Pág. ${i}/${pages}`, margin, 287);
+  }
+  
+  doc.save(`BCP_DRP_${datosFirma.empresa || 'empresa'}_${datosFirma.fecha || 'fecha'}.pdf`);
+}
+
+// Fecha por defecto
+document.getElementById('f-fecha').value = new Date().toISOString().split('T')[0];
+
+</script>
+</body>
+</html>
