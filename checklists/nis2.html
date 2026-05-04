@@ -926,7 +926,7 @@ function generatePDF(jsPDF) {
 
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
-  doc.text('grcreal.com — Herramienta de autoevaluación orientativa', margin, 26);
+  doc.text('Documento orientativo — no sustituye una consultoría profesional certificada. ', margin, 26);
 
   doc.setFontSize(13);
   doc.setFont('helvetica', 'bold');
@@ -1084,7 +1084,7 @@ function generatePDF(jsPDF) {
     doc.setTextColor(...white);
     doc.setFontSize(7);
     doc.setFont('helvetica', 'normal');
-    doc.text('GRCreal · grcreal.com · Miguel Ángel Carriazo vCISO', margin, 293.5);
+    doc.text('GRCreal · grcreal.com ·  Ningún dato ha sido almacenado ni transmitido.', margin, 293.5);
     doc.text(`Página ${i} de ${pages}`, W - margin - 16, 293.5);
   }
 
