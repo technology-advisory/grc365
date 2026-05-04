@@ -1530,7 +1530,7 @@ function generatePDF(jsPDF) {
   doc.text('GRCreal', margin, 18);
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
-  doc.text('Documento orientativo — no sustituye una consultoría profesional certificada. ', margin, 26);
+  doc.text('grcreal.com — Herramienta de autoevaluación orientativa', margin, 26);
   doc.setFontSize(12);
   doc.setFont('helvetica', 'bold');
   doc.text('Mapeo de Controles: NIS2 · ISO 27001:2022 · ENS · DORA', margin, 38);
@@ -1694,7 +1694,7 @@ function generatePDF(jsPDF) {
     doc.setTextColor(...white);
     doc.setFontSize(7);
     doc.setFont('helvetica', 'normal');
-    ddoc.text('GRCreal · grcreal.com ·  Ningún dato ha sido almacenado ni transmitido.', margin, 293.5);
+    doc.text('GRCreal · grcreal.com · Miguel Ángel Carriazo vCISO · Mapeo NIS2/ISO27001/ENS/DORA', margin, 293.5);
     doc.text(`Página ${i} de ${pages}`, W - margin - 16, 293.5);
   }
 
