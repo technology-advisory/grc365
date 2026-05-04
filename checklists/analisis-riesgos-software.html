@@ -1148,9 +1148,7 @@ function generarInforme() {
     </div>
 
     <div style="font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center;padding-top:16px;border-top:1px solid var(--border-soft);">
-      Análisis generado con la herramienta de <strong>GRCreal.com</strong> · Miguel Ángel Carriazo, vCISO ·
-      Documento orientativo — no sustituye una consultoría profesional certificada.
-      Ningún dato ha sido almacenado ni transmitido.
+      Análisis generado con la herramienta de <strong>GRCreal.com</strong> · Ningún dato ha sido almacenado ni transmitido.
     </div>
   `;
 
@@ -1242,7 +1240,7 @@ function generarPDF(jsPDF) {
   doc.setFontSize(20);doc.setFont('helvetica','bold');
   doc.text('GRCreal', margin, 16);
   doc.setFontSize(9);doc.setFont('helvetica','normal');
-  doc.text('grcreal.com — Herramienta de análisis de riesgos orientativa', margin, 24);
+  doc.text('Documento orientativo — no sustituye una consultoría profesional certificada. ', margin, 26);
   doc.setFontSize(13);doc.setFont('helvetica','bold');
   doc.text('Análisis de Riesgos — Empresa de Software', margin, 36);
 
