@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Versus · GRCreal</title>
+<meta name="description" content="Frameworks, normas y herramientas comparadas sin filtro. Para que puedas decidir con criterio.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Versus — GRCreal">
+<meta property="og:description" content="Frameworks, normas y herramientas comparadas sin filtro. Para que puedas decidir con criterio.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grcreal.com/versus/index.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="../css/marca.css">
+
+<style>
+.versus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.versus-card {
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.versus-card.live {
+  cursor: pointer;
+}
+
+.versus-card.live:hover {
+  border-color: var(--brand);
+  background: var(--brand-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,119,181,0.08);
+}
+
+.versus-card.soon {
+  opacity: 0.45;
+  cursor: default;
+  border-style: dashed;
+}
+
+.versus-card-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 12px;
+}
+
+.versus-card.soon .versus-card-tag {
+  color: var(--muted);
+}
+
+.versus-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.versus-card-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.versus-card-link {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--brand);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.versus-card.soon .versus-card-link {
+  color: var(--faint);
+}
+
+.versus-card.featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 32px;
+}
+
+.versus-card.featured .versus-card-body {
+  flex: 1;
+}
+
+.versus-card.featured .versus-card-badges {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.vs-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--white);
+}
+
+@media (max-width: 620px) {
+  .versus-grid { grid-template-columns: 1fr; }
+  .versus-card.featured { flex-direction: column; }
+  .versus-card.featured .versus-card-badges { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<div class="card-wrapper">
+<div class="card">
+  <div class="accent-bar"></div>
+
+  <div class="header">
+    <div class="tag">GRCreal · Versus</div>
+    <div class="headline">
+      <span class="accent">Versus</span>
+    </div>
+    <p class="subline">
+      Frameworks, normas y herramientas comparadas sin filtro.<br>
+      <strong>Para que puedas decidir con criterio.</strong>
+    </p>
+  </div>
+
+  <div class="body">
+
+    <div class="versus-grid">
+
+      <!-- ISO 27001 vs ISO 42001 — PUBLICADA / DESTACADA -->
+      <a href="iso27001-vs-iso42001.html" class="versus-card featured live">
+        <div class="versus-card-body">
+          <div class="versus-card-tag">ISO/IEC 27001 · ISO/IEC 42001 · Publicado</div>
+          <div class="versus-card-title">ISO 27001 vs ISO 42001</div>
+          <div class="versus-card-desc">
+            No son alternativas. No compiten. El error es creer que con una tienes la otra — y en 2026 ese error ya tiene coste.
+          </div>
+          <div class="versus-card-link">Leer análisis →</div>
+        </div>
+        <div class="versus-card-badges">
+          <div class="vs-badge">Seguridad</div>
+          <div class="vs-badge">IA</div>
+        </div>
+      </a>
+
+      <!-- NIS2 vs ISO 27001 — PUBLICADA -->
+      <a href="nis2-vs-iso27001.html" class="versus-card live">
+        <div class="versus-card-tag">NIS2 · ISO/IEC 27001 · Publicado</div>
+        <div class="versus-card-title">NIS2 vs ISO 27001</div>
+        <div class="versus-card-desc">
+          El certificado no es cumplimiento. NIS2 te obliga. ISO 27001 te ayuda a cumplirla. Confundirlos tiene consecuencias legales.
+        </div>
+        <div class="versus-card-link">Leer análisis →</div>
+      </a>
+
+      <!-- ENS vs ISO 27001 — PUBLICADA -->
+      <a href="ens-vs-iso27001.html" class="versus-card live">
+        <div class="versus-card-tag">ENS · ISO/IEC 27001 · Publicado</div>
+        <div class="versus-card-title">ENS vs ISO 27001</div>
+        <div class="versus-card-desc">
+          La batalla que solo importa en España. ISO 27001 es global. ENS es obligatorio si trabajas con el sector público. La pregunta es cuál te exige tu cliente.
+        </div>
+        <div class="versus-card-link">Leer análisis →</div>
+      </a>
+
+      <!-- ISO 27001 vs SOC 2 — PRÓXIMAMENTE -->
+      <div class="versus-card soon">
+        <div class="versus-card-tag">ISO/IEC 27001 · SOC 2 · Próximamente</div>
+        <div class="versus-card-title">ISO 27001 vs SOC 2</div>
+        <div class="versus-card-desc">
+          Europa vs EE.UU. Certificación vs informe de auditoría. Para qué cliente y en qué mercado funciona cada uno.
+        </div>
+        <div class="versus-card-link">En preparación</div>
+      </div>
+
+      <!-- DORA vs ISO 27001 — PRÓXIMAMENTE -->
+      <div class="versus-card soon">
+        <div class="versus-card-tag">DORA · ISO/IEC 27001 · Próximamente</div>
+        <div class="versus-card-title">DORA vs ISO 27001</div>
+        <div class="versus-card-desc">
+          Sector financiero: resiliencia operativa digital obligatoria desde enero 2025. Qué cubre DORA que ISO 27001 no contempla — y qué pasa si eres proveedor TIC de una entidad financiera.
+        </div>
+        <div class="versus-card-link">En preparación</div>
+      </div>
+
+      <!-- ISO 22301 vs BIA propia — PRÓXIMAMENTE -->
+      <div class="versus-card soon">
+        <div class="versus-card-tag">ISO 22301 · Continuidad · Próximamente</div>
+        <div class="versus-card-title">ISO 22301 vs BIA propia</div>
+        <div class="versus-card-desc">
+          ¿Merece la pena certificarse en continuidad de negocio o basta con tener el proceso? Cuándo la norma aporta valor real y cuándo es papel mojado.
+        </div>
+        <div class="versus-card-link">En preparación</div>
+      </div>
+
+      <!-- vCISO vs CISO interno — PRÓXIMAMENTE / DESTACADO -->
+      <div class="versus-card featured soon">
+        <div class="versus-card-body">
+          <div class="versus-card-tag">vCISO · CISO · Modelo operativo · Próximamente</div>
+          <div class="versus-card-title">vCISO vs CISO interno</div>
+          <div class="versus-card-desc">
+            No es un debate de frameworks — es un debate de modelo operativo. Cuándo necesitas uno fijo, cuándo uno externo, y por qué muchas empresas pagan el doble por la mitad.
+          </div>
+          <div class="versus-card-link">En preparación</div>
+        </div>
+        <div class="versus-card-badges">
+          <div class="vs-badge">Estrategia</div>
+          <div class="vs-badge">Organización</div>
+        </div>
+      </div>
+
+    </div><!-- /versus-grid -->
+
+    <!-- CTA -->
+    <div class="cta-block" style="margin-top: 40px;">
+      <div class="cta-headline">
+        ¿Necesitas más que<br>
+        <span>una comparativa?</span>
+      </div>
+      <div class="cta-sub">
+        Una comparativa dice qué diferencia a cada marco. Un gap analysis dice dónde está exactamente tu brecha.<br><br>
+        <strong><a href="/contacto.html">Hablemos.</a></strong>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <div class="footer">
+    <div class="footer-inner">
+      <div class="author-block">
+        <div class="author-avatar">MA</div>
+        <div>
+          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
+          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+        </div>
+      </div>
+      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
+        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+        <div>
+          <span class="li-main">&ldquo;Arquitectura, cumplimiento y riesgo...&rdquo;</span>
+          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</div>
+<a href="/index.html" class="home-btn">⌂ Home</a>
+
+</body>
+</html>
