@@ -14,6 +14,18 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="../css/marca.css">
 <link rel="stylesheet" href="../css/articles.css">
+
+<style>
+  .tbl-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 20px;
+  }
+  .tbl-scroll table.tension {
+    min-width: 520px;
+    width: 100%;
+  }
+</style>
 </head>
 <body class="article-page">
 <div class="card-wrapper">
@@ -21,7 +33,7 @@
 <div class="accent-bar"></div>
 
 <div class="header">
-  <div class="tag">ISO 27001 · ISO 42001 · GRC · Batallas</div>
+  <div class="tag">ISO 27001 · ISO 42001 · GRC · Versus</div>
   <div class="article-date">7 Mayo 2026</div>
   <div class="headline">
     ISO 27001<br>
@@ -36,51 +48,60 @@
 
 <div class="body">
 
+  <!-- FICHA RÁPIDA -->
   <div class="block">
     <div class="block-label">Ficha rápida</div>
     <div class="block-title">Los contendientes en números</div>
 
-    <table class="tension" style="margin-top:20px;">
-      <tr>
-        <td class="tension-who"></td>
-        <td class="tension-says"><strong>ISO 27001</strong></td>
-        <td class="tension-says"><strong>ISO 42001</strong></td>
-      </tr>
-      <tr>
-        <td class="tension-who">Tipo</td>
-        <td class="tension-says">SGSI</td>
-        <td class="tension-says">AIMS</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Publicación</td>
-        <td class="tension-says">2005 / rev. 2022</td>
-        <td class="tension-says">Dic. 2023</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Controles Anexo A</td>
-        <td class="tension-says">93</td>
-        <td class="tension-says">38</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Foco</td>
-        <td class="tension-says">Confidencialidad, integridad, disponibilidad</td>
-        <td class="tension-says">Gobernanza IA, equidad, transparencia</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Certificados activos</td>
-        <td class="tension-says">~100.000</td>
-        <td class="tension-says">~400</td>
-      </tr>
-      <tr class="hi-row">
-        <td class="tension-who">Madurez ecosistema</td>
-        <td class="tension-says"><span class="hi">Alta — auditores abundantes</span></td>
-        <td class="tension-says"><span class="hi">En desarrollo — cuadro escaso hasta 2026</span></td>
-      </tr>
-    </table>
+    <div class="tbl-scroll">
+      <table class="tension">
+        <tr>
+          <td class="tension-who"></td>
+          <td class="tension-says"><strong>ISO 27001</strong></td>
+          <td class="tension-says"><strong>ISO 42001</strong></td>
+        </tr>
+        <tr>
+          <td class="tension-who">Tipo</td>
+          <td class="tension-says">SGSI — Seguridad de la información</td>
+          <td class="tension-says">AIMS — Gestión de IA</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Publicación</td>
+          <td class="tension-says">2005 / revisión 2022</td>
+          <td class="tension-says">Diciembre 2023</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Controles Anexo A</td>
+          <td class="tension-says">93 (organizativos, personas, físicos, tecnológicos)</td>
+          <td class="tension-says">38 específicos de IA</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Foco</td>
+          <td class="tension-says">Confidencialidad, integridad, disponibilidad</td>
+          <td class="tension-says">Gobernanza IA, equidad, transparencia, supervisión humana</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Certificados activos</td>
+          <td class="tension-says">~100.000 globalmente</td>
+          <td class="tension-says">~400 globalmente</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Madurez ecosistema</td>
+          <td class="tension-says">Alta — auditores abundantes</td>
+          <td class="tension-says">En desarrollo — cuadro escaso</td>
+        </tr>
+        <tr class="hi-row">
+          <td class="tension-who">Estructura base</td>
+          <td class="tension-says"><span class="hi">Annex SL (HLS)</span></td>
+          <td class="tension-says"><span class="hi">Annex SL (HLS) — integración nativa</span></td>
+        </tr>
+      </table>
+    </div>
   </div>
 
   <div class="divider"></div>
 
+  <!-- ISO 27001 -->
   <div class="block">
     <div class="block-label">ISO 27001</div>
     <div class="block-title">El estándar de referencia global para seguridad de la información</div>
@@ -95,15 +116,16 @@
 
   <div class="divider"></div>
 
+  <!-- ISO 42001 -->
   <div class="block">
     <div class="block-label">ISO 42001</div>
     <div class="block-title">El primer estándar internacional de gestión de IA</div>
     <div class="block-text">
       Publicado en diciembre de 2023. Cubre lo que la 27001 deja deliberadamente fuera: ciclo de vida de los sistemas de IA, sesgo algorítmico, calidad de los datos de entrenamiento, explicabilidad de modelos, supervisión humana e impacto social de las decisiones automatizadas.
       <br><br>
-      Su Anexo A tiene 38 controles específicos de IA. Además, incluye un Anexo B de guía de implementación y un Anexo C con fuentes de riesgo sin equivalente en ninguna norma de seguridad clásica: comportamientos emergentes, desplazamiento de distribución, impacto sobre derechos fundamentales.
+      Su Anexo A tiene 38 controles específicos de IA. Además incluye un Anexo B de guía de implementación y un Anexo C con fuentes de riesgo sin equivalente en ninguna norma de seguridad clásica: comportamientos emergentes, desplazamiento de distribución, impacto sobre derechos fundamentales.
       <br><br>
-      El ecosistema está madurando. Ronda los 400 certificados activos globalmente, pero tiene la mayor velocidad de adopción entre todas las normas ISO en sus primeros años. El cuadro de auditores es escaso — si lo vas a certificar, reserva fecha de auditoría con antelación.
+      El ecosistema está madurando. Ronda los 400 certificados activos globalmente pero con la mayor velocidad de adopción entre todas las normas ISO en sus primeros años. El cuadro de auditores es escaso — si lo vas a certificar, reserva fecha con antelación.
       <br><br>
       <strong>Es la capa que necesitas si la IA ya no es experimental en tu organización.</strong>
     </div>
@@ -111,85 +133,148 @@
 
   <div class="divider"></div>
 
+  <!-- SOLAPAMIENTOS -->
   <div class="block">
     <div class="block-label">Lo que comparten</div>
-    <div class="block-title">Por qué se integran y no se duplican</div>
+    <div class="block-title">Controles que se mapean directamente</div>
     <div class="block-text">
-      Ambas siguen la Estructura Armonizada (Annex SL) de ISO. Las cláusulas 4 a 10 — contexto de la organización, liderazgo, planificación, soporte, operación, evaluación del desempeño, mejora — se leen casi igual en las dos. Esto permite operar un sistema de gestión integrado con un único registro de riesgos, un único programa de auditoría interna y una única revisión por la dirección.
+      Ambas siguen la Estructura Armonizada (Annex SL). Las cláusulas 4 a 10 se leen casi igual en las dos — un único registro de riesgos, un único programa de auditoría interna, una única revisión por la dirección.
       <br><br>
-      Una organización con SGSI 27001 maduro ya tiene entre el 40 y el 60 por ciento del trabajo documental que exige la 42001. Los controles se mapean directamente:
+      Una organización con SGSI 27001 maduro ya tiene entre el 40 y el 60 por ciento del trabajo documental que exige la 42001.
     </div>
 
-    <table class="tension" style="margin-top:20px;">
-      <tr>
-        <td class="tension-who">27001 A.5.9 — Inventario de activos</td>
-        <td class="tension-says">→ Inventario de modelos y conjuntos de datos (42001)</td>
-      </tr>
-      <tr>
-        <td class="tension-who">27001 A.5.34 — Privacidad y datos personales</td>
-        <td class="tension-says">→ Gobernanza de datos de entrenamiento (42001)</td>
-      </tr>
-      <tr>
-        <td class="tension-who">27001 A.5.19–A.5.23 — Proveedores</td>
-        <td class="tension-says">→ Subencargados y proveedores de modelos fundacionales (42001)</td>
-      </tr>
-      <tr>
-        <td class="tension-who">27001 A.5.25–A.5.27 — Gestión de incidentes</td>
-        <td class="tension-says">→ Notificación de incidentes de IA (42001)</td>
-      </tr>
-      <tr class="hi-row">
-        <td class="tension-who">27001 A.8.16 — Monitorización</td>
-        <td class="tension-says"><span class="hi">→ Monitorización post-despliegue, métricas de deriva (42001)</span></td>
-      </tr>
-    </table>
+    <div class="tbl-scroll">
+      <table class="tension">
+        <tr>
+          <td class="tension-who"><strong>Control ISO 27001</strong></td>
+          <td class="tension-says"><strong>Qué cubre</strong></td>
+          <td class="tension-says"><strong>Equivalente ISO 42001</strong></td>
+        </tr>
+        <tr>
+          <td class="tension-who">A.5.9 — Inventario de activos</td>
+          <td class="tension-says">Registro de activos de información</td>
+          <td class="tension-says">Inventario de modelos y conjuntos de datos</td>
+        </tr>
+        <tr>
+          <td class="tension-who">A.5.34 — Privacidad y datos personales</td>
+          <td class="tension-says">Protección de datos personales</td>
+          <td class="tension-says">Gobernanza de datos de entrenamiento</td>
+        </tr>
+        <tr>
+          <td class="tension-who">A.5.19–A.5.23 — Proveedores</td>
+          <td class="tension-says">Seguridad en cadena de suministro</td>
+          <td class="tension-says">Subencargados y proveedores de modelos fundacionales</td>
+        </tr>
+        <tr>
+          <td class="tension-who">A.5.25–A.5.27 — Incidentes</td>
+          <td class="tension-says">Gestión y notificación de incidentes</td>
+          <td class="tension-says">Incidentes de IA: sesgo, salida dañina, queja de explicabilidad</td>
+        </tr>
+        <tr class="hi-row">
+          <td class="tension-who">A.8.16 — Monitorización</td>
+          <td class="tension-says">Supervisión de actividades y anomalías</td>
+          <td class="tension-says"><span class="hi">Monitorización post-despliegue y métricas de deriva del modelo</span></td>
+        </tr>
+      </table>
+    </div>
   </div>
 
   <div class="divider"></div>
 
+  <!-- DIVERGENCIAS -->
   <div class="block">
-    <div class="block-label">Lo que no comparten</div>
+    <div class="block-label">Lo que NO comparten</div>
     <div class="block-title">Donde cada una es irreemplazable</div>
-    <div class="block-text">
-      ISO 27001 no dice nada sobre sesgo algorítmico, explicabilidad de modelos, calidad de datos de entrenamiento, comportamiento emergente ni impacto social de decisiones automatizadas. No es un defecto — simplemente no es su dominio.
-      <br><br>
-      ISO 42001 no cubre en profundidad seguridad de redes, criptografía, control de acceso físico ni gestión de vulnerabilidades. Asume que hay una base de seguridad debajo. Operar la 42001 sola, sin 27001 ni garantía equivalente, produce una postura débil que normalmente no supera la diligencia de compras corporativa.
-      <br><br>
+
+    <div class="tbl-scroll">
+      <table class="tension">
+        <tr>
+          <td class="tension-who"><strong>ISO 27001 NO cubre</strong></td>
+          <td class="tension-says"><strong>ISO 42001 NO cubre</strong></td>
+        </tr>
+        <tr>
+          <td class="tension-who">Sesgo algorítmico</td>
+          <td class="tension-says">Seguridad de redes e infraestructura</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Explicabilidad de modelos de IA</td>
+          <td class="tension-says">Criptografía y cifrado</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Calidad de datos de entrenamiento</td>
+          <td class="tension-says">Control de acceso físico</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Comportamiento emergente de sistemas IA</td>
+          <td class="tension-says">Gestión de vulnerabilidades</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Desplazamiento de distribución (model drift)</td>
+          <td class="tension-says">Respuesta a incidentes de ciberseguridad</td>
+        </tr>
+        <tr class="hi-row">
+          <td class="tension-who">Impacto social de decisiones automatizadas</td>
+          <td class="tension-says"><span class="hi">Sin base de seguridad debajo, la 42001 sola no supera diligencia corporativa</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="block-text" style="margin-top:16px;">
       <strong>Son dominios distintos con puntos de contacto. No son alternativas.</strong>
     </div>
   </div>
 
   <div class="divider"></div>
 
+  <!-- CUÁNDO USAR -->
   <div class="block">
     <div class="block-label">¿Cuándo usar cada una?</div>
     <div class="block-title">La decisión en una tabla</div>
 
-    <table class="tension" style="margin-top:20px;">
-      <tr>
-        <td class="tension-who">Solo TI tradicional, sin IA</td>
-        <td class="tension-says">ISO 27001. Punto.</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Desarrollas o integras IA en productos</td>
-        <td class="tension-says">ISO 42001. Empieza a mirarla si aún no lo haces.</td>
-      </tr>
-      <tr>
-        <td class="tension-who">IA + datos sensibles</td>
-        <td class="tension-says">Las dos, integradas. Más eficiente que secuencial.</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Entidad regulada bajo NIS2 o DORA</td>
-        <td class="tension-says">27001 como prerrequisito. 42001 si la IA está en el perímetro.</td>
-      </tr>
-      <tr class="hi-row">
-        <td class="tension-who">Solo presupuesto para una</td>
-        <td class="tension-says"><span class="hi">ISO 27001, salvo que seas proveedor de IA puro y tu cliente la exija.</span></td>
-      </tr>
-    </table>
+    <div class="tbl-scroll">
+      <table class="tension">
+        <tr>
+          <td class="tension-who"><strong>Situación</strong></td>
+          <td class="tension-says"><strong>ISO 27001</strong></td>
+          <td class="tension-says"><strong>ISO 42001</strong></td>
+        </tr>
+        <tr>
+          <td class="tension-who">Solo TI tradicional, sin IA</td>
+          <td class="tension-says">✓ Suficiente</td>
+          <td class="tension-says">No necesaria</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Desarrollas o integras IA en productos</td>
+          <td class="tension-says">✓ Base imprescindible</td>
+          <td class="tension-says">✓ Necesaria</td>
+        </tr>
+        <tr>
+          <td class="tension-who">IA + datos sensibles</td>
+          <td class="tension-says">✓ Imprescindible</td>
+          <td class="tension-says">✓ Imprescindible</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Entidad regulada NIS2 / DORA</td>
+          <td class="tension-says">✓ Prerrequisito</td>
+          <td class="tension-says">✓ Si IA en el perímetro</td>
+        </tr>
+        <tr>
+          <td class="tension-who">Proveedor de IA puro (cliente lo exige)</td>
+          <td class="tension-says">✓ Base</td>
+          <td class="tension-says">✓ Prioritaria</td>
+        </tr>
+        <tr class="hi-row">
+          <td class="tension-who">Solo presupuesto para una</td>
+          <td class="tension-says"><span class="hi">✓ Esta primero, siempre</span></td>
+          <td class="tension-says">Solo si eres proveedor IA puro y el cliente la exige</td>
+        </tr>
+      </table>
+    </div>
   </div>
 
   <div class="divider"></div>
 
+  <!-- REGULATORIO -->
   <div class="block">
     <div class="block-label">El ángulo regulatorio</div>
     <div class="block-title">EU AI Act — Agosto 2026</div>
@@ -204,6 +289,7 @@
 
   <div class="divider"></div>
 
+  <!-- VEREDICTO -->
   <div class="block">
     <div class="block-label">Veredicto GRCREAL</div>
     <div class="block-title">No pelean. Se necesitan.</div>
@@ -241,7 +327,7 @@
       </div>
       <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
         <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
         </svg>
         <div>
           <span class="li-main">&ldquo;Arquitectura, cumplimiento y riesgo...&rdquo;</span>
