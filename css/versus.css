@@ -32,7 +32,7 @@
 
 /* ── Columna izquierda de tabla más oscura ── */
 .article-page .tension-who {
-  color: var(--muted);
+  color: var(--ink);
 }
 
 /* ══════════════════════════════════════
