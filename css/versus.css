@@ -32,7 +32,11 @@
 
 /* ── Columna izquierda de tabla más oscura ── */
 .article-page .tension-who {
-  color: var(--ink) !important;
+  color: #666666 !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  font-size: 11px !important;
 }
 
 /* ══════════════════════════════════════
