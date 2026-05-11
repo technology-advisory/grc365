@@ -227,6 +227,7 @@
 		  <button class="filter-btn" data-filter="vciso" onclick="filterArticles('vciso', this)">vCISO</button>
 		  <button class="filter-btn" data-filter="grc" onclick="filterArticles('grc', this)">GRC</button>
 		  <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai', this)">EU AI Act</button>
+		  <button class="filter-btn" data-filter="ia" onclick="filterArticles('ia', this)">IA</button>
 		  <button class="filter-btn" data-filter="tecnico" onclick="filterArticles('tecnico', this)">Técnico</button>
 		  <button class="filter-btn" data-filter="ens" onclick="filterArticles('ens', this)">ENS</button>
 		  <button class="filter-btn" data-filter="iso27001" onclick="filterArticles('iso27001', this)">ISO 27001</button>
@@ -235,9 +236,10 @@
 		  <button class="filter-btn" data-filter="nis2" onclick="filterArticles('nis2', this)">NIS2</button>
 		  <button class="filter-btn" data-filter="iso45003" onclick="filterArticles('iso45003', this)">ISO 45003</button>
 
+						<div style="width:100%; height:0; margin:0; padding:0;"></div>
 			<!-- CONTROLES -->
 			  <div style="display:flex; gap:6px; align-items:center;">
-				<span style="font-family:var(--mono); font-size:10px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;">Más filtros:</span>
+				<span style="font-family:var(--mono); font-size:10px; ...">Más filtros:</span>
 				<select id="monthFilter" class="ctrl-btn" onchange="applyFilters()">
 				  <option value="all">Mes</option>
 				  <option value="2026-05">Mayo 2026</option>
@@ -543,8 +545,7 @@
 <!-- 28-04-2026 -->
 <div class="article-card" data-cat="nis2" onclick="location.href='nis2-medidas-tecnicas-articulo21.html'">
   <div class="article-meta">NIS2 · Técnico</div>
-  <div class="article-title">NIS2 Art. 21: las medidas técnicas que el regulador espera ver
-  <span class="article-badge">Nuevo</span></div>
+  <div class="article-title">NIS2 Art. 21: las medidas técnicas que el regulador espera ver</div>
   <div class="article-date">28 Abril 2026</div>
   <div class="article-desc">No basta con decir que tenéis medidas de seguridad. Hay que poder demostrarlas.</div>
   <a href="nis2-medidas-tecnicas-articulo21.html" class="article-link">Leer artículo →</a>
@@ -554,8 +555,7 @@
 <!-- 28-04-2026 -->
 <div class="article-card" data-cat="nis2" onclick="location.href='nis2-entidades-esenciales-importantes.html'">
   <div class="article-meta">NIS2 · Regulación</div>
-  <div class="article-title">NIS2: entidades esenciales vs importantes — las diferencias que importan
-  <span class="article-badge">Nuevo</span></div>
+  <div class="article-title">NIS2: entidades esenciales vs importantes — las diferencias que importan</div>
   <div class="article-date">28 Abril 2026</div>
   <div class="article-desc">No todas las entidades sujetas a NIS2 tienen las mismas obligaciones. La categoría determina qué aplica.</div>
   <a href="nis2-entidades-esenciales-importantes.html" class="article-link">Leer artículo →</a>
@@ -566,8 +566,7 @@
 <!-- 28-04-2026 -->
 <div class="article-card" data-cat="tecnico" onclick="location.href='ransomware-defensa-real.html'">
   <div class="article-meta">Ransomware · Defensa</div>
-  <div class="article-title">Ransomware: la defensa que casi nadie tiene
-  <span class="article-badge">Nuevo</span></div>
+  <div class="article-title">Ransomware: la defensa que casi nadie tiene></div>
   <div class="article-date">28 Abril 2026</div>
   <div class="article-desc">No es si te atacan. Es si puedes seguir operando.</div>
   <a href="ransomware-defensa-real.html" class="article-link">Leer artículo →</a>
@@ -583,8 +582,7 @@
 <!-- 05-05-2026 -->
 <div class="article-card" data-cat="tecnico" onclick="location.href='phishing-2026.html'">
   <div class="article-meta">Phishing · Amenazas</div>
-  <div class="article-title">Phishing 2026: ya no es lo que crees
-  <span class="article-badge">Nuevo</span></div>
+  <div class="article-title">Phishing 2026: ya no es lo que crees</div>
   <div class="article-date">5 Mayo 2026</div>
   <div class="article-desc">Los ataques han cambiado. Tus controles no.</div>
   <a href="phishing-2026.html" class="article-link">Leer artículo →</a>
@@ -594,8 +592,7 @@
 <!-- 05-05-2026 -->
 <div class="article-card" data-cat="grc" onclick="location.href='rgpd-en-la-practica.html'">
   <div class="article-meta">RGPD · Compliance</div>
-  <div class="article-title">RGPD en la práctica
-  <span class="article-badge">Nuevo</span></div>
+  <div class="article-title">RGPD en la práctica></div>
   <div class="article-date">5 Mayo 2026</div>
   <div class="article-desc">Lo que el regulador realmente revisa.</div>
   <a href="rgpd-en-la-practica.html" class="article-link">Leer artículo →</a>
@@ -610,6 +607,17 @@
 	<div class="article-date">7 Mayo 2026</div>
 	<div class="article-desc">Riesgos psicosociales y ISO 45003:2021. Lo que tu sistema de gestión no está midiendo.</div>
 	<a href="iso-45003-riesgos-psicosociales.html" class="article-link">Leer artículo →</a>
+</div>
+
+<!-- ********* PUBLICADO ********* -->
+<!-- 12-05-2026 -->
+<div class="article-card" data-cat="ia" onclick="location.href='ia-despachos-profesionales-rgpd-vciso.html'">
+	<div class="article-meta">IA · RGPD · ISO 42001 · vCISO</div>
+	<div class="article-title">IA en despachos profesionales: productividad sí, pero con criterio
+	  <span class="article-badge">Nuevo</span></div>
+	<div class="article-date">12 Mayo 2026</div>
+	<div class="article-desc">Nadie habla de lo que pasa con los datos cuando pulsas "enviar". Lo que exige el RGPD y lo que dice ISO 42001.</div>
+	<a href="ia-despachos-profesionales-rgpd-vciso.html" class="article-link">Leer artículo →</a>
 </div>
 
 <!--
