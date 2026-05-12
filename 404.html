@@ -2,26 +2,200 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="3;url=/index.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
 <title>Página no encontrada · GRCReal</title>
 <link rel="stylesheet" href="/css/marca.css">
 <link rel="stylesheet" href="/css/articles.css">
+<style>
+
+.error-code {
+  font-family: var(--mono);
+  font-size: 96px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--border, #e0e0e0);
+  line-height: 1;
+  margin-bottom: 0;
+  user-select: none;
+}
+
+.countdown-bar-wrap {
+  width: 100%;
+  height: 3px;
+  background: var(--border, #e5e5e5);
+  margin: 28px 0 20px 0;
+  overflow: hidden;
+}
+
+.countdown-bar {
+  height: 100%;
+  background: var(--brand, #0077B5);
+  width: 100%;
+  transform-origin: left;
+  animation: shrink 5s linear forwards;
+}
+
+@keyframes shrink {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0); }
+}
+
+.countdown-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted, #888);
+  margin-bottom: 28px;
+}
+
+.countdown-label span {
+  color: var(--brand, #0077B5);
+  font-weight: bold;
+}
+
+.back-btn {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white, #fff);
+  background: var(--brand, #0077B5);
+  border: 1px solid var(--brand, #0077B5);
+  padding: 12px 28px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: transparent;
+  color: var(--brand, #0077B5);
+}
+
+.suggestion-block {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border, #e5e5e5);
+}
+
+.suggestion-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ghost, #bbb);
+  margin-bottom: 14px;
+}
+
+.suggestion-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggestion-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted, #888);
+  text-decoration: none;
+  border: 1px solid var(--border, #e5e5e5);
+  padding: 6px 14px;
+  transition: all 0.15s;
+}
+
+.suggestion-link:hover {
+  border-color: var(--brand, #0077B5);
+  color: var(--brand, #0077B5);
+}
+
+</style>
 </head>
 <body class="article-page">
 <div class="card-wrapper">
 <div class="card">
 <div class="accent-bar"></div>
+
 <div class="header">
-  <div class="tag">404</div>
-  <div class="headline">
+  <div class="tag">Error · Navegación</div>
+  <div class="error-code">404</div>
+  <div class="headline" style="margin-top:12px;">
     Esta página<br>
-    <span class="accent">no existe</span>
+    <span class="accent">no existe.</span>
   </div>
-  <p class="subline">
-    Redirigiendo al inicio en 3 segundos...<br>
+  <p class="subline" style="margin-top:16px;">
+    La URL que buscas no está disponible.<br>
+    <strong>Puede que haya cambiado o que nunca haya existido.</strong>
   </p>
 </div>
+
+<div class="body">
+  <div class="block">
+
+    <div class="countdown-bar-wrap">
+      <div class="countdown-bar"></div>
+    </div>
+    <div class="countdown-label">Redirigiendo al inicio en <span id="counter">5</span> segundos...</div>
+
+    <a href="/index.html" class="back-btn">← Volver al inicio</a>
+
+    <div class="suggestion-block">
+      <div class="suggestion-label">O explora directamente</div>
+      <div class="suggestion-links">
+        <a href="/articulos/index.html" class="suggestion-link">Artículos</a>
+        <a href="/articulos/index.html?cat=iso27001" class="suggestion-link">ISO 27001</a>
+        <a href="/articulos/index.html?cat=iso42001" class="suggestion-link">ISO 42001</a>
+        <a href="/articulos/index.html?cat=nis2" class="suggestion-link">NIS2</a>
+        <a href="/articulos/index.html?cat=vciso" class="suggestion-link">vCISO</a>
+        <a href="/articulos/index.html?cat=grc" class="suggestion-link">GRC</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-inner">
+    <div class="author-block">
+      <div class="author-avatar">MA</div>
+      <div>
+        <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
+        <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+      </div>
+    </div>
+    <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
+      <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      </svg>
+      <div>
+        <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
+        <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+      </div>
+    </a>
+  </div>
+</div>
+
 </div>
 </div>
+<a href="/index.html" class="home-btn">⌂ Home</a>
+
+<script>
+// Countdown 5 segundos
+let seconds = 5;
+const counter = document.getElementById('counter');
+const interval = setInterval(() => {
+  seconds--;
+  counter.textContent = seconds;
+  if (seconds <= 0) {
+    clearInterval(interval);
+    window.location.href = '/index.html';
+  }
+}, 1000);
+</script>
+
 </body>
 </html>
