@@ -613,3 +613,100 @@ body {
         padding: 24px 20px;
     }
 }
+
+
+/* ---------------------------------------------
+   13. COPYRIGHT HINT (bombilla animada)
+   --------------------------------------------- */
+
+/* ESTILOS BASE (siempre necesarios) */
+.copyright-hint-auto {
+    background: var(--brand-light, #e8f3fa);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 20px;
+    color: var(--brand, #0077B5);
+    transition: all 0.2s ease;
+}
+
+/* =============================================
+   OPCIÓN 1 · Parpadeo solo al hacer hover (elegida)
+   ============================================= */
+.copyright-hint-auto:hover {
+    animation: pulse 0.6s ease-in-out 2;
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); background: var(--brand, #0077B5); color: white; }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* =============================================
+   OPCIÓN 2 · Parpadeo suave continuo (siempre)
+   ============================================= */
+/*
+.copyright-hint-auto {
+    animation: softBlink 2s ease-in-out infinite;
+}
+
+@keyframes softBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+*/
+
+/* =============================================
+   OPCIÓN 3 · Parpadeo rápido continuo (llamativo)
+   ============================================= */
+/*
+.copyright-hint-auto {
+    animation: fastBlink 0.8s step-end infinite;
+}
+
+@keyframes fastBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+*/
+
+/* =============================================
+   OPCIÓN 4 · Combinada: parpadeo suave continuo + hover más intenso
+   ============================================= */
+
+.copyright-hint-auto {
+    animation: softBlink 2s ease-in-out infinite;
+}
+
+.copyright-hint-auto:hover {
+    animation: pulse 0.6s ease-in-out 2;
+    transform: scale(1.05);
+}
+
+@keyframes softBlink {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); background: var(--brand, #0077B5); color: white; }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+
+/* =============================================
+   OPCIÓN 5 · Sin animación, solo cambio de color al hover
+   ============================================= */
+/*
+.copyright-hint-auto:hover {
+    background: var(--brand, #0077B5);
+    color: white;
+    transform: scale(1.05);
+}
+*/

@@ -38,22 +38,23 @@ margin-bottom: 14px;
 }
 
 .course-title {
-font-size: clamp(32px, 5vw, 52px);
-font-weight: 800;
-line-height: 1.1;
-color: var(--ink);
-margin-bottom: 20px;
+    font-size: 66px;
+    font-weight: bold;
+    line-height: 1.05;
+    color: var(--ink);
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
 }
 
-.course-title span {
-color: var(--brand);
+.course-title .accent {
+    color: var(--brand, #0077B5);
 }
 
 .course-desc {
 font-size: 16px;
 line-height: 1.85;
 color: var(--muted);
-max-width: 600px;
+max-width: 100%;
 margin-bottom: 28px;
 }
 
@@ -388,6 +389,34 @@ gap: 4px;
 
 }
 
+/* Ampliar el ancho del card como en los módulos */
+.card-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.card {
+    max-width: 100%;
+}
+
+/* Mejorar el grid de módulos */
+.module-grid {
+    gap: 16px;
+    background: transparent;
+    border: none;
+}
+
+.module-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+/* Ajustar la ruta de auditoría */
+.nav-path {
+    justify-content: center;
+}
+
 </style>
 
 </head>
@@ -410,8 +439,8 @@ GRCreal Academy · ISO/IEC 27001
 </div>
 
 <div class="course-title">
-Lead<br>
-<span>Implementer</span>
+    Lead<br>
+    <span class="accent">Implementer</span>
 </div>
 
 <p class="course-desc">
