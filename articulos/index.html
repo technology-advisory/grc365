@@ -24,183 +24,12 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <link rel="stylesheet" href="../css/marca.css">
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/articulos-index.css">
 
-<style>
 
-/* ── FILTROS ── */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 28px;
-}
-
-.filter-btn {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  padding: 7px 16px;
-  border: 1px solid var(--border);
-  background: var(--white);
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.filter-btn:hover {
-  border-color: var(--brand);
-  color: var(--brand);
-}
-
-.filter-btn.active {
-  background: var(--brand);
-  border-color: var(--brand);
-  color: var(--white);
-}
-
-/* ── GRID ── */
-.articles-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-/* ── TARJETA ── */
-.article-card {
-  border: 1px solid var(--border);
-  padding: 24px;
-  background: var(--surface);
-  transition: all 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.article-card:hover {
-  border-color: var(--brand);
-  background: var(--brand-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,119,181,0.08);
-}
-
-.article-card.hidden {
-  display: none;
-}
-
-/* ── META ── */
-.article-meta {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  color: var(--brand);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-/* ── TÍTULO ── */
-.article-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--ink);
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
-
-/* ── DESCRIPCIÓN ── */
-.article-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.65;
-  margin-bottom: 12px;
-  flex: 1;
-}
-
-/* ── FECHA ── */
-.article-date {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--ghost);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-/* ── LINK ── */
-.article-link {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 12px;
-  font-weight: bold;
-  color: var(--brand);
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: auto;
-}
-
-.article-link:hover {
-  text-decoration: underline;
-}
-
-/* ── BADGE NUEVO ── */
-.article-badge {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: var(--brand);
-  color: white;
-  padding: 2px 8px;
-  margin-left: 8px;
-  vertical-align: middle;
-  border-radius: 2px;
-}
-
-/* ── SIN RESULTADOS ── */
-.no-results {
-  display: none;
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 48px 24px;
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 620px) {
-  .articles-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ORDEN */
-.ctrl-btn {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 7px 14px;
-  border: none;
-  background: var(--surface);
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.ctrl-btn:hover {
-  background: var(--border);
-  color: var(--ink);
-}
-
-</style>
 </head>
-<body>
-
+<body class="article-page">
 <div class="card-wrapper">
 <div class="card">
   <div class="accent-bar"></div>
@@ -220,528 +49,41 @@
   <!-- BODY -->
   <div class="body">
 
-		<div id="filters" style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin-bottom:28px;">
+    <div id="filters">
+      <!-- CATEGORÍAS -->
+      <button class="filter-btn active" data-filter="all" onclick="filterArticles('all', this)">Todo</button>
+      <button class="filter-btn" data-filter="vciso" onclick="filterArticles('vciso', this)">vCISO</button>
+      <button class="filter-btn" data-filter="grc" onclick="filterArticles('grc', this)">GRC</button>
+      <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai', this)">EU AI Act</button>
+      <button class="filter-btn" data-filter="ia" onclick="filterArticles('ia', this)">IA</button>
+      <button class="filter-btn" data-filter="tecnico" onclick="filterArticles('tecnico', this)">Técnico</button>
+      <button class="filter-btn" data-filter="ens" onclick="filterArticles('ens', this)">ENS</button>
+      <button class="filter-btn" data-filter="iso27001" onclick="filterArticles('iso27001', this)">ISO 27001</button>
+      <button class="filter-btn" data-filter="iso22301" onclick="filterArticles('iso22301', this)">ISO 22301</button>
+      <button class="filter-btn" data-filter="iso42001" onclick="filterArticles('iso42001', this)">ISO 42001</button>
+      <button class="filter-btn" data-filter="nis2" onclick="filterArticles('nis2', this)">NIS2</button>
+      <button class="filter-btn" data-filter="iso45003" onclick="filterArticles('iso45003', this)">ISO 45003</button>
 
-		  <!-- CATEGORÍAS -->
-		  <button class="filter-btn" data-filter="all" onclick="filterArticles('all', this)">Todo</button>
-		  <button class="filter-btn" data-filter="vciso" onclick="filterArticles('vciso', this)">vCISO</button>
-		  <button class="filter-btn" data-filter="grc" onclick="filterArticles('grc', this)">GRC</button>
-		  <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai', this)">EU AI Act</button>
-		  <button class="filter-btn" data-filter="ia" onclick="filterArticles('ia', this)">IA</button>
-		  <button class="filter-btn" data-filter="tecnico" onclick="filterArticles('tecnico', this)">Técnico</button>
-		  <button class="filter-btn" data-filter="ens" onclick="filterArticles('ens', this)">ENS</button>
-		  <button class="filter-btn" data-filter="iso27001" onclick="filterArticles('iso27001', this)">ISO 27001</button>
-		  <button class="filter-btn" data-filter="iso22301" onclick="filterArticles('iso22301', this)">ISO 22301</button>
-		  <button class="filter-btn" data-filter="iso42001" onclick="filterArticles('iso42001', this)">ISO 42001</button>
-		  <button class="filter-btn" data-filter="nis2" onclick="filterArticles('nis2', this)">NIS2</button>
-		  <button class="filter-btn" data-filter="iso45003" onclick="filterArticles('iso45003', this)">ISO 45003</button>
+      <div style="width:100%; height:0; margin:0; padding:0;"></div>
 
-						<div style="width:100%; height:0; margin:0; padding:0;"></div>
-			<!-- CONTROLES -->
-			  <div style="display:flex; gap:6px; align-items:center;">
-				<span style="font-family:var(--mono); font-size:10px; ...">Más filtros:</span>
-				<select id="monthFilter" class="ctrl-btn" onchange="applyFilters()">
-				  <option value="all">Mes</option>
-				  <option value="2026-05">Mayo 2026</option>
-				  <option value="2026-04">Abril 2026</option>
-				</select>
-				<button class="ctrl-btn" id="sortBtn" onclick="toggleSort()">↓ Nuevos</button>
-			  </div>
+      <!-- CONTROLES -->
+      <div style="display:flex; gap:6px; align-items:center;">
+        <span style="font-family:var(--mono); font-size:10px;">Más filtros:</span>
+        <select id="monthFilter" class="ctrl-btn" onchange="applyFilters()">
+          <option value="all">Mes</option>
+          <option value="2026-05">Mayo 2026</option>
+          <option value="2026-04">Abril 2026</option>
+        </select>
+        <button class="ctrl-btn" id="sortBtn" onclick="toggleSort()">↓ Nuevos</button>
+      </div>
+    </div>
 
- <!-- GRID -->
-<div class="articles-grid" id="articlesGrid">
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="grc" onclick="location.href='cumplir-no-es-estar-preparado.html'">
-  <div class="article-meta">GRC · Cumplimiento</div>
-  <div class="article-title">Cumplir no significa estar preparado</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">Certificado no es sinónimo de protegido.</div>
-  <a href="cumplir-no-es-estar-preparado.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="vciso" onclick="location.href='vciso-que-es.html'">
-  <div class="article-meta">vCISO · Estrategia</div>
-  <div class="article-title">vCISO: qué es y cuándo lo necesitas</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">Dirección de seguridad sin CISO a jornada completa.</div>
-  <a href="vciso-que-es.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='backup-no-es-recuperacion.html'">
-  <div class="article-meta">Backup · Continuidad</div>
-  <div class="article-title">Backup no es recuperación</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">El error que sigue costando millones.</div>
-  <a href="backup-no-es-recuperacion.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="grc" onclick="location.href='el-fallo-es-de-gobierno.html'">
-  <div class="article-meta">GRC · Gobierno</div>
-  <div class="article-title">El mayor fallo en ciberseguridad no es técnico</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">No falla la tecnología. Falla el gobierno.</div>
-  <a href="el-fallo-es-de-gobierno.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="ens" onclick="location.href='auditoria-ens.html'">
-  <div class="article-meta">ENS · Auditoría</div>
-  <div class="article-title">Auditoría ENS: lo que nadie te cuenta</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">El ENS es más exigente de lo que parece.</div>
-  <a href="auditoria-ens.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="ai" onclick="location.href='aiact.html'">
-  <div class="article-meta">AI Act · Compliance</div>
-  <div class="article-title">El reloj corre y muchas empresas aún duermen</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">La IA ya está. La gobernanza no.</div>
-  <a href="aiact.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="vciso" onclick="location.href='vciso-dos-realidades.html'">
-  <div class="article-meta">vCISO · Estrategia</div>
-  <div class="article-title">Hay empresas que no ven el riesgo</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">Dos realidades, mismo problema.</div>
-  <a href="vciso-dos-realidades.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="iso27001 grc" onclick="location.href='analisis-de-riesgos-util.html'">
-  <div class="article-meta">GRC · Riesgos</div>
-  <div class="article-title">El análisis de riesgos que nadie lee</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">El documento más importante… ignorado.</div>
-  <a href="analisis-de-riesgos-util.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="nis2" onclick="location.href='nis2-quien-aplica.html'">
-  <div class="article-meta">NIS2 · Cumplimiento</div>
-  <div class="article-title">NIS2: quién aplica</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">Muchas empresas no saben que les aplica.</div>
-  <a href="nis2-quien-aplica.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='segmentacion-red-real.html'">
-  <div class="article-meta">Red · Arquitectura</div>
-  <div class="article-title">Segmentación de red real</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">VLANs no es seguridad.</div>
-  <a href="segmentacion-red-real.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='active-directory-seguridad.html'">
-  <div class="article-meta">Active Directory · Identidad</div>
-  <div class="article-title">Active Directory: el objetivo que nadie protege bien</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">Quien controla el AD controla todo. Y los atacantes lo saben.</div>
-  <a href="active-directory-seguridad.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='zero-trust-on-prem.html'">
-  <div class="article-meta">Zero Trust · Arquitectura</div>
-  <div class="article-title">Zero Trust en on-prem: más allá del marketing</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">No es cloud. No es producto. Es modelo.</div>
-  <a href="zero-trust-on-prem.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="iso22301" onclick="location.href='rto-rpo-realidad.html'">
-  <div class="article-meta">Continuidad · RTO · RPO</div>
-  <div class="article-title">RTO y RPO: dos siglas que salvan empresas o las hunden</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">En la mayoría, son estimaciones. No mediciones.</div>
-  <a href="rto-rpo-realidad.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="grc" onclick="location.href='it-no-es-responsable-seguridad.html'">
-  <div class="article-meta">Gobierno · Organización</div>
-  <div class="article-title">Por qué IT no puede ser responsable de la seguridad</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">No es un problema técnico. Es estructural.</div>
-  <a href="it-no-es-responsable-seguridad.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="vciso" onclick="location.href='ciberseguridad-consejo-administracion.html'">
-  <div class="article-meta">Estrategia · Dirección</div>
-  <div class="article-title">Ciberseguridad para el consejo: cómo hablar su idioma</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">El consejo no necesita firewalls. Necesita entender riesgo.</div>
-  <a href="ciberseguridad-consejo-administracion.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 24-04-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='security-by-design.html'">
-  <div class="article-meta">Arquitectura · Security by Design</div>
-  <div class="article-title">Security by Design: la seguridad no puede ser un parche</div>
-  <div class="article-date">24 Abril 2026</div>
-  <div class="article-desc">Diseñar seguridad desde el inicio cambia todo.</div>
-  <a href="security-by-design.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 25-04-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='el-incidente-ocurrio.html'">
-  <div class="article-meta">Incidentes · Respuesta</div>
-  <div class="article-title">El incidente ocurrió. ¿Y ahora qué?</div>
-  <div class="article-date">25 Abril 2026</div>
-  <div class="article-desc">Las primeras horas son críticas. Y propensas a errores.</div>
-  <a href="el-incidente-ocurrio.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 25-04-2026 -->
-<div class="article-card" data-cat="iso22301" onclick="location.href='auditoria-continuidad-que-revisa.html'">
-  <div class="article-meta">ISO 22301 · Auditoría</div>
-  <div class="article-title">Qué revisa un auditor de continuidad de negocio</div>
-  <div class="article-date">25 Abril 2026</div>
-  <div class="article-desc">Todo lo que te van a pedir y por qué importa.</div>
-  <a href="auditoria-continuidad-que-revisa.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 25-04-2026 -->
-<div class="article-card" data-cat="iso42001" onclick="location.href='iso42001-gestion-ia.html'">
-  <div class="article-meta">ISO 42001 · Gobernanza IA</div>
-  <div class="article-title">ISO 42001: gobernar la IA no es opcional. Es Urgente</div>
-  <div class="article-date">25 Abril 2026</div>
-  <div class="article-desc">La IA ya está en tu organización. La pregunta es si alguien la está gobernando de verdad.</div>
-  <a href="iso42001-gestion-ia.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 26-04-2026 -->
-<div class="article-card" data-cat="iso27001 grc" onclick="location.href='iso27001-declaracion-aplicabilidad.html'">
-  <div class="article-meta">ISO 27001 · GRC</div>
-  <div class="article-title">La Declaración de Aplicabilidad: el documento más malinterpretado</div>
-  <div class="article-date">26 Abril 2026</div>
-  <div class="article-desc">Es el documento central del SGSI. Y la mayoría están mal construidas.</div>
-  <a href="iso27001-declaracion-aplicabilidad.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 26-04-2026 -->
-<div class="article-card" data-cat="iso27001" onclick="location.href='iso27001-auditoria-stage1-stage2.html'">
-  <div class="article-meta">ISO 27001 · Auditoría</div>
-  <div class="article-title">Auditoría ISO 27001: qué pasa en el Stage 1 y en el Stage 2</div>
-  <div class="article-date">26 Abril 2026</div>
-  <div class="article-desc">Muchas organizaciones llegan a la auditoría sin saber qué va a pasar. Y la sorpresa sale cara.</div>
-  <a href="iso27001-auditoria-stage1-stage2.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 26-04-2026 -->
-<div class="article-card" data-cat="iso27001" onclick="location.href='iso27001-mantenimiento-sgsi.html'">
-  <div class="article-meta">ISO 27001 · GRC</div>
-  <div class="article-title">ISO 27001: conseguir el certificado es lo fácil — mantenerlo es lo difícil</div>
-  <div class="article-date">26 Abril 2026</div>
-  <div class="article-desc">El certificado se consigue una vez. El SGSI debe mantenerse vivo cada día.</div>
-  <a href="iso27001-mantenimiento-sgsi.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 26-04-2026 -->
-<div class="article-card" data-cat="iso42001" onclick="location.href='iso42001-ai-act-diferencias.html'">
-  <div class="article-meta">ISO 42001 · AI Act</div>
-  <div class="article-title">ISO 42001 y AI Act: no son lo mismo y se necesitan los dos</div>
-  <div class="article-date">26 Abril 2026</div>
-  <div class="article-desc">Se confunden frecuentemente. Son complementarios, no equivalentes.</div>
-  <a href="iso42001-ai-act-diferencias.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 27-04-2026 -->
-<div class="article-card" data-cat="iso42001" onclick="location.href='iso42001-inventario-sistemas-ia.html'">
-  <div class="article-meta">ISO 42001 · Gobernanza IA</div>
-  <div class="article-title">El inventario de sistemas de IA: el primer paso que nadie da</div>
-  <div class="article-date">27 Abril 2026</div>
-  <div class="article-desc">Antes de gobernar la IA, hay que saber qué IA se usa. Y la mayoría de organizaciones no lo saben.</div>
-  <a href="iso42001-inventario-sistemas-ia.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 27-04-2026 -->
-<div class="article-card" data-cat="iso42001" onclick="location.href='iso42001-sesgos-ia-empresas.html'">
-  <div class="article-meta">ISO 42001 · Ética IA</div>
-  <div class="article-title">Sesgos en la IA empresarial: el riesgo que nadie mide</div>
-  <div class="article-date">27 Abril 2026</div>
-  <div class="article-desc">Los sistemas de IA pueden discriminar sin que nadie lo haya diseñado así. Y tiene consecuencias legales.</div>
-  <a href="iso42001-sesgos-ia-empresas.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 27-04-2026 -->
-<div class="article-card" data-cat="ens grc" onclick="location.href='ens-vs-iso27001-diferencias.html'">
-  <div class="article-meta">ENS · ISO 27001</div>
-  <div class="article-title">ENS vs ISO 27001: parecidos pero no iguales</div>
-  <div class="article-date">27 Abril 2026</div>
-  <div class="article-desc">Comparten filosofía pero tienen diferencias importantes. Confundirlos es el primer error.</div>
-  <a href="ens-vs-iso27001-diferencias.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 27-04-2026 -->
-<div class="article-card" data-cat="ens" onclick="location.href='ens-medidas-seguridad-criticas.html'">
-  <div class="article-meta">ENS · Auditoría</div>
-  <div class="article-title">Las medidas ENS que más fallan en auditoría</div>
-  <div class="article-date">27 Abril 2026</div>
-  <div class="article-desc">Siempre son las mismas. Y la mayoría son evitables con el enfoque correcto.</div>
-  <a href="ens-medidas-seguridad-criticas.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 27-04-2026 -->
-<div class="article-card" data-cat="ens" onclick="location.href='ens-proveedores-privados.html'">
-  <div class="article-meta">ENS · Proveedores</div>
-  <div class="article-title">ENS para empresas privadas: cuándo os aplica y qué implica</div>
-  <div class="article-date">27 Abril 2026</div>
-  <div class="article-desc">El ENS no es solo para la Administración Pública. Muchos proveedores privados están obligados a cumplirlo.</div>
-  <a href="ens-proveedores-privados.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 27-04-2026 -->
-<div class="article-card" data-cat="nis2" onclick="location.href='nis2-notificacion-incidentes.html'">
-  <div class="article-meta">NIS2 · Incidentes</div>
-  <div class="article-title">NIS2 y la notificación de incidentes: 24 horas que no perdonan</div>
-  <div class="article-date">27 Abril 2026</div>
-  <div class="article-desc">Sin el proceso preparado, es imposible cumplir el plazo. Y el incumplimiento también se sanciona.</div>
-  <a href="nis2-notificacion-incidentes.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* NO PUBLICADO ********* -->
-<!-- 28-04-2026 -->
-<div class="article-card" data-cat="nis2" onclick="location.href='nis2-medidas-tecnicas-articulo21.html'">
-  <div class="article-meta">NIS2 · Técnico</div>
-  <div class="article-title">NIS2 Art. 21: las medidas técnicas que el regulador espera ver</div>
-  <div class="article-date">28 Abril 2026</div>
-  <div class="article-desc">No basta con decir que tenéis medidas de seguridad. Hay que poder demostrarlas.</div>
-  <a href="nis2-medidas-tecnicas-articulo21.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* NO PUBLICADO ********* -->
-<!-- 28-04-2026 -->
-<div class="article-card" data-cat="nis2" onclick="location.href='nis2-entidades-esenciales-importantes.html'">
-  <div class="article-meta">NIS2 · Regulación</div>
-  <div class="article-title">NIS2: entidades esenciales vs importantes — las diferencias que importan</div>
-  <div class="article-date">28 Abril 2026</div>
-  <div class="article-desc">No todas las entidades sujetas a NIS2 tienen las mismas obligaciones. La categoría determina qué aplica.</div>
-  <a href="nis2-entidades-esenciales-importantes.html" class="article-link">Leer artículo →</a>
-</div>
-
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 28-04-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='ransomware-defensa-real.html'">
-  <div class="article-meta">Ransomware · Defensa</div>
-  <div class="article-title">Ransomware: la defensa que casi nadie tiene></div>
-  <div class="article-date">28 Abril 2026</div>
-  <div class="article-desc">No es si te atacan. Es si puedes seguir operando.</div>
-  <a href="ransomware-defensa-real.html" class="article-link">Leer artículo →</a>
-</div>
-
-
-
-<!-- ========================= -->
-<!-- MES: MAYO 2026 -->
-<!-- ========================= -->
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 05-05-2026 -->
-<div class="article-card" data-cat="tecnico" onclick="location.href='phishing-2026.html'">
-  <div class="article-meta">Phishing · Amenazas</div>
-  <div class="article-title">Phishing 2026: ya no es lo que crees</div>
-  <div class="article-date">5 Mayo 2026</div>
-  <div class="article-desc">Los ataques han cambiado. Tus controles no.</div>
-  <a href="phishing-2026.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 05-05-2026 -->
-<div class="article-card" data-cat="grc" onclick="location.href='rgpd-en-la-practica.html'">
-  <div class="article-meta">RGPD · Compliance</div>
-  <div class="article-title">RGPD en la práctica</div>
-  <div class="article-date">5 Mayo 2026</div>
-  <div class="article-desc">Lo que el regulador realmente revisa.</div>
-  <a href="rgpd-en-la-practica.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 07-05-2026 -->
-<div class="article-card" data-cat="iso45003" onclick="location.href='iso-45003-riesgos-psicosociales.html'">
-	<div class="article-meta">ISO 45003 · GRC · Personas</div>
-	<div class="article-title">El riesgo que no aparece en el firewall
-	  <span class="article-badge">Nuevo</span></div>
-	<div class="article-date">7 Mayo 2026</div>
-	<div class="article-desc">Riesgos psicosociales y ISO 45003:2021. Lo que tu sistema de gestión no está midiendo.</div>
-	<a href="iso-45003-riesgos-psicosociales.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- 12-05-2026 -->
-<div class="article-card" data-cat="ia" onclick="location.href='ia-despachos-profesionales-rgpd-vciso.html'">
-	<div class="article-meta">IA · RGPD · ISO 42001 · vCISO</div>
-	<div class="article-title">IA en despachos profesionales: productividad sí, pero con criterio
-	  <span class="article-badge">Nuevo</span></div>
-	<div class="article-date">12 Mayo 2026</div>
-	<div class="article-desc">Nadie habla de lo que pasa con los datos cuando pulsas "enviar". Lo que exige el RGPD y lo que dice ISO 42001.</div>
-	<a href="ia-despachos-profesionales-rgpd-vciso.html" class="article-link">Leer artículo →</a>
-</div>
-
-
-<!-- ********* PUBLICADO ********* -->
-<!-- ===== 13-05-2026 ===== -->
-<div class="article-card" data-cat="iso22301 grc" onclick="location.href='sgcn-comite-direccion.html'">
-  <div class="article-meta">Continuidad · Dirección</div>
-  <div class="article-title">¿Sabe dirección qué es un SGCN?
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">13 Mayo 2026</div>
-  <div class="article-desc">La continuidad empieza arriba.</div>
-  <a href="sgcn-comite-direccion.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- ===== 13-05-2026 ===== -->
-<div class="article-card" data-cat="iso27001 grc" onclick="location.href='auditoria-interna-seguridad.html'">
-  <div class="article-meta">Auditoría · ISO 27001</div>
-  <div class="article-title">Auditoría interna de seguridad
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">13 Mayo 2026</div>
-  <div class="article-desc">Donde se ve la madurez real.</div>
-  <a href="auditoria-interna-seguridad.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!-- ********* PUBLICADO ********* -->
-<!-- ===== 13-05-2026 ===== -->
-<div class="article-card" data-cat="grc" onclick="location.href='CEO_y_compliance.html'">
-  <div class="article-meta">Dirección · Compliance</div>
-  <div class="article-title">Director, tú también eres responsable
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">13 Mayo 2026</div>
-  <div class="article-desc">Delegar no te protege.</div>
-  <a href="CEO_y_compliance.html" class="article-link">Leer artículo →</a>
-</div>
-
-<!--
-===== 09-05-2026 =====
-<div class="article-card" data-cat="tecnico" onclick="location.href='cloud-seguridad-responsabilidad-compartida.html'">
-  <div class="article-meta">Cloud · Arquitectura</div>
-  <div class="article-title">Cloud y responsabilidad compartida
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">9 Mayo 2026</div>
-  <div class="article-desc">El error que provoca la mayoría de incidentes.</div>
-  <a href="cloud-seguridad-responsabilidad-compartida.html" class="article-link">Leer artículo →</a>
-</div>
-
-===== 10-05-2026 =====
-<div class="article-card" data-cat="grc" onclick="location.href='Codigo_de_conducta.html'">
-  <div class="article-meta">Compliance · Cultura</div>
-  <div class="article-title">El código de conducta que nadie usa
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">10 Mayo 2026</div>
-  <div class="article-desc">Firmar no es cumplir.</div>
-  <a href="Codigo_de_conducta.html" class="article-link">Leer artículo →</a>
-</div>
-
-===== 11-05-2026 =====
-<div class="article-card" data-cat="grc" onclick="location.href='Compliance_para_principiantes.html'">
-  <div class="article-meta">Compliance · Introducción</div>
-  <div class="article-title">Compliance no es cosa de abogados
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">11 Mayo 2026</div>
-  <div class="article-desc">Ni solo para grandes.</div>
-  <a href="Compliance_para_principiantes.html" class="article-link">Leer artículo →</a>
-</div>
-
-===== 12-05-2026 =====
-<div class="article-card" data-cat="grc" onclick="location.href='Compliance_para_PYMEs.html'">
-  <div class="article-meta">Compliance · PYME</div>
-  <div class="article-title">La PYME que no cumple
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">12 Mayo 2026</div>
-  <div class="article-desc">Un riesgo evitable (y caro).</div>
-  <a href="Compliance_para_PYMEs.html" class="article-link">Leer artículo →</a>
-</div>
-
-===== 13-05-2026 =====
-<div class="article-card" data-cat="nis2 iso27001" onclick="location.href='disaster-recovery-nis2-ens-iso27001.html'">
-  <div class="article-meta">Continuidad · Normativa</div>
-  <div class="article-title">Sin Disaster Recovery no hay cumplimiento
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">13 Mayo 2026</div>
-  <div class="article-desc">No es documentación. Es recuperación.</div>
-  <a href="disaster-recovery-nis2-ens-iso27001.html" class="article-link">Leer artículo →</a>
-</div>
-
-===== 14-05-2026 =====
-<div class="article-card" data-cat="grc" onclick="location.href='dpo-delegado-proteccion-datos.html'">
-  <div class="article-meta">RGPD · DPO</div>
-  <div class="article-title">DPO: cuándo es obligatorio
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">14 Mayo 2026</div>
-  <div class="article-desc">Y por qué muchos lo tienen mal.</div>
-  <a href="dpo-delegado-proteccion-datos.html" class="article-link">Leer artículo →</a>
-</div>
-
-===== 15-05-2026 =====
-<div class="article-card" data-cat="grc" onclick="location.href='LPRL_compliance.html'">
-  <div class="article-meta">PRL · Compliance</div>
-  <div class="article-title">La LPRL ya no es suficiente
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">15 Mayo 2026</div>
-  <div class="article-desc">El inspector mira otras cosas.</div>
-  <a href="LPRL_compliance.html" class="article-link">Leer artículo →</a>
-</div>
-
-===== 16-05-2026 =====
-<div class="article-card" data-cat="tecnico" onclick="location.href='plan-continuidad-o-chapuza.html'">
-  <div class="article-meta">Continuidad · IT</div>
-  <div class="article-title">Plan de continuidad o chapuza
-  <span class="article-badge">Nuevo</span></div>
-  <div class="article-date">16 Mayo 2026</div>
-  <div class="article-desc">La diferencia que cuesta dinero.</div>
-  <a href="plan-continuidad-o-chapuza.html" class="article-link">Leer artículo →</a>
-</div>
--->
-
-  <!-- SIN RESULTADOS -->
-  <div class="no-results" id="noResults">
-    No hay artículos en esta categoría todavía.
-  </div>
-
-</div><!-- /articles-grid -->
+    <!-- GRID (se llena con JavaScript desde JSON) -->
+    <div class="articles-grid" id="articlesGrid">
+      <div class="no-results" id="noResults">
+        No hay artículos en esta categoría todavía.
+      </div>
+    </div>
 
   </div><!-- /body -->
 
@@ -751,8 +93,8 @@
       <div class="author-block">
         <div class="author-avatar">MA</div>
         <div>
-          <div class="author-name">Miguel &Aacute;ngel Carriazo &middot; <span>vCISO</span></div>
-          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+          <div class="author-name">Miguel Ángel Carriazo · <span>vCISO</span></div>
+          <div class="author-title">Cybersecurity & Infrastructure Architect</div>
         </div>
       </div>
       <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
@@ -760,8 +102,8 @@
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
         </svg>
         <div>
-          <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
-          <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
+          <span class="li-main">"Merece la pena la experiencia..."</span>
+          <span class="li-sub">Hablemos en LinkedIn →</span>
         </div>
       </a>
     </div>
@@ -773,10 +115,10 @@
 <a href="/index.html" class="home-btn">⌂ Home</a>
 
 <script>
-
 // ==============================
-// ESTADO GLOBAL
+// DATOS (se cargan desde JSON)
 // ==============================
+let articulosData = [];
 let currentCategory = "all";
 let sortMode = "newest";
 
@@ -789,64 +131,53 @@ function parseSpanishDate(text) {
     mayo: 4, junio: 5, julio: 6, agosto: 7,
     septiembre: 8, octubre: 9, noviembre: 10, diciembre: 11
   };
-
   const parts = text.toLowerCase().split(' ');
   const day = parseInt(parts[0]);
   const month = months[parts[1]];
   const year = parseInt(parts[2]);
-
   return new Date(year, month, day);
 }
 
 // ==============================
-// FILTRO + ORDEN (motor único)
+// RENDERIZAR ARTÍCULOS
 // ==============================
-function applyFilters() {
+function renderArticles() {
   const selectedMonth = document.getElementById("monthFilter")?.value || "all";
-  const cards = document.querySelectorAll(".article-card");
-
-  let visible = 0;
-
-  cards.forEach(card => {
-    const cats = card.dataset.cat || '';
-    const dateText = card.querySelector(".article-date").innerText;
-    const date = parseSpanishDate(dateText);
-
+  const grid = document.getElementById("articlesGrid");
+  
+  // Filtrar
+  let filtered = articulosData.filter(articulo => {
+    const matchCategory = currentCategory === "all" || articulo.cat.includes(currentCategory);
+    const date = parseSpanishDate(articulo.date);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const cardMonth = `${year}-${month}`;
-
-    const matchCategory =
-      currentCategory === "all" || cats.includes(currentCategory);
-
-    const matchMonth =
-      selectedMonth === "all" || cardMonth === selectedMonth;
-
-    if (matchCategory && matchMonth) {
-      card.classList.remove("hidden");
-      visible++;
-    } else {
-      card.classList.add("hidden");
-    }
+    const matchMonth = selectedMonth === "all" || cardMonth === selectedMonth;
+    return matchCategory && matchMonth;
   });
-
-  // Mensaje vacío
-  document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-
-  // Ordenar SOLO visibles
-  const grid = document.getElementById("articlesGrid");
-  const visibleCards = Array.from(cards).filter(c => !c.classList.contains("hidden"));
-
-  visibleCards.sort((a, b) => {
-    const dateA = parseSpanishDate(a.querySelector(".article-date").innerText);
-    const dateB = parseSpanishDate(b.querySelector(".article-date").innerText);
-
-    return sortMode === "newest"
-      ? dateB - dateA
-      : dateA - dateB;
+  
+  // Ordenar
+  filtered.sort((a, b) => {
+    const dateA = parseSpanishDate(a.date);
+    const dateB = parseSpanishDate(b.date);
+    return sortMode === "newest" ? dateB - dateA : dateA - dateB;
   });
-
-  visibleCards.forEach(card => grid.appendChild(card));
+  
+  // Generar HTML
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="no-results" style="display:block;">No hay artículos en esta categoría todavía.</div>';
+    return;
+  }
+  
+  grid.innerHTML = filtered.map(articulo => `
+    <div class="article-card" data-cat="${articulo.cat}" onclick="location.href='${articulo.url}'">
+      <div class="article-meta">${articulo.meta}</div>
+      <div class="article-title">${articulo.title}${articulo.badge ? `<span class="article-badge">${articulo.badge}</span>` : ''}</div>
+      <div class="article-date">${articulo.date}</div>
+      <div class="article-desc">${articulo.desc}</div>
+      <a href="${articulo.url}" class="article-link">Leer artículo →</a>
+    </div>
+  `).join('');
 }
 
 // ==============================
@@ -854,97 +185,71 @@ function applyFilters() {
 // ==============================
 function filterArticles(cat, btn) {
   currentCategory = cat;
-
-  // Botones activos SOLO categoría
   document.querySelectorAll('#filters .filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-
-  // Guardar en URL
   const url = new URL(window.location);
-  if (cat === 'all') {
-    url.searchParams.delete('cat');
-  } else {
-    url.searchParams.set('cat', cat);
-  }
+  if (cat === 'all') url.searchParams.delete('cat');
+  else url.searchParams.set('cat', cat);
   history.replaceState(null, '', url);
-
-  applyFilters();
+  renderArticles();
 }
 
 // ==============================
-// ORDEN (toggle botón)
+// ORDEN (toggle)
 // ==============================
 function toggleSort() {
   const btn = document.getElementById("sortBtn");
-
-  if (sortMode === "newest") {
-    sortMode = "oldest";
-    btn.innerText = "↑ Más antiguos";
-  } else {
-    sortMode = "newest";
-    btn.innerText = "↓ Más nuevos";
-  }
-
-  applyFilters();
+  sortMode = sortMode === "newest" ? "oldest" : "newest";
+  btn.innerText = sortMode === "newest" ? "↓ Nuevos" : "↑ Más antiguos";
+  renderArticles();
 }
 
 // ==============================
-// CONTAR ARTÍCULOS
+// APLICAR FILTROS (mes + orden)
 // ==============================
-function updateCategoryCounts() {
-  const counts = {};
+function applyFilters() {
+  renderArticles();
+}
 
-  document.querySelectorAll('.filter-btn:not(select)').forEach(btn => {
-    const cat = btn.dataset.filter;
-    if (cat !== 'all') counts[cat] = 0;
-  });
-
-  let total = 0;
-
-  document.querySelectorAll('.article-card').forEach(card => {
-    const cats = (card.dataset.cat || '').split(' ');
-    total++;
-
-    cats.forEach(cat => {
-      if (counts.hasOwnProperty(cat)) {
-        counts[cat]++;
-      }
+// ==============================
+// CARGAR DATOS DESDE JSON
+// ==============================
+async function cargarArticulos() {
+  try {
+    const response = await fetch('articulos.json');
+    articulosData = await response.json();
+    
+    // Actualizar contadores en botones
+    const counts = {};
+    articulosData.forEach(articulo => {
+      const cats = articulo.cat.split(' ');
+      cats.forEach(cat => { counts[cat] = (counts[cat] || 0) + 1; });
     });
-  });
-
-  document.querySelectorAll('.filter-btn:not(select)').forEach(btn => {
-    const cat = btn.dataset.filter;
-    if (cat === 'all') {
-      btn.innerText = `Todo (${total})`;
-    } else {
-      const baseText = btn.innerText.split(' (')[0];
-      btn.innerText = `${baseText} (${counts[cat] || 0})`;
-    }
-  });
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      const cat = btn.dataset.filter;
+      if (cat === 'all') btn.innerText = `Todo (${articulosData.length})`;
+      else if (counts[cat]) btn.innerText = `${btn.innerText.split(' (')[0]} (${counts[cat]})`;
+    });
+    
+    renderArticles();
+  } catch (error) {
+    console.error('Error cargando artículos:', error);
+  }
 }
 
 // ==============================
 // INICIO
 // ==============================
 window.addEventListener('DOMContentLoaded', () => {
-
-  // Contadores
-  updateCategoryCounts();
-
-  // Leer categoría desde URL
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat') || 'all';
-
   const btn = document.querySelector(`[data-filter="${cat}"]`);
   if (btn) {
     currentCategory = cat;
     btn.classList.add('active');
   }
-
-  // Aplicar filtros + orden
-  applyFilters();
+  cargarArticulos();
 });
-
 </script>
 
 </body>
