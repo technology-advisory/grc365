@@ -1,7 +1,6 @@
 /* ═══════════════════════════════════════════════
-   VERSUS.CSS — override solo para páginas Versus
-   Clon de articles.css con ajustes específicos
-   No toca marca.css. Scope: .article-page
+   VERSUS.CSS — solo para páginas Versus
+   No afecta al footer (solo tablas y contenido)
    ═══════════════════════════════════════════════ */
 
 /* ── Links en tabla de pasos ── */
@@ -40,19 +39,7 @@
 }
 
 /* ══════════════════════════════════════
-   FOOTER — alineado al card (850px)
-   ══════════════════════════════════════ */
-.article-page .footer {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 18px 48px 20px;
-  box-sizing: border-box;
-  border: 1px solid #dedad4;
-  border-top: none;
-}
-
-/* ══════════════════════════════════════
-   BOTÓN VOLVER A SERIE
+   BOTÓN VOLVER A SERIE (si se usa)
    ══════════════════════════════════════ */
 .article-page .series-wrapper {
   text-align: center;
@@ -75,11 +62,12 @@
 }
 
 /* ══════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE (tablas)
    ══════════════════════════════════════ */
 @media (max-width: 620px) {
-  .article-page .footer {
-    padding: 16px 22px;
+  .article-page .tbl-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
