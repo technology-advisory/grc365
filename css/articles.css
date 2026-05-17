@@ -1,85 +1,70 @@
 /* ═══════════════════════════════════════════════
-   ARTICLES.CSS — override solo para páginas artículo
-   No toca marca.css. Scope: .article-page
+   ARTICLES.CSS — Estilos para index de artículos
    ═══════════════════════════════════════════════ */
 
-/* ── Links en tabla de pasos ── */
-.article-page .tension-says a {
-  color: #1a73a8;
-  text-decoration: none;
-  font-weight: 600;
-}
-.article-page .tension-says a:hover {
-  text-decoration: underline;
+/* Ampliar el ancho del card */
+.card-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
-/* ── Links inline en body (ej. AESIA) ── */
-.article-page .block-text a {
-  color: #1a73a8;
-  text-decoration: none;
-  font-weight: 600;
-}
-.article-page .block-text a:hover {
-  text-decoration: underline;
+.card {
+    max-width: 100%;
 }
 
-/* ── Hover filas ── */
-.article-page .tension tr:hover {
-  background: #f7fafd;
-  cursor: pointer;
+/* Tarjetas con estilo módulo */
+.articles-grid {
+    gap: 24px !important;
 }
 
-/* ══════════════════════════════════════
-   FOOTER — alineado al card (850px)
-   estilos visuales vienen de marca.css
-   ══════════════════════════════════════ */
-.article-page .footer {
-  max-width: 850px;
-  margin: 0 auto;
-  padding: 18px 48px 20px;
-  box-sizing: border-box;
-  border: 1px solid #dedad4;
-  border-top: none;
+.article-card {
+    border-radius: 16px !important;
+    transition: all 0.25s ease !important;
 }
 
-/* ══════════════════════════════════════
-   BOTÓN VOLVER A SERIE
-   ══════════════════════════════════════ */
-.article-page .series-wrapper {
-  text-align: center;
-  margin: 30px 0 10px;
-}
-.article-page .series-btn {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 8px;
-  background: #f0f7fc;
-  border: 1px solid #cce4f0;
-  color: #1a73a8;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-.article-page .series-btn:hover {
-  background: #dbeef8;
+.article-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08) !important;
 }
 
-/* ══════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════ */
-@media (max-width: 620px) {
-  .article-page .footer {
-    padding: 16px 22px;
-  }
+/* Títulos */
+.article-title {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
 }
 
-
-.article-date {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--faint);
-  text-transform: uppercase;
-  margin-bottom: 24px;
+/* Meta */
+.article-meta {
+    font-size: 10px !important;
+    letter-spacing: 0.2em !important;
 }
+
+/* Enlace */
+.article-link {
+    font-weight: 600 !important;
+    letter-spacing: 0.12em !important;
+    transition: all 0.2s !important;
+}
+
+.article-link:hover {
+    transform: translateX(4px) !important;
+    text-decoration: none !important;
+}
+
+/* Badge Nuevo */
+.article-badge {
+    background: var(--brand) !important;
+    border-radius: 20px !important;
+    padding: 2px 10px !important;
+    font-size: 9px !important;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+    .articles-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+}
+
