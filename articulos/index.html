@@ -24,7 +24,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <link rel="stylesheet" href="../css/marca.css">
-<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="../css/global.css">
 <link rel="stylesheet" href="/css/articulos-index.css">
 
 
@@ -217,7 +217,10 @@ function applyFilters() {
 async function cargarArticulos() {
   try {
     const response = await fetch('articulos.json');
-    articulosData = await response.json();
+    const todos = await response.json();
+
+    // Solo artículos publicados
+    articulosData = todos.filter(a => a.published === true);
     
     // Actualizar contadores en botones
     const counts = {};
