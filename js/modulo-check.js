@@ -243,4 +243,4 @@ document.addEventListener('DOMContentLoaded', function() {
     inyectarTimerLectura();
     mostrarChecksModulos();
     bloquearModulosIndex();
-});
+}); 
