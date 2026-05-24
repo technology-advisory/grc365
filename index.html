@@ -13,16 +13,16 @@
 
 <!-- Open Graph -->
 <meta property="og:title" content="GRCreal · Seguridad, Riesgo y Cumplimiento">
-<meta property="og:description" content="Cumplir no siempre significa estar preparado. Seguridad real desde la operación.">
+<meta property="og:description" content="Seguridad real desde la operación.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://grcreal.com/">
-<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<meta property="og:image" content="https://grcreal.com/images/grcreal.png">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GRCreal · Seguridad, Riesgo y Cumplimiento">
 <meta name="twitter:description" content="Seguridad real. No solo cumplimiento.">
-<meta name="twitter:image" content="https://grcreal.com/grcreal.png">
+<meta name="twitter:image" content="https://grcreal.com/images/grcreal.png">
 
 <!-- FAVICON -->
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -50,72 +50,98 @@
 }
 </script>
 
+<!-- CSS -->
 <link rel="stylesheet" href="css/marca.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/menu.css">
 
 </head>
-
 <body>
 
-<!-- SEO invisible -->
+<!-- SEO -->
 <h1 style="display:none;">
 GRCreal · Seguridad, Riesgo y Cumplimiento. Cumplir no siempre significa estar preparado.
 </h1>
 
-<!-- CONTENIDO -->
 <div class="wrapper">
   <div class="container">
 
-    <!-- NAV -->
-    <nav class="nav" style="border-radius: 12px 12px 0 0;">
+    <!-- NAV MENÚ -->
+    <nav class="nav">
       <div class="nav-logo">GRC<span>real</span></div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="/enfoque/index.html">Enfoque</a></li>
-        <li><a href="/metodologia/index.html">Metodología</a></li>
-        <li><a href="/articulos/index.html">Artículos</a></li>
-        <li><a href="/checklists/index.html">CheckLists</a></li>
-        <li><a href="/versus/index.html">Versus</a></li>
-        <li><a href="/sobre-mi/index.html">Sobre mí</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="/legal/index.html">Legal</a></li>
-      </ul>
-      <div class="nav-toggle" onclick="document.getElementById('navMenu').classList.toggle('open')">
+      <div class="nav-menu-wrapper" id="navMenuWrapper">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="/enfoque/index.html">Enfoque</a></li>
+          <li><a href="/metodologia/index.html">Metodología</a></li>
+          <li><a href="/articulos/index.html">Artículos</a></li>
+          <li><a href="/checklists/index.html">CheckLists</a></li>
+          <li><a href="/versus/index.html">Versus</a></li>
+          <li><a href="/academia/index.html">Academia</a></li>
+          <li><a href="/sobre-mi/index.html">Sobre mí</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="/legal/index.html">Legal</a></li>
+        </ul>
+      </div>
+      <div class="nav-toggle" onclick="this.classList.toggle('open'); document.getElementById('navMenuWrapper').classList.toggle('open')">
         <span></span><span></span><span></span>
       </div>
     </nav>
 
-    <!-- IMAGEN PRINCIPAL -->
-    <img src="grcreal.png" alt="GRCreal · Seguridad, Riesgo y Cumplimiento">
+    <!-- BARRA DE NOVEDADES (se carga desde JSON) -->
+	<div class="novedades-line">
+	  📢 <a href="/novedades/index.html">Novedades GRCreal</a>
+	</div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-      <div class="footer-inner">
+	<!-- PNG -->
+	<div class="hero-image">
+	  <img src="images/grcreal.png" alt="GRCreal · Seguridad, Riesgo y Cumplimiento" class="main-png">
+	</div>
 
-        <div class="author-block">
-          <div class="author-avatar">MA</div>
-          <div>
-            <div class="author-name">Miguel Ángel Carriazo &middot; <span>vCISO</span></div>
-            <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
-          </div>
-        </div>
 
-        <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" class="li-btn">
-          <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-          <div>
-            <span class="li-main">&ldquo;Merece la pena la experiencia...&rdquo;</span>
-            <span class="li-sub">Hablemos en LinkedIn &rarr;</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
+    <!-- FOOTER desde includes/ -->
+    <div id="footer-container"></div>
 
   </div>
 </div>
 
-<!-- POPUP DE BIENVENIDA (solo para el index) -->
+<!-- POPUP -->
 <script src="/js/popup-welcome.js"></script>
+
+<!-- Cargar el footer -->
+<script>
+  fetch('/includes/footer-no-share.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-container').innerHTML = data;
+    })
+    .catch(error => console.error('Error cargando el footer:', error));
+</script>
+
+<!-- Cargar novedades desde JSON -->
+<script>
+  fetch('/data/notices.json')
+    .then(response => response.json())
+    .then(data => {
+      const noticeText = document.getElementById('noticeText');
+      if (data.active && data.message) {
+        noticeText.innerHTML = data.message;
+        if (data.link) {
+          const link = document.createElement('a');
+          link.href = data.link;
+          link.textContent = data.linkText || 'Saber más →';
+          link.classList.add('notice-link');
+          noticeText.appendChild(document.createTextNode(' '));
+          noticeText.appendChild(link);
+        }
+      } else {
+        document.getElementById('noticeBar').style.display = 'none';
+      }
+    })
+    .catch(error => {
+      console.error('Error cargando novedades:', error);
+      document.getElementById('noticeBar').style.display = 'none';
+    });
+</script>
 
 </body>
 </html>
