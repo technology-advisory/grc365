@@ -246,7 +246,7 @@ function inyectarTimerLectura() {
         botonAvanzar.style.pointerEvents = 'none';
         botonAvanzar.style.opacity = '0.5';
         
-        let tiempoRestante = 1; // 2 minutos REALES
+        let tiempoRestante = 120; // 2 minutos REALES
         
         const timerElement = document.getElementById('timer-countdown');
         const timerMessage = document.getElementById('timer-message');
