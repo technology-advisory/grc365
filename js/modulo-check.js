@@ -1,14 +1,55 @@
-// modulo-check.js · Control de progreso SECUENCIAL + timer 2 minutos
+// modulo-check.js · Control de progreso multi-curso + timer 2 minutos reales
 
+// ============================================================
+// CONFIGURACIÓN POR CURSO (claves únicas para evitar conflictos)
+// ============================================================
+
+function getStorageKey() {
+    const path = window.location.pathname;
+    
+    // Detectar curso por la ruta URL
+    if (path.includes('iso27001-lead-implementer')) {
+        return 'lead_implementer_completados';
+    }
+    if (path.includes('iso27001-lead-auditor')) {
+        return 'lead_auditor_completados';
+    }
+    if (path.includes('iso27701')) {
+        return 'iso27701_completados';
+    }
+    if (path.includes('iso22301')) {
+        return 'iso22301_completados';
+    }
+    if (path.includes('iso31000')) {
+        return 'iso31000_completados';
+    }
+    
+    // Fallback: detectar por nombre de carpeta
+    const courseMatch = path.match(/\/academia\/([^\/]+)\//);
+    if (courseMatch) {
+        const courseName = courseMatch[1].replace(/-/g, '_');
+        return `${courseName}_completados`;
+    }
+    
+    // Último recurso
+    return 'modulos_completados_default';
+}
+
+const STORAGE_KEY = getStorageKey();
 const MODULOS_OBLIGATORIOS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const STORAGE_KEY = 'modulos_completados';
+
+console.log(`🔑 Curso detectado. Clave de progreso: ${STORAGE_KEY}`);
+
+// ============================================================
+// FUNCIONES PRINCIPALES
+// ============================================================
 
 function marcarModuloCompletado(modulo) {
     let completados = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
     if (!completados.includes(modulo)) {
         completados.push(modulo);
         sessionStorage.setItem(STORAGE_KEY, JSON.stringify(completados));
-        console.log(`✅ Módulo ${modulo} completado`);
+        console.log(`✅ [${STORAGE_KEY}] Módulo ${modulo} completado`);
         return true;
     }
     return false;
@@ -167,6 +208,7 @@ function inyectarTimerLectura() {
     const modulo = parseInt(moduloMatch[1]);
     if (modulo < 1 || modulo > 10) return;
     
+    // Verificar si ya está completado
     let completados = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
     if (completados.includes(modulo)) {
         console.log(`ℹ️ Módulo ${modulo} ya completado. No se muestra timer.`);
@@ -189,12 +231,11 @@ function inyectarTimerLectura() {
     
     ctaBlock.parentNode.insertBefore(timerHTML, ctaBlock);
     
-    // ✅ Buscar el botón que permite avanzar (Continuar o cualquier otro que no sea "Anterior")
+    // Buscar el botón que permite avanzar (el que NO sea "Anterior")
     const botones = document.querySelectorAll('.cta-buttons a.cta-button');
     let botonAvanzar = null;
     
     for (let btn of botones) {
-        // Excluir el botón "Anterior" y seleccionar el otro
         if (!btn.textContent.includes('Anterior')) {
             botonAvanzar = btn;
             break;
@@ -205,7 +246,7 @@ function inyectarTimerLectura() {
         botonAvanzar.style.pointerEvents = 'none';
         botonAvanzar.style.opacity = '0.5';
         
-        let tiempoRestante = 5; // 2 minutos reales
+        let tiempoRestante = 1; // 2 minutos REALES
         
         const timerElement = document.getElementById('timer-countdown');
         const timerMessage = document.getElementById('timer-message');
@@ -214,11 +255,12 @@ function inyectarTimerLectura() {
             if (tiempoRestante <= 0) {
                 clearInterval(intervalo);
                 
+                // Marcar como completado
                 let completadosNow = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
                 if (!completadosNow.includes(modulo)) {
                     completadosNow.push(modulo);
                     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(completadosNow));
-                    console.log(`✅ Módulo ${modulo} completado. sessionStorage:`, completadosNow);
+                    console.log(`✅ [${STORAGE_KEY}] Módulo ${modulo} completado. sessionStorage:`, completadosNow);
                     actualizarCheckBadge();
                 }
                 
@@ -238,9 +280,13 @@ function inyectarTimerLectura() {
     }
 }
 
+// ============================================================
+// INICIALIZACIÓN
+// ============================================================
+
 document.addEventListener('DOMContentLoaded', function() {
     checkAccess();
     inyectarTimerLectura();
     mostrarChecksModulos();
     bloquearModulosIndex();
-}); 
+});
