@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+
+<title>Introducción a la Auditoría ISO 42001 · GRCreal Academy</title>
+
+<meta name="description" content="Módulo 1 ISO 42001 Lead Auditor. Fundamentos de la auditoría de Sistemas de Gestión de Inteligencia Artificial. ISO 19011 y conceptos clave.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+
+<link rel="stylesheet" href="../../css/academia.css">
+
+<style>
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+.cta-button {
+    display: inline-block;
+    background: var(--brand, #0077B5);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-size: 1rem;
+    transition: 0.2s background;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+}
+.cta-button:hover {
+    background: var(--brand-dark, #005a8e);
+}
+.cta-button.disabled {
+    background: var(--ghost, #b0c4d4);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+.course-home-btn {
+    background: var(--brand-light, #e8f3fa);
+    color: var(--brand, #0077B5);
+    padding: 6px 14px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 12px;
+    transition: 0.2s;
+}
+.course-home-btn:hover {
+    background: var(--brand-mid, #cce4f0);
+}
+</style>
+
+</head>
+
+<body class="article-page">
+
+<div class="card-wrapper">
+<div class="card">
+
+<div class="accent-bar"></div>
+
+<nav class="academy-module-menu">
+
+<a href="/academia/iso42001-lead-auditor/index.html" class="academy-course-logo">
+ISO 42001 <span>Lead Auditor</span>
+</a>
+
+<div class="academy-course-links">
+<span class="module-badge">Módulo 1 · Introducción</span>
+<a href="/academia/iso42001-lead-auditor/index.html" class="course-home-btn">⌂ Curso</a>
+</div>
+
+</nav>
+
+<div class="header">
+
+<div class="tag">
+ISO 42001 · SGIA · AUDITORÍA IA
+</div>
+
+<div class="article-date">
+Módulo 1
+</div>
+
+<div class="headline">
+Introducción<br>
+<span class="accent">a la Auditoría ISO 42001</span>
+</div>
+
+<p class="subline">
+
+Auditar IA no es auditar algoritmos.<br>
+<strong>Es auditar cómo se gestionan los riesgos de la IA.</strong>
+
+</p>
+
+</div>
+
+<div class="body">
+
+<!-- BLOQUE 1 · QUÉ ES UN SGIA -->
+
+<div class="block">
+
+<div class="block-label">
+Definición
+</div>
+
+<div class="block-title">
+Qué es un Sistema de Gestión de IA (SGIA)
+</div>
+
+<div class="block-text">
+
+Un <strong>Sistema de Gestión de Inteligencia Artificial (SGIA)</strong> es el conjunto de políticas, procesos, responsabilidades y controles que una organización establece para gestionar sus sistemas de IA de manera responsable, eficaz y conforme a requisitos aplicables.
+
+</div>
+
+<div class="quote-block">
+
+<div class="quote-text">
+&ldquo;El SGIA no audita si el algoritmo es "bueno". Audita si la organización controla los riesgos que la IA puede generar.&rdquo;
+</div>
+
+<div class="quote-attr">
+ISO/IEC 42001:2023
+</div>
+
+</div>
+
+<div class="block-text">
+
+ISO/IEC 42001 es la primera norma internacional que proporciona requisitos para establecer, implementar, mantener y mejorar un SGIA. Sigue la estructura armonizada de alto nivel (HLS), lo que facilita su integración con ISO 27001, ISO 9001 u otros sistemas de gestión.
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 2 · POR QUÉ UNA NORMA DE IA -->
+
+<div class="block">
+
+<div class="block-label">
+Contexto
+</div>
+
+<div class="block-title">
+Por qué necesitamos ISO 42001
+</div>
+
+<div class="block-text">
+
+Los sistemas de IA tienen características únicas que los diferencian del software tradicional:
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">📚</td>
+<td class="tension-says"><strong>Aprendizaje continuo.</strong> Los modelos pueden cambiar su comportamiento con nuevos datos, lo que introduce riesgos de deriva no controlada.</td>
+</tr>
+
+<tr>
+<td class="tension-who">🔲</td>
+<td class="tension-says"><strong>Falta de transparencia.</strong> Muchos modelos (especialmente deep learning) son "cajas negras" difíciles de explicar.</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">⚖️</td>
+<td class="tension-says"><span class="hi">Sesgos no intencionados. La IA puede perpetuar o amplificar sesgos presentes en los datos de entrenamiento.</span></td>
+</tr>
+
+<tr>
+<td class="tension-who">🎯</td>
+<td class="tension-says"><strong>Impacto en personas.</strong> Decisiones automatizadas pueden afectar derechos, oportunidades o bienestar de individuos.</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 3 · TIPOS DE AUDITORÍA -->
+
+<div class="block">
+
+<div class="block-label">
+Clasificación
+</div>
+
+<div class="block-title">
+Tipos de auditoría aplicables al SGIA
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">1ª Parte</td>
+<td class="tension-says"><strong>Auditoría interna.</strong> Realizada por o en nombre de la propia organización. Evalúa el SGIA contra sus propios requisitos y los de ISO 42001.</td>
+</tr>
+
+<tr>
+<td class="tension-who">2ª Parte</td>
+<td class="tension-says"><strong>Auditoría de proveedores de IA.</strong> Realizada por clientes sobre sus proveedores de sistemas o servicios de IA.</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">3ª Parte</td>
+<td class="tension-says"><span class="hi">Auditoría de certificación. Realizada por organismos independientes para certificar el SGIA según ISO 42001.</span></td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 4 · ISO 19011 COMO MARCO -->
+
+<div class="block">
+
+<div class="block-label">
+Marco normativo
+</div>
+
+<div class="block-title">
+ISO 19011: Directrices para auditar el SGIA
+</div>
+
+<div class="block-text">
+
+ISO 19011:2018 es la norma que proporciona <strong>directrices para auditar sistemas de gestión</strong>. Se aplica directamente al SGIA, igual que a cualquier otro sistema de gestión.
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">1</td>
+<td class="tension-says"><strong>Principios de auditoría.</strong> Integridad, presentación justa, diligencia profesional, confidencialidad, independencia, enfoque basado en evidencia, enfoque basado en riesgos.</td>
+</tr>
+
+<tr>
+<td class="tension-who">2</td>
+<td class="tension-says"><strong>Gestión del programa de auditoría.</strong> Cómo planificar auditorías del SGIA considerando riesgos específicos de IA.</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">3</td>
+<td class="tension-says"><span class="hi">Realización de la auditoría. Desde la reunión de apertura hasta el informe, con énfasis en evidencia objetiva.</span></td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 5 · AUDITOR DE IA VS AUDITOR TRADICIONAL -->
+
+<div class="block">
+
+<div class="block-label">
+Perfiles
+</div>
+
+<div class="block-title">
+Diferencias clave: auditar IA vs auditar otros sistemas
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">📊</td>
+<td class="tension-says"><strong>Auditor tradicional.</strong> Verifica procesos documentados, registros, controles predecibles. La evidencia suele ser estática.</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">🤖</td>
+<td class="tension-says"><span class="hi">Auditor de IA. Verifica gestión de riesgos dinámicos: deriva, sesgo, explicabilidad, robustez. La evidencia incluye logs, métricas continuas, evaluaciones de impacto.</span></td>
+</tr>
+
+</table>
+
+<div class="block-text" style="margin-top:20px;">
+
+Un auditor de SGIA <strong>no necesita ser científico de datos</strong>, pero debe entender:
+- Qué es la deriva de un modelo y por qué importa
+- Qué es el sesgo algorítmico y cómo se mide
+- Qué significa "explicabilidad" y cuándo es necesaria
+- Qué evidencias son válidas para cada tipo de control
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 6 · ERROR TÍPICO -->
+
+<div class="block">
+
+<div class="block-label">
+Error típico
+</div>
+
+<div class="block-title">
+Auditar la IA como si fuera software tradicional
+</div>
+
+<div class="quote-block">
+
+<div class="quote-text">
+&ldquo;El modelo tiene 95% de precisión, por lo tanto es bueno.&rdquo;
+</div>
+
+<div class="quote-attr">
+Error frecuente: confiar solo en métricas de rendimiento sin auditar sesgo, deriva o explicabilidad.
+</div>
+
+</div>
+
+<div class="block-text">
+
+Una auditoría del SGIA no se conforma con la precisión del modelo. Evalúa:
+- ¿Se ha evaluado el sesgo por subgrupos?
+- ¿Se monitoriza la deriva en producción?
+- ¿Existe un proceso para explicar decisiones automatizadas?
+- ¿Se ha realizado una evaluación de impacto antes del despliegue?
+
+La precisión alta puede esconder riesgos graves para grupos específicos de personas.
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 7 · RESUMEN EJECUTIVO -->
+
+<div class="block">
+
+<div class="block-label">
+Resumen del módulo
+</div>
+
+<div class="block-title">
+Lo que debes llevarte de aquí
+</div>
+
+<table class="tension" style="margin-top:16px;">
+
+<tr>
+<td class="tension-who">1</td>
+<td class="tension-says">ISO 42001 especifica requisitos para un Sistema de Gestión de Inteligencia Artificial (SGIA).</td>
+</tr>
+
+<tr>
+<td class="tension-who">2</td>
+<td class="tension-says">La IA tiene características únicas: aprendizaje continuo, falta de transparencia, sesgos, impacto en personas.</td>
+</tr>
+
+<tr>
+<td class="tension-who">3</td>
+<td class="tension-says">ISO 19011 es el marco de referencia para auditar cualquier sistema de gestión, incluido el SGIA.</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">4</td>
+<td class="tension-says"><span class="hi">El auditor de IA no juzga el algoritmo. Juzga si la organización gestiona los riesgos de la IA.</span></td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- CTA -->
+
+<div class="cta-block">
+
+<div class="cta-headline">
+El siguiente paso es entender<br>
+<span>el contexto y alcance del SGIA</span>
+</div>
+
+<div class="cta-sub">
+Siguiente módulo: <strong>Contexto y Alcance del SGIA (Cláusula 4)</strong>
+</div>
+
+<div class="cta-buttons">
+    <span class="cta-button disabled">← Anterior</span>
+    <a href="modulo-2.html" class="cta-button">Continuar →</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div class="footer-inner">
+
+<div class="author-block">
+<div class="author-avatar">MA</div>
+<div>
+<div class="author-name">Miguel Angel Carriazo · <span>vCISO</span></div>
+<div class="author-title">Cybersecurity & Infrastructure Architect</div>
+</div>
+</div>
+
+<a href="https://www.linkedin.com/in/macarriazo/" target="_blank" rel="noopener noreferrer" class="li-btn">
+<svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+</svg>
+<div>
+<span class="li-main">"Merece la pena la experiencia..."</span>
+<span class="li-sub">Hablemos en LinkedIn →</span>
+</div>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</body>
+<script>
+(function() {
+    var badge = document.querySelector('.module-badge');
+    if (badge && !badge.parentElement.querySelector('.copyright-hint-auto')) {
+        var wrapper = document.createElement('div');
+        wrapper.style.display = 'inline-flex';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.gap = '8px';
+        badge.parentNode.insertBefore(wrapper, badge);
+        wrapper.appendChild(badge);
+        var btn = document.createElement('button');
+        btn.innerHTML = 'ℹ️';
+        btn.className = 'copyright-hint-auto';
+        btn.style.cssText = 'background: var(--brand-light, #e8f3fa); border: none; font-size: 1rem; cursor: pointer; padding: 4px 8px; border-radius: 20px; color: var(--brand, #0077B5); transition: all 0.2s ease;';
+        btn.onclick = function() { document.getElementById('copyrightPopupAuto').style.display = 'flex'; };
+        wrapper.appendChild(btn);
+        btn.onmouseover = function() { this.style.transform = 'scale(1.05)'; };
+        btn.onmouseout = function() { this.style.transform = 'scale(1)'; };
+    }
+    if (!document.getElementById('copyrightPopupAuto')) {
+        var popup = document.createElement('div');
+        popup.id = 'copyrightPopupAuto';
+        popup.style.cssText = 'display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center;';
+        popup.innerHTML = `
+            <div style="background: white; max-width: 400px; margin: 20px; padding: 28px; border-radius: 20px; position: relative; box-shadow: 0 20px 35px rgba(0,0,0,0.2);">
+                <button onclick="document.getElementById('copyrightPopupAuto').style.display='none'" style="position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 24px; cursor: pointer; color: #888;">&times;</button>
+                <p style="margin-bottom: 16px;"><strong>📄 Sobre este material</strong></p>
+                <p style="margin-bottom: 12px;">Este contenido ha sido elaborado por <strong>Miguel Angel Carriazo</strong> basado en:</p>
+                <ul style="margin-bottom: 16px; margin-left: 20px;">
+                    <li>Experiencia directa en auditoría de sistemas de gestión</li>
+                    <li>ISO/IEC 42001:2023 (Sistemas de gestión de IA)</li>
+                    <li>ISO 19011:2018 (Directrices de auditoría)</li>
+                </ul>
+                <p style="margin-bottom: 8px;">© GRCreal Academy · Prohibida la reproducción sin autorización.</p>
+                <p style="font-size: 11px; color: #888;">Para uso personal o formación interna · <a href="/legal/index.html" target="_blank" style="color: var(--brand, #0077B5); text-decoration: none;">Más información legal →</a></p>
+            </div>
+        `;
+        document.body.appendChild(popup);
+        popup.addEventListener('click', function(e) {
+            if (e.target === this) this.style.display = 'none';
+        });
+    }
+})();
+</script>
+<script src="/js/modulo-check-42001.js"></script>
+</html>

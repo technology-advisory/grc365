@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+
+<title>Evaluación del Desempeño · ISO 42001 Lead Auditor · GRCreal Academy</title>
+
+<meta name="description" content="Módulo 8 ISO 42001 Lead Auditor. Cómo auditar la evaluación del desempeño del SGIA: monitoreo, medición, métricas de IA, auditoría interna y revisión por dirección según Cláusula 9.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+
+<link rel="stylesheet" href="../../css/academia.css">
+
+<style>
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+.cta-button {
+    display: inline-block;
+    background: var(--brand, #0077B5);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-size: 1rem;
+    transition: 0.2s background;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+}
+.cta-button:hover {
+    background: var(--brand-dark, #005a8e);
+}
+.course-home-btn {
+    background: var(--brand-light, #e8f3fa);
+    color: var(--brand, #0077B5);
+    padding: 6px 14px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-left: 12px;
+    transition: 0.2s;
+}
+.course-home-btn:hover {
+    background: var(--brand-mid, #cce4f0);
+}
+</style>
+
+</head>
+
+<body class="article-page">
+
+<div class="card-wrapper">
+<div class="card">
+
+<div class="accent-bar"></div>
+
+<nav class="academy-module-menu">
+
+<a href="/academia/iso42001-lead-auditor/index.html" class="academy-course-logo">
+ISO 42001 <span>Lead Auditor</span>
+</a>
+
+<div class="academy-course-links">
+<span class="module-badge">Módulo 8 · Evaluación del Desempeño</span>
+<a href="/academia/iso42001-lead-auditor/index.html" class="course-home-btn">⌂ Curso</a>
+</div>
+
+</nav>
+
+<div class="header">
+
+<div class="tag">
+CLÁUSULA 9 · MÉTRICAS IA · AUDITORÍA INTERNA · REVISIÓN DIRECCIÓN
+</div>
+
+<div class="article-date">
+Módulo 8
+</div>
+
+<div class="headline">
+Evaluación del<br>
+<span class="accent">Desempeño del SGIA</span>
+</div>
+
+<p class="subline">
+
+No basta con implementar controles.<br>
+<strong>Hay que medir si funcionan y decidir cómo mejorar.</strong>
+
+</p>
+
+</div>
+
+<div class="body">
+
+<!-- BLOQUE 1 · CLÁUSULA 9.1 MONITOREO Y MEDICIÓN -->
+
+<div class="block">
+
+<div class="block-label">
+Cláusula 9.1
+</div>
+
+<div class="block-title">
+Monitoreo, medición, análisis y evaluación
+</div>
+
+<div class="block-text">
+
+La organización debe determinar qué necesita ser monitoreado y medido, los métodos para asegurar resultados válidos, y cuándo realizar el monitoreo y la medición.
+
+</div>
+
+<div class="quote-block">
+
+<div class="quote-text">
+&ldquo;Medir lo fácil no es gestionar lo importante. El auditor verifica que se mide el riesgo real, no solo lo medible.&rdquo;
+</div>
+
+<div class="quote-attr">
+Criterio auditor
+</div>
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">📊</span></td>
+<td class="tension-says"><strong>Qué debe medirse</strong> · Eficacia de los controles, cumplimiento de objetivos de IA, desempeño de los sistemas IA (precisión, sesgo, deriva), satisfacción de partes interesadas.</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">📋</span></td>
+<td class="tension-says"><span class="hi">Métodos válidos: El auditor verifica que los métodos de medición sean consistentes, reproducibles y estén documentados. Una métrica sin método definido no es evidencia confiable.</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">⏰</span></td>
+<td class="tension-says"><strong>Frecuencia</strong> · Los intervalos de medición deben ser planificados y acordes al riesgo. Sistemas de alto impacto requieren monitoreo continuo o muy frecuente.</span>
+</td>
+<tr>
+
+</tr>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 2 · MÉTRICAS ESPECÍFICAS DE IA -->
+
+<div class="block">
+
+<div class="block-label">
+Métricas IA
+</div>
+
+<div class="block-title">
+Qué métricas de IA debe auditar el evaluador
+</div>
+
+<div class="block-text">
+
+ISO 42001 no prescribe métricas específicas, pero el auditor debe verificar que la organización ha definido métricas apropiadas para sus riesgos de IA.
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">🎯</span></td>
+<td class="tension-says"><strong>Precisión (Accuracy)</strong> · ¿Se mide en datos reales de producción? ¿Hay umbrales definidos? ¿Se detecta degradación?</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">⚖️</span></td>
+<td class="tension-says"><span class="hi">Sesgo (Bias): ¿Se mide por subgrupos relevantes (género, edad, etnia)? ¿Hay umbrales de aceptación? ¿Se toman acciones cuando se superan?</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">📈</span></td>
+<td class="tension-says"><strong>Deriva (Drift)</strong> · ¿Se monitoriza la deriva de datos y del modelo? ¿Hay alertas? ¿Qué acciones se activan ante deriva?</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">🔍</span></td>
+<td class="tension-says"><span class="hi">Explicabilidad (Explainability): ¿Se puede explicar cada decisión relevante? ¿Hay registro de las explicaciones entregadas?</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">🛡️</span></td>
+<td class="tension-says"><strong>Robustez (Robustness)</strong> · ¿Se prueban escenarios adversarios? ¿Hay controles ante entradas anómalas?</span>
+</td>
+</tr>
+
+</tr>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 3 · VALIDEZ Y CONFIABILIDAD DE MÉTRICAS -->
+
+<div class="block">
+
+<div class="block-label">
+C5
+</div>
+
+<div class="block-title">
+Validación de métodos y datos
+</div>
+
+<div class="block-text">
+
+El auditor debe evaluar si las métricas son válidas (miden lo que dicen medir) y fiables (consistentes en el tiempo).
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">✅</span></td>
+<td class="tension-says"><strong>Validez</strong> · ¿La métrica refleja el fenómeno relevante? Ejemplo: "Precisión global" puede ser inválida si oculta mal rendimiento en subgrupos minoritarios.</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">🔄</span></td>
+<td class="tension-says"><span class="hi">Fiabilidad: ¿El resultado es consistente bajo el mismo método? ¿Está documentado el método de cálculo? ¿Hay control de versiones del código de medición?</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">📋</span></td>
+<td class="tension-says"><strong>Trazabilidad del dato</strong> · ¿Se puede seguir el camino desde el dato origen hasta la métrica reportada? ¿Hay logs, custodios documentados?</span>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 4 · INTERVALOS PLANIFICADOS -->
+
+<div class="block">
+
+<div class="block-label">
+C6
+</div>
+
+<div class="block-title">
+Verificación de intervalos planificados
+</div>
+
+<div class="block-text">
+
+La organización debe definir cuándo medir y con qué frecuencia. El auditor verifica el cumplimiento de los intervalos planificados.
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">📅</span></td>
+<td class="tension-says"><strong>Qué verificar</strong> · ¿Existe un calendario de mediciones? ¿Se cumplen las fechas planificadas? ¿Hay registros de ejecución?</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">⚠️</span></td>
+<td class="tension-says"><span class="hi">Brechas: Si los intervalos no se cumplen, el auditor evalúa impacto: ¿qué decisión se retrasó? ¿qué riesgo aumentó? ¿es un hecho aislado o sistémico?</span></span>
+</td>
+</tr>
+
+<table>
+
+<div class="block-text" style="margin-top:20px;">
+
+<strong>Error típico:</strong> "Vamos a medirlo" pero no hay registros. Sin evidencia de ejecución, no hay cumplimiento.
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 5 · CLÁUSULA 9.2 AUDITORÍA INTERNA -->
+
+<div class="block">
+
+<div class="block-label">
+Cláusula 9.2
+</div>
+
+<div class="block-title">
+Auditoría interna del SGIA
+</div>
+
+<div class="block-text">
+
+La organización debe realizar auditorías internas a intervalos planificados para determinar si el SGIA cumple con los requisitos y está implementado eficazmente.
+
+</div>
+
+<div class="quote-block">
+
+<div class="quote-text">
+&ldquo;La auditoría interna es el 'Check' del PDCA. Sin ella, el SGIA no aprende.&rdquo;
+</div>
+
+<div class="quote-attr">
+ISO 19011 aplicada a SGIA
+</div>
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">📋</span></td>
+<td class="tension-says"><strong>Qué verificar</strong> · ¿Existe un programa de auditoría interna? ¿Se auditan los procesos críticos? ¿Los auditores son independientes? ¿Los hallazgos se cierran?</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">⚠️</span></td>
+<td class="tension-says"><span class="hi">Error típico: Auditorías internas que solo verifican documentos, no la operación real. O auditores que auditan su propio trabajo.</span></span>
+</td>
+</tr>
+
+<tr>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 6 · CLÁUSULA 9.3 REVISIÓN POR DIRECCIÓN -->
+
+<div class="block">
+
+<div class="block-label">
+Cláusula 9.3
+</div>
+
+<div class="block-title">
+Revisión por la dirección
+</div>
+
+<div class="block-text">
+
+La alta dirección debe revisar el SGIA a intervalos planificados para asegurar su conveniencia, adecuación y eficacia continuas.
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">📥</span></td>
+<td class="tension-says"><strong>Entradas obligatorias</strong> · Resultados de medición, resultados de auditorías, no conformidades y acciones correctivas, cambios en contexto, desempeño de proveedores, estado de riesgos.</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">📤</span></td>
+<td class="tension-says"><span class="hi">Salidas esperadas: Decisiones sobre mejora continua, cambios en el SGIA, asignación de recursos, acciones para abordar riesgos.</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">📋</span></td>
+<td class="tension-says"><strong>Evidencias</strong> · Acta de la reunión, análisis presentados, decisiones documentadas, seguimiento de acciones.</span>
+</td>
+</tr>
+
+</tr>
+
+<div class="block-text" style="margin-top:20px;">
+
+<strong>Pregunta clave del auditor:</strong> "¿Puede la dirección demostrar que tomó una decisión informada basada en las métricas del SGIA en la última revisión?"
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 7 · INTEGRACIÓN PARA JUICIO DE EFICACIA -->
+
+<div class="block">
+
+<div class="block-label">
+C7
+</div>
+
+<div class="block-title">
+Integración de evidencias para concluir eficacia
+</div>
+
+<div class="block-text">
+
+El auditor debe integrar múltiples fuentes de evidencia para emitir un juicio sobre la eficacia global del SGIA.
+
+</div>
+
+<table class="tension" style="margin-top:20px;">
+
+<tr>
+<td class="tension-who">🔗</span></td>
+<td class="tension-says"><strong>Fuentes a integrar</strong> · Métricas (9.1), resultados de auditorías internas (9.2), no conformidades y acciones correctivas (10.2), revisión por dirección (9.3), incidentes y quejas.</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">📊</span></td>
+<td class="tension-says"><span class="hi">Tendencias: El auditor analiza si hay mejora sostenida o deterioro. Una foto no muestra aprendizaje; una tendencia sí.</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">✅</span></td>
+<td class="tension-says"><strong>Conclusión global</strong> · Eficaz, parcialmente eficaz o ineficaz. Debe estar trazada a evidencias específicas y justificada.</span>
+</td>
+</tr>
+
+</tr>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 8 · CASO PRÁCTICO -->
+
+<div class="block">
+
+<div class="block-label">
+Caso auditor
+</div>
+
+<div class="block-title">
+Métricas "buenas" pero gobierno débil
+</div>
+
+<div class="block-text">
+
+<strong>Escenario:</strong> Una organización reporta métricas de IA positivas: precisión alta y estable. Sin embargo:
+
+- No miden sesgo por subgrupos.
+- La frecuencia real de medición de deriva es trimestral, no mensual como indica el plan.
+- Las auditorías internas se retrasan sistemáticamente.
+- La revisión por dirección solo recibe un resumen sin análisis de brechas.
+- Incidentes recientes de sesgo no se discutieron en dirección.
+
+</div>
+
+<div class="quote-block">
+
+<div class="quote-text">
+&ldquo;Buen rendimiento técnico puede ocultar riesgo no gobernado. El SGIA es parcialmente eficaz: mide, pero no gobierna ni mejora.&rdquo;
+</div>
+
+<div class="quote-attr">
+Conclusión del auditor
+</div>
+
+</div>
+
+<div class="block-text">
+
+<strong>Clasificación:</strong> No Conformidad Menor (métricas) + Oportunidades de Mejora (gobierno). Si persiste, puede escalar a Mayor.
+
+<strong>Cláusulas afectadas:</strong> 9.1 (Métricas incompletas), 9.2 (Auditorías retrasadas), 9.3 (Revisión superficial).
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOQUE 9 · RESUMEN EJECUTIVO -->
+
+<div class="block">
+
+<div class="block-label">
+Resumen del módulo
+</div>
+
+<div class="block-title">
+Lo que debes llevarte de aquí
+</div>
+
+<table class="tension" style="margin-top:16px;">
+
+<tr>
+<td class="tension-who">1</span></td>
+<td class="tension-says">La organización debe medir eficacia de controles, cumplimiento de objetivos y métricas específicas de IA (sesgo, deriva, precisión, explicabilidad).</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">2</span></td>
+<td class="tension-says"><span class="hi">El auditor valida que los métodos de medición sean válidos, fiables y trazables (C5).</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">3</span></td>
+<td class="tension-says">Los intervalos de medición deben cumplirse. Las brechas sistemáticas son hallazgo (C6).</span>
+</td>
+</tr>
+
+<tr class="hi-row">
+<td class="tension-who">4</span></td>
+<td class="tension-says"><span class="hi">Las auditorías internas (9.2) y la revisión por dirección (9.3) son controles de alto nivel que el auditor debe verificar.</span></span>
+</td>
+</tr>
+
+<tr>
+<td class="tension-who">5</span></td>
+<td class="tension-says">El juicio de eficacia global (C7) integra métricas, auditorías, NC y revisión por dirección. Una conclusión debe estar justificada.</span>
+</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- CTA -->
+
+<div class="cta-block">
+
+<div class="cta-headline">
+El siguiente paso es auditar<br>
+<span>la mejora y las no conformidades</span>
+</div>
+
+<div class="cta-sub">
+Siguiente módulo: <strong>Mejora y No Conformidades (Cláusula 10)</strong>
+</div>
+
+<div class="cta-buttons">
+    <a href="modulo-7.html" class="cta-button">← Anterior</a>
+    <a href="modulo-9.html" class="cta-button">Continuar →</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div class="footer-inner">
+
+<div class="author-block">
+<div class="author-avatar">MA</div>
+<div>
+<div class="author-name">Miguel Angel Carriazo · <span>vCISO</span></div>
+<div class="author-title">Cybersecurity & Infrastructure Architect</div>
+</div>
+</div>
+
+<a href="https://www.linkedin.com/in/macarriazo/" target="_blank" rel="noopener noreferrer" class="li-btn">
+<svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+</svg>
+<div>
+<span class="li-main">"Merece la pena la experiencia..."</span>
+<span class="li-sub">Hablemos en LinkedIn →</span>
+</div>
+</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</body>
+<script src="/js/modulo-check-42001.js"></script>
+</html>
