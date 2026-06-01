@@ -387,8 +387,7 @@
     "date": "25 Mayo 2026",
     "desc": "Cumplir la ley no es solo evitar multas.",
     "url": "compliance/Compliance_para_principiantes.html",
-    "published": true,
-    "badge": "Nuevo"
+    "published": true
   },
   {
     "id": 40,
@@ -405,10 +404,11 @@
     "cat": "compliance",
     "meta": "Compliance · PRL",
     "title": "La LPRL no basta: lo que el inspector ya sabe",
-    "date": "23 Abril 2025",
+    "date": "01 Junio 2026",
     "desc": "Los cascos y las señales ya no son suficientes.",
     "url": "compliance/LPRL_compliance.html",
-    "published": false
+    "published": true,
+    "badge": "Nuevo"
   },
   {
     "id": 42,
@@ -428,8 +428,7 @@
     "date": "25 Mayo 2026",
     "desc": "El ENS tiene tres categorías con obligaciones muy distintas.",
     "url": "ens/niveles-ens.html",
-    "published": true,
-    "badge": "Nuevo"
+    "published": true
   },
   {
     "id": 44,
@@ -529,8 +528,7 @@
     "date": "25 Mayo 2026",
     "desc": "Muchas organizaciones tienen un plan de continuidad hecho internamente.",
     "url": "iso22301/iso22301-vs-bcp-casero.html",
-    "published": true,
-    "badge": "Nuevo"
+    "published": true
   },
   {
     "id": 54,
@@ -547,20 +545,22 @@
     "cat": "grc",
     "meta": "IA · Datos",
     "title": "Datos de la IA: dónde van y por qué deberías preocuparte",
-    "date": "23 Abril 2025",
+    "date": "01 Junio 2026",
     "desc": "Cuando usas una herramienta de IA, ¿sabes dónde se procesan tus datos?",
     "url": "grc/datos-ia-ubicacion-tratamiento.html",
-    "published": false
+    "published": true,
+    "badge": "Nuevo"
   },
   {
     "id": 56,
     "cat": "nis2",
     "meta": "NIS2 · Medidas Técnicas",
     "title": "NIS2 Art. 21: las medidas técnicas que el regulador espera ver",
-    "date": "23 Abril 2025",
+    "date": "01 Junio 2026",
     "desc": "No basta con decir que tenéis medidas de seguridad.",
     "url": "nis2/nis2-medidas-tecnicas-articulo21.html",
-    "published": false
+    "published": true,
+    "badge": "Nuevo"
   },
   {
     "id": 57,
@@ -570,8 +570,7 @@
     "date": "25 Mayo 2026",
     "desc": "No todas las entidades sujetas a NIS2 tienen las mismas obligaciones.",
     "url": "nis2/nis2-entidades-esenciales-importantes.html",
-    "published": true,
-    "badge": "Nuevo"
+    "published": true
   },
   {
     "id": 58,
@@ -598,10 +597,11 @@
     "cat": "tecnico",
     "meta": "Identidad · IAM",
     "title": "Gestión de identidades: el control que más se descuida",
-    "date": "23 Abril 2025",
+    "date": "01 Junio 2026",
     "desc": "La identidad es el nuevo perímetro.",
     "url": "tecnico/gestion-identidades.html",
-    "published": false
+    "published": true,
+    "badge": "Nuevo"
   },
   {
     "id": 61,
