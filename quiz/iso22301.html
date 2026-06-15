@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Quiz · ISO 22301 Lead Auditor · GRCreal</title>
+<meta name="description" content="Pon a prueba tu conocimiento como auditor ISO 22301. 20 preguntas aleatorias sobre evidencias, hallazgos y no conformidades en continuidad de negocio (BCMS).">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Quiz ISO 22301 Lead Auditor · GRCreal">
+<meta property="og:description" content="Auditoría ISO 22301: Sistemas de Gestión de Continuidad de Negocio (BCMS).">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grcreal.com/quiz/iso22301_lead_auditor.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="canonical" href="https://grcreal.com/quiz/iso22301_lead_auditor.html">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="../css/marca.css">
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/quiz.css">
+
+<style>
+/* Estilos para el modal de resultado */
+.modal-result {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-result.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: 32px;
+  padding: 40px 48px;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-result.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-icon {
+  font-size: 72px;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.modal-message {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.modal-score {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--brand);
+  margin-bottom: 24px;
+}
+
+.modal-btn {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-btn:hover {
+  background: var(--brand-dark);
+}
+
+.modal-celebration {
+  background: linear-gradient(135deg, #1a5c8c 0%, #2d8a4e 100%);
+  color: white;
+}
+
+.modal-celebration .modal-title,
+.modal-celebration .modal-message,
+.modal-celebration .modal-score {
+  color: white;
+}
+
+.modal-celebration .modal-btn {
+  background: white;
+  color: var(--brand);
+}
+
+.modal-celebration .modal-btn:hover {
+  background: #f0f0f0;
+}
+</style>
+</head>
+
+<body>
+<div class="card-wrapper">
+<div class="card">
+
+  <div class="accent-bar"></div>
+
+  <!-- NAV -->
+  <div class="quiz-nav">
+    <span class="quiz-logo">GRCreal</span>
+    <span class="quiz-badge" id="nav-badge">ISO 22301 Lead Auditor · Quiz</span>
+  </div>
+
+  <!-- PANTALLA QUIZ -->
+  <div id="screen-quiz" class="screen active">
+    <div class="body">
+      <div class="q-counter" id="q-counter">Pregunta 1 de 20</div>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+      </div>
+      <div class="q-tags">
+        <span class="q-tag topic" id="q-topic-tag">ISO 22301:2019 · BCMS</span>
+      </div>
+      <div class="q-text fade-up" id="q-text"></div>
+      <div id="options-container"></div>
+      <div id="explain-container"></div>
+      <div id="next-container" style="display:none;margin-top:22px;">
+        <button class="cta-quiz" onclick="nextQuestion()" id="next-btn">Siguiente pregunta →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA RESULTADO (oculta, se muestra al final) -->
+  <div id="screen-result" class="screen">
+    <div class="header">
+      <div class="tag">Resultado · Quiz</div>
+      <div class="headline" id="result-headline">Bien hecho,<br><span class="accent">Lead Auditor</span></div>
+    </div>
+    <div class="body">
+      <div class="score-badge">
+        <div class="score-number" id="result-score">—</div>
+        <div class="score-label" id="result-label">—</div>
+        <div class="score-pct" id="result-pct">—</div>
+      </div>
+      <div class="block-label">Resumen</div>
+      <div class="block-title">Pregunta a pregunta</div>
+      <div id="history-list" style="margin-top:14px;margin-bottom:32px;"></div>
+      <div class="divider"></div>
+      <div class="btn-row">
+        <button class="cta-quiz" onclick="resetQuiz()" style="flex:1;">🔄 Repetir quiz</button>
+        <button class="cta-quiz secondary" onclick="goBack()" style="flex:1;">← Volver al catálogo</button>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-inner">
+        <div class="author-block">
+          <div class="author-avatar">MA</div>
+          <div>
+            <div class="author-name">Miguel Ángel Carriazo · <span>vCISO</span></div>
+            <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
+          </div>
+        </div>
+        <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" rel="noopener noreferrer" class="li-btn">
+          <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <div>
+            <span class="li-main">"Comparte tu resultado."</span>
+            <span class="li-sub">LinkedIn →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<a href="/quiz" class="home-btn">⌂ Home Quiz</a>
+
+<!-- Modal de resultado emergente -->
+<div id="result-modal" class="modal-result">
+  <div class="modal-content" id="modal-content">
+    <div class="modal-icon" id="modal-icon">🏆</div>
+    <div class="modal-title" id="modal-title">¡Excelente!</div>
+    <div class="modal-message" id="modal-message">Has demostrado un gran conocimiento</div>
+    <div class="modal-score" id="modal-score">0%</div>
+    <button class="modal-btn" onclick="closeModal()">Continuar</button>
+  </div>
+</div>
+
+<script>
+let QUIZ_DATA = null;
+let TOTAL_QUESTIONS = 20;
+let S = { 
+  questions: [], 
+  current: 0, 
+  score: 0, 
+  history: [], 
+  answered: false 
+};
+const LETTERS = ['A', 'B', 'C', 'D'];
+
+// Cargar JSON y empezar quiz
+async function startQuiz() {
+  try {
+    // Cambiamos el nombre del JSON a ISO22301_lead_auditor.json (según solicitud)
+    const response = await fetch('./data/ISO22301_lead_auditor.json');
+    if (!response.ok) {
+      // Intento con nombre alternativo por si el usuario usó ISO23001 (typo). 
+      // Pero según enunciado "el json se llama ISO23001_lead_auditor.json" -> lo dejamos como prioridad.
+      // Nota: el enunciado indica "ISO23001_lead_auditor.json" (con 0 en lugar de 2). Respetamos pero usamos nombre correcto de estándar.
+      // Para máxima compatibilidad: primero intentamos con ISO22301_lead_auditor.json (estándar correcto). 
+      // Si falla, probamos con ISO23001_lead_auditor.json por si acaso.
+      const fallbackResponse = await fetch('./data/ISO23001_lead_auditor.json');
+      if (!fallbackResponse.ok) throw new Error('No se encontró el archivo JSON (ni ISO22301 ni ISO23001)');
+      QUIZ_DATA = await fallbackResponse.json();
+    } else {
+      QUIZ_DATA = await response.json();
+    }
+    
+    // Validación mínima de estructura
+    if (!QUIZ_DATA.preguntas || !Array.isArray(QUIZ_DATA.preguntas) || QUIZ_DATA.preguntas.length === 0) {
+      throw new Error('Estructura inválida en JSON: falta array preguntas');
+    }
+    
+    // Seleccionar 20 preguntas ALEATORIAS del pool (idealmente tener al menos 40 para variedad)
+    const shuffledPool = [...QUIZ_DATA.preguntas];
+    shuffle(shuffledPool);
+    S.questions = shuffledPool.slice(0, TOTAL_QUESTIONS);
+    
+    S.current = 0;
+    S.score = 0;
+    S.history = [];
+    S.answered = false;
+    
+    document.getElementById('nav-badge').textContent = QUIZ_DATA.titulo + ' · Quiz';
+    document.getElementById('q-topic-tag').textContent = QUIZ_DATA.tema || 'ISO 22301:2019 · Continuidad de Negocio';
+    
+    show('quiz');
+    renderQ();
+  } catch (error) {
+    console.error('Error:', error);
+    document.getElementById('q-text').innerHTML = '⚠️ Error al cargar las preguntas.<br><br>Asegúrate de que el archivo JSON existe en:<br><code>/quiz/data/ISO22301_lead_auditor.json</code> o <code>ISO23001_lead_auditor.json</code><br><br>Detalle: ' + error.message;
+    document.getElementById('options-container').innerHTML = '<button class="cta-quiz" onclick="location.reload()">Reintentar</button>';
+  }
+}
+
+function renderQ() {
+  if (!S.questions.length) return;
+  const q = S.questions[S.current];
+  const num = S.current + 1;
+  const tot = S.questions.length;
+
+  document.getElementById('q-counter').textContent = `Pregunta ${num} de ${tot}`;
+  document.getElementById('progress-bar').style.width = `${((num - 1) / tot) * 100}%`;
+
+  const qEl = document.getElementById('q-text');
+  qEl.textContent = q.q;
+  qEl.classList.remove('fade-up');
+  void qEl.offsetWidth;
+  qEl.classList.add('fade-up');
+
+  const cont = document.getElementById('options-container');
+  cont.innerHTML = '';
+  q.o.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.innerHTML = `<span class="opt-letter">${LETTERS[idx]}</span><span>${opt}</span>`;
+    btn.onclick = () => answer(idx);
+    cont.appendChild(btn);
+  });
+
+  document.getElementById('explain-container').innerHTML = '';
+  document.getElementById('next-container').style.display = 'none';
+  S.answered = false;
+}
+
+function answer(idx) {
+  if (S.answered) return;
+  S.answered = true;
+  const q = S.questions[S.current];
+  const ok = idx === q.c;
+  if (ok) S.score++;
+  S.history.push({ text: q.q, ok });
+
+  document.querySelectorAll('.opt-btn').forEach((btn, i) => {
+    btn.disabled = true;
+    const l = btn.querySelector('.opt-letter');
+    if (i === q.c) {
+      btn.classList.add('correct');
+      l.textContent = '✓';
+    } else if (i === idx && !ok) {
+      btn.classList.add('wrong');
+      l.textContent = '✗';
+    } else {
+      btn.classList.add('dimmed');
+    }
+  });
+
+  document.getElementById('explain-container').innerHTML = `
+    <div class="explain-block ${ok ? '' : 'wrong-explain'} fade-up">
+      <div class="explain-label">${ok ? '✅ Correcto' : '❌ Incorrecto'}</div>
+      ${q.e}
+    </div>
+  `;
+
+  const isLast = S.current + 1 >= S.questions.length;
+  document.getElementById('next-btn').textContent = isLast ? 'Ver resultados 🏁' : 'Siguiente pregunta →';
+  document.getElementById('next-container').style.display = 'block';
+}
+
+function nextQuestion() {
+  S.current++;
+  if (S.current >= S.questions.length) {
+    showResult();
+    return;
+  }
+  renderQ();
+  document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showResult() {
+  const pct = Math.round((S.score / S.questions.length) * 100);
+  let nivel, emoji;
+  
+  if (pct >= 90) { nivel = 'Lead Auditor Experto (BCMS)'; emoji = '🏆'; }
+  else if (pct >= 70) { nivel = 'Lead Auditor Senior'; emoji = '⭐'; }
+  else if (pct >= 50) { nivel = 'Auditor en formación'; emoji = '📚'; }
+  else { nivel = 'a seguir estudiando'; emoji = '💪'; }
+
+  document.getElementById('result-headline').innerHTML = `${emoji} Resultado:<br><span class="accent">${nivel}</span>`;
+  document.getElementById('result-score').textContent = `${S.score}/${S.questions.length}`;
+  document.getElementById('result-label').textContent = QUIZ_DATA.titulo || 'ISO 22301 Lead Auditor';
+  document.getElementById('result-pct').textContent = `${pct}% de acierto`;
+
+  const list = document.getElementById('history-list');
+  list.innerHTML = '';
+  S.history.forEach(h => {
+    list.insertAdjacentHTML('beforeend', `
+      <div class="history-item">
+        <span class="history-icon">${h.ok ? '✅' : '❌'}</span>
+        <span>${h.text}</span>
+      </div>
+    `);
+  });
+
+  show('result');
+  
+  // Mostrar modal emergente según el porcentaje
+  showResultModal(pct);
+}
+
+function showResultModal(pct) {
+  const modal = document.getElementById('result-modal');
+  const modalContent = document.getElementById('modal-content');
+  const modalIcon = document.getElementById('modal-icon');
+  const modalTitle = document.getElementById('modal-title');
+  const modalMessage = document.getElementById('modal-message');
+  const modalScore = document.getElementById('modal-score');
+  
+  modalScore.textContent = `${pct}% de acierto`;
+  
+  if (pct >= 70) {
+    // Celebración
+    modalContent.classList.add('modal-celebration');
+    modalIcon.textContent = '🏆🎉📋';
+    modalTitle.textContent = '¡Enhorabuena!';
+    if (pct >= 90) {
+      modalMessage.textContent = 'Dominas la auditoría ISO 22301. Capacidad experta en continuidad de negocio.';
+    } else if (pct >= 80) {
+      modalMessage.textContent = 'Muy buen resultado. Sólido conocimiento en BCMS y requisitos de continuidad.';
+    } else {
+      modalMessage.textContent = 'Buen trabajo. Vas por buen camino para certificarte como Lead Auditor.';
+    }
+  } else {
+    // Ánimo
+    modalContent.classList.remove('modal-celebration');
+    modalIcon.textContent = '💪📘';
+    modalTitle.textContent = '¡Sigue practicando!';
+    modalMessage.textContent = 'Has hecho un gran esfuerzo. Revisa las explicaciones y vuelve a intentarlo para afianzar conceptos de ISO 22301.';
+  }
+  
+  modal.classList.add('active');
+}
+
+function closeModal() {
+  const modal = document.getElementById('result-modal');
+  modal.classList.remove('active');
+}
+
+function resetQuiz() {
+  if (!QUIZ_DATA || !QUIZ_DATA.preguntas) {
+    startQuiz();
+    return;
+  }
+  // Reiniciar con NUEVAS 20 preguntas aleatorias del mismo pool
+  const shuffledPool = [...QUIZ_DATA.preguntas];
+  shuffle(shuffledPool);
+  S.questions = shuffledPool.slice(0, TOTAL_QUESTIONS);
+  S.current = 0;
+  S.score = 0;
+  S.history = [];
+  S.answered = false;
+  
+  show('quiz');
+  renderQ();
+  document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function goBack() {
+  window.location.href = 'index.html';
+}
+
+function show(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(`screen-${name}`).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+}
+
+// Iniciar
+startQuiz();
+</script>
+
+</body>
+</html>
