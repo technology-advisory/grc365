@@ -148,7 +148,7 @@ function renderArticles() {
   
   // Filtrar
   let filtered = articulosData.filter(articulo => {
-    const matchCategory = currentCategory === "all" || articulo.cat.includes(currentCategory);
+    const matchCategory = currentCategory === "all" || articulo.cat === currentCategory;
     const date = parseSpanishDate(articulo.date);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');

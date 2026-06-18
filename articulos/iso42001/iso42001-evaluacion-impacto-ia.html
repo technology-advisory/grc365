@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<title>Evaluación de impacto en sistemas de IA: · GRCreal</title>
+<meta name="description" content="La evaluación de impacto de los sistemas de IA es un requisito de ISO 42001 y está vinculada al AI Act para sistemas de alto riesgo. Qué evalúa, cómo se documenta y por qué importa antes del despliegue.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Evaluación de impacto en sistemas de IA:">
+<meta property="og:description" content="La evaluación de impacto de los sistemas de IA es un requisito de ISO 42001 y está vinculada al AI Act para sistemas de alto riesgo. Qué evalúa, cómo se documenta y por qué importa antes del despliegue.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://grcreal.com/articulos/iso42001/iso42001-evaluacion-impacto-ia.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="../../css/marca.css">
+<link rel="stylesheet" href="../../css/articles.css">
+<link rel="stylesheet" href="../../css/global.css">
+</head>
+<body class="article-page">
+<div class="card-wrapper">
+<div class="card">
+<div class="accent-bar"></div>
+
+<div class="header">
+  <div class="tag">ISO 42001 · Evaluación Impacto · EIPD IA</div>
+  <div class="article-date">18 Junio 2026</div>
+  <div class="headline">
+    Evaluación de impacto en sistemas de IA:<br>
+    <span class="accent">antes de desplegar,</span><br>
+    <span class="dim">no después de que algo salga mal</span>
+  </div>
+  <p class="subline">
+    ISO 42001 exige evaluar el impacto de los sistemas de IA antes de ponerlos en marcha.<br>
+    <strong>No es burocracia. Es la forma de detectar problemas cuando todavía son baratos de corregir.</strong>
+  </p>
+</div>
+
+<div class="body">
+
+  <div class="block">
+    <div class="block-label">Por qué existe este requisito</div>
+    <div class="block-title">El problema que la evaluación de impacto quiere prevenir</div>
+    <div class="block-text">
+      Los sistemas de IA pueden generar impactos que no son evidentes durante el desarrollo. Un modelo que discrimina por género sin que nadie lo haya diseñado así. Un sistema de scoring que perpetúa desigualdades históricas en los datos de entrenamiento. Un asistente que da consejos incorrectos en contextos de alta consecuencia.<br><br>Estos problemas son detectables antes del despliegue — si se buscan. La evaluación de impacto es el proceso sistemático para buscarlos.<br><br><strong>Corregir un sesgo detectado antes del despliegue cuesta horas de trabajo. Corregirlo después de un incidente público cuesta reputación, dinero y posiblemente sanciones regulatorias.</strong>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">Qué dimensiones evaluar</div>
+    <div class="block-title">Los vectores de impacto que no pueden ignorarse</div>
+    <table class="tension" style="margin-top:20px;">
+      <tr>
+        <td class="tension-who">Impacto sobre personas</td>
+        <td class="tension-says">¿El sistema afecta a derechos fundamentales? ¿Puede generar discriminación, exclusión o daño a individuos o grupos específicos?</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Impacto sobre la privacidad</td>
+        <td class="tension-says">¿Qué datos personales procesa? ¿Con qué base legal? ¿Es necesario realizar una EIPD (Evaluación de Impacto en Protección de Datos) paralela?</td>
+      </tr>
+      <tr>
+        <td class="tension-who">Impacto operacional</td>
+        <td class="tension-says">¿Qué pasa si el sistema falla? ¿Hay dependencia crítica de sus outputs? ¿Existe supervisión humana para casos límite?</td>
+      </tr>
+      <tr class="hi-row">
+        <td class="tension-who">Impacto regulatorio</td>
+        <td class="tension-says"><span class="hi">¿Aplica el AI Act? ¿Qué categoría de riesgo tiene el sistema? ¿Hay obligaciones de notificación o conformidad previas al despliegue?</span></td>
+      </tr>
+    </table>
+  </div>
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">Cómo se documenta</div>
+    <div class="block-title">Lo que el auditor ISO 42001 va a pedir</div>
+    <div class="block-text">
+      <strong>Descripción del sistema.</strong> Propósito, datos que usa, cómo genera sus outputs, quiénes son los usuarios afectados directa e indirectamente.<br><br><strong>Identificación de riesgos.</strong> Lista de riesgos identificados por dimensión: discriminación, privacidad, fallos de sistema, uso inadecuado, dependencia excesiva.<br><br><strong>Medidas de mitigación.</strong> Para cada riesgo identificado, qué controles se implementan. Monitorización del modelo, umbral de confianza, revisión humana en casos de baja certeza.<br><br><strong>Decisión documentada.</strong> La evaluación termina en una decisión explícita: el sistema puede desplegarse con las condiciones establecidas, o requiere mejoras antes del despliegue, o no debe desplegarse.<br><br><strong>Firma del responsable.</strong> La evaluación debe tener un propietario que la aprueba. No puede ser anónima o colectiva sin rendición de cuentas.
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="block">
+    <div class="block-label">La conexión con la EIPD</div>
+    <div class="block-title">Cuando la evaluación de impacto de IA y la de protección de datos se solapan</div>
+    <div class="block-text">
+      Para sistemas de IA que procesan datos personales a escala, que perfilas personas o que toman decisiones automatizadas con efectos jurídicos o significativos — la EIPD del RGPD es obligatoria en paralelo.<br><br>ISO 42001 y el RGPD convergen aquí: ambos exigen evaluar el impacto antes del despliegue, en diferentes dimensiones pero con documentación compatible.<br><br><strong>Hacer las dos evaluaciones de forma coordinada ahorra trabajo y genera documentación más coherente. Hacerlas por separado, en silos, multiplica el esfuerzo y puede producir contradicciones.</strong>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <div class="cta-headline">
+      ¿Tus sistemas de IA han pasado<br>
+      <span>una evaluación de impacto antes del despliegue?</span>
+    </div>
+    <div class="cta-sub">
+      Si no, hay una brecha en tu gobernanza de IA que vale la pena cerrar.<br>
+      
+    </div>
+  </div>
+
+</div>
+
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
+
+</div>
+</div>
+<a href="/articulos" class="home-btn">⌂ Home Artículos</a>
+</body>
+<script src="/js/global.js"></script>
+</html>
