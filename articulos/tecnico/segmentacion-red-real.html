@@ -6,6 +6,7 @@
 <title>Segmentación de red: VLANs no es seguridad real · GRCreal</title>
 <meta name="description" content="Tener VLANs no significa tener segmentación real. La diferencia entre segmentar para cumplir y segmentar para proteger de verdad.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/articulos/tecnico/segmentacion-red-real.html">
 <meta property="og:title" content="Segmentación de red: la diferencia entre tener VLANs y tener seguridad real">
 <meta property="og:description" content="VLANs no es segmentación real. Cómo diseñar una arquitectura de red que realmente contenga los ataques.">
 <meta property="og:type" content="article">
@@ -18,6 +19,59 @@
 <link rel="stylesheet" href="../../css/marca.css">
 <link rel="stylesheet" href="../../css/articles.css">
 <link rel="stylesheet" href="../../css/global.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Segmentación de red: VLANs no es seguridad real",
+  "description": "Tener VLANs no significa tener segmentación real. La diferencia entre segmentar para cumplir y segmentar para proteger de verdad.",
+  "image": "https://grcreal.com/grcreal.png",
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Ángel Carriazo",
+    "url": "https://grcreal.com/sobre-mi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GRCreal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grcreal.com/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grcreal.com/articulos/tecnico/segmentacion-red-real.html"
+  },
+  "datePublished": "2026-04-24"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://grcreal.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Artículos",
+      "item": "https://grcreal.com/articulos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Técnico",
+      "item": "https://grcreal.com/articulos/tecnico/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="article-page">
 <div class="card-wrapper">
@@ -27,12 +81,12 @@
 <div class="header">
   <div class="tag">Red · Arquitectura · Seguridad Técnica</div>
   <div class="article-date">24 Abril 2026</div>
-  <div class="headline">
+  <h1 class="headline">
     Segmentación<br>
     <span class="accent">de red:</span><br>
     <span class="dim">VLANs no es</span><br>
     <span class="accent">seguridad real</span>
-  </div>
+  </h1>
   <p class="subline">
     Tener VLANs y tener segmentación real<br>
     <strong>no son lo mismo.</strong>
@@ -43,7 +97,7 @@
 
   <div class="block">
     <div class="block-label">El malentendido</div>
-    <div class="block-title">«Tenemos VLANs, estamos segmentados»</div>
+    <h2 class="block-title">«Tenemos VLANs, estamos segmentados»</h2>
     <div class="block-text">
       Es una de las frases que más escucho en revisiones de arquitectura. Y cada vez que la escucho, sé que hay trabajo por hacer.
       <br><br>
@@ -59,7 +113,7 @@
 
   <div class="block">
     <div class="block-label">Lo que veo en producción</div>
-    <div class="block-title">Los errores más frecuentes</div>
+    <h2 class="block-title">Los errores más frecuentes</h2>
 
     <table class="tension" style="margin-top:20px;">
       <tr>
@@ -89,7 +143,7 @@
 
   <div class="block">
     <div class="block-label">Cómo se hace bien</div>
-    <div class="block-title">Segmentación que contiene ataques</div>
+    <h2 class="block-title">Segmentación que contiene ataques</h2>
     <div class="block-text">
       La segmentación real parte de una pregunta: <em>si este sistema se compromete, ¿a qué puede llegar el atacante desde ahí?</em>
       <br><br>
@@ -109,7 +163,7 @@
 
   <div class="block">
     <div class="block-label">Por qué importa ahora</div>
-    <div class="block-title">El movimiento lateral es el estándar del atacante moderno</div>
+    <h2 class="block-title">El movimiento lateral es el estándar del atacante moderno</h2>
     <div class="block-text">
       Los ataques modernos no entran directamente al sistema que quieren comprometer. Entran por el eslabón más débil — un equipo de usuario, un servidor poco crítico, una credencial robada — y desde ahí se mueven lateralmente hasta llegar al objetivo real.
       <br><br>

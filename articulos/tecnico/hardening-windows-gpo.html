@@ -6,6 +6,7 @@
 <title>Hardening en Windows: GPO no es suficiente · GRCreal</title>
 <meta name="description" content="Tener GPOs aplicadas no significa tener hardening real. Los errores más frecuentes en el hardening de sistemas Windows y cómo hacerlo bien.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/articulos/tecnico/hardening-windows-gpo.html">
 <meta property="og:title" content="Hardening en Windows: por qué tener GPO no significa estar seguro">
 <meta property="og:description" content="GPO no es hardening. Los errores más frecuentes en sistemas Windows y cómo hacerlo bien de verdad.">
 <meta property="og:type" content="article">
@@ -18,6 +19,58 @@
 <link rel="stylesheet" href="../../css/marca.css">
 <link rel="stylesheet" href="../../css/articles.css">
 <link rel="stylesheet" href="../../css/global.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Hardening en Windows: GPO no es suficiente",
+  "description": "Tener GPOs aplicadas no significa tener hardening real. Los errores más frecuentes en el hardening de sistemas Windows y cómo hacerlo bien.",
+  "image": "https://grcreal.com/grcreal.png",
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Ángel Carriazo",
+    "url": "https://grcreal.com/sobre-mi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GRCreal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grcreal.com/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grcreal.com/articulos/tecnico/hardening-windows-gpo.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://grcreal.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Artículos",
+      "item": "https://grcreal.com/articulos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Técnico",
+      "item": "https://grcreal.com/articulos/tecnico/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="article-page">
 <div class="card-wrapper">
@@ -27,12 +80,12 @@
 <div class="header">
   <div class="tag">Técnico · Windows · Hardening</div>
   <div class="article-date">9 Diciembre 9999</div>
-  <div class="headline">
+  <h1 class="headline">
     Hardening<br>
     <span class="accent">en Windows:</span><br>
     <span class="dim">GPO no es</span><br>
     <span class="accent">suficiente</span>
-  </div>
+  </h1>
   <p class="subline">
     «Tenemos GPOs aplicadas» no es lo mismo<br>
     <strong>que tener hardening real.</strong>
@@ -43,7 +96,7 @@
 
   <div class="block">
     <div class="block-label">El malentendido</div>
-    <div class="block-title">GPO ≠ Hardening</div>
+    <h2 class="block-title">GPO ≠ Hardening</h2>
     <div class="block-text">
       Las Políticas de Grupo — GPOs — son una herramienta poderosa para gestionar configuraciones en entornos Windows. Pero tener GPOs aplicadas no garantiza que los sistemas estén correctamente hardenizados.
       <br><br>
@@ -59,7 +112,7 @@
 
   <div class="block">
     <div class="block-label">Los errores más frecuentes</div>
-    <div class="block-title">Lo que veo en entornos Windows reales</div>
+    <h2 class="block-title">Lo que veo en entornos Windows reales</h2>
 
     <table class="tension" style="margin-top:20px;">
       <tr>
@@ -89,7 +142,7 @@
 
   <div class="block">
     <div class="block-label">Los estándares de referencia</div>
-    <div class="block-title">De dónde partir</div>
+    <h2 class="block-title">De dónde partir</h2>
     <div class="block-text">
       Microsoft Security Baselines — configuraciones recomendadas por Microsoft para cada versión de Windows, disponibles a través del Security Compliance Toolkit. Es el punto de partida más razonable para cualquier entorno Windows.
       <br><br>
@@ -105,7 +158,7 @@
 
   <div class="block">
     <div class="block-label">Cómo verificarlo</div>
-    <div class="block-title">El hardening que no se verifica no existe</div>
+    <h2 class="block-title">El hardening que no se verifica no existe</h2>
     <div class="block-text">
       Aplicar una GPO de hardening y asumir que está funcionando correctamente es uno de los errores más frecuentes. Las GPOs pueden no aplicarse por conflictos, por excepciones mal gestionadas o por el orden de precedencia entre políticas.
       <br><br>

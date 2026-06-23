@@ -588,10 +588,11 @@
     "cat": "tecnico",
     "meta": "Documentación · Infraestructura",
     "title": "Documentación técnica: el conocimiento que vive en una sola cabeza",
-    "date": "23 Abril 2025",
+    "date": "18 Junio 2026",
     "desc": "El conocimiento crítico vive en la cabeza de una o dos personas.",
     "url": "tecnico/documentacion-tecnica-infraestructura.html",
-    "published": false
+    "published": true,
+    "badge": "Nuevo"
   },
   {
     "id": 60,

@@ -6,6 +6,7 @@
 <title>ENS y gestión de incidentes: · GRCreal</title>
 <meta name="description" content="La gestión de incidentes en el ENS tiene requisitos concretos: proceso documentado, roles definidos, notificación a CCN-CERT y registro de incidentes. Lo que falla en la mayoría de organizaciones.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/articulos/ens/ens-gestion-incidentes.html">
 <meta property="og:title" content="ENS y gestión de incidentes:">
 <meta property="og:description" content="La gestión de incidentes en el ENS tiene requisitos concretos: proceso documentado, roles definidos, notificación a CCN-CERT y registro de incidentes. Lo que falla en la mayoría de organizaciones.">
 <meta property="og:type" content="article">
@@ -15,6 +16,59 @@
 <link rel="stylesheet" href="../../css/marca.css">
 <link rel="stylesheet" href="../../css/articles.css">
 <link rel="stylesheet" href="../../css/global.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ENS y gestión de incidentes: el proceso que hay que tener antes de que llegue el incidente",
+  "description": "La gestión de incidentes en el ENS tiene requisitos concretos: proceso documentado, roles definidos, notificación a CCN-CERT y registro de incidentes. Lo que falla en la mayoría de organizaciones.",
+  "image": "https://grcreal.com/grcreal.png",
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Ángel Carriazo",
+    "url": "https://grcreal.com/sobre-mi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GRCreal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grcreal.com/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grcreal.com/articulos/ens/ens-gestion-incidentes.html"
+  },
+  "datePublished": "2026-06-18"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://grcreal.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Artículos",
+      "item": "https://grcreal.com/articulos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ENS",
+      "item": "https://grcreal.com/articulos/ens/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="article-page">
 <div class="card-wrapper">
@@ -24,11 +78,11 @@
 <div class="header">
   <div class="tag">ENS · Incidentes · Notificación</div>
   <div class="article-date">18 Junio 2026</div>
-  <div class="headline">
+  <h1 class="headline">
     ENS y gestión de incidentes:<br>
     <span class="accent">el proceso que hay que tener</span><br>
     <span class="dim">antes de que llegue el incidente</span>
-  </div>
+  </h1>
   <p class="subline">
     El ENS no es flexible en esto: debe haber un proceso documentado, conocido y probado.<br>
     <strong>Improvisar durante un incidente activo sale siempre más caro que haberlo preparado.</strong>
@@ -39,7 +93,7 @@
 
   <div class="block">
     <div class="block-label">La medida op.exp.9</div>
-    <div class="block-title">Qué exige el ENS en gestión de incidentes</div>
+    <h2 class="block-title">Qué exige el ENS en gestión de incidentes</h2>
     <div class="block-text">
       El ENS incluye dentro de las medidas de explotación la gestión de incidentes de seguridad. Para todas las categorías, pero con requisitos que aumentan con el nivel del sistema.<br><br>Lo básico: debe existir un procedimiento documentado que cubra la detección, el análisis, la contención, la erradicación y la recuperación. Y alguien debe saber cuál es su rol en cada fase.<br><br><strong>Lo más crítico para la Administración Pública: la obligación de notificación al CCN-CERT para incidentes que superen determinados umbrales de impacto. Plazos incluidos.</strong>
     </div>
@@ -48,7 +102,7 @@
 
   <div class="block">
     <div class="block-label">Los requisitos concretos</div>
-    <div class="block-title">Lo que el auditor va a revisar</div>
+    <h2 class="block-title">Lo que el auditor va a revisar</h2>
     <table class="tension" style="margin-top:20px;">
       <tr>
         <td class="tension-who">Procedimiento documentado</td>
@@ -72,7 +126,7 @@
 
   <div class="block">
     <div class="block-label">Lo que suele fallar</div>
-    <div class="block-title">Los problemas más comunes que detecta el auditor</div>
+    <h2 class="block-title">Los problemas más comunes que detecta el auditor</h2>
     <div class="block-text">
       <strong>El procedimiento está en un documento que nadie ha leído.</strong> Creado hace tres años, archivado, nunca comunicado. El personal técnico no sabe que existe.<br><br><strong>No hay roles para las fases más críticas.</strong> El procedimiento cubre la detección pero no la comunicación de crisis, la interlocución con el CCN-CERT o la decisión de desconexión de sistemas.<br><br><strong>Los contactos del CCN-CERT no están actualizados.</strong> Y el procedimiento de notificación requiere datos de identificación del sistema, clasificación del incidente y descripción técnica — que hay que tener preparados.<br><br><strong>No se registran los incidentes menores.</strong> Solo se registra lo grave. El registro histórico está incompleto y no refleja el perfil de incidentes real de la organización.
     </div>
@@ -81,7 +135,7 @@
 
   <div class="block">
     <div class="block-label">La diferencia real</div>
-    <div class="block-title">Tener el proceso hace que el incidente cueste menos</div>
+    <h2 class="block-title">Tener el proceso hace que el incidente cueste menos</h2>
     <div class="block-text">
       Las organizaciones que tienen el proceso de gestión de incidentes bien preparado no evitan los incidentes — los contienen más rápido, los entienden mejor y los recuperan con menos daño.<br><br>El MTTD (tiempo hasta detección) y el MTTR (tiempo hasta recuperación) son significativamente menores cuando hay un proceso vs. cuando se improvisa.<br><br><strong>Cada hora de un incidente activo tiene un coste. El proceso bien preparado comprime esas horas.</strong>
     </div>

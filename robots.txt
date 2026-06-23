@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-
-Disallow: /contacto.html
+Disallow: /data/
+Disallow: /includes/
 
 Sitemap: https://grcreal.com/sitemap.xml
