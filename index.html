@@ -119,31 +119,5 @@ GRCreal · Seguridad, Riesgo y Cumplimiento. Cumplir no siempre significa estar 
     .catch(error => console.error('Error cargando el footer:', error));
 </script>
 
-<!-- Cargar novedades desde JSON -->
-<script>
-  fetch('/data/notices.json')
-    .then(response => response.json())
-    .then(data => {
-      const noticeText = document.getElementById('noticeText');
-      if (data.active && data.message) {
-        noticeText.innerHTML = data.message;
-        if (data.link) {
-          const link = document.createElement('a');
-          link.href = data.link;
-          link.textContent = data.linkText || 'Saber más →';
-          link.classList.add('notice-link');
-          noticeText.appendChild(document.createTextNode(' '));
-          noticeText.appendChild(link);
-        }
-      } else {
-        document.getElementById('noticeBar').style.display = 'none';
-      }
-    })
-    .catch(error => {
-      console.error('Error cargando novedades:', error);
-      document.getElementById('noticeBar').style.display = 'none';
-    });
-</script>
-
 </body>
 </html>
