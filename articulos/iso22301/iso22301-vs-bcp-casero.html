@@ -6,6 +6,7 @@
 <title>ISO 22301 vs BCP casero: diferencias que importan · GRCreal</title>
 <meta name="description" content="Muchas organizaciones tienen un plan de continuidad hecho internamente. La diferencia entre ese documento y un sistema de gestión ISO 22301 es mayor de lo que parece.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/articulos/iso22301/iso22301-vs-bcp-casero.html">
 <meta property="og:title" content="ISO 22301 vs BCP casero: las diferencias que importan">
 <meta property="og:description" content="La diferencia entre un BCP interno y un sistema de gestión ISO 22301 es mayor de lo que parece. Cuándo importa y cuándo no.">
 <meta property="og:type" content="article">
@@ -18,32 +19,115 @@
 <link rel="stylesheet" href="../../css/marca.css">
 <link rel="stylesheet" href="../../css/articles.css">
 <link rel="stylesheet" href="../../css/global.css">
+<link rel="stylesheet" href="../../css/dossier-core.css">
+<link rel="stylesheet" href="../../css/dossier-articulo.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ISO 22301 vs BCP casero: las diferencias que importan",
+  "description": "Muchas organizaciones tienen un plan de continuidad hecho internamente. La diferencia entre ese documento y un sistema de gestión ISO 22301 es mayor de lo que parece.",
+  "image": "https://grcreal.com/grcreal.png",
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Ángel Carriazo",
+    "url": "https://grcreal.com/sobre-mi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GRCreal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grcreal.com/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grcreal.com/articulos/iso22301/iso22301-vs-bcp-casero.html"
+  },
+  "datePublished": "2026-05-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://grcreal.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Artículos",
+      "item": "https://grcreal.com/articulos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ISO 22301",
+      "item": "https://grcreal.com/articulos/iso22301/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="article-page">
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 <div class="accent-bar"></div>
 
+<div class="ds-meta">
+  <span><span class="dot"></span>GRCreal // expediente: artículo</span>
+  <span>categoría: <strong>ISO 22301</strong></span>
+</div>
+
 <div class="header">
+  <a href="/articulos/index.html" class="art-back">← Volver a artículos</a>
   <div class="tag">ISO 22301 · Continuidad · Resiliencia</div>
-  <div class="article-date">25 Mayo 2026</div>
-  <div class="headline">
-    ISO 22301<br>
-    <span class="accent">vs BCP casero:</span><br>
-    <span class="dim">las diferencias</span><br>
-    <span class="accent">que importan</span>
-  </div>
+  <h1 class="headline">
+    ISO 22301 <span class="accent">vs BCP casero:</span> <span class="dim">las diferencias</span> <span class="accent">que importan</span>
+  </h1>
   <p class="subline">
     Tener un plan de continuidad y tener un sistema de gestión<br>
     <strong>no son lo mismo.</strong>
   </p>
+  <div class="art-meta">
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="2.6"/><path d="M3.5 15c0-2.6 2.5-4.6 5.5-4.6s5.5 2 5.5 4.6"/></svg>
+      <strong>Miguel Ángel Carriazo</strong>
+    </span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="13" height="12.5" rx="1.3"/><path d="M2.5 6.5h13M6 2v2.4M12 2v2.4"/></svg>
+      25 mayo 2026
+    </span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6.8"/><path d="M9 5.3V9l2.8 1.7"/></svg>
+      3 min de lectura
+    </span>
+  </div>
 </div>
 
 <div class="body">
+  <div class="art-layout">
+  <div class="art-main">
 
-  <div class="block">
+
+  <div class="block" id="s1">
     <div class="block-label">El BCP casero</div>
-    <div class="block-title">Lo que la mayoría de organizaciones tienen</div>
+    <h2 class="block-title">Lo que la mayoría de organizaciones tienen</h2>
     <div class="block-text">
       La mayoría de organizaciones medianas tienen alguna forma de plan de continuidad. Normalmente es un documento creado en algún momento por IT, o por el responsable de calidad, o por una consultora que pasó hace años.
       <br><br>
@@ -57,9 +141,9 @@
 
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s2">
     <div class="block-label">Qué añade ISO 22301</div>
-    <div class="block-title">La diferencia estructural</div>
+    <h2 class="block-title">La diferencia estructural</h2>
 
     <table class="tension" style="margin-top:20px;">
       <tr>
@@ -87,9 +171,9 @@
 
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s3">
     <div class="block-label">Cuándo importa la diferencia</div>
-    <div class="block-title">No siempre — pero cuando importa, importa mucho</div>
+    <h2 class="block-title">No siempre — pero cuando importa, importa mucho</h2>
     <div class="block-text">
       Para una pyme sin obligaciones regulatorias específicas, un BCP bien mantenido y probado puede ser suficiente. No hace falta certificarse en ISO 22301 para tener continuidad real.
       <br><br>
@@ -103,9 +187,9 @@
 
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s4">
     <div class="block-label">El camino intermedio</div>
-    <div class="block-title">Mejorar lo que tienes sin certificarte</div>
+    <h2 class="block-title">Mejorar lo que tienes sin certificarte</h2>
     <div class="block-text">
       No toda organización necesita certificarse en ISO 22301. Pero toda organización puede beneficiarse de aplicar sus principios.
       <br><br>
@@ -121,7 +205,21 @@
     </div>
   </div>
 
-  <div class="cta-block">
+  
+  </div><!-- /art-main -->
+
+  <aside class="art-toc">
+    <div class="art-toc-label">Contenido</div>
+    <nav class="art-toc-nav" id="artTocNav">
+      <a href="#s1" data-toc>El BCP casero</a>
+      <a href="#s2" data-toc>Qué añade ISO 22301</a>
+      <a href="#s3" data-toc>Cuándo importa la diferencia</a>
+      <a href="#s4" data-toc>El camino intermedio</a>
+    </nav>
+  </aside>
+
+  </div><!-- /art-layout -->
+<div class="cta-block">
     <div class="cta-headline">
       ¿Tu plan de continuidad<br>
       <span>sobreviviría un incidente real?</span>
@@ -135,18 +233,81 @@
 </div>
 
 <!-- FINAL DEL BODY -->
+
+<!-- SOBRE EL AUTOR + COMPARTIR -->
+<div class="art-foot">
+  <div class="art-author">
+    <div class="art-foot-label">Sobre el autor</div>
+    <div class="art-author-name">Miguel Ángel Carriazo <span>· vCISO</span></div>
+    <p class="art-author-bio">vCISO · Arquitecto de Soluciones de Infraestructura y Ciberseguridad | Gobierno, Riesgo y Cumplimiento (GRC) | Gobierno de IA · ISO 42001 | Fundador de GRCreal</p>
+  </div>
+  <div class="art-share">
+    <div class="art-foot-label">Compartir artículo</div>
+    <a href="#" id="shareLinkedin" target="_blank" class="art-share-btn" aria-label="Compartir en LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ARTÍCULOS RELACIONADOS -->
+<div class="art-related">
+  <div class="art-related-label">Sigue leyendo</div>
+  <div class="art-related-title">Artículos relacionados</div>
+  <div class="art-related-grid">
+    <a href="/articulos/iso22301/auditoria-continuidad-que-revisa.html" class="art-related-card">
+      <span class="art-related-pill">ISO 22301</span>
+      <h3>Qué revisa un auditor de continuidad de negocio</h3>
+      <p>Todo lo que te van a pedir y por qué importa.</p>
+      <div class="art-related-meta"><span>25 abril 2026</span><span>4 min</span></div>
+    </a>
+    <a href="/articulos/iso22301/rto-rpo-realidad.html" class="art-related-card">
+      <span class="art-related-pill">ISO 22301</span>
+      <h3>RTO y RPO: dos siglas que salvan empresas o las hunden</h3>
+      <p>En la mayoría, son estimaciones. No mediciones.</p>
+      <div class="art-related-meta"><span>21 abril 2026</span><span>3 min</span></div>
+    </a>
+    <a href="/articulos/iso22301/iso22301-sgcn-roles.html" class="art-related-card">
+      <span class="art-related-pill">ISO 22301</span>
+      <h3>SGCN: quién hace qué cuando la continuidad se activa</h3>
+      <p>Cuando hay fuego, no es el momento de decidir quién tiene la manguera.</p>
+      <div class="art-related-meta"><span>18 junio 2026</span><span>3 min</span></div>
+    </a>
+  </div>
+</div>
+
 <div id="footer-placeholder"></div>
 <script>
-    fetch('/includes/footer.html')
+    fetch('/includes/footer-no-share.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
+
+
+    // Compartir en LinkedIn
+    var shareBtn = document.getElementById('shareLinkedin');
+    if (shareBtn) {
+        shareBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+    }
+
+    // Índice lateral: resalta la sección visible
+    var tocLinks = Array.from(document.querySelectorAll('#artTocNav a'));
+    var sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                    var id = '#' + entry.target.id;
+                    tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(function(s){ if (s) observer.observe(s); });
+    }
 </script>
 
 </div>
 </div>
-<a href="/articulos" class="home-btn">⌂ Home Artículos</a>
 </body>
 <script src="/js/global.js"></script>
 </html>

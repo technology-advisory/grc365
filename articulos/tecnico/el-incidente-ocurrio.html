@@ -6,6 +6,7 @@
 <title>El incidente ocurrió. ¿Y ahora qué? · GRCreal</title>
 <meta name="description" content="Cuando el incidente ocurre, no hay tiempo para improvisar. Qué hacer en las primeras horas, qué errores evitar y cómo gestionar la crisis sin empeorar las cosas.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/articulos/tecnico/el-incidente-ocurrio.html">
 <meta property="og:title" content="El incidente ocurrió. ¿Y ahora qué?">
 <meta property="og:description" content="Las primeras horas tras un incidente de seguridad son críticas. Qué hacer, qué no hacer y cómo no empeorar las cosas.">
 <meta property="og:type" content="article">
@@ -18,33 +19,116 @@
 <link rel="stylesheet" href="../../css/marca.css">
 <link rel="stylesheet" href="../../css/articles.css">
 <link rel="stylesheet" href="../../css/global.css">
+<link rel="stylesheet" href="../../css/dossier-core.css">
+<link rel="stylesheet" href="../../css/dossier-articulo.css">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "El incidente ocurrió. ¿Y ahora qué?",
+  "description": "Cuando el incidente ocurre, no hay tiempo para improvisar. Qué hacer en las primeras horas, qué errores evitar y cómo gestionar la crisis sin empeorar las cosas.",
+  "image": "https://grcreal.com/grcreal.png",
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Ángel Carriazo",
+    "url": "https://grcreal.com/sobre-mi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GRCreal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grcreal.com/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grcreal.com/articulos/tecnico/el-incidente-ocurrio.html"
+  },
+  "datePublished": "2026-04-25"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://grcreal.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Artículos",
+      "item": "https://grcreal.com/articulos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Técnico",
+      "item": "https://grcreal.com/articulos/tecnico/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="article-page">
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 <div class="accent-bar"></div>
 
+<div class="ds-meta">
+  <span><span class="dot"></span>GRCreal // expediente: artículo</span>
+  <span>categoría: <strong>Técnico</strong></span>
+</div>
+
 <div class="header">
+  <a href="/articulos/index.html" class="art-back">← Volver a artículos</a>
   <div class="tag">Incidentes · Respuesta · Crisis</div>
-  <div class="article-date">25 Abril 2026</div>
-  <div class="headline">
-    El incidente<br>
-    <span class="accent">ocurrió.</span><br>
-    <span class="dim">¿Y ahora</span><br>
-    <span class="accent">qué?</span>
-  </div>
+  <h1 class="headline">
+    El incidente <span class="accent">ocurrió.</span> <span class="dim">¿Y ahora</span> <span class="accent">qué?</span>
+  </h1>
   <p class="subline">
     Las primeras horas son las más críticas.<br>
     <strong>Y las más propensas a errores que empeoran todo.</strong>
   </p>
+  <div class="art-meta">
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="2.6"/><path d="M3.5 15c0-2.6 2.5-4.6 5.5-4.6s5.5 2 5.5 4.6"/></svg>
+      <strong>Miguel Ángel Carriazo</strong>
+    </span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="13" height="12.5" rx="1.3"/><path d="M2.5 6.5h13M6 2v2.4M12 2v2.4"/></svg>
+      25 abril 2026
+    </span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6.8"/><path d="M9 5.3V9l2.8 1.7"/></svg>
+      3 min de lectura
+    </span>
+  </div>
 </div>
 
 <div class="body">
+  <div class="art-layout">
+  <div class="art-main">
 
-  <div class="block">
+
+  <div class="block" id="s1">
     <div class="block-label">El momento de la verdad</div>
-    <div class="block-title">Cuando el plan deja de ser teoría</div>
+    <h2 class="block-title">Cuando el plan deja de ser teoría</h2>
     <div class="block-text">
       El ransomware ha cifrado los servidores. O alguien ha detectado accesos no autorizados a los sistemas. O un proveedor ha notificado una brecha que afecta a datos de tu organización. O simplemente el sistema crítico está caído y nadie sabe por qué.
       <br><br>
@@ -56,9 +140,9 @@
 
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s2">
     <div class="block-label">Los errores más costosos</div>
-    <div class="block-title">Lo que no hay que hacer</div>
+    <h2 class="block-title">Lo que no hay que hacer</h2>
 
     <table class="tension" style="margin-top:20px;">
       <tr>
@@ -86,9 +170,9 @@
 
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s3">
     <div class="block-label">Las primeras horas</div>
-    <div class="block-title">Lo que debe ocurrir en orden</div>
+    <h2 class="block-title">Lo que debe ocurrir en orden</h2>
     <div class="block-text">
       <strong>1. Contener, no eliminar.</strong> El primer objetivo es contener el incidente — limitar su propagación — sin destruir evidencias. Aislar sistemas afectados de la red, pero no apagarlos sin criterio.
       <br><br>
@@ -104,9 +188,9 @@
 
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s4">
     <div class="block-label">Después del incidente</div>
-    <div class="block-title">Lo que marca la diferencia a largo plazo</div>
+    <h2 class="block-title">Lo que marca la diferencia a largo plazo</h2>
     <div class="block-text">
       Recuperarse del incidente es necesario. Aprender de él es lo que evita el siguiente.
       <br><br>
@@ -118,7 +202,21 @@
     </div>
   </div>
 
-  <div class="cta-block">
+  
+  </div><!-- /art-main -->
+
+  <aside class="art-toc">
+    <div class="art-toc-label">Contenido</div>
+    <nav class="art-toc-nav" id="artTocNav">
+      <a href="#s1" data-toc>El momento de la verdad</a>
+      <a href="#s2" data-toc>Los errores más costosos</a>
+      <a href="#s3" data-toc>Las primeras horas</a>
+      <a href="#s4" data-toc>Después del incidente</a>
+    </nav>
+  </aside>
+
+  </div><!-- /art-layout -->
+<div class="cta-block">
     <div class="cta-headline">
       ¿Tu organización sabe qué hacer<br>
       <span>en las próximas dos horas si ocurre algo?</span>
@@ -132,18 +230,81 @@
 </div>
 
 <!-- FINAL DEL BODY -->
+
+<!-- SOBRE EL AUTOR + COMPARTIR -->
+<div class="art-foot">
+  <div class="art-author">
+    <div class="art-foot-label">Sobre el autor</div>
+    <div class="art-author-name">Miguel Ángel Carriazo <span>· vCISO</span></div>
+    <p class="art-author-bio">vCISO · Arquitecto de Soluciones de Infraestructura y Ciberseguridad | Gobierno, Riesgo y Cumplimiento (GRC) | Gobierno de IA · ISO 42001 | Fundador de GRCreal</p>
+  </div>
+  <div class="art-share">
+    <div class="art-foot-label">Compartir artículo</div>
+    <a href="#" id="shareLinkedin" target="_blank" class="art-share-btn" aria-label="Compartir en LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ARTÍCULOS RELACIONADOS -->
+<div class="art-related">
+  <div class="art-related-label">Sigue leyendo</div>
+  <div class="art-related-title">Artículos relacionados</div>
+  <div class="art-related-grid">
+    <a href="/articulos/tecnico/phishing-2026.html" class="art-related-card">
+      <span class="art-related-pill">Técnico</span>
+      <h3>Phishing 2026: ya no es lo que crees</h3>
+      <p>Los ataques han cambiado. Tus controles no.</p>
+      <div class="art-related-meta"><span>5 mayo 2026</span><span>3 min</span></div>
+    </a>
+    <a href="/articulos/tecnico/ransomware-defensa-real.html" class="art-related-card">
+      <span class="art-related-pill">Técnico</span>
+      <h3>Ransomware: la defensa que casi nadie tiene</h3>
+      <p>No es si te atacan. Es si puedes seguir operando.</p>
+      <div class="art-related-meta"><span>28 abril 2026</span><span>3 min</span></div>
+    </a>
+    <a href="/articulos/tecnico/backup-no-es-recuperacion.html" class="art-related-card">
+      <span class="art-related-pill">Técnico</span>
+      <h3>Backup no es recuperación</h3>
+      <p>El error que sigue costando millones.</p>
+      <div class="art-related-meta"><span>24 abril 2026</span><span>3 min</span></div>
+    </a>
+  </div>
+</div>
+
 <div id="footer-placeholder"></div>
 <script>
-    fetch('/includes/footer.html')
+    fetch('/includes/footer-no-share.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
+
+
+    // Compartir en LinkedIn
+    var shareBtn = document.getElementById('shareLinkedin');
+    if (shareBtn) {
+        shareBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+    }
+
+    // Índice lateral: resalta la sección visible
+    var tocLinks = Array.from(document.querySelectorAll('#artTocNav a'));
+    var sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                    var id = '#' + entry.target.id;
+                    tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(function(s){ if (s) observer.observe(s); });
+    }
 </script>
 
 </div>
 </div>
-<a href="/articulos" class="home-btn">⌂ Home Artículos</a>
 </body>
 <script src="/js/global.js"></script>
 </html>

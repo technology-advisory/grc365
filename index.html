@@ -1,147 +1,493 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+  <title>GRCreal | Governance, Risk & Compliance</title>
+  <meta name="description" content="Cumplir no siempre significa estar preparado. GRCreal ayuda a organizaciones a operar con seguridad real: visibilidad, control y resiliencia desde la operación.">
+  <meta name="keywords" content="GRC, governance, risk, compliance, seguridad, ciberseguridad, ISO 27001, NIS2, ENS, DORA, AI Act">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://grcreal.com/">
+  
+  <meta property="og:title" content="GRCreal · Governance, Risk &amp; Compliance">
+  <meta property="og:description" content="Seguridad real desde la operación. Cumplimiento que defiende.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://grcreal.com/">
+  <meta property="og:image" content="https://grcreal.com/images/grcreal.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GRCreal · Seguridad Real">
+  <meta name="twitter:description" content="Plataforma gratuita de GRC y ciberseguridad.">
+  <meta name="twitter:image" content="https://grcreal.com/images/grcreal.png">
+  
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#003955">
+  
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="/css/marca.css">
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/dossier-core.css">
+  <link rel="stylesheet" href="/css/dossier-articulo.css">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "GRCreal",
+    "description": "Plataforma gratuita de Governance, Risk & Compliance",
+    "url": "https://grcreal.com/",
+    "author": { "@type": "Person", "name": "Miguel Ángel Carriazo" }
+  }
+  </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .hero-dossier {
+      position: relative;
+      border-bottom: 1px solid var(--ds-line, #D7DCDF);
+      overflow: hidden;
+      line-height: 0;
+      background: #F6F7F5;
+    }
 
-<title>GRCreal | Seguridad, Riesgo y Cumplimiento</title>
+    .hero-dossier-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-<meta name="description" content="Cumplir no siempre significa estar preparado. GRCreal ayuda a organizaciones a operar con seguridad real: visibilidad, control y resiliencia desde la operación.">
+    .manifesto-section {
+      position: relative;
+      background: var(--ds-paper, #F6F7F5);
+      border-top: 1px solid var(--ds-line, #D7DCDF);
+      border-bottom: 1px solid var(--ds-line, #D7DCDF);
+      overflow: hidden;
+      text-align: center;
+    }
 
-<meta name="robots" content="index, follow">
+    .manifesto-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 119, 181, 0.06) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 119, 181, 0.06) 1px, transparent 1px);
+      background-size: 30px 30px;
+      background-position: -1px -1px;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 40%, #000 100%);
+      mask-image: linear-gradient(180deg, transparent 0%, #000 40%, #000 100%);
+      pointer-events: none;
+    }
 
-<!-- Open Graph -->
-<meta property="og:title" content="GRCreal · Seguridad, Riesgo y Cumplimiento">
-<meta property="og:description" content="Seguridad real desde la operación.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://grcreal.com/">
-<meta property="og:image" content="https://grcreal.com/images/grcreal.png">
+    .manifesto-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 56px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="GRCreal · Seguridad, Riesgo y Cumplimiento">
-<meta name="twitter:description" content="Seguridad real. No solo cumplimiento.">
-<meta name="twitter:image" content="https://grcreal.com/images/grcreal.png">
+    .manifesto-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      max-width: 820px;
+      width: 100%;
+    }
 
-<!-- FAVICON -->
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    .manifesto-svg {
+      flex-shrink: 0;
+      width: 100px;
+      height: 100px;
+    }
 
-<!-- DATOS ESTRUCTURADOS -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "GRCreal",
-  "url": "https://grcreal.com/"
-}
-</script>
+    .manifesto-text {
+      text-align: center;
+      width: 100%;
+    }
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "GRCreal",
-  "url": "https://grcreal.com/",
-  "logo": "https://grcreal.com/favicon-32x32.png"
-}
-</script>
+    .manifesto-text p:first-child {
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ds-ink, #10161B);
+      font-weight: 800;
+      margin: 0 0 20px;
+      text-align: center;
+    }
 
-<!-- CSS -->
-<link rel="stylesheet" href="css/marca.css">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/menu.css">
+    .manifesto-text p:last-child {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #475569;
+      margin: 0;
+      text-align: center;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-</head>
-<body>
+    /* ============================================
+       BLOQUE CORPORATIVO CENTRADO CON SVG
+       ============================================ */
+    .corporate-section {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 76px 56px 60px;
+      background: #fff;
+      text-align: center;
+    }
 
-<!-- SEO -->
-<h1 style="display:none;">
-GRCreal · Seguridad, Riesgo y Cumplimiento. Cumplir no siempre significa estar preparado.
-</h1>
+    .corporate-head {
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 56px;
+    }
 
-<div class="wrapper">
-  <div class="container">
+    .corporate-head .section-eyebrow {
+      display: inline-block;
+      font-family: var(--mono, monospace);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--brand, #0077B5);
+      margin-bottom: 14px;
+    }
 
-    <!-- NAV MENÚ -->
-    <nav class="nav">
-      <div class="nav-logo">GRC<span>real</span></div>
-      <div class="nav-menu-wrapper" id="navMenuWrapper">
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="/enfoque/index.html">Enfoque</a></li>
-          <li><a href="/metodologia/index.html">Metodología</a></li>
-          <li><a href="/articulos/index.html">Artículos</a></li>
-          <li><a href="/checklists/index.html">CheckLists</a></li>
-          <li><a href="/versus/index.html">Versus</a></li>
-          <li><a href="/academia/index.html">Academia</a></li>
-          <li><a href="/sobre-mi/index.html">Sobre mí</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="/legal/index.html">Legal</a></li>
-        </ul>
-      </div>
-      <div class="nav-toggle" onclick="this.classList.toggle('open'); document.getElementById('navMenu').classList.toggle('open')">
-        <span></span><span></span><span></span>
-      </div>
-    </nav>
+    .corporate-head h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ds-ink, #10161B);
+      margin: 0 0 16px;
+      font-weight: 800;
+    }
 
-    <!-- BARRA DE NOVEDADES (se carga desde JSON) -->
-	<div class="novedades-line">
-	  📢 <a href="/novedades/index.html">Novedades GRCreal</a>
-	</div>
+    .corporate-head .corporate-lede {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #475569;
+      margin: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-	<!-- PNG -->
-	<div class="hero-image">
-	  <img src="images/grcreal.png" alt="GRCreal · Seguridad, Riesgo y Cumplimiento" class="main-png">
-	</div>
+    .corporate-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px 56px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
+    .corporate-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-    <!-- FOOTER desde includes/ -->
-    <div id="footer-container"></div>
+    .corporate-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+      color: var(--brand, #0077B5);
+      flex-shrink: 0;
+    }
 
-  </div>
-</div>
+    .corporate-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-<!-- POPUP -->
-<script src="/js/popup-welcome.js"></script>
+    .corporate-item h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--ds-ink, #10161B);
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
 
-<!-- Cargar el footer -->
-<script>
-  fetch('/includes/footer-no-share.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-container').innerHTML = data;
-    })
-    .catch(error => console.error('Error cargando el footer:', error));
-</script>
+    .corporate-item p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: #475569;
+      margin: 0;
+      max-width: 380px;
+    }
 
-<!-- Cargar novedades desde JSON -->
-<script>
-  fetch('/data/notices.json')
-    .then(response => response.json())
-    .then(data => {
-      const noticeText = document.getElementById('noticeText');
-      if (data.active && data.message) {
-        noticeText.innerHTML = data.message;
-        if (data.link) {
-          const link = document.createElement('a');
-          link.href = data.link;
-          link.textContent = data.linkText || 'Saber más →';
-          link.classList.add('notice-link');
-          noticeText.appendChild(document.createTextNode(' '));
-          noticeText.appendChild(link);
-        }
-      } else {
-        document.getElementById('noticeBar').style.display = 'none';
+    @media (max-width: 980px) {
+      .corporate-section,
+      .manifesto-inner {
+        padding-left: 40px;
+        padding-right: 40px;
       }
-    })
-    .catch(error => {
-      console.error('Error cargando novedades:', error);
-      document.getElementById('noticeBar').style.display = 'none';
-    });
-</script>
 
+      .corporate-grid {
+        gap: 40px 32px;
+      }
+
+      .manifesto-wrapper {
+        gap: 24px;
+      }
+
+      .manifesto-svg {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .corporate-section,
+      .manifesto-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 48px;
+        padding-bottom: 40px;
+      }
+
+      .corporate-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .corporate-item p {
+        max-width: 100%;
+      }
+
+      .manifesto-svg {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="article-page">
+  <div class="card-wrapper ds-page">
+    <div class="card">
+      <div id="nav-placeholder"></div>
+      <script>
+        fetch('/includes/nav.html')
+          .then(response => response.text())
+          .then(data => { document.getElementById('nav-placeholder').outerHTML = data; });
+      </script>
+
+      <div class="accent-bar"></div>
+
+      <div class="ds-meta">
+        <span><span class="dot"></span>GRCreal // expediente: inicio</span>
+        <span>tipo: <strong>Plataforma</strong></span>
+      </div>
+
+      <!-- ============================================
+           HERO · SVG DOSSIER (carga siempre, sin imágenes externas)
+           ============================================ -->
+      <div class="hero-dossier">
+        <svg class="hero-dossier-svg" viewBox="0 0 1180 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GRCreal · Claridad para decisiones complejas. GRC, ciberseguridad y cumplimiento con visión estratégica y operativa.">
+          <defs>
+            <pattern id="pgrid" width="28" height="28" patternUnits="userSpaceOnUse">
+              <path d="M28 0H0V28" fill="none" stroke="#0077B5" stroke-opacity="0.07" stroke-width="1"/>
+            </pattern>
+          </defs>
+
+          <rect width="1180" height="340" fill="#F6F7F5"/>
+          <rect width="1180" height="340" fill="url(#pgrid)"/>
+
+          <text x="60" y="66" font-family="'Courier New',monospace" font-size="13" letter-spacing="2" fill="#0077B5">GRCREAL // EXPEDIENTE: INICIO</text>
+          <line x1="60" y1="80" x2="560" y2="80" stroke="#d7dcdf" stroke-width="1"/>
+
+          <text x="58" y="140" font-family="Arial,sans-serif" font-size="46" font-weight="800" letter-spacing="-1.5" fill="#10161B">Claridad para</text>
+          <text x="58" y="192" font-family="Arial,sans-serif" font-size="46" font-weight="800" letter-spacing="-1.5" fill="#10161B">decisiones <tspan fill="#0077B5">complejas</tspan></text>
+
+          <rect x="60" y="214" width="46" height="4" rx="2" fill="#0077B5"/>
+
+          <text x="58" y="256" font-family="Arial,sans-serif" font-size="18" fill="#475569">GRC, ciberseguridad y cumplimiento con</text>
+          <text x="58" y="282" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#003955">visión estratégica y operativa.</text>
+
+          <g font-family="'Courier New',monospace">
+            <rect x="60" y="300" width="86" height="24" rx="12" fill="#fff" stroke="#d7dcdf"/>
+            <text x="103" y="316" text-anchor="middle" font-size="11" fill="#003955">ISO 27001</text>
+            <rect x="154" y="300" width="54" height="24" rx="12" fill="#fff" stroke="#d7dcdf"/>
+            <text x="181" y="316" text-anchor="middle" font-size="11" fill="#003955">NIS2</text>
+            <rect x="216" y="300" width="50" height="24" rx="12" fill="#fff" stroke="#d7dcdf"/>
+            <text x="241" y="316" text-anchor="middle" font-size="11" fill="#003955">ENS</text>
+            <rect x="274" y="300" width="58" height="24" rx="12" fill="#fff" stroke="#d7dcdf"/>
+            <text x="303" y="316" text-anchor="middle" font-size="11" fill="#003955">DORA</text>
+            <rect x="340" y="300" width="66" height="24" rx="12" fill="#003955"/>
+            <text x="373" y="316" text-anchor="middle" font-size="11" fill="#cfe6f2">AI ACT</text>
+          </g>
+
+          <g transform="translate(680,44)">
+            <rect x="0" y="0" width="440" height="256" rx="8" fill="#fff" stroke="#e2e8ee" stroke-width="1.5"/>
+            <rect x="0" y="0" width="440" height="34" rx="8" fill="#003955"/>
+            <rect x="0" y="26" width="440" height="8" fill="#003955"/>
+            <circle cx="20" cy="17" r="4" fill="#22c55e"/>
+            <text x="34" y="21" font-family="'Courier New',monospace" font-size="10.5" letter-spacing="1" fill="#cfe6f2">DOSSIER TÉCNICO</text>
+            <text x="424" y="21" text-anchor="end" font-family="'Courier New',monospace" font-size="10.5" letter-spacing="1" fill="#7fb4cf">MULTI-MARCO</text>
+
+            <text x="26" y="62" font-family="'Courier New',monospace" font-size="10" letter-spacing="1" fill="#0077B5">RIESGO · P×I</text>
+            <g transform="translate(26,72)" stroke="#fff" stroke-width="2">
+              <rect x="0" y="0" width="26" height="26" fill="#e6f0d9"/><rect x="28" y="0" width="26" height="26" fill="#f4e7c3"/><rect x="56" y="0" width="26" height="26" fill="#f0cfa8"/><rect x="84" y="0" width="26" height="26" fill="#e3a48f"/><rect x="112" y="0" width="26" height="26" fill="#B23A2E"/>
+              <rect x="0" y="28" width="26" height="26" fill="#eef4e4"/><rect x="28" y="28" width="26" height="26" fill="#f4e7c3"/><rect x="56" y="28" width="26" height="26" fill="#f0cfa8"/><rect x="84" y="28" width="26" height="26" fill="#e3a48f"/><rect x="112" y="28" width="26" height="26" fill="#d06a54"/>
+              <rect x="0" y="56" width="26" height="26" fill="#eef4e4"/><rect x="28" y="56" width="26" height="26" fill="#eef4e4"/><rect x="56" y="56" width="26" height="26" fill="#f4e7c3"/><rect x="84" y="56" width="26" height="26" fill="#f0cfa8"/><rect x="112" y="56" width="26" height="26" fill="#e3a48f"/>
+              <rect x="0" y="84" width="26" height="26" fill="#eef4e4"/><rect x="28" y="84" width="26" height="26" fill="#eef4e4"/><rect x="56" y="84" width="26" height="26" fill="#eef4e4"/><rect x="84" y="84" width="26" height="26" fill="#f4e7c3"/><rect x="112" y="84" width="26" height="26" fill="#f0cfa8"/>
+            </g>
+            <circle cx="151" cy="85" r="6" fill="#B23A2E" stroke="#fff" stroke-width="2"/>
+            <circle cx="95" cy="141" r="5" fill="#0077B5" stroke="#fff" stroke-width="2"/>
+
+            <text x="210" y="62" font-family="'Courier New',monospace" font-size="10" letter-spacing="1" fill="#0077B5">CONTROLES</text>
+            <g transform="translate(210,72)" font-family="Arial,sans-serif" font-size="11.5" fill="#334155">
+              <rect x="0" y="0" width="16" height="16" rx="3" fill="#eaf5ee" stroke="#22c55e" stroke-width="1.4"/>
+              <path d="M3.5 8.5 L7 12 L13 4.5" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="24" y="12">A.5 Políticas</text>
+              <rect x="0" y="26" width="16" height="16" rx="3" fill="#eaf5ee" stroke="#22c55e" stroke-width="1.4"/>
+              <path d="M3.5 34.5 L7 38 L13 30.5" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="24" y="38">A.8 Activos</text>
+              <rect x="0" y="52" width="16" height="16" rx="3" fill="#eaf5ee" stroke="#22c55e" stroke-width="1.4"/>
+              <path d="M3.5 60.5 L7 64 L13 56.5" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="24" y="64">A.9 Acceso</text>
+              <rect x="0" y="78" width="16" height="16" rx="3" fill="#fff" stroke="#c2ccd6" stroke-width="1.4"/>
+              <text x="24" y="90" fill="#94a3b8">A.12 Operación</text>
+            </g>
+
+            <line x1="26" y1="196" x2="414" y2="196" stroke="#e2e8ee" stroke-width="1"/>
+            <text x="26" y="216" font-family="'Courier New',monospace" font-size="10" letter-spacing="1" fill="#0077B5">MADUREZ OPERATIVA</text>
+            <g transform="translate(26,224)">
+              <path d="M0,20 L64,14 L128,16 L192,6 L256,2 L320,-4 L388,-8 L388,24 L0,24 Z" fill="#0077B5" opacity="0.08"/>
+              <path d="M0,20 L64,14 L128,16 L192,6 L256,2 L320,-4 L388,-8" fill="none" stroke="#0077B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="388" cy="-8" r="4" fill="#22c55e" stroke="#fff" stroke-width="1.5"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- ============================================
+           BLOQUE CORPORATIVO CENTRADO CON SVG
+           ============================================ -->
+      <div style="background: #fff;">
+        <section class="corporate-section">
+          <div class="corporate-head">
+            <span class="section-eyebrow">Plataforma integral</span>
+            <h2>Conocimiento real para profesionales de GRC, ciberseguridad y cumplimiento</h2>
+            <p class="corporate-lede">
+              Análisis, guías y experiencias basadas en la realidad operativa. Sin teoría vacía. Sin copy-paste.
+            </p>
+          </div>
+
+          <div class="corporate-grid">
+            <!-- Gobernanza -->
+            <div class="corporate-item">
+              <div class="corporate-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <h3>Gobernanza y Responsabilidad</h3>
+              <p>Supervisión fundamentada en datos, respaldada por informes coherentes y preparados para auditoría.</p>
+            </div>
+
+            <!-- Riesgos de Terceros -->
+            <div class="corporate-item">
+              <div class="corporate-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M9 12l2 2 4-4"/>
+                </svg>
+              </div>
+              <h3>Riesgos de Terceros y Cadena de Suministro</h3>
+              <p>Vigilancia continua de proveedores, evidencias y dependencias a lo largo de toda la cadena de valor.</p>
+            </div>
+
+            <!-- Riesgos y Compliance -->
+            <div class="corporate-item">
+              <div class="corporate-icon">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <h3>Riesgos y Cumplimiento</h3>
+              <p>Vinculación de riesgos, controles y evidencia con decisiones operativas, incidentes e informes. Más allá de meras listas de verificación.</p>
+            </div>
+
+            <!-- Mapeo de Marcos -->
+            <div class="corporate-item">
+              <div class="corporate-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="2" y="3" width="20" height="18" rx="2"/>
+                  <path d="M8 7h8M8 11h6M8 15h4"/>
+                </svg>
+              </div>
+              <h3>Mapeo de Marcos Normativos</h3>
+              <p>Utiliza los mismos controles y evidencias para NIS2, DORA, ISO 27001 y futuras normativas, sin reconfiguraciones.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ============================================
+           MANIFIESTO CON SVG BRÚJULA (TOTALMENTE CENTRADO)
+           ============================================ -->
+      <section class="manifesto-section">
+        <div class="manifesto-inner">
+          <div class="manifesto-wrapper">
+            <svg class="manifesto-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escudo verificado">
+              <defs>
+                <linearGradient id="grad-shield" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#0077B5;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#003955;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path d="M50 12 L26 22 V46 C26 66 50 84 50 84 C50 84 74 66 74 46 V22 Z" fill="none" stroke="url(#grad-shield)" stroke-width="2.5" stroke-linejoin="round"/>
+              <path d="M38 48 L46 57 L64 36" fill="none" stroke="url(#grad-shield)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M50 12 L26 22 V40 L50 30 Z" fill="url(#grad-shield)" opacity="0.10"/>
+            </svg>
+            <div class="manifesto-text">
+              <p>Cumplir no siempre significa estar preparado.</p>
+              <p>Las certificaciones ordenan; no defienden. GRCreal existe para el trabajo intermedio: el que convierte un marco normativo en controles reales, el que documenta lo que funciona y el que prepara a los equipos para el día del incidente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="footer-placeholder"></div>
+      <script>
+        fetch('/includes/footer-no-share.html')
+          .then(response => response.text())
+          .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+      </script>
+    </div>
+  </div>
+
+  <script src="/js/global.js"></script>
 </body>
 </html>

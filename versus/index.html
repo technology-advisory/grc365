@@ -6,6 +6,7 @@
 <title>Versus · GRCreal</title>
 <meta name="description" content="Frameworks, normas y herramientas comparadas sin filtro. Para que puedas decidir con criterio.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/versus/">
 <meta property="og:title" content="Versus — GRCreal">
 <meta property="og:description" content="Frameworks, normas y herramientas comparadas sin filtro. Para que puedas decidir con criterio.">
 <meta property="og:type" content="website">
@@ -14,6 +15,8 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="stylesheet" href="../css/marca.css">
 <link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="../css/dossier-core.css">
+<link rel="stylesheet" href="../css/dossier-versus.css">
 
 <style>
 .versus-grid {
@@ -79,25 +82,85 @@
   .versus-grid { grid-template-columns: 1fr; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Versus",
+  "description": "Frameworks, normas y herramientas comparadas sin filtro. Para que puedas decidir con criterio.",
+  "image": "https://grcreal.com/grcreal.png",
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Ángel Carriazo",
+    "url": "https://grcreal.com/sobre-mi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GRCreal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grcreal.com/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grcreal.com/versus/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://grcreal.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Versus",
+      "item": "https://grcreal.com/versus/"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
   <div class="accent-bar"></div>
+
+  <div class="ds-meta">
+    <span><span class="dot"></span>GRCreal // expediente: versus</span>
+    <span>archivo: <strong>9 comparativas</strong></span>
+  </div>
 
   <div class="header">
     <div class="tag">GRCreal · Versus</div>
-    <div class="headline">
+    <h1 class="headline">
       <span class="accent">Versus</span>
-    </div>
+    </h1>
     <p class="subline">
       Frameworks, normas y herramientas comparadas sin filtro.<br>
       <strong>Para que puedas decidir con criterio.</strong>
     </p>
   </div>
 
-  <div class="body">
+  <div class="body versus-body">
 
     <div class="versus-grid">
 
@@ -190,7 +253,6 @@
 
 </div>
 </div>
-<a href="../index.html" class="home-btn">⌂ Home</a>
 </body>
 <script src="/js/global.js"></script>
 </html>

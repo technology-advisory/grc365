@@ -27,22 +27,37 @@
 <link rel="stylesheet" href="../css/marca.css">
 <link rel="stylesheet" href="../css/global.css">
 <link rel="stylesheet" href="../css/academy.css">
+<link rel="stylesheet" href="../css/dossier-core.css">
+<link rel="stylesheet" href="../css/dossier-academia.css">
 
 </head>
 
 <body>
 
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 
 <div class="accent-bar"></div>
 
+<div class="ds-meta">
+  <span><span class="dot"></span>GRCreal // expediente: academia</span>
+  <span>archivo: <strong>4 cursos</strong></span>
+</div>
+
 <div class="header">
   <div class="tag">GRCreal · Academy</div>
-  <div class="headline">
-    Aprender cumplimiento<br>
-    <span class="accent">también debería ser práctico.</span>
-  </div>
+  <h1 class="headline">
+    Aprender cumplimiento <span class="accent">también debería ser práctico.</span>
+  </h1>
   <p class="subline">
     Guías reales de estudio sobre implementación, auditoría,
     continuidad y gobierno de seguridad.
@@ -53,7 +68,7 @@
   </p>
 </div>
 
-<div class="body">
+<div class="body academia-body">
 
 <!-- FEATURE GRID -->
 <div class="feature-grid">
@@ -89,10 +104,9 @@
 <!-- NOTA PRINCIPAL -->
 <div class="nota-destacada">
   <div class="nota-destacada-inner">
-    <p>La mayoría de cursos preparan para aprobar exámenes.</p>
-    <p class="nota-destacada-frase">GRCreal Academy busca algo diferente:</p>
-    <p class="nota-destacada-texto"><strong>entender cómo funcionan realmente estos marcos cuando llegan auditorías, incidentes y presión operacional.</strong></p>
-    <p class="nota-destacada-cierre">Porque cumplir no siempre significa estar preparado.</p>
+    <span class="nota-destacada-eyebrow">Enfoque · GRCreal Academy</span>
+    <p class="nota-destacada-texto">Capacitar a los profesionales para aplicar los marcos de gestión en contextos reales de auditoría, gestión de incidentes y exigencia operativa.</p>
+    <p class="nota-destacada-cierre">La formación en cumplimiento suele orientarse a la obtención de certificaciones. Nuestro objetivo no es aprobar un examen, sino estar preparado cuando la organización lo necesita.</p>
   </div>
 </div>
 
@@ -108,7 +122,6 @@
 </div>
 </div>
 
-<a href="/index.html" class="home-btn">⌂ Home</a>
 
 <script src="/js/global.js"></script>
 <script>

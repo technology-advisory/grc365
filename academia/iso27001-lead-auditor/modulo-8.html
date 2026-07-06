@@ -8,11 +8,21 @@
 
 <meta name="description" content="Modulo 8 ISO 27001 Lead Auditor. Cómo identificar, redactar y gestionar hallazgos, no conformidades y oportunidades de mejora en una auditoría.">
 
+<meta property="og:title" content="Hallazgos y No Conformidades · ISO 27001 Lead Auditor · GRCreal Academy">
+<meta property="og:description" content="Modulo 8 ISO 27001 Lead Auditor. Cómo identificar, redactar y gestionar hallazgos, no conformidades y oportunidades de mejora en una auditoría.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://grcreal.com/academia/iso27001-lead-auditor/modulo-8.html">
+<meta property="og:image" content="https://grcreal.com/grcreal.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="index, follow">
 
+<link rel="canonical" href="https://grcreal.com/academia/iso27001-lead-auditor/modulo-8.html">
 <link rel="icon" href="/favicon.ico" sizes="any">
 
+<link rel="stylesheet" href="../../css/marca.css">
 <link rel="stylesheet" href="../../css/academia.css">
+<link rel="stylesheet" href="../../css/dossier-core.css">
+<link rel="stylesheet" href="../../css/dossier-academia.css">
 
 <style>
 .cta-buttons {
@@ -57,10 +67,24 @@
 
 <body class="article-page">
 
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 
 <div class="accent-bar"></div>
+
+<div class="ds-meta">
+  <span><span class="dot"></span>GRCreal // expediente: academia</span>
+  <span>curso: <strong>ISO 27001 Lead Auditor</strong></span>
+</div>
 
 <nav class="academy-module-menu">
 
@@ -83,10 +107,7 @@ HALLAZGOS · NO CONFORMIDADES · EVIDENCIAS
 Módulo 8
 </div>
 
-<div class="headline">
-Hallazgos y<br>
-<span class="accent">No Conformidades</span>
-</div>
+<h1 class="headline">Hallazgos y <span class="accent">No Conformidades</span></h1>
 
 <p class="subline">
 
@@ -484,32 +505,14 @@ Siguiente módulo: <strong>Informe y Cierre de Auditoría</strong>
 </div>
 
 <!-- FOOTER -->
-
-<div class="footer">
-
-<div class="footer-inner">
-
-<div class="author-block">
-<div class="author-avatar">MA</div>
-<div>
-<div class="author-name">Miguel Angel Carriazo · <span>vCISO</span></div>
-<div class="author-title">Cybersecurity & Infrastructure Architect</div>
-</div>
-</div>
-
-<a href="https://www.linkedin.com/in/macarriazo/" target="_blank" rel="noopener noreferrer" class="li-btn">
-<svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-</svg>
-<div>
-<span class="li-main">"Merece la pena la experiencia..."</span>
-<span class="li-sub">Hablemos en LinkedIn →</span>
-</div>
-</a>
-
-</div>
-
-</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
 
 </div>
 </div>

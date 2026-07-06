@@ -6,6 +6,7 @@
 <title>Plan de continuidad o chapuza temporal · GRCreal</title>
 <meta name="description" content="En IT sabemos improvisar muy bien. Tan bien que a veces confundimos la improvisación con un plan. La diferencia entre un parche rápido y una solución de continuidad real.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/articulos/grc/plan-continuidad-o-chapuza.html">
 <meta property="og:title" content="Plan de continuidad o chapuza temporal">
 <meta property="og:description" content="En IT sabemos improvisar muy bien. Tan bien que a veces confundimos la improvisación con un plan. La diferencia entre un parche rápido y una solución de continuidad real.">
 <meta property="og:type" content="article">
@@ -18,27 +19,109 @@
 <link rel="stylesheet" href="../../css/marca.css">
 <link rel="stylesheet" href="../../css/articles.css">
 <link rel="stylesheet" href="../../css/global.css">
+<link rel="stylesheet" href="../../css/dossier-core.css">
+<link rel="stylesheet" href="../../css/dossier-articulo.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Plan de continuidad o chapuza temporal?",
+  "description": "En IT sabemos improvisar muy bien. Tan bien que a veces confundimos la improvisación con un plan. La diferencia entre un parche rápido y una solución de continuidad real.",
+  "image": "https://grcreal.com/grcreal.png",
+  "author": {
+    "@type": "Person",
+    "name": "Miguel Ángel Carriazo",
+    "url": "https://grcreal.com/sobre-mi/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GRCreal",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://grcreal.com/favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://grcreal.com/articulos/grc/plan-continuidad-o-chapuza.html"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://grcreal.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Artículos",
+      "item": "https://grcreal.com/articulos/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "GRC",
+      "item": "https://grcreal.com/articulos/grc/"
+    }
+  ]
+}
+</script>
 </head>
 <body class="article-page">
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 <div class="accent-bar"></div>
+
+<div class="ds-meta">
+  <span><span class="dot"></span>GRCreal // expediente: artículo</span>
+  <span>categoría: <strong>GRC</strong></span>
+</div>
 <div class="header">
+  <a href="/articulos/index.html" class="art-back">← Volver a artículos</a>
   <div class="tag">IT · Infraestructura · Continuidad</div>
-  <div class="article-date">9 Diciembre 9999</div>
-  <div class="headline">
-    Plan de continuidad<br>
-    <span class="accent">o</span><br>
-    <span class="dim">chapuza</span><br>
-    <span class="accent">temporal?</span><br>
-  </div>
+  <h1 class="headline">
+    Plan de continuidad <span class="accent">o</span> <span class="dim">chapuza</span> <span class="accent">temporal?</span>
+  </h1>
   <p class="subline">En IT sabemos improvisar muy bien.<br><strong>Tan bien que a veces confundimos la improvisación con un plan.</strong></p>
+  <div class="art-meta">
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="2.6"/><path d="M3.5 15c0-2.6 2.5-4.6 5.5-4.6s5.5 2 5.5 4.6"/></svg>
+      <strong>Miguel Ángel Carriazo</strong>
+    </span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="13" height="12.5" rx="1.3"/><path d="M2.5 6.5h13M6 2v2.4M12 2v2.4"/></svg>
+      9 diciembre 9999
+    </span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6.8"/><path d="M9 5.3V9l2.8 1.7"/></svg>
+      6 min de lectura
+    </span>
+  </div>
 </div>
 <div class="body">
+  <div class="art-layout">
+  <div class="art-main">
 
-  <div class="block">
+
+  <div class="block" id="s1">
     <div class="block-label">El problema de fondo</div>
-    <div class="block-title">IT resuelve. Eso es el problema.</div>
+    <h2 class="block-title">IT resuelve. Eso es el problema.</h2>
     <div class="block-text">
       Los equipos de IT son buenos resolviendo problemas. Cuando algo falla, buscan la solución más rápida posible para volver a la operativa. Es un instinto sano — y en un incidente agudo, es exactamente lo que se necesita.<br><br>
       Pero ese mismo instinto tiene un efecto secundario peligroso: la solución temporal que nadie retira. El script que alguien escribió a las 2 de la mañana durante una crisis y que tres años después sigue en producción. La VM que se levantó "mientras tanto" y se convirtió en infraestructura permanente. El acceso VPN que se abrió de emergencia para un proveedor y nunca se cerró.<br><br>
@@ -47,9 +130,9 @@
   </div>
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s2">
     <div class="block-label">Cómo se distinguen</div>
-    <div class="block-title">La prueba del papel y la prueba del fuego</div>
+    <h2 class="block-title">La prueba del papel y la prueba del fuego</h2>
     <div class="block-text">
       Un plan de continuidad real tiene dos características que la chapuza temporal no tiene:<br><br>
       <strong>Está documentado antes del incidente, no reconstruido después.</strong> La chapuza existe porque alguien resolvió un problema sin tiempo para documentar. El plan existe porque alguien pensó en el escenario de fallo antes de que ocurriera y decidió cómo responder. La diferencia no es técnica — es temporal. Una es reactiva, la otra es proactiva.<br><br>
@@ -60,9 +143,9 @@
   </div>
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s3">
     <div class="block-label">Un ejemplo concreto</div>
-    <div class="block-title">El failover de Azure que no era un failover</div>
+    <h2 class="block-title">El failover de Azure que no era un failover</h2>
     <div class="block-text">
       Una empresa con infraestructura híbrida: servidores on-premise para sistemas legacy y Azure para las aplicaciones más modernas. El equipo de IT había configurado Azure Site Recovery para replicar las VMs críticas. En el dashboard de Azure, todo verde. Replicación activa, RPO dentro del objetivo, sin alertas.<br><br>
       Cuando les pregunté por su plan de continuidad, me enseñaron la consola de ASR. "Si los servidores caen, hacemos failover a Azure y en dos horas estamos operativos."<br><br>
@@ -73,9 +156,9 @@
   </div>
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s4">
     <div class="block-label">Otro patrón frecuente</div>
-    <div class="block-title">El backup en GCP que nadie había restaurado</div>
+    <h2 class="block-title">El backup en GCP que nadie había restaurado</h2>
     <div class="block-text">
       Otro caso: una empresa con backups automáticos a Google Cloud Storage. Política de retención configurada, versioning activado, alertas de fallo por email. Aparentemente impecable.<br><br>
       Lo que nadie había hecho nunca: restaurar. No una restauración de producción — ni siquiera una prueba en un entorno aislado. El equipo asumía que si el backup existía y no había alertas de error, la restauración funcionaría.<br><br>
@@ -85,9 +168,9 @@
   </div>
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s5">
     <div class="block-label">La conversación que hay que tener</div>
-    <div class="block-title">Lo que IT necesita de la organización</div>
+    <h2 class="block-title">Lo que IT necesita de la organización</h2>
     <div class="block-text">
       IT puede implementar la mejor arquitectura de recuperación del mundo — y seguir sin tener un plan de continuidad si la organización no ha hecho su parte.<br><br>
       Porque un plan de continuidad técnico necesita respuestas que IT no puede dar solo: ¿qué sistema recuperamos primero si no podemos recuperar todo a la vez? ¿Cuánto tiempo puede estar caída la plataforma de ventas antes de que el impacto sea inaceptable para el negocio? ¿Quién autoriza gastar en capacidad de cómputo adicional en Azure durante una crisis si el presupuesto estándar no lo cubre?<br><br>
@@ -97,9 +180,9 @@
   </div>
   <div class="divider"></div>
 
-  <div class="block">
+  <div class="block" id="s6">
     <div class="block-label">El criterio práctico</div>
-    <div class="block-title">Cinco señales de que tienes una chapuza, no un plan</div>
+    <h2 class="block-title">Cinco señales de que tienes una chapuza, no un plan</h2>
     <div class="block-text">
       <strong>No hay fecha de la última prueba.</strong> Si no puedes decir cuándo fue la última vez que probaste la recuperación completa — no solo el backup, sino el proceso entero hasta tener el servicio operativo — no tienes un plan probado.<br><br>
       <strong>El procedimiento vive en la cabeza de alguien.</strong> Si el equipo sabe cómo hacerlo pero no está escrito de forma que otro pueda ejecutarlo, es conocimiento personal, no un procedimiento de continuidad.<br><br>
@@ -110,25 +193,104 @@
     </div>
   </div>
 
-  <div class="cta-block">
+  
+  </div><!-- /art-main -->
+
+  <aside class="art-toc">
+    <div class="art-toc-label">Contenido</div>
+    <nav class="art-toc-nav" id="artTocNav">
+      <a href="#s1" data-toc>El problema de fondo</a>
+      <a href="#s2" data-toc>Cómo se distinguen</a>
+      <a href="#s3" data-toc>Un ejemplo concreto</a>
+      <a href="#s4" data-toc>Otro patrón frecuente</a>
+      <a href="#s5" data-toc>La conversación que hay que tener</a>
+      <a href="#s6" data-toc>El criterio práctico</a>
+    </nav>
+  </aside>
+
+  </div><!-- /art-layout -->
+<div class="cta-block">
     <div class="cta-headline">La diferencia entre un plan y una chapuza<br><span>se descubre en el peor momento posible.</span></div>
     <div class="cta-sub">O antes, deliberadamente, en una prueba controlada.<br><strong>Una de las dos opciones es mucho más barata.</strong></div>
   </div>
 </div>
 
 <!-- FINAL DEL BODY -->
+
+<!-- SOBRE EL AUTOR + COMPARTIR -->
+<div class="art-foot">
+  <div class="art-author">
+    <div class="art-foot-label">Sobre el autor</div>
+    <div class="art-author-name">Miguel Ángel Carriazo <span>· vCISO</span></div>
+    <p class="art-author-bio">vCISO · Arquitecto de Soluciones de Infraestructura y Ciberseguridad | Gobierno, Riesgo y Cumplimiento (GRC) | Gobierno de IA · ISO 42001 | Fundador de GRCreal</p>
+  </div>
+  <div class="art-share">
+    <div class="art-foot-label">Compartir artículo</div>
+    <a href="#" id="shareLinkedin" target="_blank" class="art-share-btn" aria-label="Compartir en LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- ARTÍCULOS RELACIONADOS -->
+<div class="art-related">
+  <div class="art-related-label">Sigue leyendo</div>
+  <div class="art-related-title">Artículos relacionados</div>
+  <div class="art-related-grid">
+    <a href="/articulos/grc/rgpd-en-la-practica.html" class="art-related-card">
+      <span class="art-related-pill">GRC</span>
+      <h3>RGPD en la práctica</h3>
+      <p>Lo que el regulador realmente revisa.</p>
+      <div class="art-related-meta"><span>5 mayo 2026</span><span>4 min</span></div>
+    </a>
+    <a href="/articulos/grc/ens-vs-iso27001-diferencias.html" class="art-related-card">
+      <span class="art-related-pill">GRC</span>
+      <h3>ENS vs ISO 27001: parecidos pero no iguales</h3>
+      <p>Comparten filosofía pero tienen diferencias importantes.</p>
+      <div class="art-related-meta"><span>27 abril 2026</span><span>4 min</span></div>
+    </a>
+    <a href="/articulos/grc/cumplir-no-es-estar-preparado.html" class="art-related-card">
+      <span class="art-related-pill">GRC</span>
+      <h3>Cumplir no significa estar preparado</h3>
+      <p>Certificado no es sinónimo de protegido.</p>
+      <div class="art-related-meta"><span>26 abril 2026</span><span>3 min</span></div>
+    </a>
+  </div>
+</div>
+
 <div id="footer-placeholder"></div>
 <script>
-    fetch('/includes/footer.html')
+    fetch('/includes/footer-no-share.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
+
+
+    // Compartir en LinkedIn
+    var shareBtn = document.getElementById('shareLinkedin');
+    if (shareBtn) {
+        shareBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+    }
+
+    // Índice lateral: resalta la sección visible
+    var tocLinks = Array.from(document.querySelectorAll('#artTocNav a'));
+    var sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                    var id = '#' + entry.target.id;
+                    tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(function(s){ if (s) observer.observe(s); });
+    }
 </script>
 
 </div>
 </div>
-<a href="/articulos" class="home-btn">⌂ Home Artículos</a>
 </body>
 <script src="/js/global.js"></script>
 </html>

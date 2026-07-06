@@ -6,6 +6,7 @@
 <title>Enfoque · Cómo trabajo · GRCreal</title>
 <meta name="description" content="No llego con un modelo predefinido. Llego a entender cómo funciona realmente tu organización antes de hablar de controles. 25 años desde el rack.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/enfoque/">
 <meta property="og:title" content="Enfoque · Cómo trabajo en GRC y ciberseguridad">
 <meta property="og:description" content="No desde la norma. Desde la realidad operativa. 25 años de experiencia técnica aplicada a GRC.">
 <meta property="og:type" content="website">
@@ -17,23 +18,38 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../css/marca.css">
 <link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="../css/dossier-core.css">
 </head>
 
 <body>
 
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
   <div class="accent-bar"></div>
+
+  <div class="ds-meta">
+    <span><span class="dot"></span>GRCreal // expediente: enfoque</span>
+    <span>estado: <strong>25 años en producción</strong></span>
+  </div>
 
   <!-- CABECERA -->
   <div class="header">
     <div class="tag">GRC · Enfoque</div>
-    <div class="headline">
+    <h1 class="headline">
       Hay muchas formas<br>
       <span class="accent">de hacer GRC.</span><br>
       <span class="dim">Yo empiezo</span><br>
       <span class="accent">por el entorno.</span>
-    </div>
+    </h1>
     <p class="subline">
       No desde la norma. Desde la realidad operativa.<br>
       <strong>Cumplir y controlar no son lo mismo.</strong>
@@ -220,7 +236,6 @@
 
 </div>
 </div>
-<a href="../index.html" class="home-btn">⌂ Home</a>
 </body>
 <script src="/js/global.js"></script>
 </html>

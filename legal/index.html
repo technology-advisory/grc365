@@ -6,122 +6,124 @@
 <title>Aviso Legal · GRCReal</title>
 <meta name="description" content="Aviso legal, política de privacidad y política de cookies de GRCReal.">
 <meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://grcreal.com/legal/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../css/marca.css">
 <link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/legal.css">
+<link rel="stylesheet" href="../css/dossier-core.css">
+<link rel="stylesheet" href="../css/dossier-legal.css">
 </head>
 <body>
 
-<div class="card-wrapper">
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
   <div class="accent-bar"></div>
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="tag">Legal · Privacidad · Cookies</div>
-    <div class="headline">
-      Información<br>
-      <span class="accent">legal</span>
-    </div>
-    <p class="subline">
-      Sin letra pequeña. Sin tecnicismos innecesarios.<br>
-      <strong>Lo que necesitas saber sobre esta web.</strong>
-    </p>
+  <div class="ds-meta">
+    <span><span class="dot"></span>GRCreal // expediente: legal</span>
+    <span>estado: <strong>sin cookies · sin formularios</strong></span>
   </div>
 
-  <div class="body">
+  <div class="legal-hero">
+    <div class="legal-eyebrow">Legal · Privacidad · Cookies</div>
+    <h1>Información <span>legal</span></h1>
+    <p>Sin letra pequeña. Sin tecnicismos innecesarios.<br><strong>Lo que necesitas saber sobre esta web.</strong></p>
+  </div>
 
-    <!-- AVISO LEGAL -->
-    <div class="block">
-      <div class="block-label">Aviso Legal</div>
-      <div class="block-title">Titular de la web</div>
-      <div class="block-text">
-        En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa:
-        <br><br>
-        <strong>Titular:</strong> Miguel Ángel Carriazo Álvarez<br>
+  <div class="legal-accordion">
+
+    <details class="legal-item" open>
+      <summary>
+        <span class="legal-num">01</span>
+        Titular de la web
+        <span class="legal-sub-label">Aviso legal</span>
+        <svg class="legal-chev" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l5 5 5-5"/></svg>
+      </summary>
+      <div class="legal-body">
+        <p>En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa:</p>
+        <p><strong>Titular:</strong> Miguel Ángel Carriazo Álvarez<br>
         <strong>Web:</strong> grcreal.com<br>
         <strong>Email de contacto:</strong> legal@grcreal.com<br>
-        <strong>País:</strong> España
-        <br><br>
-        Esta web tiene carácter exclusivamente informativo y divulgativo. No se realizan actividades comerciales directas ni se prestan servicios a través de la misma.
-        <br><br>
-        El titular se reserva el derecho a modificar, suspender o eliminar el contenido de esta web en cualquier momento y sin previo aviso.
+        <strong>País:</strong> España</p>
+        <p>Esta web tiene carácter exclusivamente informativo y divulgativo. No se realizan actividades comerciales directas ni se prestan servicios a través de la misma.</p>
+        <p>El titular se reserva el derecho a modificar, suspender o eliminar el contenido de esta web en cualquier momento y sin previo aviso.</p>
       </div>
+    </details>
+
+    <details class="legal-item">
+      <summary>
+        <span class="legal-num">02</span>
+        No recogemos tus datos
+        <span class="legal-sub-label">Privacidad</span>
+        <svg class="legal-chev" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l5 5 5-5"/></svg>
+      </summary>
+      <div class="legal-body">
+        <p>Esta web <strong>no dispone de formularios de contacto</strong>, sistemas de registro ni ningún mecanismo que recoja datos personales de los visitantes.</p>
+        <p>El único canal de contacto disponible es LinkedIn, plataforma externa sujeta a su propia política de privacidad. Al acceder a ese enlace, sales de grcreal.com y pasas a operar bajo las condiciones de LinkedIn.</p>
+        <p>En consecuencia, <strong>no existe tratamiento de datos personales</strong> en el sentido del Reglamento (UE) 2016/679 (RGPD) ni de la Ley Orgánica 3/2018 (LOPDGDD) que sea atribuible a esta web.</p>
+        <p>Si en el futuro se implementase algún mecanismo de recogida de datos, esta política se actualizará de forma previa a su activación.</p>
+      </div>
+    </details>
+
+    <details class="legal-item">
+      <summary>
+        <span class="legal-num">03</span>
+        Esta web no usa cookies
+        <span class="legal-sub-label">Cookies</span>
+        <svg class="legal-chev" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l5 5 5-5"/></svg>
+      </summary>
+      <div class="legal-body">
+        <p>grcreal.com <strong>no utiliza cookies propias ni de terceros</strong>. No se instala ningún tipo de cookie en el navegador del visitante al navegar por esta web.</p>
+        <p>No se utilizan herramientas de analítica, publicidad, seguimiento ni redes sociales integradas que generen cookies.</p>
+        <p>Por este motivo, <strong>no es necesario mostrar un banner de aceptación de cookies</strong> ni solicitar consentimiento al respecto, de acuerdo con la Ley 9/2014 y las directrices de la AEPD.</p>
+        <p>Si en el futuro se incorporasen cookies de cualquier tipo, se actualizará esta política y se implementará el mecanismo de consentimiento correspondiente.</p>
+      </div>
+    </details>
+
+    <details class="legal-item">
+      <summary>
+        <span class="legal-num">04</span>
+        El contenido es mío
+        <span class="legal-sub-label">Propiedad intelectual</span>
+        <svg class="legal-chev" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l5 5 5-5"/></svg>
+      </summary>
+      <div class="legal-body">
+        <p>Todos los textos, estructuras y contenidos publicados en grcreal.com son de autoría propia y están protegidos por la legislación de propiedad intelectual vigente en España.</p>
+        <p>Se permite la cita o referencia de contenidos siempre que se indique la fuente y el autor. Queda prohibida la reproducción total o parcial sin autorización expresa.</p>
+        <p>Para cualquier consulta sobre uso de contenidos: <strong>legal@grcreal.com</strong></p>
+      </div>
+    </details>
+
+    <details class="legal-item">
+      <summary>
+        <span class="legal-num">05</span>
+        ¿Alguna duda sobre este aviso?
+        <span class="legal-sub-label">Contacto</span>
+        <svg class="legal-chev" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l5 5 5-5"/></svg>
+      </summary>
+      <div class="legal-body">
+        <p>Para cuestiones relacionadas con este aviso legal, puedes utilizar <strong>legal@grcreal.com</strong>.</p>
+      </div>
+    </details>
+
+    <div class="legal-footer-note">
+      <span>Sin formularios. Sin cookies. Sin letra pequeña.</span>
+      <strong>Última actualización: abril 2026</strong>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- PRIVACIDAD -->
-    <div class="block">
-      <div class="block-label">Política de Privacidad</div>
-      <div class="block-title">No recogemos tus datos</div>
-      <div class="block-text">
-        Esta web <strong>no dispone de formularios de contacto</strong>, sistemas de registro ni ningún mecanismo que recoja datos personales de los visitantes.
-        <br><br>
-        El único canal de contacto disponible es LinkedIn, plataforma externa sujeta a su propia política de privacidad. Al acceder a ese enlace, sales de grcreal.com y pasas a operar bajo las condiciones de LinkedIn.
-        <br><br>
-        En consecuencia, <strong>no existe tratamiento de datos personales</strong> en el sentido del Reglamento (UE) 2016/679 (RGPD) ni de la Ley Orgánica 3/2018 (LOPDGDD) que sea atribuible a esta web.
-        <br><br>
-        Si en el futuro se implementase algún mecanismo de recogida de datos, esta política se actualizará de forma previa a su activación.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- COOKIES -->
-    <div class="block">
-      <div class="block-label">Política de Cookies</div>
-      <div class="block-title">Esta web no usa cookies</div>
-      <div class="block-text">
-        grcreal.com <strong>no utiliza cookies propias ni de terceros</strong>. No se instala ningún tipo de cookie en el navegador del visitante al navegar por esta web.
-        <br><br>
-        No se utilizan herramientas de analítica, publicidad, seguimiento ni redes sociales integradas que generen cookies.
-        <br><br>
-        Por este motivo, <strong>no es necesario mostrar un banner de aceptación de cookies</strong> ni solicitar consentimiento al respecto, de acuerdo con la Ley 9/2014 y las directrices de la AEPD.
-        <br><br>
-        Si en el futuro se incorporasen cookies de cualquier tipo, se actualizará esta política y se implementará el mecanismo de consentimiento correspondiente.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- PROPIEDAD INTELECTUAL -->
-    <div class="block">
-      <div class="block-label">Propiedad Intelectual</div>
-      <div class="block-title">El contenido es mío</div>
-      <div class="block-text">
-        Todos los textos, estructuras y contenidos publicados en grcreal.com son de autoría propia y están protegidos por la legislación de propiedad intelectual vigente en España.
-        <br><br>
-        Se permite la cita o referencia de contenidos siempre que se indique la fuente y el autor. Queda prohibida la reproducción total o parcial sin autorización expresa.
-        <br><br>
-        Para cualquier consulta sobre uso de contenidos: <strong>legal@grcreal.com</strong>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- CONTACTO -->
-    <div class="block">
-      <div class="block-label">Contacto</div>
-      <div class="block-title">¿Alguna duda sobre este aviso?</div>
-      <div class="block-text">
-        Para cuestiones relacionadas con este aviso legal, puedes utilizar <strong>legal@grcreal.com</strong>.
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="cta-block">
-      <div class="cta-headline">
-        Sin formularios.<br>
-        <span>Sin cookies. Sin letra pequeña.</span>
-      </div>
-      <div class="cta-sub">
-        Última actualización: abril 2026
-      </div>
-    </div>
   </div>
 
 <!-- FINAL DEL BODY -->
@@ -136,10 +138,6 @@
 
 </div>
 </div>
-<a href="/index.html" class="home-btn">⌂ Home</a>
 </body>
 <script src="/js/global.js"></script>
 </html>
-
-
-<link rel="stylesheet" href="/css/global.css">

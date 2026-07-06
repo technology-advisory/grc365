@@ -6,6 +6,7 @@
 <title>Metodología · GRC real desde el entorno · GRCreal</title>
 <meta name="description" content="La metodología en GRC no empieza en la norma. Empieza en el entorno. Cumplir y controlar no son lo mismo.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://grcreal.com/metodologia/">
 <meta property="og:title" content="Metodología · GRC real desde el entorno">
 <meta property="og:description" content="La metodología no empieza en la norma. Empieza en el entorno. Cumplir no es controlar.">
 <meta property="og:type" content="website">
@@ -17,175 +18,129 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../css/marca.css">
 <link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/metodologia.css">
+<link rel="stylesheet" href="../css/dossier-core.css">
+<link rel="stylesheet" href="../css/dossier-metodologia.css">
 </head>
 
 <body>
 
-<div class="card-wrapper">
+
+<div class="md-progress ds-bar"><div class="md-progress-bar" id="mdProgressBar"></div></div>
+
+<div class="card-wrapper ds-page">
 <div class="card">
+      <div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
   <div class="accent-bar"></div>
 
-  <!-- CABECERA -->
-  <div class="header">
+  <div class="ds-meta">
+    <span><span class="dot"></span>GRCreal // expediente: metodología</span>
+    <span>lectura: <strong>~5 min</strong></span>
+  </div>
 
-    <div class="tag">GRC · Metodología</div>
+  <div class="md-hero">
+    <div class="md-eyebrow">GRC · Metodología</div>
+    <h1>La metodología <span class="b">no es</span> el proceso.<br><span class="d">Es lo que hay</span> <span class="b">detrás</span></h1>
+    <p>En GRC, puedes tener procesos impecables.<br>Y aun así no tener control real.</p>
+  </div>
 
-    <div class="headline">
-      La metodolog&iacute;a<br>
-      <span class="accent">no es</span> el proceso.<br>
-      <span class="dim">Es lo que hay</span><br>
-      <span class="accent">detr&aacute;s</span>
+  <div class="md-essay">
+
+    <div class="md-block">
+      <div class="md-tag">La realidad</div>
+      <div class="md-block-title">Metodología hay. Entendimiento no siempre.</div>
+      <div class="md-text">
+        <p>En Gobierno, Riesgo y Cumplimiento, la metodología suele darse por hecha. Forma parte del discurso, de las auditorías, de las certificaciones.</p>
+        <p>Se identifican riesgos, se valoran, se tratan y se documentan. Todo está donde debería estar.</p>
+        <p>Pero hay una pregunta que rara vez se plantea en serio:</p>
+        <p><strong>¿eso significa que el riesgo está realmente bajo control?</strong></p>
+      </div>
     </div>
 
-    <p class="subline">
-      En GRC, puedes tener procesos impecables.<br>
-      Y aun as&iacute; no tener control real.
-    </p>
+    <div class="md-block">
+      <div class="md-tag">El problema</div>
+      <div class="md-block-title">La metodología simplifica. La realidad no.</div>
+      <div class="md-text">
+        <p>La metodología en GRC está diseñada para hacer el riesgo gestionable.</p>
+        <p>Necesita categorías. Necesita niveles. Necesita estructuras.</p>
+        <p>Pero el entorno real no funciona así.</p>
+        <p>Los sistemas evolucionan. Las dependencias cambian. Los accesos crecen. Y lo que ayer era un riesgo menor puede convertirse hoy en un punto crítico sin que nadie lo haya revisado todavía.</p>
+        <p>La metodología captura una fotografía.</p>
+        <p>El riesgo vive en el movimiento.</p>
+      </div>
+    </div>
+
+    <div class="md-block">
+      <div class="md-tag">La diferencia</div>
+      <div class="md-block-title">Cumplir no es controlar</div>
+
+      <div class="md-quote">
+        <div class="md-quote-text">"Puedes tener un análisis de riesgos perfecto y no saber qué pasa si algo falla mañana."</div>
+        <div class="md-quote-attr">— La diferencia que importa</div>
+      </div>
+
+      <div class="md-text">
+        <p>Muchas organizaciones cumplen.</p>
+        <p>Tienen sus controles definidos, sus documentos actualizados y sus auditorías superadas.</p>
+        <p>Pero cuando el entorno se desvía del guion, no siempre están preparadas.</p>
+        <p>Porque el riesgo no está en los documentos.</p>
+        <p><strong>Está en cómo funciona realmente el entorno.</strong></p>
+      </div>
+    </div>
+
+    <div class="md-block">
+      <div class="md-tag">Lo que falta</div>
+      <div class="md-block-title">Criterio</div>
+      <div class="md-text">
+        <p>Hay un elemento que no suele aparecer en los modelos de GRC.</p>
+        <p>No es una fase. No es un proceso. No es auditable.</p>
+        <p>Es criterio.</p>
+        <p>El criterio permite interpretar si un riesgo está bien valorado, si un control tiene sentido o si lo documentado refleja realmente lo que ocurre.</p>
+        <p>Sin él, la metodología se convierte en cumplimiento.</p>
+        <p>Con él, se convierte en control.</p>
+      </div>
+    </div>
+
+    <div class="md-block">
+      <div class="md-tag">El reto</div>
+      <div class="md-block-title">Mantener la metodología relevante</div>
+      <div class="md-text">
+        <p>El entorno cambia constantemente.</p>
+        <p>Nuevas vulnerabilidades, nuevas integraciones, nuevas formas de trabajar.</p>
+        <p>La metodología, sin embargo, tiende a permanecer estable.</p>
+        <p>Y ahí aparece el riesgo real: pensar que porque el proceso se ha seguido correctamente, el control está garantizado.</p>
+        <p>Pero la realidad no se ajusta al proceso.</p>
+        <p>Es el proceso el que tiene que adaptarse a la realidad.</p>
+      </div>
+    </div>
+
+    <div class="md-block">
+      <div class="md-tag">Enfoque</div>
+      <div class="md-block-title">Cómo se entiende la metodología en GRCReal</div>
+      <div class="md-text">
+        <p>La metodología no empieza en la norma.</p>
+        <p>Empieza en el entorno.</p>
+        <p>Antes de hablar de cumplimiento, el foco está en entender cómo funciona realmente la organización: qué depende de qué, dónde están los puntos críticos y cómo se comporta el sistema en la práctica.</p>
+        <p>A partir de ahí, el riesgo deja de ser teórico y pasa a interpretarse en contexto.</p>
+        <p>Y solo entonces los controles tienen sentido.</p>
+        <p>Sin forzar la realidad para que encaje en un modelo.</p>
+        <p>Porque en GRC, la metodología no debería servir para cumplir.</p>
+        <p><strong>Debería servir para mantener el control.</strong></p>
+      </div>
+    </div>
 
   </div>
 
-  <div class="body">
-
-    <!-- BLOQUE 1 -->
-    <div class="block">
-      <div class="block-label">La realidad</div>
-      <div class="block-title">Metodolog&iacute;a hay. Entendimiento no siempre.</div>
-      <div class="block-text">
-        En Gobierno, Riesgo y Cumplimiento, la metodolog&iacute;a suele darse por hecha. Forma parte del discurso, de las auditor&iacute;as, de las certificaciones.
-        <br><br>
-        Se identifican riesgos, se valoran, se tratan y se documentan. Todo est&aacute; donde deber&iacute;a estar.
-        <br><br>
-        Pero hay una pregunta que rara vez se plantea en serio:
-        <br><br>
-        <strong>&iquest;eso significa que el riesgo est&aacute; realmente bajo control?</strong>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- BLOQUE 2 -->
-    <div class="block">
-      <div class="block-label">El problema</div>
-      <div class="block-title">La metodolog&iacute;a simplifica. La realidad no.</div>
-      <div class="block-text">
-        La metodolog&iacute;a en GRC est&aacute; dise&ntilde;ada para hacer el riesgo gestionable.
-        <br><br>
-        Necesita categor&iacute;as. Necesita niveles. Necesita estructuras.
-        <br><br>
-        Pero el entorno real no funciona as&iacute;.
-        <br><br>
-        Los sistemas evolucionan. Las dependencias cambian. Los accesos crecen. Y lo que ayer era un riesgo menor puede convertirse hoy en un punto cr&iacute;tico sin que nadie lo haya revisado todav&iacute;a.
-        <br><br>
-        La metodolog&iacute;a captura una fotograf&iacute;a.
-        <br><br>
-        El riesgo vive en el movimiento.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- BLOQUE 3 -->
-    <div class="block">
-      <div class="block-label">La diferencia</div>
-      <div class="block-title">Cumplir no es controlar</div>
-
-      <div class="quote-block">
-        <div class="quote-text">
-          &ldquo;Puedes tener un an&aacute;lisis de riesgos perfecto<br>
-          y no saber qu&eacute; pasa si algo falla ma&ntilde;ana.&rdquo;
-        </div>
-        <div class="quote-attr">&mdash; La diferencia que importa</div>
-      </div>
-
-      <div class="block-text">
-        Muchas organizaciones cumplen.
-        <br><br>
-        Tienen sus controles definidos, sus documentos actualizados y sus auditor&iacute;as superadas.
-        <br><br>
-        Pero cuando el entorno se desv&iacute;a del guion, no siempre est&aacute;n preparadas.
-        <br><br>
-        Porque el riesgo no est&aacute; en los documentos.
-        <br><br>
-        <strong>Est&aacute; en c&oacute;mo funciona realmente el entorno.</strong>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- BLOQUE 4 -->
-    <div class="block">
-      <div class="block-label">Lo que falta</div>
-      <div class="block-title">Criterio</div>
-      <div class="block-text">
-        Hay un elemento que no suele aparecer en los modelos de GRC.
-        <br><br>
-        No es una fase. No es un proceso. No es auditable.
-        <br><br>
-        Es criterio.
-        <br><br>
-        El criterio permite interpretar si un riesgo est&aacute; bien valorado, si un control tiene sentido o si lo documentado refleja realmente lo que ocurre.
-        <br><br>
-        Sin &eacute;l, la metodolog&iacute;a se convierte en cumplimiento.
-        <br><br>
-        Con &eacute;l, se convierte en control.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- BLOQUE 5 -->
-    <div class="block">
-      <div class="block-label">El reto</div>
-      <div class="block-title">Mantener la metodolog&iacute;a relevante</div>
-      <div class="block-text">
-        El entorno cambia constantemente.
-        <br><br>
-        Nuevas vulnerabilidades, nuevas integraciones, nuevas formas de trabajar.
-        <br><br>
-        La metodolog&iacute;a, sin embargo, tiende a permanecer estable.
-        <br><br>
-        Y ah&iacute; aparece el riesgo real: pensar que porque el proceso se ha seguido correctamente, el control est&aacute; garantizado.
-        <br><br>
-        Pero la realidad no se ajusta al proceso.
-        <br><br>
-        Es el proceso el que tiene que adaptarse a la realidad.
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- BLOQUE GRCREAL -->
-    <div class="block">
-      <div class="block-label">Enfoque</div>
-      <div class="block-title">C&oacute;mo se entiende la metodolog&iacute;a en GRCReal</div>
-      <div class="block-text">
-        La metodolog&iacute;a no empieza en la norma.
-        <br><br>
-        Empieza en el entorno.
-        <br><br>
-        Antes de hablar de cumplimiento, el foco est&aacute; en entender c&oacute;mo funciona realmente la organizaci&oacute;n: qu&eacute; depende de qu&eacute;, d&oacute;nde est&aacute;n los puntos cr&iacute;ticos y c&oacute;mo se comporta el sistema en la pr&aacute;ctica.
-        <br><br>
-        A partir de ah&iacute;, el riesgo deja de ser te&oacute;rico y pasa a interpretarse en contexto.
-        <br><br>
-        Y solo entonces los controles tienen sentido.
-        <br><br>
-        Sin forzar la realidad para que encaje en un modelo.
-        <br><br>
-        Porque en GRC, la metodolog&iacute;a no deber&iacute;a servir para cumplir.
-        <br><br>
-        <strong>Deber&iacute;a servir para mantener el control.</strong>
-      </div>
-    </div>
-
-    <!-- CTA SUAVE -->
-    <div class="cta-block">
-      <div class="cta-headline">La diferencia no est&aacute;<br><span>en la metodolog&iacute;a</span></div>
-      <div class="cta-sub">
-        Est&aacute; en el criterio con el que se interpreta.<br><br>
-        Y en si est&aacute; conectada con la realidad o solo con el papel.
-      </div>
-    </div>
-
+  <div class="md-cta">
+    <h2>La diferencia no está <span>en la metodología</span></h2>
+    <p>Está en el criterio con el que se interpreta.<br><br>Y en si está conectada con la realidad o solo con el papel.</p>
   </div>
 
  <!-- FINAL DEL BODY -->
@@ -198,9 +153,23 @@
         });
 </script>
 
+<script>
+  (function() {
+    const bar = document.getElementById('mdProgressBar');
+    const essay = document.querySelector('.md-essay');
+    function update() {
+      const rect = essay.getBoundingClientRect();
+      const total = essay.offsetHeight - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+    }
+    window.addEventListener('scroll', update);
+    update();
+  })();
+</script>
+
 </div>
 </div>
-<a href="../index.html" class="home-btn">⌂ Home</a>
 </body>
 <script src="/js/global.js"></script>
 </html>
