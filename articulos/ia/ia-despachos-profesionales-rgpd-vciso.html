@@ -11,7 +11,7 @@
 <meta content="IA en despachos profesionales: productividad sí, pero con criterio" property="og:title"/>
 <meta content="Usar ChatGPT, Claude o Copilot en un despacho sin evaluar el riesgo no es transformación digital. Es improvisación. Lo que dice ISO 42001 y lo que exige el RGPD." property="og:description"/>
 <meta content="article" property="og:type"/>
-<meta content="https://grcreal.com/articulos/ia-despachos-profesionales-rgpd-vciso.html" property="og:url"/>
+<meta content="https://grcreal.com/articulos/ia/ia-despachos-profesionales-rgpd-vciso.html" property="og:url"/>
 <meta content="https://grcreal.com/grcreal.png" property="og:image"/>
 <link href="/favicon.ico" rel="icon" sizes="any"/>
 <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
@@ -77,31 +77,17 @@
 </script>
 <link href="/css/article-expansion.css?v=20260718-2" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
 <body class="article-page">
-<body class="article-page">
 <div class="card-wrapper ds-page">
 <div class="card">
-<!-- MENÚ (dentro del card) -->
 <div id="nav-placeholder"></div>
 <script>
-        fetch('/includes/nav.html')
-          .then(response => response.text())
-          .then(data => {
-            document.getElementById('nav-placeholder').outerHTML = data;
-          });
-      </script>
-<!-- RESTO DEL CONTENIDO -->
-<div class="accent-bar"></div>
-<div class="ds-meta">...</div>
-<div class="header">...</div>
-<div class="body">...</div>
-<div class="art-foot">...</div>
-<div class="art-related">...</div>
-<div id="footer-placeholder"></div>
-</div>
-</div>
-</body>
-<div class="card-wrapper ds-page">
-<div class="card">
+  fetch('/includes/nav.html')
+    .then(response => response.text())
+    .then(data => {
+      const placeholder = document.getElementById('nav-placeholder');
+      if (placeholder) placeholder.outerHTML = data;
+    });
+</script>
 <div class="accent-bar"></div>
 <div class="ds-meta">
 <span><span class="dot"></span>GRCreal // expediente: artículo</span>
@@ -340,11 +326,13 @@
 </a>
 </div>
 </div>
+<div id="footer-placeholder"></div>
 <script>
     fetch('/includes/footer-no-share.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
+            const footerPlaceholder = document.getElementById('footer-placeholder');
+            if (footerPlaceholder) footerPlaceholder.innerHTML = data;
         });
 
 
@@ -371,6 +359,7 @@
 </script>
 </div>
 </div>
-<script defer="True" src="/js/article-zoom.js"></script></body>
+<script defer src="/js/article-zoom.js"></script>
 <script src="/js/global.js"></script>
+</body>
 </html>
