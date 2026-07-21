@@ -1,0 +1,635 @@
+/* =========================================================
+   GRCREAL · Capa responsive global
+   Se carga desde includes/nav.html y solo actúa en móvil/tablet.
+   ========================================================= */
+
+@media (max-width: 900px){
+  html{overflow-x:hidden;-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+  body{min-width:0!important;overflow-x:hidden!important}
+  *,*::before,*::after{box-sizing:border-box}
+  img,video,canvas,iframe,svg{max-width:100%;height:auto}
+  pre,code{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}
+  a,button,input,select,textarea{touch-action:manipulation}
+  button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
+
+  /* Navegación */
+  .nav{
+    position:sticky!important;top:0!important;z-index:1000!important;
+    width:100%!important;height:58px!important;padding:0 16px!important;
+    overflow:visible!important;background:#fff!important
+  }
+  .nav-logo{font-size:16px!important;line-height:1!important;flex:0 0 auto}
+  .nav-menu-wrapper{position:static!important}
+  .nav-toggle{
+    display:flex!important;width:42px!important;height:42px!important;padding:9px!important;
+    margin:0!important;border:1px solid #d7dcdf!important;border-radius:4px!important;
+    background:#fff!important;align-items:center!important;justify-content:center!important;
+    flex-direction:column!important;gap:5px!important;cursor:pointer!important
+  }
+  .nav-toggle span{display:block!important;width:21px!important;height:2px!important;margin:0!important;background:#003955!important;transition:transform .18s,opacity .18s}
+  .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-menu{
+    display:none!important;position:absolute!important;top:58px!important;left:0!important;right:0!important;
+    width:100%!important;max-height:calc(100dvh - 58px)!important;overflow-y:auto!important;
+    overscroll-behavior:contain!important;margin:0!important;padding:8px 14px 24px!important;
+    background:#fff!important;border-top:1px solid #e5eaed!important;border-bottom:1px solid #d7dcdf!important;
+    box-shadow:0 18px 32px rgba(0,38,57,.12)!important;flex-direction:column!important;
+    align-items:stretch!important;gap:0!important
+  }
+  .nav-menu.open{display:flex!important}
+  .nav-menu>li{width:100%!important;border-bottom:1px solid #edf0f2!important}
+  .nav-menu>li:last-child{border-bottom:0!important}
+  .nav-menu>li>a{
+    display:flex!important;align-items:center!important;width:100%!important;min-height:47px!important;
+    padding:11px 8px!important;border-radius:0!important;font-size:14px!important;line-height:1.3!important;
+    cursor:pointer!important
+  }
+  .nav-menu li a .nav-ic-flat{width:18px!important;height:18px!important;margin-right:9px!important;flex:0 0 auto}
+  .nav-item-dropdown>a .chev{margin-left:auto!important}
+  .nav-menu .nav-dropdown-panel{
+    position:static!important;width:100%!important;min-width:0!important;max-width:none!important;
+    grid-template-columns:1fr!important;gap:2px!important;margin:0!important;padding:2px 0 10px 12px!important;
+    border:0!important;border-radius:0!important;box-shadow:none!important;background:#f7f9f9!important
+  }
+  .nav-menu .nav-dropdown-panel a{min-height:52px!important;padding:9px 10px!important;align-items:center!important}
+  .nav-menu .nav-dropdown-panel .nav-title{font-size:13px!important;white-space:normal!important}
+  .nav-menu .nav-dropdown-panel .nav-sub{font-size:11px!important;white-space:normal!important}
+  .nav-cta-pill,.nav-cta-novedades{justify-content:center!important;margin:7px 0!important;border-radius:4px!important}
+
+  /* Contenedores y dossier */
+  .wrapper,.card-wrapper{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+  .card{width:100%!important;max-width:none!important;margin:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important}
+  .ds-meta{padding:9px 16px!important;gap:5px!important;font-size:9px!important;line-height:1.5!important}
+  .ds-page .header,.header{padding:34px 18px 30px!important}
+  .ds-page .body,.body{padding-left:0!important;padding-right:0!important}
+  .ds-page .block,.block{width:100%!important;max-width:none!important;padding:28px 18px!important}
+  .ds-page .cta-block,.cta-block{padding:38px 18px!important}
+  .headline,.ds-page .headline{font-size:clamp(30px,10vw,42px)!important;line-height:1.05!important;overflow-wrap:anywhere}
+  .subline,.ds-page .subline{font-size:15px!important;line-height:1.6!important}
+  .block-title,.ds-page .block-title{font-size:21px!important;line-height:1.25!important}
+  .block-text,.ds-page .block-text{font-size:15px!important;line-height:1.72!important}
+  .block-label,.ds-page .block-label{align-items:flex-start!important;gap:9px!important;line-height:1.45!important}
+  .quote-block,.ds-page .quote-block{margin:18px 0!important;padding:16px!important}
+
+  /* Rejillas: índices, artículos, marcos, versus, academia, recursos */
+  .articles-grid,.resource-grid,.framework-grid,.marcos-grid,.versus-grid,.academy-grid,.academia-grid,
+  .course-grid,.courses-grid,.guides-grid,.tools-grid,.tool-grid,.checklist-grid,.checklists-grid,
+  .art-related-grid,.related-grid,.cards-grid,.feature-grid,.stats-grid,.bia-fw-grid,
+  [class*="catalog-grid"],[class*="index-grid"]{
+    grid-template-columns:1fr!important;gap:14px!important
+  }
+  .resource-card,.article-card,.art-related-card,[class*="tool-card"],[class*="course-card"],[class*="guide-card"]{
+    width:100%!important;min-width:0!important
+  }
+
+  /* Artículos y guías */
+  .art-layout,.article-layout,.guide-layout{display:block!important;grid-template-columns:1fr!important}
+  .art-main,.article-main,.guide-main{width:100%!important;min-width:0!important}
+  .art-toc,.article-toc,.guide-toc{
+    position:static!important;width:100%!important;max-width:none!important;margin:0!important;
+    padding:16px 18px!important;border-left:0!important;border-bottom:1px solid #d7dcdf!important
+  }
+  .art-toc-nav{max-height:240px!important;overflow-y:auto!important}
+  .art-visual,.grc-infra-visual{padding:14px!important;overflow-x:auto!important}
+  .art-visual svg,.grc-infra-visual svg{min-width:620px!important;max-width:none!important}
+  .grc-infra-case{grid-template-columns:1fr!important;gap:12px!important;padding:20px!important}
+  .guide-editorial-meta{align-items:stretch!important}
+  .guide-editorial-meta-item{width:100%!important;min-height:38px!important;padding:0!important;border-right:0!important;border-bottom:1px solid #d7dcdf!important}
+
+  /* Formularios, quiz, checklist y herramientas */
+  input,select,textarea,button{max-width:100%!important;font-size:16px}
+  textarea{min-height:110px}
+  .form-grid,.field-grid,.input-grid,.bia-grid,.ar-grid,.ptr-grid,.md-grid,.prov-grid,
+  [class*="form-grid"],[class*="fields-grid"]{grid-template-columns:1fr!important}
+  .btn-row,.actions,[class*="-actions"]{display:flex!important;flex-direction:column!important;gap:10px!important}
+  .btn-row>* , .actions>* , [class*="-actions"]>*{width:100%!important;max-width:none!important}
+  .opt-btn,.cta-quiz{min-height:52px!important;padding:13px!important;text-align:left!important}
+  .q-text{font-size:20px!important;line-height:1.4!important}
+  .quiz-nav{padding:14px 18px!important;flex-wrap:wrap!important;gap:8px!important}
+  .score-badge{width:100%!important}
+  .quiz-public-note{grid-template-columns:1fr!important;gap:8px!important}
+  .quiz-review-detail{padding:15px!important}
+  .grc-print-toolbar{margin:14px 18px 22px!important;padding:14px!important;align-items:stretch!important;flex-direction:column!important}
+  .grc-print-button{width:100%!important}
+
+  /* Tablas: desplazamiento horizontal controlado */
+  table{max-width:100%!important}
+  .table-wrap,.table-responsive,[class*="table-wrap"],[class*="table-container"]{
+    display:block!important;width:100%!important;max-width:100%!important;overflow-x:auto!important;
+    -webkit-overflow-scrolling:touch!important
+  }
+  .ds-page table,.body table{display:block!important;width:100%!important;overflow-x:auto!important;white-space:normal!important}
+  .ds-page table tbody,.ds-page table thead,.ds-page table tr,.body table tbody,.body table thead,.body table tr{width:max-content;min-width:100%}
+  .ds-page table th,.ds-page table td,.body table th,.body table td{min-width:118px!important;padding:10px!important;font-size:12px!important}
+
+  /* Barras, filtros y métricas */
+  .filters,.filter-bar,.toolbar,.sort-bar,[class*="filters"],[class*="toolbar"]{
+    flex-direction:column!important;align-items:stretch!important;gap:10px!important
+  }
+  .filters>*,.filter-bar>*,.toolbar>*,.sort-bar>*{width:100%!important}
+  .stats,.metrics,[class*="stats-grid"],[class*="metrics-grid"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+
+  /* Footer */
+  .mega-footer{padding:30px 18px 0!important}
+  .mega-grid{grid-template-columns:1fr!important;gap:24px!important}
+  .mega-bottom{flex-direction:column!important;align-items:flex-start!important;gap:8px!important}
+  .footer,.footer-inner{padding-left:18px!important;padding-right:18px!important}
+  .footer-inner{flex-direction:column!important;align-items:flex-start!important}
+
+  /* Evitar desbordes frecuentes */
+  .art-back,.chk-back,.btn-volver{margin-left:18px!important;margin-right:18px!important;max-width:calc(100% - 36px)!important}
+  .share-block{padding:14px 18px!important;flex-direction:column!important;align-items:flex-start!important}
+  .share-btn{width:100%!important;justify-content:center!important}
+}
+
+@media (max-width: 480px){
+  .ds-page .header,.header{padding:30px 16px 26px!important}
+  .ds-page .block,.block{padding:25px 16px!important}
+  .headline,.ds-page .headline{font-size:clamp(28px,10.5vw,37px)!important}
+  .stats,.metrics,[class*="stats-grid"],[class*="metrics-grid"]{grid-template-columns:1fr!important}
+  .art-visual svg,.grc-infra-visual svg{min-width:560px!important}
+}
+
+
+/* =========================================================
+   Corrección móvil v2 · gráficos, diagramas y tablas
+   ========================================================= */
+@media (max-width:900px){
+  /* Los contenedores dinámicos controlan el desbordamiento. */
+  .grc-mobile-table-scroll,
+  .grc-mobile-visual-scroll{
+    position:relative;
+    display:block;
+    width:100%;
+    max-width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;
+    scrollbar-width:thin;
+  }
+
+  .grc-mobile-table-scroll{
+    margin:18px 0;
+    border:1px solid #d7dcdf;
+    background:#fff;
+  }
+
+  .grc-mobile-table-scroll table,
+  .ds-page .grc-mobile-table-scroll table,
+  .body .grc-mobile-table-scroll table{
+    display:table!important;
+    width:max-content!important;
+    min-width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    overflow:visible!important;
+    border-collapse:collapse!important;
+    white-space:normal!important;
+  }
+
+  .grc-mobile-table-scroll thead{display:table-header-group!important}
+  .grc-mobile-table-scroll tbody{display:table-row-group!important}
+  .grc-mobile-table-scroll tr{display:table-row!important;width:auto!important;min-width:0!important}
+  .grc-mobile-table-scroll th,
+  .grc-mobile-table-scroll td{
+    display:table-cell!important;
+    width:auto!important;
+    min-width:132px!important;
+    max-width:280px!important;
+    padding:10px 12px!important;
+    vertical-align:top!important;
+    font-size:12px!important;
+    line-height:1.45!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+  .grc-mobile-table-scroll th:first-child,
+  .grc-mobile-table-scroll td:first-child{
+    min-width:190px!important;
+  }
+
+  /* Anula la conversión directa de table a bloque de la primera pasada. */
+  .ds-page table:not(.grc-mobile-table-scroll table),
+  .body table:not(.grc-mobile-table-scroll table){
+    display:table!important;
+    width:100%!important;
+    overflow:visible!important;
+  }
+  .ds-page table tbody,.ds-page table thead,.ds-page table tr,
+  .body table tbody,.body table thead,.body table tr{
+    width:auto!important;
+    min-width:0!important;
+  }
+
+  .grc-mobile-scroll-hint{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:6px;
+    margin:-10px 0 8px;
+    color:#60727c;
+    font-family:var(--mono,monospace);
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .grc-mobile-scroll-hint::before{content:'↔';color:#0077b5;font-size:13px}
+
+  /* Visuales sencillos: ancho completo, sin forzar lienzo gigante. */
+  .art-visual:not(.grc-mobile-complex-visual),
+  .grc-infra-visual:not(.grc-mobile-complex-visual){
+    width:100%!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+    padding:12px!important;
+  }
+  .art-visual:not(.grc-mobile-complex-visual) svg,
+  .grc-infra-visual:not(.grc-mobile-complex-visual) svg{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    height:auto!important;
+  }
+
+  /* Visuales complejos: conservan tamaño legible dentro de scroll. */
+  .grc-mobile-visual-scroll .art-visual,
+  .grc-mobile-visual-scroll .grc-infra-visual{
+    width:max-content!important;
+    min-width:100%!important;
+    max-width:none!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+  .grc-mobile-visual-scroll svg{
+    display:block!important;
+    width:760px!important;
+    min-width:760px!important;
+    max-width:none!important;
+    height:auto!important;
+  }
+
+  /* Gráficos nativos canvas. */
+  .grc-mobile-chart-wrap{
+    position:relative;
+    width:100%!important;
+    min-height:280px;
+    overflow:hidden;
+  }
+  .grc-mobile-chart-wrap canvas{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+  }
+
+  /* Contenedores ya existentes. */
+  .table-wrap,.table-responsive,[class*="table-wrap"],[class*="table-container"]{
+    border:0!important;
+  }
+}
+
+@media (max-width:480px){
+  .grc-mobile-visual-scroll svg{
+    width:680px!important;
+    min-width:680px!important;
+  }
+  .grc-mobile-table-scroll th,
+  .grc-mobile-table-scroll td{
+    min-width:120px!important;
+    padding:9px 10px!important;
+    font-size:11.5px!important;
+  }
+  .grc-mobile-table-scroll th:first-child,
+  .grc-mobile-table-scroll td:first-child{min-width:170px!important}
+}
+
+
+/* =========================================================
+   Corrección móvil v3 · tablas editoriales como fichas
+   ========================================================= */
+@media (max-width:900px){
+  /*
+   * Artículos, guías y comparativas:
+   * las tablas editoriales de hasta cuatro columnas se convierten
+   * en fichas verticales. Las tablas operativas siguen con scroll.
+   */
+  table.grc-mobile-stack-table{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    margin:18px 0!important;
+    border:0!important;
+    background:transparent!important;
+    overflow:visible!important;
+  }
+
+  table.grc-mobile-stack-table thead{
+    position:absolute!important;
+    width:1px!important;
+    height:1px!important;
+    padding:0!important;
+    margin:-1px!important;
+    overflow:hidden!important;
+    clip:rect(0,0,0,0)!important;
+    white-space:nowrap!important;
+    border:0!important;
+  }
+
+  table.grc-mobile-stack-table tbody{
+    display:grid!important;
+    width:100%!important;
+    min-width:0!important;
+    gap:14px!important;
+  }
+
+  table.grc-mobile-stack-table tr{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    padding:0!important;
+    border:1px solid #d7dcdf!important;
+    border-left:4px solid #0077b5!important;
+    background:#fff!important;
+    box-shadow:0 3px 10px rgba(0,38,57,.04)!important;
+  }
+
+  table.grc-mobile-stack-table td{
+    display:grid!important;
+    grid-template-columns:minmax(92px,34%) minmax(0,1fr)!important;
+    align-items:start!important;
+    gap:12px!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    padding:11px 12px!important;
+    border:0!important;
+    border-bottom:1px solid #e7ecee!important;
+    font-size:13px!important;
+    line-height:1.5!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+    text-align:left!important;
+  }
+
+  table.grc-mobile-stack-table td:last-child{
+    border-bottom:0!important;
+  }
+
+  table.grc-mobile-stack-table td::before{
+    content:attr(data-grc-label);
+    display:block;
+    color:#003955;
+    font-family:var(--mono,monospace);
+    font-size:9px;
+    font-weight:800;
+    line-height:1.4;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    overflow-wrap:anywhere;
+  }
+
+  table.grc-mobile-stack-table td[data-grc-label=""]::before{
+    display:none!important;
+  }
+
+  table.grc-mobile-stack-table td:first-child{
+    min-width:0!important;
+    background:#f6f8f8!important;
+    color:#13202a!important;
+    font-weight:700!important;
+  }
+
+  table.grc-mobile-stack-table + .grc-mobile-scroll-hint{
+    display:none!important;
+  }
+
+  /* El contenedor de una tabla editorial apilada no debe hacer scroll. */
+  .grc-mobile-table-scroll:has(table.grc-mobile-stack-table){
+    overflow:visible!important;
+    margin:18px 0!important;
+    border:0!important;
+    background:transparent!important;
+  }
+}
+
+@media (max-width:480px){
+  table.grc-mobile-stack-table td{
+    grid-template-columns:1fr!important;
+    gap:5px!important;
+    padding:10px 11px!important;
+  }
+
+  table.grc-mobile-stack-table td::before{
+    font-size:8.5px;
+  }
+}
+
+
+/* =========================================================
+   Corrección móvil v4 · ninguna tabla editorial se corta
+   ========================================================= */
+@media (max-width:900px){
+  table.grc-mobile-stack-table{
+    table-layout:fixed!important;
+    min-width:0!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+
+  table.grc-mobile-stack-table colgroup,
+  table.grc-mobile-stack-table col{
+    display:none!important;
+    width:auto!important;
+    min-width:0!important;
+  }
+
+  table.grc-mobile-stack-table tbody,
+  table.grc-mobile-stack-table tr,
+  table.grc-mobile-stack-table td{
+    box-sizing:border-box!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+
+  table.grc-mobile-stack-table td{
+    overflow:visible!important;
+  }
+
+  .grc-mobile-stack-table-wrap{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:visible!important;
+  }
+
+  /* Fallback para tablas editoriales antes de que actúe JavaScript */
+  body:not(.grc-report-tool):not(.grc-report-checklist)
+  .art-main table:not(.grc-operational-table),
+  body:not(.grc-report-tool):not(.grc-report-checklist)
+  .block table:not(.grc-operational-table),
+  body:not(.grc-report-tool):not(.grc-report-checklist)
+  article table:not(.grc-operational-table){
+    max-width:100%!important;
+  }
+}
+
+/* =========================================================
+   Corrección móvil v5 · tablas editoriales sin JavaScript
+   ========================================================= */
+@media (max-width:900px){
+  /*
+   * Las tablas editoriales se convierten en tarjetas verticales
+   * únicamente con CSS. Esto evita depender de mobile.js cuando
+   * el menú se carga como fragmento HTML.
+   */
+  .art-main table:not(:has(input,select,textarea,button)),
+  .article-main table:not(:has(input,select,textarea,button)),
+  .guide-main table:not(:has(input,select,textarea,button)),
+  .versus-main table:not(:has(input,select,textarea,button)),
+  article table:not(:has(input,select,textarea,button)),
+  .block table:not(:has(input,select,textarea,button)){
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    table-layout:fixed!important;
+    overflow:visible!important;
+    border:0!important;
+    background:transparent!important;
+  }
+
+  .art-main table:not(:has(input,select,textarea,button)) colgroup,
+  .article-main table:not(:has(input,select,textarea,button)) colgroup,
+  .guide-main table:not(:has(input,select,textarea,button)) colgroup,
+  .versus-main table:not(:has(input,select,textarea,button)) colgroup,
+  article table:not(:has(input,select,textarea,button)) colgroup,
+  .block table:not(:has(input,select,textarea,button)) colgroup,
+  .art-main table:not(:has(input,select,textarea,button)) col,
+  .article-main table:not(:has(input,select,textarea,button)) col,
+  .guide-main table:not(:has(input,select,textarea,button)) col,
+  .versus-main table:not(:has(input,select,textarea,button)) col,
+  article table:not(:has(input,select,textarea,button)) col,
+  .block table:not(:has(input,select,textarea,button)) col{
+    display:none!important;
+  }
+
+  .art-main table:not(:has(input,select,textarea,button)) thead,
+  .article-main table:not(:has(input,select,textarea,button)) thead,
+  .guide-main table:not(:has(input,select,textarea,button)) thead,
+  .versus-main table:not(:has(input,select,textarea,button)) thead,
+  article table:not(:has(input,select,textarea,button)) thead,
+  .block table:not(:has(input,select,textarea,button)) thead{
+    display:none!important;
+  }
+
+  .art-main table:not(:has(input,select,textarea,button)) tbody,
+  .article-main table:not(:has(input,select,textarea,button)) tbody,
+  .guide-main table:not(:has(input,select,textarea,button)) tbody,
+  .versus-main table:not(:has(input,select,textarea,button)) tbody,
+  article table:not(:has(input,select,textarea,button)) tbody,
+  .block table:not(:has(input,select,textarea,button)) tbody{
+    display:grid!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    gap:14px!important;
+  }
+
+  .art-main table:not(:has(input,select,textarea,button)) tr,
+  .article-main table:not(:has(input,select,textarea,button)) tr,
+  .guide-main table:not(:has(input,select,textarea,button)) tr,
+  .versus-main table:not(:has(input,select,textarea,button)) tr,
+  article table:not(:has(input,select,textarea,button)) tr,
+  .block table:not(:has(input,select,textarea,button)) tr{
+    display:block!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding:0!important;
+    border:1px solid #d7dcdf!important;
+    border-left:4px solid #0077b5!important;
+    background:#fff!important;
+    overflow:hidden!important;
+  }
+
+  .art-main table:not(:has(input,select,textarea,button)) td,
+  .article-main table:not(:has(input,select,textarea,button)) td,
+  .guide-main table:not(:has(input,select,textarea,button)) td,
+  .versus-main table:not(:has(input,select,textarea,button)) td,
+  article table:not(:has(input,select,textarea,button)) td,
+  .block table:not(:has(input,select,textarea,button)) td{
+    display:block!important;
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    padding:11px 12px!important;
+    border:0!important;
+    border-bottom:1px solid #e7ecee!important;
+    white-space:normal!important;
+    overflow:visible!important;
+    overflow-wrap:anywhere!important;
+    word-break:normal!important;
+    text-align:left!important;
+    font-size:13px!important;
+    line-height:1.5!important;
+  }
+
+  .art-main table:not(:has(input,select,textarea,button)) td:first-child,
+  .article-main table:not(:has(input,select,textarea,button)) td:first-child,
+  .guide-main table:not(:has(input,select,textarea,button)) td:first-child,
+  .versus-main table:not(:has(input,select,textarea,button)) td:first-child,
+  article table:not(:has(input,select,textarea,button)) td:first-child,
+  .block table:not(:has(input,select,textarea,button)) td:first-child{
+    background:#f3f7f8!important;
+    color:#003955!important;
+    font-family:var(--mono,monospace)!important;
+    font-weight:800!important;
+    letter-spacing:.03em!important;
+  }
+
+  .art-main table:not(:has(input,select,textarea,button)) td:last-child,
+  .article-main table:not(:has(input,select,textarea,button)) td:last-child,
+  .guide-main table:not(:has(input,select,textarea,button)) td:last-child,
+  .versus-main table:not(:has(input,select,textarea,button)) td:last-child,
+  article table:not(:has(input,select,textarea,button)) td:last-child,
+  .block table:not(:has(input,select,textarea,button)) td:last-child{
+    border-bottom:0!important;
+  }
+
+  /* Neutraliza cualquier contenedor horizontal creado en pasadas anteriores. */
+  .grc-mobile-table-scroll:has(
+    .art-main table:not(:has(input,select,textarea,button)),
+    .article-main table:not(:has(input,select,textarea,button)),
+    .guide-main table:not(:has(input,select,textarea,button)),
+    .versus-main table:not(:has(input,select,textarea,button)),
+    article table:not(:has(input,select,textarea,button)),
+    .block table:not(:has(input,select,textarea,button))
+  ){
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    overflow:visible!important;
+    border:0!important;
+    background:transparent!important;
+  }
+
+  .grc-mobile-table-scroll:has(
+    .art-main table:not(:has(input,select,textarea,button)),
+    .article-main table:not(:has(input,select,textarea,button)),
+    .guide-main table:not(:has(input,select,textarea,button)),
+    .versus-main table:not(:has(input,select,textarea,button)),
+    article table:not(:has(input,select,textarea,button)),
+    .block table:not(:has(input,select,textarea,button))
+  ) + .grc-mobile-scroll-hint{
+    display:none!important;
+  }
+}

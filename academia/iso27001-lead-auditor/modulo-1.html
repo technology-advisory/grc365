@@ -1,24 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
 <title>Introducción a la Auditoría · ISO 27001 Lead Auditor · GRCreal Academy</title>
-
-<meta name="description" content="Modulo 1 ISO 27001 Lead Auditor. Fundamentos de la auditoría de sistemas de gestión de seguridad de la información. ISO 19011 y conceptos clave.">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://grcreal.com/academia/iso27001-lead-auditor/modulo-1.html">
-<meta property="og:title" content="Introducción a la Auditoría · ISO 27001 Lead Auditor · GRCreal Academy">
-<meta property="og:description" content="Fundamentos de auditoría ISO 27001. ISO 19011, términos clave y el rol del auditor.">
-<meta property="og:type" content="article">
-
-<link rel="icon" href="/favicon.ico" sizes="any">
-
-<link rel="stylesheet" href="../../css/academia.css">
-
+<meta content="Modulo 1 ISO 27001 Lead Auditor. Fundamentos de la auditoría de sistemas de gestión de seguridad de la información. ISO 19011 y conceptos clave." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/academia/iso27001-lead-auditor/modulo-1.html" rel="canonical"/>
+<meta content="Introducción a la Auditoría · ISO 27001 Lead Auditor · GRCreal Academy" property="og:title"/>
+<meta content="Fundamentos de auditoría ISO 27001. ISO 19011, términos clave y el rol del auditor." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../../css/marca.css" rel="stylesheet"/>
+<link href="../../css/academia.css" rel="stylesheet"/>
+<link href="../../css/dossier-core.css" rel="stylesheet"/>
+<link href="../../css/dossier-academia.css" rel="stylesheet"/>
 <style>
 .cta-buttons {
     display: flex;
@@ -62,234 +61,140 @@
     background: var(--brand-mid, #cce4f0);
 }
 </style>
-
-</head>
-
+<link href="/css/recursos-revision.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/><link href="../../css/academy-layout-fixes.css" rel="stylesheet"/><link href="/css/academy-content-depth.css" rel="stylesheet"/><link href="/css/academy-module-examples.css" rel="stylesheet"/><link href="/css/academy-mobile-final.css" rel="stylesheet"/></head>
 <body class="article-page">
-
-<div class="card-wrapper">
+<div class="card-wrapper ds-page">
 <div class="card">
-
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 <div class="accent-bar"></div>
-
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: academia</span>
+<span>curso: <strong>ISO 27001 Lead Auditor</strong></span>
+</div>
 <nav class="academy-module-menu">
-
-<a href="/academia/iso27001-lead-auditor/index.html" class="academy-course-logo">
+<a class="academy-course-logo" href="/academia/iso27001-lead-auditor/index.html">
 ISO 27001 <span>Lead Auditor</span>
 </a>
-
 <div class="academy-course-links">
 <span class="module-badge">Módulo 1 · Introducción</span></div>
-<a href="/academia/iso27001-lead-auditor/index.html" class="course-home-btn">⌂ Curso</a>
+<a class="course-home-btn" href="/academia/iso27001-lead-auditor/index.html">⌂ Curso</a>
 </nav>
-
 <div class="header">
-
 <div class="tag">
 ISO 27001 · AUDITORÍA · ISO 19011
 </div>
-
 <div class="article-date">
 Módulo 1
 </div>
-
-<h1 class="headline">
-Introducción<br>
-<span class="accent">a la Auditoría</span>
-</h1>
-
+<h1 class="headline">Introducción <span class="accent">a la Auditoría</span></h1>
 <p class="subline">
 
-Auditar no es buscar errores.<br>
+Auditar no es buscar errores.<br/>
 <strong>Es verificar que el SGSI funciona como debe.</strong>
-
 </p>
-
 </div>
-
-<div class="body">
-
+<div class="body"><div class="rx-module-compass">
+<div class="rx-module-meta"><span>MÓDULO 01 / 10</span><b>ISO 27001 · Lead Auditor</b></div>
+<div class="rx-module-line"><i style="width:10%"></i></div>
+<div class="rx-module-copy">
+<div><span>FOCO</span><b>Introducción a la Auditoría</b></div>
+<p>Conecta este módulo con el anterior y busca qué evidencia cambiaría tu conclusión.</p>
+</div>
+</div>
 <!-- BLOQUE 1 · QUÉ ES UNA AUDITORÍA -->
-
 <div class="block">
-
 <div class="block-label">
 Definición
 </div>
-
 <div class="block-title">
 Qué es una auditoría
 </div>
-
 <div class="block-text">
 
 Una auditoría es un proceso <strong>sistemático, independiente y documentado</strong> para obtener evidencias objetivas y evaluarlas de manera imparcial, con el fin de determinar el grado de cumplimiento de los criterios de auditoría.
 
 </div>
-
 <div class="quote-block">
-
 <div class="quote-text">
-&ldquo;Auditar no es fiscalizar. Es verificar, evaluar y aportar valor.&rdquo;
+“Auditar no es fiscalizar. Es verificar, evaluar y aportar valor.”
 </div>
-
 <div class="quote-attr">
 ISO 19011:2018
 </div>
-
 </div>
-
 <div class="block-text">
 
 El propósito de una auditoría no es encontrar no conformidades por encontrar. Es proporcionar a la dirección información objetiva sobre el estado real del SGSI, para que pueda tomar decisiones informadas.
 
 </div>
-
 </div>
-
 <div class="divider"></div>
-
 <!-- BLOQUE 2 · TIPOS DE AUDITORÍA -->
-
 <div class="block">
-
 <div class="block-label">
 Clasificación
 </div>
-
 <div class="block-title">
 Tipos de auditoría
 </div>
-
-<table class="tension" style="margin-top:20px;">
-
-<tr>
-<td class="tension-who">1ª Parte</td>
-<td class="tension-says"><strong>Auditoría interna.</strong> Realizada por o en nombre de la propia organización. Evalúa el SGSI contra sus propios requisitos y los de ISO 27001.</td>
-</tr>
-
-<tr>
-<td class="tension-who">2ª Parte</td>
-<td class="tension-says"><strong>Auditoría externa de proveedores.</strong> Realizada por clientes o interesados sobre sus proveedores. Evalúa la capacidad de cumplir con requisitos contractuales.</td>
-</tr>
-
-<tr class="hi-row">
-<td class="tension-who">3ª Parte</td>
-<td class="tension-says"><span class="hi">Auditoría de certificación. Realizada por organismos independientes (ej: AENOR, BSI, DNV). Evalúa la conformidad con ISO 27001 para obtener o mantener la certificación.</span></td>
-</tr>
-
-</table>
-
+<table class="tension academy-tension-compact" style="margin-top:20px;"><tbody><tr><td class="tension-who">1ª Parte</td><td class="tension-says"><strong>Auditoría interna.</strong> Realizada por o en nombre de la propia organización. Evalúa el SGSI contra sus propios requisitos y los de ISO 27001.</td></tr><tr><td class="tension-who">2ª Parte</td><td class="tension-says"><strong>Auditoría externa de proveedores.</strong> Realizada por clientes o interesados sobre sus proveedores. Evalúa la capacidad de cumplir con requisitos contractuales.</td></tr><tr class="hi-row"><td class="tension-who">3ª Parte</td><td class="tension-says"><span class="hi">Auditoría de certificación. Realizada por organismos independientes (ej: AENOR, BSI, DNV). Evalúa la conformidad con ISO 27001 para obtener o mantener la certificación.</span></td></tr></tbody></table>
 </div>
-
 <div class="divider"></div>
-
 <!-- BLOQUE 3 · ISO 19011:2018 -->
-
 <div class="block">
-
 <div class="block-label">
 Marco normativo
 </div>
-
 <div class="block-title">
 ISO 19011: Directrices para la auditoría
 </div>
-
 <div class="block-text">
 
 ISO 19011:2018 es la norma que proporciona <strong>directrices para auditar sistemas de gestión</strong>. No es certificable, pero es la referencia obligada para cualquier auditor, independientemente de la norma que audite.
 
 </div>
-
-<table class="tension" style="margin-top:20px;">
-
-<tr>
-<td class="tension-who">1</td>
-<td class="tension-says"><strong>Principios de auditoría.</strong> Integridad, presentación justa, diligencia profesional, confidencialidad, independencia, enfoque basado en evidencia, enfoque basado en riesgos.</td>
-</tr>
-
-<tr>
-<td class="tension-who">2</td>
-<td class="tension-says"><strong>Gestión del programa de auditoría.</strong> Cómo planificar, implementar, monitorear y mejorar el programa de auditorías.</td>
-</tr>
-
-<tr>
-<td class="tension-who">3</td>
-<td class="tension-says"><strong>Realización de la auditoría.</strong> Desde la reunión de apertura hasta el informe de cierre.</td>
-</tr>
-
-<tr class="hi-row">
-<td class="tension-who">4</td>
-<td class="tension-says"><span class="hi">Competencia y evaluación de auditores. Qué habilidades y conocimientos debe tener un auditor, y cómo evaluarlas.</span></td>
-</tr>
-
-</table>
-
+<table class="tension academy-tension-compact" style="margin-top:20px;"><tbody><tr><td class="tension-who">1</td><td class="tension-says"><strong>Principios de auditoría.</strong> Integridad, presentación justa, diligencia profesional, confidencialidad, independencia, enfoque basado en evidencia, enfoque basado en riesgos.</td></tr><tr><td class="tension-who">2</td><td class="tension-says"><strong>Gestión del programa de auditoría.</strong> Cómo planificar, implementar, monitorear y mejorar el programa de auditorías.</td></tr><tr><td class="tension-who">3</td><td class="tension-says"><strong>Realización de la auditoría.</strong> Desde la reunión de apertura hasta el informe de cierre.</td></tr><tr class="hi-row"><td class="tension-who">4</td><td class="tension-says"><span class="hi">Competencia y evaluación de auditores. Qué habilidades y conocimientos debe tener un auditor, y cómo evaluarlas.</span></td></tr></tbody></table>
 </div>
-
 <div class="divider"></div>
-
 <!-- BLOQUE 4 · AUDITOR VS IMPLEMENTADOR -->
-
 <div class="block">
-
 <div class="block-label">
 Perfiles
 </div>
-
 <div class="block-title">
 Diferencias clave: Auditor vs Implementador
 </div>
-
-<table class="tension" style="margin-top:20px;">
-
-<tr>
-<td class="tension-who">Implementador</td>
-<td class="tension-says"><strong>Construye</strong> el SGSI. Diseña procesos, define controles, documenta. Su enfoque es <strong>crear y mantener</strong>.</td>
-</tr>
-
-<tr class="hi-row">
-<td class="tension-who">Auditor</td>
-<td class="tension-says"><span class="hi">Verifica el SGSI. Evalúa si lo que se ha construido funciona y cumple. Su enfoque es <strong>evaluar y reportar</strong>.</span></td>
-</tr>
-
-</table>
-
+<table class="tension academy-profile-compare academy-tension-profile" style="margin-top:20px;"><tbody><tr><td class="tension-who">Implementador</td><td class="tension-says"><strong>Construye</strong> el SGSI. Diseña procesos, define controles, documenta. Su enfoque es <strong>crear y mantener</strong>.</td></tr><tr class="hi-row"><td class="tension-who">Auditor</td><td class="tension-says"><span class="hi">Verifica el SGSI. Evalúa si lo que se ha construido funciona y cumple. Su enfoque es <strong>evaluar y reportar</strong>.</span></td></tr></tbody></table>
 <div class="block-text" style="margin-top:20px;">
 
 Un buen auditor <strong>no necesita ser un experto en implementación</strong>, pero debe entender cómo funciona un SGSI para poder evaluarlo. Por eso este curso parte de los fundamentos de ISO 27001.
 
 </div>
-
 </div>
-
 <div class="divider"></div>
-
 <!-- BLOQUE 5 · ERROR TÍPICO -->
-
 <div class="block">
-
 <div class="block-label">
 Error típico
 </div>
-
 <div class="block-title">
 Auditar buscando culpables
 </div>
-
 <div class="quote-block">
-
 <div class="quote-text">
-&ldquo;El auditor ha encontrado tres no conformidades. Ahora tenemos que buscar a quién echarle la culpa.&rdquo;
+“El auditor ha encontrado tres no conformidades. Ahora tenemos que buscar a quién echarle la culpa.”
 </div>
-
 <div class="quote-attr">
 Mentalidad incorrecta en una organización auditada.
 </div>
-
 </div>
-
 <div class="block-text">
 
 El error más frecuente en auditoría es confundir el propósito: <strong>no se audita para castigar, se audita para mejorar</strong>.
@@ -302,102 +207,56 @@ Una auditoría bien hecha:
 El auditor no es un policía. Es un <strong>evaluador imparcial</strong> que aporta valor a la organización.
 
 </div>
-
 </div>
-
 <div class="divider"></div>
-
 <!-- BLOQUE 6 · RESUMEN EJECUTIVO -->
-
 <div class="block">
-
 <div class="block-label">
 Resumen del módulo
 </div>
-
 <div class="block-title">
 Lo que debes llevarte de aquí
 </div>
-
-<table class="tension" style="margin-top:16px;">
-
-<tr>
-<td class="tension-who">1</td>
-<td class="tension-says">Una auditoría es un proceso sistemático, independiente y documentado para obtener y evaluar evidencias.</td>
-</tr>
-
-<tr>
-<td class="tension-who">2</td>
-<td class="tension-says">Hay tres tipos: 1ª parte (interna), 2ª parte (proveedores), 3ª parte (certificación).</td>
-</tr>
-
-<tr>
-<td class="tension-who">3</td>
-<td class="tension-says">ISO 19011 es la norma de referencia para auditar cualquier sistema de gestión.</td>
-</tr>
-
-<tr class="hi-row">
-<td class="tension-who">4</td>
-<td class="tension-says"><span class="hi">El auditor no busca culpables. Verifica, evalúa y aporta valor a la organización.</span></td>
-</tr>
-
-</table>
-
+<table class="tension academy-tension-compact" style="margin-top:16px;"><tbody><tr><td class="tension-who">1</td><td class="tension-says">Una auditoría es un proceso sistemático, independiente y documentado para obtener y evaluar evidencias.</td></tr><tr><td class="tension-who">2</td><td class="tension-says">Hay tres tipos: 1ª parte (interna), 2ª parte (proveedores), 3ª parte (certificación).</td></tr><tr><td class="tension-who">3</td><td class="tension-says">ISO 19011 es la norma de referencia para auditar cualquier sistema de gestión.</td></tr><tr class="hi-row"><td class="tension-who">4</td><td class="tension-says"><span class="hi">El auditor no busca culpables. Verifica, evalúa y aporta valor a la organización.</span></td></tr></tbody></table>
 </div>
-
 <!-- CTA -->
-
-<div class="cta-block">
-
+<div class="academy-deepening" id="ampliacion-practica"><section class="academy-deep-block"><div class="academy-deep-kicker">APLICACIÓN PRÁCTICA</div><h2 class="academy-deep-title">Cómo llevar el contenido del módulo a una organización real</h2><p class="academy-deep-text">Este módulo debe utilizarse dentro de planificación, ejecución y comunicación de auditorías de sistemas de gestión de seguridad. Su valor no está en repetir definiciones, sino en decidir qué debe ocurrir, quién participa y cómo se demuestra.</p><p class="academy-deep-text">Para trabajar «Introducción a la Auditoría», comienza delimitando criterio, evidencia, muestreo, independencia y comunicación de conclusiones. Después conecta el requisito o principio con los procesos, sistemas, terceros y decisiones que realmente existen en la organización.</p><p class="academy-deep-text">Los actores habituales serán Equipo auditor, auditado, Dirección, Seguridad, Riesgos, Operaciones y propietarios de controles. No todos ejecutan el control, pero cada uno puede aportar una parte del contexto, la evidencia o la decisión.</p><ol class="academy-deep-list"><li>Define el objeto y el alcance antes de discutir controles.</li><li>Identifica propietario, ejecutor, revisor y autoridad de excepción.</li><li>Distingue diseño, implantación, operación y eficacia.</li><li>Comprueba cambios, incidencias y excepciones, no solo el estado ideal.</li><li>Cierra con una decisión y una acción verificable.</li></ol></section><section class="academy-deep-block"><div class="academy-deep-kicker">EXPEDIENTE DEL MÓDULO</div><h2 class="academy-deep-title">Documentación y evidencia que debería existir</h2><p class="academy-deep-text">La documentación no debería ser una colección de archivos aislados. Debe permitir seguir una relación lógica entre criterio, decisión, actividad y resultado.</p><p class="academy-deep-text">Cada evidencia necesita contexto: sistema o proceso al que pertenece, periodo cubierto, fuente, responsable y estado. Sin esos datos, una captura o un documento pueden ser auténticos pero insuficientes.</p><ul class="academy-deep-list"><li>criterios, alcance y plan de auditoría</li><li>población, periodo y muestra seleccionada</li><li>entrevistas, observaciones y documentos corroborados</li><li>hallazgos vinculados a requisitos</li><li>conclusiones, informe y seguimiento</li></ul></section><section class="academy-case-block"><div class="academy-case-head">CASO DE REVISIÓN</div><h2 class="academy-deep-title">Aplicación de «Introducción a la Auditoría»</h2><p class="academy-deep-text">Escenario: un SGSI declara un control implantado, pero la evidencia disponible cubre solo una parte de la población y del periodo auditado. El objetivo no es memorizar una respuesta, sino reconstruir qué debería verificarse y con qué evidencia.</p><div class="academy-case-grid"><div class="academy-case-card"><b>1 · Delimitar</b><p>Define el alcance y concreta criterio, evidencia, muestreo, independencia y comunicación de conclusiones.</p></div><div class="academy-case-card"><b>2 · Corroborar</b><p>Contrasta entrevistas con documentos, registros y observación de la operación.</p></div><div class="academy-case-card"><b>3 · Concluir</b><p>Separa hechos, criterio aplicable, impacto y acción necesaria.</p></div></div></section><section class="academy-deep-block"><div class="academy-deep-kicker">ERRORES FRECUENTES</div><h2 class="academy-deep-title">Dónde suele fallar la aplicación</h2><ul class="academy-deep-list"><li>convertir opiniones en hallazgos</li><li>confundir una observación con una no conformidad</li><li>aceptar capturas sin validar población y periodo</li><li>tratar una excepción permanente como si fuera temporal</li><li>cerrar acciones por actividad realizada, sin validar su eficacia</li></ul></section><section class="academy-deep-block"><div class="academy-deep-kicker">COMPROBACIÓN</div><h2 class="academy-deep-title">Preguntas que deberías poder responder</h2><ul class="academy-deep-list"><li>¿Qué decisión concreta cambia después de comprender «Introducción a la Auditoría»?</li><li>¿Qué evidencia pedirías primero y qué necesitarías corroborar?</li><li>¿Qué parte depende del diseño y cuál de la operación diaria?</li><li>¿Qué excepción sería aceptable y quién tendría autoridad para aprobarla?</li><li>¿Cómo comprobarías dentro de tres meses que sigue funcionando?</li></ul></section></div><section class="academy-example-lab" id="laboratorio-del-modulo"><div class="academy-example-kicker">EJEMPLO GUIADO</div><h2 class="academy-example-title">Caso práctico: Introducción a la Auditoría</h2><p class="academy-example-intro">Una empresa de software va a someterse a su primera auditoría interna. El responsable de Seguridad propone revisar únicamente políticas y procedimientos porque “la parte técnica ya la controla Operaciones”.</p><div class="academy-example-context"><span>CONTEXTO TÉCNICO</span><p>SGSI con alcance sobre desarrollo SaaS, AWS, GitHub, M365 y soporte remoto.</p></div><div class="academy-example-grid"><div class="academy-example-card"><h3>DECISIÓN</h3><ul><li>Definir una auditoría que combine entrevistas, revisión documental, observación y muestreo técnico.</li><li>Asignar un responsable y una fecha de revisión.</li><li>Definir cómo se comprobará la eficacia.</li></ul></div><div class="academy-example-card"><h3>EVIDENCIA</h3><ul><li>Alcance, criterios, riesgos, SoA, tickets, configuraciones, registros y evidencias de operación.</li><li>Corroborar con una fuente independiente.</li><li>Conservar población, periodo y responsable.</li></ul></div><div class="academy-example-card"><h3>ERROR A EVITAR</h3><ul><li>Reducir la auditoría a comprobar documentos.</li><li>Aceptar afirmaciones sin prueba suficiente.</li><li>Cerrar acciones sin verificación posterior.</li></ul></div></div><div class="academy-solved-exercise"><div class="academy-example-kicker">MINI EJERCICIO RESUELTO</div><p class="academy-exercise-question">¿Por qué revisar solo políticas no permite concluir sobre la eficacia del SGSI?</p><p class="academy-exercise-answer">Respuesta orientativa: Porque una política demuestra intención y diseño, pero no implantación, operación ni eficacia.</p></div><div class="academy-what-if"><strong>¿QUÉ CAMBIARÍA SI…?</strong><p>la organización dispone de una certificación externa vigente?</p><p>Revisa cómo cambian alcance, riesgo, responsabilidad, evidencia y decisión.</p></div></section><div class="rx-module-reflection">
+<div class="rx-module-reflection-head"><span>PÁRATE AQUÍ</span><b>No sigas por inercia</b></div>
+<h2>Tienes una política aprobada y tres entrevistas coherentes. ¿Tienes evidencia suficiente para concluir que el control opera?</h2>
+<p>Distingue diseño, implantación y operación. Una explicación consistente orienta la muestra, pero no siempre cierra la conclusión.</p>
+<div class="rx-module-reflection-note">No hay botón ni respuesta oculta. Explica tu criterio antes de continuar.</div>
+</div><div class="rx-module-checkpoint">
+<div class="rx-module-checkpoint-copy">
+<span>ANTES DE SEGUIR</span>
+<h2>Deberías poder explicar estas tres ideas sin volver arriba</h2>
+<p>Esto no desbloquea el módulo siguiente ni modifica tu progreso. Es una autocomprobación antes de pulsar Continuar.</p>
+</div>
+<ol><li><span>01</span><p>Qué es una auditoría</p></li><li><span>02</span><p>Tipos de auditoría</p></li><li><span>03</span><p>ISO 19011: Directrices para la auditoría</p></li></ol>
+</div><div class="cta-block">
 <div class="cta-headline">
-El siguiente paso es entender<br>
+El siguiente paso es entender<br/>
 <span>los principios de la auditoría</span>
 </div>
-
 <div class="cta-sub">
 Siguiente módulo: <strong>ISO 19011 · Principios de Auditoría</strong>
 </div>
-
 <div class="cta-buttons">
-    <span class="cta-button disabled">← Anterior</span>
-    <a href="modulo-2.html" class="cta-button">Continuar →</a>
+<span class="cta-button disabled">← Anterior</span>
+<a class="cta-button" href="modulo-2.html">Continuar →</a>
 </div>
-
 </div>
-
 </div>
-
 <!-- FOOTER -->
-
-<div class="footer">
-
-<div class="footer-inner">
-
-<div class="author-block">
-<div class="author-avatar">MA</div>
-<div>
-<div class="author-name">Miguel Angel Carriazo · <span>vCISO</span></div>
-<div class="author-title">Cybersecurity & Infrastructure Architect</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-placeholder').innerHTML = data;
+        });
+</script>
 </div>
 </div>
-
-<a href="https://www.linkedin.com/in/macarriazo/" target="_blank" rel="noopener noreferrer" class="li-btn">
-<svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-<path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-</svg>
-<div>
-<span class="li-main">"Merece la pena la experiencia..."</span>
-<span class="li-sub">Hablemos en LinkedIn →</span>
-</div>
-</a>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
 </body>
 <script>
 (function() {

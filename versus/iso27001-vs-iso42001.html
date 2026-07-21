@@ -1,22 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
 <title>ISO 27001 vs ISO 42001 · GRCreal</title>
-<meta name="description" content="No son alternativas. No compiten. El error es creer que con una tienes la otra — y en 2026 ese error ya tiene coste.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://grcreal.com/versus/iso27001-vs-iso42001.html">
-<meta property="og:title" content="ISO 27001 vs ISO 42001 — La batalla que muchos plantean mal">
-<meta property="og:description" content="No son alternativas. No compiten. El error es creer que con una tienes la otra — y en 2026 ese error ya tiene coste.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://grcreal.com/versus/iso27001-vs-iso42001.html">
-<meta property="og:image" content="https://grcreal.com/grcreal.png">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="stylesheet" href="../css/marca.css">
-<link rel="stylesheet" href="../css/versus.css">
-<link rel="stylesheet" href="../css/global.css">
-
+<meta content="No son alternativas. No compiten. El error es creer que con una tienes la otra — y en 2026 ese error ya tiene coste." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/versus/iso27001-vs-iso42001.html" rel="canonical"/>
+<meta content="ISO 27001 vs ISO 42001 — La batalla que muchos plantean mal" property="og:title"/>
+<meta content="No son alternativas. No compiten. El error es creer que con una tienes la otra — y en 2026 ese error ya tiene coste." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/versus/iso27001-vs-iso42001.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/versus.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-versus.css" rel="stylesheet"/>
 <style>
   .tbl-scroll {
     overflow-x: auto;
@@ -75,309 +77,428 @@
   ]
 }
 </script>
-</head>
+<link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
 <body class="article-page">
-<div class="card-wrapper">
+<div class="card-wrapper ds-page">
 <div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 <div class="accent-bar"></div>
-
-<div class="header">
-  <div class="tag">ISO 27001 · ISO 42001 · GRC · Versus</div>
-  <div class="article-date">7 Mayo 2026</div>
-  <h1 class="headline">
-    ISO 27001<br>
-    <span class="dim">vs</span><br>
-    <span class="accent">ISO 42001</span>
-  </h1>
-  <p class="subline">
-    La pregunta no es cuál es mejor.<br>
-    <strong>La pregunta es si entiendes para qué sirve cada una.</strong>
-  </p>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: versus</span>
+<span>comparativa: <strong>ISO 27001</strong></span>
 </div>
-
+<div class="header">
+<a class="art-back" href="/versus/index.html">← Volver a versus</a>
+<div class="tag">ISO 27001 · ISO 42001 · GRC · Versus</div>
+<h1 class="headline">
+    ISO 27001 <span class="dim">vs</span> <span class="accent">ISO 42001</span>
+</h1>
+<p class="subline">
+    La pregunta no es cuál es mejor.<br/>
+<strong>La pregunta es si entiendes para qué sirve cada una.</strong>
+</p>
+<div class="art-meta">
+<span class="art-meta-item">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 18 18"><circle cx="9" cy="6" r="2.6"></circle><path d="M3.5 15c0-2.6 2.5-4.6 5.5-4.6s5.5 2 5.5 4.6"></path></svg>
+<strong>Miguel Ángel Carriazo</strong>
+</span>
+<span class="art-meta-item">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 18 18"><rect height="12.5" rx="1.3" width="13" x="2.5" y="3"></rect><path d="M2.5 6.5h13M6 2v2.4M12 2v2.4"></path></svg>
+      7 mayo 2026
+    </span>
+<span class="art-meta-item">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 18 18"><circle cx="9" cy="9" r="6.8"></circle><path d="M9 5.3V9l2.8 1.7"></path></svg>
+      8 min de lectura
+    </span>
+</div>
+</div>
 <div class="body">
-
-  <!-- FICHA RÁPIDA -->
-  <div class="block">
-    <div class="block-label">Ficha rápida</div>
-    <h2 class="block-title">Los contendientes en números</h2>
-
-    <div class="tbl-scroll">
-      <table class="tension">
-        <tr>
-          <td class="tension-who"></td>
-          <td class="tension-says"><strong>ISO 27001</strong></td>
-          <td class="tension-says"><strong>ISO 42001</strong></td>
-        </tr>
-        <tr>
-          <td class="tension-who">Tipo</td>
-          <td class="tension-says">SGSI — Seguridad de la información</td>
-          <td class="tension-says">AIMS — Gestión de IA</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Publicación</td>
-          <td class="tension-says">2005 / revisión 2022</td>
-          <td class="tension-says">Diciembre 2023</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Controles Anexo A</td>
-          <td class="tension-says">93 (organizativos, personas, físicos, tecnológicos)</td>
-          <td class="tension-says">38 específicos de IA</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Foco</td>
-          <td class="tension-says">Confidencialidad, integridad, disponibilidad</td>
-          <td class="tension-says">Gobernanza IA, equidad, transparencia, supervisión humana</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Certificados activos</td>
-          <td class="tension-says">~100.000 globalmente</td>
-          <td class="tension-says">~400 globalmente</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Madurez ecosistema</td>
-          <td class="tension-says">Alta — auditores abundantes</td>
-          <td class="tension-says">En desarrollo — cuadro escaso</td>
-        </tr>
-        <tr class="hi-row">
-          <td class="tension-who">Estructura base</td>
-          <td class="tension-says"><span class="hi">Annex SL (HLS)</span></td>
-          <td class="tension-says"><span class="hi">Annex SL (HLS) — integración nativa</span></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- ISO 27001 -->
-  <div class="block">
-    <div class="block-label">ISO 27001</div>
-    <h2 class="block-title">El estándar de referencia global para seguridad de la información</h2>
-    <div class="block-text">
+<div class="art-layout">
+<div class="art-main">
+<!-- FICHA RÁPIDA -->
+<div class="block" id="s1">
+<div class="block-label">Ficha rápida</div>
+<h2 class="block-title">Los contendientes en números</h2>
+<div class="tbl-scroll">
+<table class="tension">
+<tr>
+<td class="tension-who"></td>
+<td class="tension-says"><strong>ISO 27001</strong></td>
+<td class="tension-says"><strong>ISO 42001</strong></td>
+</tr>
+<tr>
+<td class="tension-who">Tipo</td>
+<td class="tension-says">SGSI — Seguridad de la información</td>
+<td class="tension-says">AIMS — Gestión de IA</td>
+</tr>
+<tr>
+<td class="tension-who">Publicación</td>
+<td class="tension-says">2005 / revisión 2022</td>
+<td class="tension-says">Diciembre 2023</td>
+</tr>
+<tr>
+<td class="tension-who">Controles Anexo A</td>
+<td class="tension-says">93 (organizativos, personas, físicos, tecnológicos)</td>
+<td class="tension-says">38 específicos de IA</td>
+</tr>
+<tr>
+<td class="tension-who">Foco</td>
+<td class="tension-says">Confidencialidad, integridad, disponibilidad</td>
+<td class="tension-says">Gobernanza IA, equidad, transparencia, supervisión humana</td>
+</tr>
+<tr>
+<td class="tension-who">Certificados activos</td>
+<td class="tension-says">~100.000 globalmente</td>
+<td class="tension-says">~400 globalmente</td>
+</tr>
+<tr>
+<td class="tension-who">Madurez ecosistema</td>
+<td class="tension-says">Alta — auditores abundantes</td>
+<td class="tension-says">En desarrollo — cuadro escaso</td>
+</tr>
+<tr class="hi-row">
+<td class="tension-who">Estructura base</td>
+<td class="tension-says"><span class="hi">Annex SL (HLS)</span></td>
+<td class="tension-says"><span class="hi">Annex SL (HLS) — integración nativa</span></td>
+</tr>
+</table>
+</div>
+</div><div class="art-visual versus-visual">
+<div class="art-visual-kicker">Sistema de gestión · Seguridad vs IA</div>
+<div class="art-visual-title">Dos sistemas de gestión que comparten estructura, pero gobiernan objetos distintos</div>
+<svg aria-label="Comparación entre ISO 27001 e ISO 42001" role="img" viewbox="0 0 1180 430">
+<rect class="vv-box vv-left" height="250" rx="2" width="370" x="70" y="62"></rect>
+<text class="vv-code" x="100" y="96">ISO/IEC 27001</text>
+<text class="vv-title" x="100" y="134">INFORMACIÓN</text>
+<text class="vv-small" x="100" y="168">confidencialidad · integridad · disponibilidad</text>
+<text class="vv-label" x="100" y="216">Riesgo de seguridad</text>
+<text class="vv-label" x="100" y="250">Controles del SGSI</text>
+<text class="vv-label" x="100" y="284">Activos y servicios</text>
+<rect class="vv-box vv-right" height="250" rx="2" width="370" x="740" y="62"></rect>
+<text class="vv-code" x="770" y="96">ISO/IEC 42001</text>
+<text class="vv-title" x="770" y="134">SISTEMAS DE IA</text>
+<text class="vv-small" x="770" y="168">impacto · ciclo de vida · uso responsable</text>
+<text class="vv-label" x="770" y="216">Riesgos y oportunidades IA</text>
+<text class="vv-label" x="770" y="250">Controles de IA</text>
+<text class="vv-label" x="770" y="284">Sistemas, datos y partes interesadas</text>
+<rect class="vv-core" height="124" rx="2" width="250" x="465" y="126"></rect>
+<text class="vv-title-light" text-anchor="middle" x="590" y="164">ESTRUCTURA COMÚN</text>
+<text class="vv-small-light" text-anchor="middle" x="590" y="192">contexto · liderazgo · planificación</text>
+<text class="vv-small-light" text-anchor="middle" x="590" y="216">soporte · operación · evaluación · mejora</text>
+<line class="vv-line" x1="440" x2="465" y1="188" y2="188"></line>
+<line class="vv-line" x1="715" x2="740" y1="188" y2="188"></line>
+<rect class="vv-band" height="48" rx="2" width="880" x="150" y="354"></rect>
+<text class="vv-band-label" text-anchor="middle" x="590" y="384">INTEGRAR LA ESTRUCTURA NO SIGNIFICA CONFUNDIR EL OBJETO DE GOBIERNO</text>
+</svg>
+<div class="art-visual-note">La comparación es una herramienta de decisión. El solapamiento ayuda a reutilizar controles; las diferencias determinan qué debes gobernar y demostrar.</div>
+</div>
+<div class="divider"></div>
+<!-- ISO 27001 -->
+<div class="block" id="s2">
+<div class="block-label">ISO 27001</div>
+<h2 class="block-title">El estándar de referencia global para seguridad de la información</h2>
+<div class="block-text">
       Lleva en el mercado desde 2005, revisado en 2022. El más auditado y reconocido del mundo. Cubre confidencialidad, integridad y disponibilidad de los activos de información — bases de datos, código fuente, cargas de trabajo en la nube, modelos entrenados incluidos.
-      <br><br>
+      <br/><br/>
       Su Anexo A tiene 93 controles agrupados en cuatro temas: organizativos (37), de personas (8), físicos (14) y tecnológicos (34). La norma es neutral respecto a la tecnología: no prescribe herramientas ni proveedores, lo que explica que lleve décadas siendo la base de la garantía de seguridad empresarial.
-      <br><br>
-      <strong>Es el cimiento. Sin él, cualquier capa que pongas encima se hunde.</strong>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- ISO 42001 -->
-  <div class="block">
-    <div class="block-label">ISO 42001</div>
-    <h2 class="block-title">El primer estándar internacional de gestión de IA</h2>
-    <div class="block-text">
+      <br/><br/>
+<strong>Es el cimiento. Sin él, cualquier capa que pongas encima se hunde.</strong>
+</div>
+</div>
+<div class="divider"></div>
+<!-- ISO 42001 -->
+<div class="block" id="s3">
+<div class="block-label">ISO 42001</div>
+<h2 class="block-title">El primer estándar internacional de gestión de IA</h2>
+<div class="block-text">
       Publicado en diciembre de 2023. Cubre lo que la 27001 deja deliberadamente fuera: ciclo de vida de los sistemas de IA, sesgo algorítmico, calidad de los datos de entrenamiento, explicabilidad de modelos, supervisión humana e impacto social de las decisiones automatizadas.
-      <br><br>
+      <br/><br/>
       Su Anexo A tiene 38 controles específicos de IA. Además incluye un Anexo B de guía de implementación y un Anexo C con fuentes de riesgo sin equivalente en ninguna norma de seguridad clásica: comportamientos emergentes, desplazamiento de distribución, impacto sobre derechos fundamentales.
-      <br><br>
+      <br/><br/>
       El ecosistema está madurando. Ronda los 400 certificados activos globalmente pero con la mayor velocidad de adopción entre todas las normas ISO en sus primeros años. El cuadro de auditores es escaso — si lo vas a certificar, reserva fecha con antelación.
-      <br><br>
-      <strong>Es la capa que necesitas si la IA ya no es experimental en tu organización.</strong>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- SOLAPAMIENTOS -->
-  <div class="block">
-    <div class="block-label">Lo que comparten</div>
-    <h2 class="block-title">Controles que se mapean directamente</h2>
-    <div class="block-text">
+      <br/><br/>
+<strong>Es la capa que necesitas si la IA ya no es experimental en tu organización.</strong>
+</div>
+</div>
+<div class="divider"></div>
+<!-- SOLAPAMIENTOS -->
+<div class="block" id="s4">
+<div class="block-label">Lo que comparten</div>
+<h2 class="block-title">Controles que se mapean directamente</h2>
+<div class="block-text">
       Ambas siguen la Estructura Armonizada (Annex SL). Las cláusulas 4 a 10 se leen casi igual en las dos — un único registro de riesgos, un único programa de auditoría interna, una única revisión por la dirección.
-      <br><br>
+      <br/><br/>
       Una organización con SGSI 27001 maduro ya tiene entre el 40 y el 60 por ciento del trabajo documental que exige la 42001.
     </div>
-
-    <div class="tbl-scroll">
-      <table class="tension">
-        <tr>
-          <td class="tension-who"><strong>Control ISO 27001</strong></td>
-          <td class="tension-says"><strong>Qué cubre</strong></td>
-          <td class="tension-says"><strong>Equivalente ISO 42001</strong></td>
-        </tr>
-        <tr>
-          <td class="tension-who">A.5.9 — Inventario de activos</td>
-          <td class="tension-says">Registro de activos de información</td>
-          <td class="tension-says">Inventario de modelos y conjuntos de datos</td>
-        </tr>
-        <tr>
-          <td class="tension-who">A.5.34 — Privacidad y datos personales</td>
-          <td class="tension-says">Protección de datos personales</td>
-          <td class="tension-says">Gobernanza de datos de entrenamiento</td>
-        </tr>
-        <tr>
-          <td class="tension-who">A.5.19–A.5.23 — Proveedores</td>
-          <td class="tension-says">Seguridad en cadena de suministro</td>
-          <td class="tension-says">Subencargados y proveedores de modelos fundacionales</td>
-        </tr>
-        <tr>
-          <td class="tension-who">A.5.25–A.5.27 — Incidentes</td>
-          <td class="tension-says">Gestión y notificación de incidentes</td>
-          <td class="tension-says">Incidentes de IA: sesgo, salida dañina, queja de explicabilidad</td>
-        </tr>
-        <tr class="hi-row">
-          <td class="tension-who">A.8.16 — Monitorización</td>
-          <td class="tension-says">Supervisión de actividades y anomalías</td>
-          <td class="tension-says"><span class="hi">Monitorización post-despliegue y métricas de deriva del modelo</span></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- DIVERGENCIAS -->
-  <div class="block">
-    <div class="block-label">Lo que NO comparten</div>
-    <h2 class="block-title">Donde cada una es irreemplazable</h2>
-
-    <div class="tbl-scroll">
-      <table class="tension">
-        <tr>
-          <td class="tension-who"><strong>ISO 27001 NO cubre</strong></td>
-          <td class="tension-says"><strong>ISO 42001 NO cubre</strong></td>
-        </tr>
-        <tr>
-          <td class="tension-who">Sesgo algorítmico</td>
-          <td class="tension-says">Seguridad de redes e infraestructura</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Explicabilidad de modelos de IA</td>
-          <td class="tension-says">Criptografía y cifrado</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Calidad de datos de entrenamiento</td>
-          <td class="tension-says">Control de acceso físico</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Comportamiento emergente de sistemas IA</td>
-          <td class="tension-says">Gestión de vulnerabilidades</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Desplazamiento de distribución (model drift)</td>
-          <td class="tension-says">Respuesta a incidentes de ciberseguridad</td>
-        </tr>
-        <tr class="hi-row">
-          <td class="tension-who">Impacto social de decisiones automatizadas</td>
-          <td class="tension-says"><span class="hi">Sin base de seguridad debajo, la 42001 sola no supera diligencia corporativa</span></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="block-text" style="margin-top:16px;">
-      <strong>Son dominios distintos con puntos de contacto. No son alternativas.</strong>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- CUÁNDO USAR -->
-  <div class="block">
-    <div class="block-label">¿Cuándo usar cada una?</div>
-    <h2 class="block-title">La decisión en una tabla</h2>
-
-    <div class="tbl-scroll">
-      <table class="tension">
-        <tr>
-          <td class="tension-who"><strong>Situación</strong></td>
-          <td class="tension-says"><strong>ISO 27001</strong></td>
-          <td class="tension-says"><strong>ISO 42001</strong></td>
-        </tr>
-        <tr>
-          <td class="tension-who">Solo TI tradicional, sin IA</td>
-          <td class="tension-says">✓ Suficiente</td>
-          <td class="tension-says">No necesaria</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Desarrollas o integras IA en productos</td>
-          <td class="tension-says">✓ Base imprescindible</td>
-          <td class="tension-says">✓ Necesaria</td>
-        </tr>
-        <tr>
-          <td class="tension-who">IA + datos sensibles</td>
-          <td class="tension-says">✓ Imprescindible</td>
-          <td class="tension-says">✓ Imprescindible</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Entidad regulada NIS2 / DORA</td>
-          <td class="tension-says">✓ Prerrequisito</td>
-          <td class="tension-says">✓ Si IA en el perímetro</td>
-        </tr>
-        <tr>
-          <td class="tension-who">Proveedor de IA puro (cliente lo exige)</td>
-          <td class="tension-says">✓ Base</td>
-          <td class="tension-says">✓ Prioritaria</td>
-        </tr>
-        <tr class="hi-row">
-          <td class="tension-who">Solo presupuesto para una</td>
-          <td class="tension-says"><span class="hi">✓ Esta primero, siempre</span></td>
-          <td class="tension-says">Solo si eres proveedor IA puro y el cliente la exige</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- REGULATORIO -->
-  <div class="block">
-    <div class="block-label">El ángulo regulatorio</div>
-    <h2 class="block-title">EU AI Act — Agosto 2026</h2>
-    <div class="block-text">
-      ISO 42001 se alinea con los artículos clave del EU AI Act para sistemas de alto riesgo: gestión de riesgos (art. 9), gobernanza de datos (art. 10), documentación técnica (art. 11), registros (art. 12), transparencia (art. 13), supervisión humana (art. 14) y sistema de gestión de calidad (art. 17). Las obligaciones de alto riesgo entran en vigor en agosto de 2026.
-      <br><br>
-      Pero ISO 42001 no es norma armonizada todavía. Un certificado 42001 es el mejor dossier de evidencia disponible para el procedimiento de conformidad — no un atajo regulatorio. El CEN-CENELEC JTC 21 está trabajando en las normas armonizadas. Cuando llegue la referencia, quien ya tenga el certificado estará adelantado.
-      <br><br>
-      <strong>Ignorar la 42001 porque "todavía no es obligatoria" es exactamente el tipo de decisión que se paga cara en la próxima auditoría.</strong>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- VEREDICTO -->
-  <div class="block">
-    <div class="block-label">Veredicto GRCREAL</div>
-    <h2 class="block-title">No pelean. Se necesitan.</h2>
-    <div class="block-text">
-      ISO 27001 es el suelo. ISO 42001 es la capa que necesitas si la IA ya no es experimental en tu organización. No compiten — el problema es creer que con una tienes la otra.
-      <br><br>
-      Si partes de cero: certifica primero 27001. El cuadro de auditores es amplio, el ecosistema es maduro y ya habrás hecho entre el 40 y el 60 por ciento del trabajo documental de la 42001.
-      <br><br>
-      Si ya tienes 27001 y despliegas IA: ve directamente a 42001. La base documental ya está. El trabajo se concentra en los 38 controles específicos de IA, gobernanza de datos, ciclo de vida del modelo y supervisión humana.
-      <br><br>
-      <strong>El error más caro en 2026 no es implementar mal una de las dos. Es seguir preguntando cuál elegir cuando la respuesta ya es evidente.</strong>
-    </div>
-  </div>
-
-  <div class="cta-block">
-    <div class="cta-headline">
-      ¿Tu organización usa IA<br>
-      <span>y aún no ha evaluado la 42001?</span>
-    </div>
-    <div class="cta-sub">
-      Hay una brecha entre lo que tienes certificado y lo que el regulador va a exigir. <strong></strong>
-    </div>
-  </div>
-
+<div class="tbl-scroll">
+<table class="tension">
+<tr>
+<td class="tension-who"><strong>Control ISO 27001</strong></td>
+<td class="tension-says"><strong>Qué cubre</strong></td>
+<td class="tension-says"><strong>Equivalente ISO 42001</strong></td>
+</tr>
+<tr>
+<td class="tension-who">A.5.9 — Inventario de activos</td>
+<td class="tension-says">Registro de activos de información</td>
+<td class="tension-says">Inventario de modelos y conjuntos de datos</td>
+</tr>
+<tr>
+<td class="tension-who">A.5.34 — Privacidad y datos personales</td>
+<td class="tension-says">Protección de datos personales</td>
+<td class="tension-says">Gobernanza de datos de entrenamiento</td>
+</tr>
+<tr>
+<td class="tension-who">A.5.19–A.5.23 — Proveedores</td>
+<td class="tension-says">Seguridad en cadena de suministro</td>
+<td class="tension-says">Subencargados y proveedores de modelos fundacionales</td>
+</tr>
+<tr>
+<td class="tension-who">A.5.25–A.5.27 — Incidentes</td>
+<td class="tension-says">Gestión y notificación de incidentes</td>
+<td class="tension-says">Incidentes de IA: sesgo, salida dañina, queja de explicabilidad</td>
+</tr>
+<tr class="hi-row">
+<td class="tension-who">A.8.16 — Monitorización</td>
+<td class="tension-says">Supervisión de actividades y anomalías</td>
+<td class="tension-says"><span class="hi">Monitorización post-despliegue y métricas de deriva del modelo</span></td>
+</tr>
+</table>
 </div>
-
-  <!-- FINAL DEL BODY -->
+</div>
+<div class="divider"></div>
+<!-- DIVERGENCIAS -->
+<div class="block" id="s5">
+<div class="block-label">Lo que NO comparten</div>
+<h2 class="block-title">Donde cada una es irreemplazable</h2>
+<div class="tbl-scroll">
+<table class="tension">
+<tr>
+<td class="tension-who"><strong>ISO 27001 NO cubre</strong></td>
+<td class="tension-says"><strong>ISO 42001 NO cubre</strong></td>
+</tr>
+<tr>
+<td class="tension-who">Sesgo algorítmico</td>
+<td class="tension-says">Seguridad de redes e infraestructura</td>
+</tr>
+<tr>
+<td class="tension-who">Explicabilidad de modelos de IA</td>
+<td class="tension-says">Criptografía y cifrado</td>
+</tr>
+<tr>
+<td class="tension-who">Calidad de datos de entrenamiento</td>
+<td class="tension-says">Control de acceso físico</td>
+</tr>
+<tr>
+<td class="tension-who">Comportamiento emergente de sistemas IA</td>
+<td class="tension-says">Gestión de vulnerabilidades</td>
+</tr>
+<tr>
+<td class="tension-who">Desplazamiento de distribución (model drift)</td>
+<td class="tension-says">Respuesta a incidentes de ciberseguridad</td>
+</tr>
+<tr class="hi-row">
+<td class="tension-who">Impacto social de decisiones automatizadas</td>
+<td class="tension-says"><span class="hi">Sin base de seguridad debajo, la 42001 sola no supera diligencia corporativa</span></td>
+</tr>
+</table>
+</div>
+<div class="block-text" style="margin-top:16px;">
+<strong>Son dominios distintos con puntos de contacto. No son alternativas.</strong>
+</div>
+</div>
+<div class="divider"></div>
+<!-- CUÁNDO USAR -->
+<div class="block" id="s6">
+<div class="block-label">¿Cuándo usar cada una?</div>
+<h2 class="block-title">La decisión en una tabla</h2>
+<div class="tbl-scroll">
+<table class="tension">
+<tr>
+<td class="tension-who"><strong>Situación</strong></td>
+<td class="tension-says"><strong>ISO 27001</strong></td>
+<td class="tension-says"><strong>ISO 42001</strong></td>
+</tr>
+<tr>
+<td class="tension-who">Solo TI tradicional, sin IA</td>
+<td class="tension-says">✓ Suficiente</td>
+<td class="tension-says">No necesaria</td>
+</tr>
+<tr>
+<td class="tension-who">Desarrollas o integras IA en productos</td>
+<td class="tension-says">✓ Base imprescindible</td>
+<td class="tension-says">✓ Necesaria</td>
+</tr>
+<tr>
+<td class="tension-who">IA + datos sensibles</td>
+<td class="tension-says">✓ Imprescindible</td>
+<td class="tension-says">✓ Imprescindible</td>
+</tr>
+<tr>
+<td class="tension-who">Entidad regulada NIS2 / DORA</td>
+<td class="tension-says">✓ Prerrequisito</td>
+<td class="tension-says">✓ Si IA en el perímetro</td>
+</tr>
+<tr>
+<td class="tension-who">Proveedor de IA puro (cliente lo exige)</td>
+<td class="tension-says">✓ Base</td>
+<td class="tension-says">✓ Prioritaria</td>
+</tr>
+<tr class="hi-row">
+<td class="tension-who">Solo presupuesto para una</td>
+<td class="tension-says"><span class="hi">✓ Esta primero, siempre</span></td>
+<td class="tension-says">Solo si eres proveedor IA puro y el cliente la exige</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="divider"></div>
+<!-- REGULATORIO -->
+<div class="block" id="s7">
+<div class="block-label">El ángulo regulatorio</div>
+<h2 class="block-title">EU AI Act — Agosto 2026</h2>
+<div class="block-text">
+      ISO 42001 se alinea con los artículos clave del EU AI Act para sistemas de alto riesgo: gestión de riesgos (art. 9), gobernanza de datos (art. 10), documentación técnica (art. 11), registros (art. 12), transparencia (art. 13), supervisión humana (art. 14) y sistema de gestión de calidad (art. 17). Las obligaciones de alto riesgo entran en vigor en agosto de 2026.
+      <br/><br/>
+      Pero ISO 42001 no es norma armonizada todavía. Un certificado 42001 es el mejor dossier de evidencia disponible para el procedimiento de conformidad — no un atajo regulatorio. El CEN-CENELEC JTC 21 está trabajando en las normas armonizadas. Cuando llegue la referencia, quien ya tenga el certificado estará adelantado.
+      <br/><br/>
+<strong>Ignorar la 42001 porque "todavía no es obligatoria" es exactamente el tipo de decisión que se paga cara en la próxima auditoría.</strong>
+</div>
+</div>
+<div class="divider"></div>
+<!-- VEREDICTO -->
+<div class="block versus-decision-block" id="s9">
+<div class="block-label">Cómo decidir</div>
+<h2 class="block-title">La pregunta útil no es cuál elegir, sino qué estás intentando gobernar</h2>
+<div class="block-text">ISO 27001 e ISO 42001 utilizan una lógica de sistema de gestión compatible, pero el objeto de gobierno cambia. En ISO 27001 la organización establece un SGSI para gestionar riesgos sobre la seguridad de la información. En ISO 42001 el sistema de gestión se centra en la IA, sus objetivos, impactos, responsabilidades, ciclo de vida y relaciones con partes interesadas.<br/><br/>
+Una empresa puede tener un SGSI maduro y seguir sin saber cuántos sistemas de IA utiliza, quién autorizó cada caso, qué proveedor procesa los datos, cómo se evalúan impactos o qué ocurre cuando un modelo cambia. También puede implantar gobierno de IA y mantener debilidades graves de seguridad de la información. Son problemas relacionados, pero no equivalentes.<br/><br/>
+<strong>Mi criterio sería integrar todo lo que sea realmente común —gobierno documental, auditoría interna, no conformidades, revisión por dirección— y mantener separados los registros, análisis y decisiones que necesitan especialización.</strong></div>
+<table class="versus-evidence">
+<thead><tr><th>Ref.</th><th>Qué revisaría</th><th>Qué necesito demostrar</th></tr></thead>
+<tbody><tr><td>DEC-01</td><td>Alcance comparado</td><td>Qué cubre el SGSI y qué sistemas, usos o procesos de IA cubre el AIMS.</td></tr><tr><td>DEC-02</td><td>Inventarios</td><td>Activos de información frente a inventario de sistemas y casos de uso de IA.</td></tr><tr><td>DEC-03</td><td>Riesgos</td><td>Riesgo de seguridad frente a impactos, riesgos y oportunidades específicos de IA.</td></tr><tr><td>DEC-04</td><td>Roles</td><td>Responsabilidades de seguridad y responsabilidades sobre ciclo de vida y uso de IA.</td></tr><tr><td>DEC-05</td><td>Integración</td><td>Qué procesos corporativos pueden compartirse sin perder trazabilidad.</td></tr></tbody>
+</table>
+</div><div class="block versus-take-block" id="s10">
+<div class="block-label">Mi enfoque</div>
+<h2 class="block-title">Una sola arquitectura de gestión. Dos preguntas de control.</h2>
+<div class="versus-take">
+<div class="versus-take-mark">GRCREAL</div>
+<div class="block-text">No crearía dos burocracias independientes si la organización ya trabaja con ISO 27001. Aprovecharía la estructura común y diseñaría una arquitectura integrada de gestión. Pero tampoco intentaría “meter la IA dentro del SGSI” como si fuera únicamente otro activo tecnológico.<br/><br/>
+En una revisión real seguiría un caso de uso de IA desde su necesidad de negocio hasta el sistema, los datos, el proveedor, la evaluación de impacto, el acceso y la monitorización. Después comprobaría qué parte ya está cubierta por seguridad de la información y qué parte necesita gobierno específico de IA.<br/><br/>
+<strong>La integración madura elimina duplicidades. La integración pobre elimina preguntas incómodas.</strong></div>
+</div>
+</div><div class="block" id="s8">
+<div class="block-label">Veredicto GRCREAL</div>
+<h2 class="block-title">No pelean. Se necesitan.</h2>
+<div class="block-text">
+      ISO 27001 es el suelo. ISO 42001 es la capa que necesitas si la IA ya no es experimental en tu organización. No compiten — el problema es creer que con una tienes la otra.
+      <br/><br/>
+      Si partes de cero: certifica primero 27001. El cuadro de auditores es amplio, el ecosistema es maduro y ya habrás hecho entre el 40 y el 60 por ciento del trabajo documental de la 42001.
+      <br/><br/>
+      Si ya tienes 27001 y despliegas IA: ve directamente a 42001. La base documental ya está. El trabajo se concentra en los 38 controles específicos de IA, gobernanza de datos, ciclo de vida del modelo y supervisión humana.
+      <br/><br/>
+<strong>El error más caro en 2026 no es implementar mal una de las dos. Es seguir preguntando cuál elegir cuando la respuesta ya es evidente.</strong>
+</div>
+</div>
+</div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">Ficha rápida</a>
+<a data-toc="" href="#s2">ISO 27001</a>
+<a data-toc="" href="#s3">ISO 42001</a>
+<a data-toc="" href="#s4">Lo que comparten</a>
+<a data-toc="" href="#s5">Lo que NO comparten</a>
+<a data-toc="" href="#s6">¿Cuándo usar cada una?</a>
+<a data-toc="" href="#s7">El ángulo regulatorio</a>
+<a data-toc="" href="#s9">Cómo decidir</a><a data-toc="" href="#s10">Mi enfoque</a><a data-toc="" href="#s8">Veredicto GRCREAL</a>
+</nav>
+</aside>
+</div><!-- /art-layout -->
+<div class="cta-block">
+<div class="cta-headline">
+      ¿Tu organización usa IA<br/>
+<span>y aún no ha evaluado la 42001?</span>
+</div>
+<div class="cta-sub">
+      Hay una brecha entre lo que tienes certificado y lo que el regulador va a exigir. <strong></strong>
+</div>
+</div>
+</div>
+<!-- FINAL DEL BODY -->
+<!-- SOBRE EL AUTOR + COMPARTIR -->
+<div class="art-foot">
+<div class="art-author">
+<div class="art-foot-label">Sobre el autor</div>
+<div class="art-author-name">Miguel Ángel Carriazo <span>· vCISO</span></div>
+<p class="art-author-bio">vCISO · Arquitecto de Soluciones de Infraestructura y Ciberseguridad | Gobierno, Riesgo y Cumplimiento (GRC) | Gobierno de IA · ISO 42001 | Fundador de GRCreal</p>
+</div>
+<div class="art-share">
+<div class="art-foot-label">Compartir artículo</div>
+<a aria-label="Compartir en LinkedIn" class="art-share-btn" href="#" id="shareLinkedin" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+<!-- OTRAS COMPARATIVAS -->
+<div class="art-related">
+<div class="art-related-label">Sigue comparando</div>
+<div class="art-related-title">Otras comparativas</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/versus/nis2-vs-iso27001.html">
+<span class="art-related-pill">NIS2</span>
+<h3>NIS2 vs ISO 27001</h3>
+<p>El certificado no es cumplimiento. NIS2 te obliga. ISO 27001 te ayuda a cumplirla. Confundirlos tiene consecuencias legales.</p>
+</a>
+<a class="art-related-card" href="/versus/ens-vs-iso27001.html">
+<span class="art-related-pill">ENS</span>
+<h3>ENS vs ISO 27001</h3>
+<p>La batalla que solo importa en España. ISO 27001 es global. ENS es obligatorio si trabajas con el sector público. La pregunta es cuál te exige tu cliente.</p>
+</a>
+<a class="art-related-card" href="/versus/ens-vs-nis2.html">
+<span class="art-related-pill">ENS</span>
+<h3>ENS vs NIS2</h3>
+<p>Dos obligaciones que en España conviven. Una nacional, una europea. El error es creer que con una tienes la otra — el CCN tiene el puente oficial.</p>
+</a>
+</div>
+</div>
 <div id="footer-placeholder"></div>
 <script>
-    fetch('/includes/footer.html')
+    fetch('/includes/footer-no-share.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
-</script>
 
+
+    // Compartir en LinkedIn
+    var shareBtn = document.getElementById('shareLinkedin');
+    if (shareBtn) {
+        shareBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+    }
+
+    // Índice lateral: resalta la sección visible
+    var tocLinks = Array.from(document.querySelectorAll('#artTocNav a'));
+    var sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                    var id = '#' + entry.target.id;
+                    tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(function(s){ if (s) observer.observe(s); });
+    }
+</script>
 </div>
 </div>
-<a href="/versus/" class="home-btn">⌂ Home Versus</a>
-</body>
+<script defer="True" src="/js/article-zoom.js"></script></body>
 <script src="/js/global.js"></script>
 </html>

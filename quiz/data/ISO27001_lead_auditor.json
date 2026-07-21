@@ -60,7 +60,10 @@
     },
     {
       "q": "Los informes de revisión por la dirección deben contemplar cambios en necesidades y expectativas de partes interesadas. ¿Es correcto?",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "La Revisión por la Dirección debe incluir como entrada los 'External and internal changes' y el 'Stakeholder feedback'."
     },
@@ -132,7 +135,10 @@
     },
     {
       "q": "Dictámenes previos, métricas de rendimiento, histórico de incidentes y entrevistas son canales válidos para recopilar datos.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "El auditor recurre legítimamente a incidentes, indicadores e información documental para medir el desempeño del SGSI."
     },
@@ -145,11 +151,16 @@
         "El auditor líder designado"
       ],
       "c": 3,
-      "e": "La asignación de tareas operativas y el mando técnico corresponden al Auditor Líder."
+      "e": "La asignación de tareas operativas y el mando técnico corresponden al Auditor Líder. La clave es identificar el criterio aplicable y relacionarlo con evidencia suficiente."
     },
     {
       "q": "'Cualidad que asegura que los datos no sean accesibles a personas no autorizadas' define:",
-      "o": ["Integridad", "Irrepudiabilidad", "Confidencialidad", "Disponibilidad"],
+      "o": [
+        "Integridad",
+        "Irrepudiabilidad",
+        "Confidencialidad",
+        "Disponibilidad"
+      ],
       "c": 2,
       "e": "La Confidencialidad consiste en resguardar la información de accesos o divulgaciones no autorizadas."
     },
@@ -166,7 +177,12 @@
     },
     {
       "q": "Usar Wi-Fi pública de hotel para enviar reportes confidenciales sin protección vulnera:",
-      "o": ["7.11", "5.1", "5.10", "7.9 (Teletrabajo y seguridad en comunicaciones)"],
+      "o": [
+        "7.11",
+        "5.1",
+        "5.10",
+        "7.9 (Teletrabajo y seguridad en comunicaciones)"
+      ],
       "c": 3,
       "e": "El uso de redes abiertas sin protección viola políticas de Dispositivos Móviles y Teletrabajo."
     },
@@ -194,7 +210,10 @@
     },
     {
       "q": "Los hallazgos se generan al contrastar evidencias frente a requisitos establecidos.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "Un hallazgo (conformidad o no conformidad) requiere medir la evidencia real frente a la norma o requisito."
     },
@@ -222,13 +241,23 @@
     },
     {
       "q": "¿Qué control asegura que los sistemas se desarrollen y mantengan de forma segura en todo su ciclo de vida?",
-      "o": ["8.27 (Desarrollo seguro)", "8.20", "8.28", "5.1"],
+      "o": [
+        "8.27 (Desarrollo seguro)",
+        "8.20",
+        "8.28",
+        "5.1"
+      ],
       "c": 0,
       "e": "El ciclo de desarrollo seguro está regido por 'Systems acquisition, development and maintenance'."
     },
     {
       "q": "Un backup no restauró la información perdiendo registros del SGSI. ¿Qué control falló?",
-      "o": ["8.14 (Copias de seguridad)", "8.13", "8.20", "5.1"],
+      "o": [
+        "8.14 (Copias de seguridad)",
+        "8.13",
+        "8.20",
+        "5.1"
+      ],
       "c": 0,
       "e": "Un respaldo que no se puede restaurar demuestra falla operativa del control de copias de seguridad."
     },
@@ -256,43 +285,72 @@
     },
     {
       "q": "La viabilidad de una auditoría requiere cooperación del personal auditado.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "Sin cooperación, no hay entrevistas ni acceso a registros, imposibilitando un juicio fundado."
     },
     {
       "q": "PCs con fechas y horas desincronizadas en centros de cómputo. ¿Qué control falló?",
-      "o": ["5.2", "5.1", "8.14 (Sincronización de relojes)", "8.17"],
+      "o": [
+        "5.2",
+        "5.1",
+        "8.14 (Sincronización de relojes)",
+        "8.17"
+      ],
       "c": 2,
-      "e": "Sincronizar relojes de servidores y equipos es parte del dominio 'Operations security'."
+      "e": "Sincronizar relojes de servidores y equipos es parte del dominio 'Operations security'. La clave es identificar el criterio aplicable y relacionarlo con evidencia suficiente."
     },
     {
       "q": "Si no hay criterios definidos para aceptar o rechazar riesgos, ¿qué cláusula se incumple?",
-      "o": ["8.3", "5.1", "6.1.2 (Criterios de aceptación)", "9.1"],
+      "o": [
+        "8.3",
+        "5.1",
+        "6.1.2 (Criterios de aceptación)",
+        "9.1"
+      ],
       "c": 2,
       "e": "Fijar 'predetermined acceptance criteria' es parte del proceso de planificación de riesgos (cláusula 6)."
     },
     {
       "q": "Robo de laptop de un directivo en un hotel. ¿Qué control debió proteger los datos?",
-      "o": ["5.1", "7.9", "5.10 (Protección dispositivos móviles)", "7.8"],
+      "o": [
+        "5.1",
+        "7.9",
+        "5.10 (Protección dispositivos móviles)",
+        "7.8"
+      ],
       "c": 2,
       "e": "El aseguramiento de portátiles fuera de oficina se rige por políticas de dispositivos móviles."
     },
     {
       "q": "Una no conformidad de auditoría anterior sobre políticas de seguridad sigue sin corregirse. ¿Qué cláusula se incumple?",
-      "o": ["5.2", "5.3", "5.1", "10.2 (Acciones correctivas)"],
+      "o": [
+        "5.2",
+        "5.3",
+        "5.1",
+        "10.2 (Acciones correctivas)"
+      ],
       "c": 3,
-      "e": "La sección de mejora continua (10.2) exige ejecutar acciones para mitigar la causa raíz."
+      "e": "La sección de mejora continua (10.2) exige ejecutar acciones para mitigar la causa raíz. La clave es identificar el criterio aplicable y relacionarlo con evidencia suficiente."
     },
     {
       "q": "El informe final de auditoría debe incluir objetivos, criterios, hallazgos y conclusiones.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "El reporte final debe integrar objetivos iniciales, criterios aplicados y el juicio técnico final."
     },
     {
       "q": "El plan de auditoría debe incluir horarios, lugares, entrevistas y reuniones con dirección.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "El Audit Plan describe actividades y arreglos organizativos detallados para la auditoría específica."
     },
@@ -309,19 +367,30 @@
     },
     {
       "q": "Un ex-empleado sigue con accesos activos un mes después de su salida. ¿Qué control se omitió?",
-      "o": ["5.18 (Revocación de accesos)", "5.15", "5.16", "5.18 y 5.16"],
+      "o": [
+        "5.18 (Revocación de accesos)",
+        "5.15",
+        "5.16",
+        "5.18 y 5.16"
+      ],
       "c": 0,
       "e": "Esta omisión corresponde a Gestión de Accesos y al control de cese de funciones en Recursos Humanos."
     },
     {
       "q": "La ubicación, fechas, horario y reuniones con dirección deben estar en el plan de auditoría.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
-      "e": "El plan de auditoría debe incluir todos los detalles logísticos y organizativos."
+      "e": "El plan de auditoría debe incluir todos los detalles logísticos y organizativos. La clave es identificar el criterio aplicable y relacionarlo con evidencia suficiente."
     },
     {
       "q": "Mejoras al programa de auditoría pueden incluir alinear fechas con disponibilidad del auditado, múltiples auditorías en una visita y minimizar tiempos muertos.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "Coordinar agendas, auditorías integradas y optimizar tiempos son estrategias recomendadas."
     },

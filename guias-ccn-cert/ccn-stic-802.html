@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>CCN-STIC 802 — ENS. Guía de auditorías de cumplimiento · GRCreal</title>
+<meta content="Guía técnica GRCREAL de la CCN-STIC 802: lectura práctica, explicación técnica, errores habituales, ejemplo real, evidencias y ficha oficial al final." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/guias-ccn-cert/ccn-stic-802.html" rel="canonical"/>
+<meta content="CCN-STIC 802 — ENS. Guía de auditorías de cumplimiento" property="og:title"/>
+<meta content="CCN-STIC 802: lectura técnica GRCREAL, aplicación real, error habitual, ejemplo práctico, evidencias y acceso a la fuente oficial al final." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/guias-ccn-cert/ccn-stic-802.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/articles.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-articulo.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CCN-STIC 802 — ENS. Guía de auditorías de cumplimiento","description":"CCN-STIC 802 (ENS. Guía de auditorías de cumplimiento): qué es, qué contiene, cómo implantarla, su uso en auditoría, mapeo a ISO 27001/NIS2/DORA y checklist. Resumen práctico de GRCreal con enlace oficial.","image":"https://grcreal.com/grcreal.png","author":{"@type":"Person","name":"Miguel Ángel Carriazo","url":"https://grcreal.com/sobre-mi/"},"publisher":{"@type":"Organization","name":"GRCreal","logo":{"@type":"ImageObject","url":"https://grcreal.com/favicon-32x32.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://grcreal.com/guias-ccn-cert/ccn-stic-802.html"}}</script>
+<style>
+.ccn-note{font-family:var(--mono,monospace);font-size:11.5px;color:#6b7680;letter-spacing:.01em;margin:0 0 18px;line-height:1.5;}
+.ccn-note a{color:var(--brand-dark,#005a8e);}
+.ccn-banner{display:flex;align-items:flex-start;gap:10px;background:var(--brand-light,#e8f3fa);
+  border:1px solid var(--brand-mid,#cce4f0);border-radius:6px;padding:11px 15px;margin:0 0 14px;
+  font-size:13px;color:var(--brand-dark,#005a8e);line-height:1.5;}
+.ccn-doctable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:13.5px;}
+.ccn-doctable thead th{background:#1f6fb2;color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+.ccn-doctable thead th:nth-child(3),.ccn-doctable thead th:nth-child(4){white-space:nowrap;}
+.ccn-doctable td{border-bottom:1px solid var(--ds-line,#e2e7ec);padding:11px 12px;vertical-align:top;color:var(--ds-ink,#2b3340);}
+.ccn-doctable tr:nth-child(even) td{background:#f4f8fb;}
+.ccn-doc-a{color:var(--brand-dark,#005a8e);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.ccn-doc-a:hover{text-decoration:underline;}
+.ccn-doc-a .pdf{color:#c0392b;font-weight:700;}
+.ccn-anexos{list-style:none;margin:10px 0 0;padding:0;}
+.ccn-anexos li{position:relative;padding:4px 0 4px 16px;font-size:12.5px;color:#5a6675;}
+.ccn-anexos li:before{content:"\25AA";position:absolute;left:0;color:var(--brand,#0077B5);}
+.ccn-cat{font-size:12.5px;color:#5a6675;}
+.guia-oficial-btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand,#0077B5);color:#fff;
+  text-decoration:none;font-family:var(--mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:10px 20px;border-radius:13px;margin-top:6px;transition:background .15s;}
+.guia-oficial-btn:hover{background:var(--brand-dark,#005a8e);color:#fff;}
+.guia-map{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;}
+.guia-map th{background:var(--ds-navy,#14233b);color:#fff;text-align:left;padding:8px 10px;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono,monospace);}
+.guia-map td{border:1px solid var(--ds-line,#d3dae3);padding:8px 10px;vertical-align:top;}
+.guia-map tr:nth-child(even) td{background:#f4f8fb;}
+.guia-check{list-style:none;padding:0;margin:12px 0 0;}
+.guia-check li{position:relative;padding:7px 0 7px 28px;border-bottom:1px solid #eef2f6;font-size:14px;color:var(--ds-ink,#2b3340);}
+.guia-check li:before{content:"\2713";position:absolute;left:0;top:6px;width:18px;height:18px;line-height:18px;text-align:center;
+  background:var(--brand-light,#e8f3fa);color:var(--brand-dark,#005a8e);border-radius:4px;font-size:12px;font-weight:700;}
+.guia-ul{margin:12px 0 0;padding-left:20px;}
+.guia-ul li{margin:7px 0;font-size:14px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-pasos{list-style:none;counter-reset:p;margin:14px 0 0;padding:0;}
+.guia-pasos li{counter-increment:p;position:relative;padding:0 0 16px 44px;margin-bottom:14px;border-bottom:1px solid #eef2f6;}
+.guia-pasos li:last-child{border-bottom:none;}
+.guia-pasos li:before{content:counter(p);position:absolute;left:0;top:0;width:28px;height:28px;line-height:28px;text-align:center;
+  background:var(--brand,#0077B5);color:#fff;border-radius:50%;font-family:var(--mono,monospace);font-size:13px;font-weight:700;}
+.guia-pasos .pt{display:block;font-weight:700;color:var(--ds-navy,#14233b);font-size:14.5px;margin-bottom:3px;}
+.guia-pasos .pd{font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-concepts dt{font-weight:700;color:var(--brand-dark,#005a8e);font-size:14px;margin-top:12px;}
+.guia-concepts dd{margin:2px 0 0;font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-rel{list-style:none;margin:12px 0 0;padding:0;}
+.guia-rel li{padding:8px 0;border-bottom:1px solid #eef2f6;font-size:13.5px;color:var(--ds-ink,#2b3340);}
+.guia-rel .rn{display:inline-block;background:var(--ds-navy,#14233b);color:#fff;font-family:var(--mono,monospace);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px;}
+.guia-rel a{color:var(--brand-dark,#005a8e);font-weight:600;text-decoration:none;}
+</style>
+<link href="/css/dossier-guias.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="article-page">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html').then(r=>r.text()).then(d=>{document.getElementById('nav-placeholder').outerHTML=d;});
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: guía CCN-STIC</span>
+<span>referencia: <strong>CCN-STIC 802</strong></span>
+</div>
+<div class="header">
+<a class="art-back" href="/guias-ccn-cert/index.html">← Volver a Guías CCN-CERT</a>
+<div class="tag">CCN-STIC · Serie 800 · ENS</div>
+<h1 class="headline">CCN-STIC 802<br/><span class="accent">ENS. Guía de auditorías de cumplimiento</span></h1>
+<p class="subline">La guía que marca cómo te van a auditar. Léela antes de que lo hagan.</p>
+<div class="guide-editorial-meta">
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">♙</span>
+<strong>Miguel Ángel Carriazo</strong>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">▣</span>
+<span>18 junio 2026</span>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">◷</span>
+<span data-reading-time="">14 min de lectura</span>
+</div>
+</div></div>
+<div class="body">
+<div class="art-layout">
+<div class="art-main">
+<div class="guia-read-when">
+<span>LEE ESTA GUÍA CUANDO...</span>
+<h2>Necesites trabajar sobre auditoría ens dentro del ENS.</h2>
+<p>En vez de buscar una frase aislada, sigue el recorrido de la guía y relaciona cada conclusión con el sistema, el responsable y la evidencia que debería existir.</p>
+</div><div class="art-visual guia-roadmap">
+<div class="art-visual-kicker">CCN-STIC 802 · Auditoría ENS</div>
+<div class="art-visual-title">Dónde encaja esta guía en una revisión práctica</div>
+<svg aria-label="Mapa práctico de la guía CCN-STIC 802" role="img" viewbox="0 0 1160 240">
+<rect class="gg-svg-box" height="96" rx="2" width="220" x="70" y="68"></rect><text class="gg-svg-num" x="94" y="99">01</text><text class="gg-svg-label" x="94" y="132">Criterio</text><line class="gg-svg-line" x1="290" x2="335" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="326,111 336,116 326,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="335" y="68"></rect><text class="gg-svg-num" x="359" y="99">02</text><text class="gg-svg-label" x="359" y="132">Muestra</text><line class="gg-svg-line" x1="555" x2="600" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="591,111 601,116 591,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="600" y="68"></rect><text class="gg-svg-num" x="624" y="99">03</text><text class="gg-svg-label" x="624" y="132">Evidencia</text><line class="gg-svg-line" x1="820" x2="865" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="856,111 866,116 856,121"></polygon><rect class="gg-svg-box is-strong" height="96" rx="2" width="220" x="865" y="68"></rect><text class="gg-svg-num is-light" x="889" y="99">04</text><text class="gg-svg-label is-light" x="889" y="132">Conclusión</text>
+<rect class="gg-svg-band" height="28" rx="2" width="840" x="160" y="198"></rect>
+<text class="gg-svg-band-label" text-anchor="middle" x="580" y="217">PREGUNTA → CRITERIO → IMPLANTACIÓN → EVIDENCIA REVISABLE</text>
+</svg>
+<div class="art-visual-note">Utiliza la guía para orientar la revisión y contrasta siempre la versión vigente en el portal oficial del CCN-CERT.</div>
+</div><div class="block" id="s1">
+<div class="block-label">Qué es</div>
+<h2 class="block-title">Qué es y para qué vale</h2>
+<p class="block-text" style="margin-top:10px">La CCN-STIC 802 establece cómo se audita el ENS: las fases del proceso, la composición y la imparcialidad del equipo auditor, el alcance y los criterios. Su versión más reciente (actualizada en 2026) refuerza la diferenciación entre auditoría técnica y auditoría de cumplimiento, y armoniza su contenido con el resto de guías vigentes y con el RD 311/2022.</p>
+<p class="block-text" style="margin-top:10px">De toda la serie 800, es la guía que más te conviene leer antes de que te auditen. No porque vayas a auditarte tú mismo, sino porque define exactamente qué te van a pedir, en qué orden y con qué criterio. Llegar a una auditoría conociendo la 802 es la diferencia entre demostrar cumplimiento con orden y descubrir las brechas el mismo día de la visita.</p>
+<p class="block-text" style="margin-top:10px">El ENS es una norma jurídica certificable, lo que significa que para obtener la Certificación de Conformidad debe superarse una auditoría de certificación. La guía diferencia dos tipos de auditoría: las internas de verificación (para mejora continua) y las externas de Certificación de la Conformidad (para obtener el sello).</p>
+</div><div class="divider"></div><div class="block grc-guide-angle" id="s15">
+<div class="block-label">Mi lectura</div>
+<h2 class="block-title">Auditar no es leer políticas con un checklist al lado. Es sostener una conclusión con evidencia suficiente.</h2>
+<div class="block-text">La 802 me toca especialmente por mi forma de trabajar. Antes de auditor fui el que montaba y operaba muchos de los sistemas que luego se revisan. Y eso cambia cómo leo una evidencia. Una política puede estar impecable y el sistema seguir exponiendo exactamente el riesgo que la política dice controlar.<br/><br/>
+Una auditoría ENS necesita criterio, alcance, muestra y evidencia. La dificultad no está en encontrar un documento. Está en decidir si lo observado representa de forma razonable el control que se pretende evaluar. Una captura de configuración puede demostrar un estado puntual; un conjunto de registros puede demostrar operación; una entrevista aporta contexto, pero rara vez debería cerrar por sí sola una afirmación crítica.<br/><br/>
+<strong>Mi pregunta constante es: ¿qué conclusión puedo sostener con esto y qué parte estoy infiriendo?</strong> Ese límite separa una auditoría defendible de una colección de impresiones.</div>
+</div><div class="divider"></div><div class="art-visual grc-guide-techvisual">
+<div class="art-visual-kicker">CCN-STIC 802 · Criterio y muestra</div>
+<div class="art-visual-title">Cómo convertir observaciones en una conclusión defendible</div>
+<svg aria-label="Pirámide de evidencia de auditoría" role="img" viewbox="0 0 1160 430">
+<polygon class="gx-pyramid1" points="580,55 760,140 400,140"></polygon>
+<polygon class="gx-pyramid2" points="400,150 760,150 880,245 280,245"></polygon>
+<polygon class="gx-pyramid3" points="280,255 880,255 1010,360 150,360"></polygon>
+<text class="gx-title-light" text-anchor="middle" x="580" y="115">CONCLUSIÓN</text>
+<text class="gx-title" text-anchor="middle" x="580" y="205">CORROBORACIÓN</text>
+<text class="gx-title" text-anchor="middle" x="580" y="315">MUESTRAS · LOGS · TICKETS · CONFIGURACIÓN</text>
+<line class="gx-line" x1="580" x2="580" y1="365" y2="405"></line>
+<text class="gx-code" text-anchor="middle" x="580" y="423">CRITERIO + POBLACIÓN + PERIODO + EVIDENCIA</text>
+</svg>
+<div class="art-visual-note">Lectura técnica GRCREAL: una manera práctica de conectar la guía con arquitectura, operación y evidencia.</div>
+</div><div class="divider"></div><div class="block grc-guide-tech" id="s18">
+<div class="block-label">Explicación técnica</div>
+<h2 class="block-title">Qué me interesa técnicamente de esta guía</h2>
+<div class="block-text">Técnicamente, una auditoría ENS es un ejercicio de inferencia controlada. No compruebas todo; seleccionas una muestra y decides si esa evidencia permite concluir algo razonable sobre el diseño, la implantación o la operación del control. Por eso son críticos el criterio de evaluación, la definición de la población, el periodo revisado y la forma de corroborar la información.<br/><br/>
+Una entrevista puede explicar cómo funciona el control; una captura puede enseñar un estado; un ticket puede demostrar una ejecución; una serie de registros puede evidenciar continuidad. La dificultad consiste en no sobredimensionar ninguna fuente. Cuando una conclusión depende de una sola pieza débil, el hallazgo se vuelve frágil.<br/><br/>
+Mi lectura técnica de la 802 es muy simple: la calidad de la auditoría depende tanto de la muestra y de la trazabilidad como del conocimiento del marco. Saber la cláusula no basta si no sabes qué prueba realmente el material que te enseñan.<h3>Profundidad técnica de la muestra</h3>
+<p>Definiría población y periodo antes de pedir evidencias. Después combinaría muestras dirigidas —casos de alto riesgo— con muestras aleatorias. En controles automatizados, validaría configuración, fuente de datos y tratamiento de excepciones. En controles manuales, revisaría frecuencia, consistencia y capacidad de repetición.</p>
+<p>También separaría evidencia generada por el propio control de evidencia creada para demostrarlo. La primera suele ser más fuerte porque nace de la operación ordinaria.</p></div>
+</div><div class="divider"></div><div class="block grc-guide-error" id="s19">
+<div class="block-label">Error habitual</div>
+<h2 class="block-title">Dónde suele torcerse en proyectos reales</h2>
+<div class="grc-guide-alert">
+<span>DONDE SUELE TORCERSE</span>
+<div class="block-text">Redactar el hallazgo demasiado pronto. Es habitual identificar una condición sospechosa y convertirla en incumplimiento antes de comprobar si el criterio aplica exactamente, si existen controles compensatorios o si la evidencia observada era representativa.<br/><br/>
+El error contrario también existe: aceptar una narrativa coherente sin suficiente corroboración porque el entorno parece bien gestionado. En ambos casos se debilita la auditabilidad del resultado.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-example" id="s20">
+<div class="block-label">Ejemplo práctico</div>
+<h2 class="block-title">Cómo lo aterrizaría en un caso real</h2>
+<div class="grc-guide-example-box">
+<div class="grc-guide-example-mark">CASO</div>
+<div class="block-text">Supongamos que revisas registros de eventos. El administrador te muestra el SIEM con eventos de ayer y una política que exige retención de un año. Eso demuestra intención y evidencia puntual, pero no necesariamente retención efectiva ni revisión regular. Yo pediría además muestras históricas, un caso de búsqueda real, alertas asociadas y, si es posible, una evidencia independiente de que la fuente sigue enviando datos.<br/><br/>
+Ese salto —de la demostración preparada a la operación sostenida— es precisamente donde la auditoría gana valor.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-infra" id="s22">
+<div class="block-label">Ejemplo técnico de infraestructura</div>
+<h2 class="block-title">Auditar la gestión de parches sin quedarse en una captura de consola</h2>
+<div class="art-visual grc-infra-visual">
+<div class="art-visual-kicker">EJEMPLO TÉCNICO · INFRAESTRUCTURA</div>
+<div class="art-visual-title">Componentes implicados en el caso</div>
+<svg aria-label="Arquitectura técnica del ejemplo CCN-STIC 802" role="img" viewbox="0 0 1160 380">
+<rect class="gi-node" height="82" rx="2" width="190" x="110" y="90"></rect><text class="gi-label" text-anchor="middle" x="205" y="138">WSUS/SCCM</text><rect class="gi-node gi-node-strong" height="82" rx="2" width="190" x="350" y="90"></rect><text class="gi-label gi-label-light" text-anchor="middle" x="445" y="138">CMDB</text><rect class="gi-node" height="82" rx="2" width="190" x="590" y="90"></rect><text class="gi-label" text-anchor="middle" x="685" y="138">Scanner</text><rect class="gi-node" height="82" rx="2" width="190" x="830" y="90"></rect><text class="gi-label" text-anchor="middle" x="925" y="138">ITSM</text>
+<line class="gi-link" x1="300" x2="350" y1="131" y2="131"></line><line class="gi-link" x1="540" x2="590" y1="131" y2="131"></line><line class="gi-link" x1="780" x2="830" y1="131" y2="131"></line><line class="gi-link" x1="685" x2="565" y1="172" y2="265"></line>
+<rect class="gi-band" height="28" rx="2" width="780" x="190" y="330"></rect>
+<text class="gi-band-label" text-anchor="middle" x="580" y="349">SERVICIO → DEPENDENCIA → CONTROL → EVIDENCIA</text>
+</svg>
+</div>
+<div class="grc-infra-case">
+<div class="grc-infra-case-mark">INFRA</div>
+<div class="block-text">El responsable muestra una consola con un 96 % de cumplimiento. La cifra parece buena, pero no permite saber qué población se mide, qué sistemas están excluidos ni si los servidores más críticos forman parte del 4 % pendiente.<br/><br/>
+<strong>Arquitectura técnica:</strong> herramienta de parcheo, CMDB, gestión de vulnerabilidades y tickets de cambio.<br/>
+<strong>Muestra:</strong> servidores críticos, equipos fuera de dominio, excepciones y activos incorporados recientemente.<br/>
+<strong>Corroboración:</strong> comparar consola, versión real del sistema, inventario y tickets.<br/>
+<strong>Conclusión defendible:</strong> no “la herramienta marca 96 %”, sino qué cobertura existe, qué excepciones están justificadas y si el proceso corrige desviaciones dentro del plazo definido.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-question" id="s16">
+<div class="block-label">Pregunta incómoda</div>
+<h2 class="block-title">¿La evidencia demuestra el control o solo demuestra que alguien preparó la auditoría?</h2>
+<div class="grc-question-box">
+<span>NO RESPONDAS CON LA POLÍTICA</span>
+<div class="block-text">Cuando todas las evidencias tienen la misma fecha, todos los tickets se cierran la semana anterior y los procedimientos aparecen recién aprobados, no afirmo automáticamente que exista manipulación. Pero sí cambio la profundidad de la muestra.<br/><br/>
+Buscaría continuidad temporal, ejecución ordinaria y trazas que no nazcan para el auditor: logs, tickets, cambios, revisiones programadas, alertas, actas. La evidencia natural de operación suele contar más que una carpeta creada para la visita.</div>
+</div>
+<table class="grc-guide-evidence"><thead><tr><th>Ref.</th><th>Qué pediría</th><th>Qué necesito ver</th></tr></thead><tbody><tr><td>GR-01</td><td>Criterio</td><td>Requisito exacto contra el que se evalúa.</td></tr><tr><td>GR-02</td><td>Muestra</td><td>Población, selección y periodo revisado.</td></tr><tr><td>GR-03</td><td>Corroboración</td><td>Fuentes independientes que sostienen la misma conclusión.</td></tr><tr><td>GR-04</td><td>Hallazgo</td><td>Condición, criterio, evidencia e impacto claramente relacionados.</td></tr></tbody></table>
+</div><div class="divider"></div><div class="block grc-guide-approach" id="s17">
+<div class="block-label">Mi enfoque</div>
+<h2 class="block-title">Cómo la aterrizaría yo en un entorno real</h2>
+<div class="grc-approach-box">
+<div class="grc-approach-mark">GRCREAL</div>
+<div class="block-text">Intentaría comprender primero cómo debería funcionar el control en ese entorno concreto. Después pediría evidencia de diseño y evidencia de operación. Y siempre reservaría una parte de la muestra para seleccionar yo, no el auditado.<br/><br/>
+<strong>Auditar no es desconfiar de las personas. Es no obligar a una conclusión a depender de la confianza.</strong></div>
+</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s2">
+<div class="block-label">Contenido</div>
+<h2 class="block-title">Qué contiene la guía</h2>
+<ul class="guia-ul">
+<li>Las fases del proceso de auditoría: planificación, ejecución, hallazgos e informe.</li>
+<li>La distinción entre auditoría de cumplimiento (medidas y evidencias) y auditoría técnica (configuraciones, pruebas).</li>
+<li>Los requisitos de competencia e imparcialidad del equipo auditor.</li>
+<li>El tratamiento de hallazgos, no conformidades y planes de acción (PAC).</li>
+<li>El anexo sobre auditorías del Perfil de Cumplimiento Específico (CCN-STIC 890).</li>
+<li>Los tipos de auditoría: certificación (MEDIA/ALTA), autoevaluación (BÁSICA), y auditorías extraordinarias (por incremento de categoría o alcance).</li>
+<li>El alcance de la auditoría y cómo se determina en sistemas externalizados o interconectados.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s3">
+<div class="block-label">Conceptos</div>
+<h2 class="block-title">Conceptos clave que debes manejar</h2>
+<dl class="guia-concepts">
+<dt>Auditoría de cumplimiento</dt>
+<dd>Verifica que cada medida aplicable está implantada y soportada por evidencia. El auditor entrevista al auditado y solicita evidencias (documentos, accesos a aplicaciones, registros). No interactúa directamente con el sistema.</dd>
+<dt>Auditoría técnica</dt>
+<dd>Comprueba en el sistema real (configuraciones, pentest) que las medidas funcionan. El equipo auditor interactúa directamente con el sistema.</dd>
+<dt>Imparcialidad</dt>
+<dd>El auditor no puede auditar lo que él mismo ha implantado o asesorado. Debe haber transcurrido al menos dos años desde la última vinculación con el sistema auditado.</dd>
+<dt>No conformidad</dt>
+<dd>Incumplimiento de una medida exigible. Se divide en Mayor (afecta significativamente a la capacidad del sistema) y Menor (incumplimiento parcial o mejorable). Debe corregirse con un Plan de Acciones Correctivas (PAC).</dd>
+<dt>Auditoría combinada</dt>
+<dd>Auditoría conjunta de dos o más sistemas de gestión (ej. ENS + ISO 27001). Puede reducirse hasta un 35% la duración total.</dd>
+</dl>
+</div>
+<div class="divider"></div>
+<div class="block" id="s4">
+<div class="block-label">Alcance</div>
+<h2 class="block-title">A quién aplica y cuándo entra en juego</h2>
+<div class="block-text">Aplica a sistemas de categoría MEDIA y ALTA, obligados a auditoría al menos cada dos años. La categoría BÁSICA se basta con autoevaluación, pero conocer la 802 te prepara igualmente y te da criterio sobre qué evidencia generar. También aplica a sistemas que se acojan a un Perfil de Cumplimiento Específico, con particularidades en el proceso de auditoría (semiautomatizada a través del Portal de Gobernanza del CCN).</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s5">
+<div class="block-label">Implantación</div>
+<h2 class="block-title">Cómo lo implanta una empresa, paso a paso</h2>
+<ol class="guia-pasos">
+<li><span class="pt">Conoce las fases antes de empezar</span><span class="pd">Estudia las fases de la 802 y organiza tu evidencia siguiéndolas. Llegar con la documentación ordenada por fases acelera la auditoría.</span></li>
+<li><span class="pt">Separa evidencia técnica y de cumplimiento</span><span class="pd">Distingue desde el principio tu evidencia documental (políticas, actas, procedimientos) de la técnica (configuraciones, resultados de pruebas). El auditor las trata de forma distinta.</span></li>
+<li><span class="pt">Garantiza la imparcialidad</span><span class="pd">Si una consultora te ha implantado el ENS, no debería ser la que te audita. Planifica la independencia del auditor con antelación. La EC/OAT debe demostrar una eficaz gestión de riesgos respecto a la imparcialidad.</span></li>
+<li><span class="pt">Prepara el tratamiento de hallazgos</span><span class="pd">Ten preparado cómo gestionarás no conformidades: responsable, plan de acción y plazo. Un hallazgo con plan creíble pesa mucho menos que uno sin respuesta. El PAC debe presentarse en el plazo máximo de un mes.</span></li>
+<li><span class="pt">Autoevalúate antes (con la 808)</span><span class="pd">Apóyate en la CCN-STIC 808 para autoverificar el cumplimiento medida a medida antes de la auditoría externa. La guía 808 es la base de lo que el auditor considera evidencia válida.</span></li>
+</ol>
+</div>
+<div class="divider"></div>
+<div class="block" id="s6">
+<div class="block-label">Auditoría</div>
+<h2 class="block-title">Para qué sirve en una auditoría</h2>
+<ul class="guia-ul">
+<li>Es, literalmente, la guía de cómo te van a auditar: define qué te piden y en qué orden.</li>
+<li>Aclara la composición e imparcialidad exigidas al equipo auditor. El Auditor Jefe debe tener formación en auditorías de sistemas de información y experiencia verificable de al menos 20 jornadas en los últimos 4 años.</li>
+<li>Marca la diferencia entre un hallazgo técnico y una no conformidad de cumplimiento.</li>
+<li>Establece cómo se documentan los hallazgos y los planes de acción (PAC).</li>
+<li>Permite preparar la auditoría sin sorpresas si la lees antes.</li>
+<li>Define los tiempos mínimos de auditoría en función de la categoría del sistema (con posibilidad de reducción hasta un 20% por factores como renovación de certificación).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s7">
+<div class="block-label">Serie 800</div>
+<h2 class="block-title">Relación con otras guías de la serie</h2>
+<ul class="guia-rel">
+<li><span class="rn">CCN-STIC 808</span><a href="/guias-ccn-cert/ccn-stic-808.html">808</a> — Es la guía de verificación que usas para autoevaluarte antes de la auditoría. Proporciona las evidencias que el auditor te pedirá.</li>
+<li><span class="rn">CCN-STIC 804</span><a href="/guias-ccn-cert/ccn-stic-804.html">804</a> — La auditoría contrasta lo implantado según la guía de implantación.</li>
+<li><span class="rn">CCN-STIC 809</span><a href="/guias-ccn-cert/ccn-stic-809.html">809</a> — El resultado de la auditoría habilita la certificación de conformidad.</li>
+<li><span class="rn">CCN-STIC 803</span><a href="/guias-ccn-cert/ccn-stic-803.html">803</a> — La categoría del sistema determina la profundidad de la auditoría.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s8">
+<div class="block-label">Mapeo</div>
+<h2 class="block-title">Equivalencia con otros marcos</h2>
+<div class="block-text">Cómo se conecta esta guía con los marcos que probablemente ya manejas:</div>
+<table class="guia-map">
+<tr><th>Aspecto en el ENS</th><th>ISO 27001</th><th>NIS2 / DORA</th></tr>
+<tr><td>Auditoría bienal MEDIA/ALTA</td><td>ISO 27001: auditoría interna (9.2) y certificación</td><td>NIS2: auditorías y supervisión de la autoridad competente</td></tr>
+<tr><td>Imparcialidad del auditor</td><td>ISO 19011 / ISO 17021</td><td>DORA: pruebas por terceros independientes</td></tr>
+<tr><td>Tratamiento de no conformidades</td><td>ISO 27001: no conformidad y acción correctiva (10.2)</td><td>DORA: remediación de deficiencias</td></tr>
+<tr><td>Auditoría combinada (ENS + ISO 27001)</td><td>ISO 19011: auditoría de sistemas de gestión</td><td>NIS2: enfoque integrado de cumplimiento</td></tr>
+<tr><td>Plan de Acciones Correctivas (PAC)</td><td>ISO 27001: planes de acción (10.1)</td><td>DORA: planes de remediación</td></tr>
+</table>
+</div>
+<div class="divider"></div>
+<div class="block" id="s9">
+<div class="block-label">Sin humo</div>
+<h2 class="block-title">Errores típicos</h2>
+<ul class="guia-ul">
+<li>Confundir la auditoría ENS con una auditoría ISO 27001: enfoque y evidencias difieren.</li>
+<li>Que audite quien implantó el sistema (rompe la imparcialidad). La EC/OAT no puede certificar a una organización si en los dos años anteriores le prestó servicios de consultoría.</li>
+<li>Llegar sin separar evidencia técnica de evidencia documental.</li>
+<li>No tener preparado el tratamiento de hallazgos.</li>
+<li>No conocer los tiempos mínimos de auditoría y planificar mal los recursos.</li>
+<li>Presentar un PAC fuera de plazo (1 mes desde el informe de auditoría).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s10">
+<div class="block-label">Checklist</div>
+<h2 class="block-title">Checklist práctico</h2>
+<ul class="guia-check">
+<li>Conoces las fases de auditoría de la 802.</li>
+<li>Tu evidencia técnica y de cumplimiento están separadas.</li>
+<li>El auditor es imparcial respecto a la implantación.</li>
+<li>Sistemas MEDIA/ALTA tienen prevista la auditoría bienal.</li>
+<li>Existe un proceso para tratar no conformidades (PAC).</li>
+<li>Se ha hecho autoverificación previa con la 808.</li>
+<li>Conoces los tiempos mínimos de auditoría para tu categoría.</li>
+<li>Los miembros del equipo auditor han firmado cláusulas de confidencialidad y ausencia de conflicto de interés.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s11">
+<div class="block-label">Ficha</div>
+<h2 class="block-title">Ficha y enlace oficial</h2>
+<div class="block-text">Esta es una lectura práctica de GRCreal, no la guía oficial. Consulta siempre la versión vigente en el portal del CCN-CERT, ya que estas guías se actualizan periódicamente (esta ficha: publicada Jun 2010, actualizada Abr 2026).</div>
+<a class="guia-oficial-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/502-ccn-stic-802-auditoria-del-ens/file.html" rel="noopener noreferrer" target="_blank">⬇ CCN-STIC 802 en el portal CCN-CERT</a>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Perfil de Cumplimiento Específico (PCE) -->
+<div class="block" id="s12">
+<div class="block-label">PCE</div>
+<h2 class="block-title">Auditorías del Perfil de Cumplimiento Específico (PCE)</h2>
+<p class="block-text" style="margin-top:10px">La guía incluye un anexo independiente que desarrolla el proceso de auditoría para sistemas que se acojan al Perfil de Cumplimiento Específico de Requisitos Fundamentales de Seguridad (RFS) recogido en la CCN-STIC 890.</p>
+<ul class="guia-ul">
+<li><strong>Justificación</strong>: En virtud del principio de proporcionalidad, los PCE permiten una adaptación más eficiente al ENS, racionalizando recursos sin menoscabo de la protección.</li>
+<li><strong>Particularidades</strong>: La auditoría se realiza a través del Portal de Gobernanza del CCN, con roles diferenciados para la aportación de evidencias y la auditoría externa.</li>
+<li><strong>Agilidad</strong>: El proceso está semiautomatizado, lo que reduce el tiempo de auditoría. El tiempo mínimo no será inferior a media jornada.</li>
+<li><strong>Fases</strong>: Designación del equipo auditor, estudio de documentación (integrado en la auditoría material), plan de auditoría (generado automáticamente), realización de la auditoría material (sobre evidencias del Portal), informe de auditoría (generado automáticamente), PAC y decisión de certificación.</li>
+<li><strong>No hay reunión de cierre</strong>: Al no contemplarse interacción directa entre auditado y auditor, no se recoge el concepto de reunión de cierre.</li>
+<li><strong>Auditoría extraordinaria</strong>: Ante un dictamen desfavorable, la entidad dispone de seis meses para someterse a una auditoría extraordinaria sobre los hallazgos de no conformidad.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Tiempos de auditoría -->
+<div class="block" id="s13">
+<div class="block-label">Tiempos</div>
+<h2 class="block-title">Tiempos de auditoría y factores de ajuste</h2>
+<p class="block-text" style="margin-top:10px">La guía establece criterios claros para determinar los tiempos necesarios para realizar las auditorías de cumplimiento.</p>
+<ul class="guia-ul">
+<li><strong>Tiempos mínimos</strong>: Se establecen en la guía CCN-CERT IC-01/19 en función de la categoría del sistema.</li>
+<li><strong>Factores de incremento/decremento</strong>: El número de jornadas puede ajustarse hasta un 20% atendiendo a factores como complejidad del sistema, número de sedes, externalizaciones, etc.</li>
+<li><strong>Auditoría combinada</strong>: Cuando se audita ENS + ISO 27001 simultáneamente, la duración puede ser hasta un 35% inferior a la suma de ambas por separado.</li>
+<li><strong>Muestreo de CPDs</strong>: Se audita la raíz cuadrada del número total de CPDs (redondeado al alza). En renovaciones, se aplica un factor reductor del 20%.</li>
+<li><strong>Auditorías en remoto</strong>: La guía contempla la posibilidad de auditorías remotas, con especial atención a la captura de evidencias y la autorización previa.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Hallazgos y clasificación -->
+<div class="block" id="s14">
+<div class="block-label">Hallazgos</div>
+<h2 class="block-title">Clasificación de hallazgos de auditoría</h2>
+<p class="block-text" style="margin-top:10px">La guía clasifica los hallazgos de auditoría en tres categorías principales:</p>
+<ul class="guia-ul">
+<li><strong>Desviaciones (No Conformidades)</strong>:
+        <ul>
+<li><strong>No Conformidad Menor</strong>: Incumplimiento parcial de un artículo o medida. No afecta significativamente a la capacidad del sistema.</li>
+<li><strong>No Conformidad Mayor</strong>: Fallos o ausencias significativas en artículos esenciales del ENS (valoración, roles, Política de Seguridad, etc.). Afecta significativamente a la capacidad del sistema.</li>
+<li>Las NC menores pueden agruparse si están referidas a una misma medida o grupo de medidas.</li>
+</ul>
+</li>
+<li><strong>Recomendaciones</strong>:
+        <ul>
+<li><strong>Observación</strong>: Debilidad que, sin comprometer actualmente el sistema, podría derivar en una no conformidad.</li>
+<li><strong>Oportunidad de Mejora</strong>: Sugerencia subjetiva del auditor basada en mejores prácticas.</li>
+</ul>
+</li>
+<li><strong>Puntos Fuertes</strong>: Aspectos que sobresalen por su eficacia y eficiencia. Su función es incentivar la mejora continua.</li>
+<li><strong>Dictámenes</strong>: FAVORABLE, FAVORABLE CON NO CONFORMIDADES, o DESFAVORABLE.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="divider"></div><div class="block grc-guide-official" id="s21"><div class="block-label">Ficha y enlace oficial</div><h2 class="block-title">Contrasta esta lectura con la publicación del CCN-CERT</h2><div class="grc-guide-official-lead">La guía oficial sigue mandando. Aquí queda la ficha documental y el acceso directo a la fuente para cerrar la lectura con el contraste adecuado.</div><div class="ccn-banner">ℹ️ <span><strong>Resumen práctico de GRCreal.</strong> Consulta siempre la versión oficial vigente en el portal del CCN-CERT.</span></div><p class="ccn-note">Resumen realizado a fecha 29/06/2026 con la información disponible en <a href="https://www.ccn-cert.cni.es/es/guias.html" rel="noopener noreferrer" target="_blank">https://www.ccn-cert.cni.es/es/guias.html</a>. Las fechas de publicación y actualización proceden del portal oficial.</p><table class="ccn-doctable"><thead><tr><th>Documento</th><th>Categoría</th><th>Publicado</th><th>Actualizado</th></tr></thead><tbody><tr><td><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/502-ccn-stic-802-auditoria-del-ens/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> CCN-STIC-802 ENS. Guía de auditorías de cumplimiento</a><ul class="ccn-anexos"><li><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/7449-ccn-stic-802-anexo-independiente-auditorias-del-perfil-de-cumplimiento-especifico-de-requisitos-fundamentales-de-seguridad-ccn-stic-890/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> Anexo independiente: Auditorías del Perfil de Cumplimiento Específico (CCN-STIC 890)</a></li></ul></td><td class="ccn-cat">800 Guías Esquema Nacional de Seguridad</td><td>Jun 2010</td><td>Abr 2026</td></tr></tbody></table><p class="grc-guide-official-actions">
+<a class="grc-guide-official-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/502-ccn-stic-802-auditoria-del-ens/file.html" rel="noopener noreferrer" target="_blank">Abrir documento oficial del CCN-CERT</a>
+</p></div></div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">Qué es y para qué vale</a><a data-toc="" href="#s15">Mi lectura</a><a data-toc="" href="#s18">Explicación técnica</a><a data-toc="" href="#s19">Error habitual</a><a data-toc="" href="#s20">Ejemplo práctico</a><a data-toc="" href="#s22">Ejemplo técnico de infraestructura</a><a data-toc="" href="#s16">Pregunta incómoda</a><a data-toc="" href="#s17">Mi enfoque</a>
+<a data-toc="" href="#s2">Qué contiene la guía</a>
+<a data-toc="" href="#s3">Conceptos clave</a>
+<a data-toc="" href="#s4">A quién aplica</a>
+<a data-toc="" href="#s5">Cómo se implanta, paso a paso</a>
+<a data-toc="" href="#s6">Para qué sirve en auditoría</a>
+<a data-toc="" href="#s7">Relación con otras guías</a>
+<a data-toc="" href="#s8">Mapeo a otros marcos</a>
+<a data-toc="" href="#s9">Errores típicos</a>
+<a data-toc="" href="#s10">Checklist práctico</a>
+<a data-toc="" href="#s11">Ficha y enlace oficial</a>
+<a data-toc="" href="#s12">Auditorías del Perfil de Cumplimiento Específico</a>
+<a data-toc="" href="#s13">Tiempos de auditoría</a>
+<a data-toc="" href="#s14">Clasificación de hallazgos</a>
+</nav>
+</aside>
+</div><!-- /art-layout -->
+</div><!-- /body -->
+<div class="art-related">
+<div class="art-related-label">Sigue en la serie 800</div>
+<div class="art-related-title">Otras guías CCN-STIC</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-801.html"><span class="art-related-pill">CCN-STIC 801</span><h3>ENS. Responsabilidades y Funciones</h3><p>Quién responde de qué. Sin esto, el ENS no tiene dueño.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-803.html"><span class="art-related-pill">CCN-STIC 803</span><h3>ENS. Valoración de los sistemas</h3><p>Aquí se decide todo: lo que valores marca las medidas que te tocan.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html').then(r=>r.text()).then(d=>{document.getElementById('footer-placeholder').innerHTML=d;});
+    var tl=Array.from(document.querySelectorAll('#artTocNav a'));
+    var ss=tl.map(a=>document.querySelector(a.getAttribute('href')));
+    if('IntersectionObserver' in window){
+      var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id='#'+en.target.id;tl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-20% 0px -70% 0px'});
+      ss.forEach(function(s){if(s)ob.observe(s);});
+    }
+</script>
+</div>
+</div>
+<script defer="True" src="/js/article-zoom.js"></script></body>
+<script src="/js/global.js"></script>
+</html>

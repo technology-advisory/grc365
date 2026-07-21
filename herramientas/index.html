@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>Herramientas · GRCreal</title>
+<meta content="Herramientas GRC de GRCreal: BIA, análisis de riesgos, plan de tratamiento, matriz de dependencias y gestión de proveedores. Sin registro, sin almacenamiento." name="description"/>
+<meta content="Herramientas · GRCreal" property="og:title"/>
+<meta content="Herramientas GRC de GRCreal: BIA, análisis de riesgos, plan de tratamiento, matriz de dependencias y gestión de proveedores. Sin registro, sin almacenamiento." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grcreal.com/herramientas/" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/herramientas/" rel="canonical"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-herramientas.css" rel="stylesheet"/>
+<link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body>
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: herramientas</span>
+<span>estado: <strong>6 herramientas activas</strong></span>
+</div>
+<!-- HERO genérico dossier -->
+<div class="header" style="position:relative;">
+<div class="tag">Herramientas · Decisión · Evidencia</div>
+<h1 class="headline">No automatices <span class="accent">el criterio.</span><br/><span class="dim">Automatiza el trabajo repetible.</span></h1>
+<p class="subline">Seis utilidades locales para ordenar riesgos, continuidad, dependencias, proveedores y regulación.<br/><strong>Sin registro. Sin envío de datos. Con método y limitaciones visibles.</strong></p>
+</div>
+<div class="body">
+<!-- FEATURES -->
+<section class="ht-overview">
+<div class="ht-overview-copy">
+<span class="ht-kicker">CÓMO UTILIZARLAS</span>
+<h2>El resultado útil no es el PDF. Es la conversación que obliga a tener.</h2>
+<p>Estas herramientas ayudan a estructurar datos y encontrar inconsistencias. Antes de conservar una salida como evidencia, valida las escalas, el alcance y las decisiones con los responsables correspondientes.</p>
+</div>
+<div class="ht-flow">
+<div><b>01</b><span>Introduce hechos</span><p>No marques por intuición cuando puedas comprobar.</p></div>
+<div><b>02</b><span>Revisa alertas</span><p>Una inconsistencia es una pregunta, no una sentencia.</p></div>
+<div><b>03</b><span>Valida decisiones</span><p>Negocio, tecnología, riesgo y cumplimiento.</p></div>
+<div class="is-strong"><b>04</b><span>Exporta evidencia</span><p>Con propietario, fecha, alcance y revisión.</p></div>
+</div>
+</section><div class="block">
+<div class="block-label">Principios de diseño</div>
+<div class="hr-features" id="hrFeatures"></div>
+</div>
+<!-- NOTA DEL AUTOR (banda oscura, full-bleed) -->
+<div class="hr-nota" id="hrNota"></div>
+<!-- CATÁLOGO -->
+<div class="block">
+<div class="block-label">6 herramientas operativas</div>
+<div class="hr-tools" id="hrTools"><div class="hr-loading">Cargando herramientas…</div></div>
+</div>
+</div><!-- /body -->
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+<script>
+        fetch('/includes/footer-no-share.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</div><!-- /card -->
+</div><!-- /card-wrapper -->
+<script defer="" src="../js/herramientas.js"></script>
+</body>
+</html>

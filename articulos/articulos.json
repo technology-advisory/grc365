@@ -7,7 +7,8 @@
     "date": "26 Abril 2026",
     "desc": "Certificado no es sinónimo de protegido.",
     "url": "grc/cumplir-no-es-estar-preparado.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "date": "24 Abril 2026",
     "desc": "Dirección de seguridad sin CISO a jornada completa.",
     "url": "vciso/vciso-que-es.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "date": "24 Abril 2026",
     "desc": "El error que sigue costando millones.",
     "url": "tecnico/backup-no-es-recuperacion.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 4,
@@ -37,7 +40,8 @@
     "date": "24 Abril 2026",
     "desc": "No falla la tecnología. Falla el gobierno.",
     "url": "grc/el-fallo-es-de-gobierno.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 5,
@@ -47,7 +51,8 @@
     "date": "24 Abril 2026",
     "desc": "El ENS es más exigente de lo que parece.",
     "url": "ens/auditoria-ens.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 6,
@@ -57,7 +62,8 @@
     "date": "23 Abril 2026",
     "desc": "La IA ya está. La gobernanza no.",
     "url": "ai/aiact.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 7,
@@ -67,7 +73,8 @@
     "date": "24 Abril 2026",
     "desc": "Dos realidades, mismo problema.",
     "url": "vciso/vciso-dos-realidades.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 8,
@@ -77,7 +84,8 @@
     "date": "24 Abril 2026",
     "desc": "El documento más importante… ignorado.",
     "url": "grc/analisis-de-riesgos-util.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 9,
@@ -87,7 +95,8 @@
     "date": "24 Abril 2026",
     "desc": "Muchas empresas no saben que les aplica.",
     "url": "nis2/nis2-quien-aplica.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 10,
@@ -97,7 +106,8 @@
     "date": "24 Abril 2026",
     "desc": "VLANs no es seguridad.",
     "url": "tecnico/segmentacion-red-real.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 11,
@@ -107,7 +117,8 @@
     "date": "24 Abril 2026",
     "desc": "Quien controla el AD controla todo.",
     "url": "tecnico/active-directory-seguridad.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 12,
@@ -117,7 +128,8 @@
     "date": "24 Abril 2026",
     "desc": "No es cloud. No es producto. Es modelo.",
     "url": "tecnico/zero-trust-on-prem.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 13,
@@ -127,7 +139,8 @@
     "date": "21 Abril 2026",
     "desc": "En la mayoría, son estimaciones. No mediciones.",
     "url": "iso22301/rto-rpo-realidad.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 14,
@@ -137,7 +150,8 @@
     "date": "24 Abril 2026",
     "desc": "No es un problema técnico. Es estructural.",
     "url": "grc/it-no-es-responsable-seguridad.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 15,
@@ -147,7 +161,8 @@
     "date": "24 Abril 2026",
     "desc": "El consejo no necesita firewalls.",
     "url": "vciso/ciberseguridad-consejo-administracion.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 16,
@@ -157,7 +172,8 @@
     "date": "24 Abril 2026",
     "desc": "Diseñar seguridad desde el inicio cambia todo.",
     "url": "tecnico/security-by-design.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 17,
@@ -167,7 +183,8 @@
     "date": "25 Abril 2026",
     "desc": "Las primeras horas son críticas.",
     "url": "tecnico/el-incidente-ocurrio.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 18,
@@ -177,7 +194,8 @@
     "date": "25 Abril 2026",
     "desc": "Todo lo que te van a pedir y por qué importa.",
     "url": "iso22301/auditoria-continuidad-que-revisa.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 19,
@@ -187,7 +205,8 @@
     "date": "25 Abril 2026",
     "desc": "La IA ya está en tu organización.",
     "url": "iso42001/iso42001-gestion-ia.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 20,
@@ -197,7 +216,8 @@
     "date": "26 Abril 2026",
     "desc": "Es el documento central del SGSI.",
     "url": "grc/iso27001-declaracion-aplicabilidad.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 21,
@@ -207,7 +227,8 @@
     "date": "27 Abril 2026",
     "desc": "Muchas organizaciones llegan a la auditoría sin saber qué va a pasar.",
     "url": "iso27001/iso27001-auditoria-stage1-stage2.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 22,
@@ -217,7 +238,8 @@
     "date": "26 Abril 2026",
     "desc": "El SGSI debe mantenerse vivo cada día.",
     "url": "iso27001/iso27001-mantenimiento-sgsi.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 23,
@@ -227,7 +249,8 @@
     "date": "26 Abril 2026",
     "desc": "Son complementarios, no equivalentes.",
     "url": "iso42001/iso42001-ai-act-diferencias.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 24,
@@ -237,7 +260,8 @@
     "date": "27 Abril 2026",
     "desc": "Antes de gobernar la IA, hay que saber qué IA se usa.",
     "url": "iso42001/iso42001-inventario-sistemas-ia.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 25,
@@ -247,7 +271,8 @@
     "date": "27 Abril 2026",
     "desc": "Los sistemas de IA pueden discriminar sin que nadie lo haya diseñado así.",
     "url": "iso42001/iso42001-sesgos-ia-empresas.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 26,
@@ -257,7 +282,8 @@
     "date": "27 Abril 2026",
     "desc": "Comparten filosofía pero tienen diferencias importantes.",
     "url": "grc/ens-vs-iso27001-diferencias.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 27,
@@ -267,7 +293,8 @@
     "date": "27 Abril 2026",
     "desc": "Siempre son las mismas.",
     "url": "ens/ens-medidas-seguridad-criticas.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 28,
@@ -277,7 +304,8 @@
     "date": "27 Abril 2026",
     "desc": "El ENS no es solo para la Administración Pública.",
     "url": "ens/ens-proveedores-privados.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 29,
@@ -287,7 +315,8 @@
     "date": "27 Abril 2026",
     "desc": "Sin el proceso preparado, es imposible cumplir el plazo.",
     "url": "nis2/nis2-notificacion-incidentes.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 30,
@@ -297,7 +326,8 @@
     "date": "28 Abril 2026",
     "desc": "No es si te atacan. Es si puedes seguir operando.",
     "url": "tecnico/ransomware-defensa-real.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 31,
@@ -307,7 +337,8 @@
     "date": "5 Mayo 2026",
     "desc": "Los ataques han cambiado. Tus controles no.",
     "url": "tecnico/phishing-2026.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 32,
@@ -317,7 +348,8 @@
     "date": "5 Mayo 2026",
     "desc": "Lo que el regulador realmente revisa.",
     "url": "grc/rgpd-en-la-practica.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 33,
@@ -327,7 +359,8 @@
     "date": "7 Mayo 2026",
     "desc": "Riesgos psicosociales y ISO 45003:2021.",
     "url": "iso45003/iso-45003-riesgos-psicosociales.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 34,
@@ -337,7 +370,8 @@
     "date": "12 Mayo 2026",
     "desc": "Nadie habla de lo que pasa con los datos cuando pulsas 'enviar'.",
     "url": "ia/ia-despachos-profesionales-rgpd-vciso.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 35,
@@ -347,7 +381,8 @@
     "date": "13 Mayo 2026",
     "desc": "La continuidad empieza arriba.",
     "url": "grc/sgcn-comite-direccion.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 36,
@@ -357,7 +392,8 @@
     "date": "13 Mayo 2026",
     "desc": "Donde se ve la madurez real.",
     "url": "grc/auditoria-interna-seguridad.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 37,
@@ -367,17 +403,19 @@
     "date": "13 Mayo 2026",
     "desc": "Delegar no te protege.",
     "url": "grc/CEO_y_compliance.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 38,
     "cat": "compliance",
     "meta": "Compliance · Código de Conducta",
     "title": "El código de conducta que firmas sin leer no sirve",
-    "date": "23 Abril 2025",
+    "date": "21 Julio 2026",
     "desc": "50 páginas que nadie recuerda. El compliance de papel no previene nada.",
     "url": "compliance/codigo_conducta.html",
-    "published": false
+    "published": true,
+    "nuevo": true
   },
   {
     "id": 39,
@@ -387,7 +425,8 @@
     "date": "25 Mayo 2026",
     "desc": "Cumplir la ley no es solo evitar multas.",
     "url": "compliance/Compliance_para_principiantes.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 40,
@@ -397,7 +436,8 @@
     "date": "18 Mayo 2026",
     "desc": "Pequeño no significa invisible.",
     "url": "compliance/Compliance_para_PYMEs.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 41,
@@ -408,7 +448,7 @@
     "desc": "Los cascos y las señales ya no son suficientes.",
     "url": "compliance/LPRL_compliance.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 42,
@@ -418,7 +458,8 @@
     "date": "18 Mayo 2026",
     "desc": "El borrado seguro es obligatorio en el ENS.",
     "url": "ens/borrado-seguro-ens.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 43,
@@ -428,7 +469,8 @@
     "date": "25 Mayo 2026",
     "desc": "El ENS tiene tres categorías con obligaciones muy distintas.",
     "url": "ens/niveles-ens.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 44,
@@ -438,7 +480,8 @@
     "date": "9 Diciembre 9999",
     "desc": "Análisis detallado del artículo 1 del Reglamento Europeo de IA.",
     "url": "ai/aiact_art1.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 45,
@@ -448,7 +491,8 @@
     "date": "9 Diciembre 9999",
     "desc": "Análisis detallado del artículo 2 del Reglamento Europeo de IA.",
     "url": "ai/aiact_art2.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 46,
@@ -458,7 +502,8 @@
     "date": "9 Diciembre 9999",
     "desc": "Análisis detallado del artículo 3 del Reglamento Europeo de IA.",
     "url": "ai/aiact_art3.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 47,
@@ -468,7 +513,8 @@
     "date": "9 Diciembre 9999",
     "desc": "Análisis detallado del artículo 4 del Reglamento Europeo de IA.",
     "url": "ai/aiact_art4.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 48,
@@ -478,7 +524,8 @@
     "date": "9 Diciembre 9999",
     "desc": "Análisis detallado del artículo 5 del Reglamento Europeo de IA.",
     "url": "ai/aiact_art5.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 49,
@@ -488,7 +535,8 @@
     "date": "18 Mayo 2026",
     "desc": "Las pymes también tienen obligaciones de seguridad.",
     "url": "grc/grc-pymes-sin-expertos.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 50,
@@ -498,7 +546,8 @@
     "date": "23 Abril 2025",
     "desc": "En IT sabemos improvisar muy bien.",
     "url": "grc/plan-continuidad-o-chapuza.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 51,
@@ -508,17 +557,19 @@
     "date": "23 Abril 2025",
     "desc": "La continuidad no es un módulo opcional del cumplimiento.",
     "url": "grc/disaster-recovery-nis2-ens-iso27001.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 52,
     "cat": "grc",
     "meta": "Continuidad · Resiliencia",
     "title": "El plan de continuidad que nadie ha probado",
-    "date": "23 Abril 2025",
+    "date": "21 Julio 2026",
     "desc": "Tener un BCP y tener un BCP que funciona son dos cosas distintas.",
     "url": "grc/plan-continuidad-probado.html",
-    "published": false
+    "published": true,
+    "nuevo": true
   },
   {
     "id": 53,
@@ -528,17 +579,19 @@
     "date": "25 Mayo 2026",
     "desc": "Muchas organizaciones tienen un plan de continuidad hecho internamente.",
     "url": "iso22301/iso22301-vs-bcp-casero.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 54,
     "cat": "grc",
     "meta": "ISO 27001 · Cumplimiento",
     "title": "ISO 27001: lo que nadie te explica antes de empezar",
-    "date": "23 Abril 2025",
+    "date": "21 Julio 2026",
     "desc": "El certificado no es el objetivo. El control es el objetivo.",
     "url": "grc/iso27001-lo-que-nadie-te-explica.html",
-    "published": false
+    "published": true,
+    "nuevo": true
   },
   {
     "id": 55,
@@ -549,7 +602,7 @@
     "desc": "Cuando usas una herramienta de IA, ¿sabes dónde se procesan tus datos?",
     "url": "grc/datos-ia-ubicacion-tratamiento.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 56,
@@ -560,7 +613,7 @@
     "desc": "No basta con decir que tenéis medidas de seguridad.",
     "url": "nis2/nis2-medidas-tecnicas-articulo21.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 57,
@@ -570,7 +623,8 @@
     "date": "25 Mayo 2026",
     "desc": "No todas las entidades sujetas a NIS2 tienen las mismas obligaciones.",
     "url": "nis2/nis2-entidades-esenciales-importantes.html",
-    "published": true
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 58,
@@ -581,7 +635,7 @@
     "desc": "Ir a la nube no significa que el proveedor se encarga de la seguridad.",
     "url": "tecnico/cloud-seguridad-responsabilidad-compartida.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 59,
@@ -592,17 +646,18 @@
     "desc": "El conocimiento crítico vive en la cabeza de una o dos personas.",
     "url": "tecnico/documentacion-tecnica-infraestructura.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 60,
     "cat": "tecnico",
     "meta": "Identidad · IAM",
     "title": "Gestión de identidades: el control que más se descuida",
-    "date": "23 Abril 2025",
+    "date": "21 Julio 2026",
     "desc": "La identidad es el nuevo perímetro.",
     "url": "tecnico/gestion-identidades.html",
-    "published": false
+    "published": true,
+    "nuevo": true
   },
   {
     "id": 61,
@@ -612,7 +667,8 @@
     "date": "23 Abril 2025",
     "desc": "Tener GPOs aplicadas no significa tener hardening real.",
     "url": "tecnico/hardening-windows-gpo.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 62,
@@ -622,7 +678,8 @@
     "date": "9 Diciembre 9999",
     "desc": "",
     "url": "grc/dpo-delegado-proteccion-datos.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 63,
@@ -633,7 +690,7 @@
     "desc": "Tienes 20 minutos en el orden del día. Lo que digas determinará el presupuesto del año.",
     "url": "vciso/vciso-ante-el-consejo.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 64,
@@ -643,7 +700,8 @@
     "date": "11 Junio 2026",
     "desc": "Contratar el título no resuelve nada si no se define qué debe hacer y con qué autoridad.",
     "url": "vciso/vciso-funcion-no-cargo.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 65,
@@ -653,7 +711,8 @@
     "date": "11 Junio 2026",
     "desc": "La cadena de suministro es el vector de ataque que más ha crecido.",
     "url": "grc/gestion-proveedores-criticos.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 66,
@@ -663,17 +722,19 @@
     "date": "11 Junio 2026",
     "desc": "Actividad no es lo mismo que efectividad.",
     "url": "grc/metricas-seguridad-reales.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 67,
     "cat": "ai",
     "meta": "EU AI Act · Alto Riesgo · Compliance",
     "title": "AI Act: sistemas de alto riesgo — qué son y qué implican realmente",
-    "date": "11 Junio 2026",
+    "date": "14 Julio 2026",
     "desc": "Los sistemas de alto riesgo tienen requisitos que muchas empresas ignoran.",
     "url": "ai/aiact-sistemas-alto-riesgo.html",
-    "published": false
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 68,
@@ -684,7 +745,7 @@
     "desc": "Hay usos de la IA directamente prohibidos. Sanciones de hasta 35 millones de euros.",
     "url": "ai/aiact-prohibiciones.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 69,
@@ -695,7 +756,7 @@
     "desc": "Los LLMs inventan con total confianza. Hay empresas tomando decisiones sobre esas invenciones.",
     "url": "ia/ia-alucinaciones-empresas.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 70,
@@ -705,7 +766,8 @@
     "date": "11 Junio 2026",
     "desc": "Tus empleados ya la usan. Con datos de la empresa. Sin política ninguna.",
     "url": "ia/ia-sombra-empresas.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 71,
@@ -715,7 +777,8 @@
     "date": "11 Junio 2026",
     "desc": "El 80% de los ataques exitosos explotan vulnerabilidades con parche disponible.",
     "url": "tecnico/gestion-parches-realidad.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 72,
@@ -725,7 +788,8 @@
     "date": "11 Junio 2026",
     "desc": "El atacante ya está dentro. La pregunta es cuánto puede moverse.",
     "url": "tecnico/microsegmentacion-zero-trust.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 73,
@@ -735,7 +799,8 @@
     "date": "11 Junio 2026",
     "desc": "El ENS no pide que tengas un plan. Pide que ese plan funcione.",
     "url": "ens/ens-continuidad-negocio.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 74,
@@ -746,7 +811,7 @@
     "desc": "Improvisar durante un incidente activo sale siempre más caro.",
     "url": "ens/ens-gestion-incidentes.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 75,
@@ -757,7 +822,7 @@
     "desc": "No es una reunión. Es un proceso con entradas, salidas y evidencias documentadas.",
     "url": "iso27001/iso27001-revision-por-direccion.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 76,
@@ -767,7 +832,8 @@
     "date": "11 Junio 2026",
     "desc": "La decisión de qué hacer con el riesgo debe tomarla la dirección, con criterio y documentado.",
     "url": "iso27001/iso27001-tratamiento-riesgos.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 77,
@@ -777,7 +843,8 @@
     "date": "11 Junio 2026",
     "desc": "ISO 22301 no solo exige tener un plan. Exige que el plan haya sido probado.",
     "url": "iso22301/iso22301-ejercicios-prueba.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 78,
@@ -788,7 +855,7 @@
     "desc": "Cuando hay fuego, no es el momento de decidir quién tiene la manguera.",
     "url": "iso22301/iso22301-sgcn-roles.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 79,
@@ -798,7 +865,8 @@
     "date": "11 Junio 2026",
     "desc": "Sin política de IA, cada decisión sobre sistemas de IA es ad hoc.",
     "url": "iso42001/iso42001-politica-ia.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 80,
@@ -809,7 +877,7 @@
     "desc": "ISO 42001 exige evaluar el impacto de los sistemas de IA antes de ponerlos en marcha.",
     "url": "iso42001/iso42001-evaluacion-impacto-ia.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 81,
@@ -819,7 +887,8 @@
     "date": "11 Junio 2026",
     "desc": "El CEO y el consejo no pueden decir que de eso se ocupa IT.",
     "url": "nis2/nis2-responsabilidad-organo-gestion.html",
-    "published": false
+    "published": false,
+    "nuevo": false
   },
   {
     "id": 82,
@@ -830,17 +899,18 @@
     "desc": "NIS2 obliga a extender los requisitos de seguridad a la cadena de suministro.",
     "url": "nis2/nis2-cadena-suministro.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 83,
     "cat": "iso45003",
     "meta": "ISO 45003 · Teletrabajo · Riesgos Psicosociales",
     "title": "Teletrabajo y riesgos psicosociales: el entorno que no se ve también es responsabilidad de la empresa",
-    "date": "11 Junio 2026",
+    "date": "21 Julio 2026",
     "desc": "La obligación de prevención psicosocial no desaparece porque el empleado trabaje desde casa.",
     "url": "iso45003/iso45003-trabajo-remoto-riesgos.html",
-    "published": false
+    "published": true,
+    "nuevo": true
   },
   {
     "id": 84,
@@ -851,17 +921,18 @@
     "desc": "ISO 45003 obliga a gestionarlo como lo que es: un riesgo del entorno de trabajo.",
     "url": "iso45003/iso45003-burnout-prevencion.html",
     "published": true,
-    "badge": "Nuevo"
+    "nuevo": false
   },
   {
     "id": 85,
     "cat": "compliance",
     "meta": "Compliance · Canal de Denuncias · Ley 2/2023",
     "title": "El canal de denuncias que nadie usa no protege a nadie",
-    "date": "11 Junio 2026",
+    "date": "14 Julio 2026",
     "desc": "Ley 2/2023 obliga a tenerlo. Pero tenerlo no es lo mismo que que funcione.",
     "url": "compliance/canal-denuncias-real.html",
-    "published": false
+    "published": true,
+    "nuevo": false
   },
   {
     "id": 86,
@@ -871,6 +942,62 @@
     "date": "11 Junio 2026",
     "desc": "El Código Penal no tiene filtro por tamaño. La única defensa es tener un modelo de compliance que funcione.",
     "url": "compliance/compliance-penal-pyme.html",
-    "published": false
+    "published": false,
+    "nuevo": false
+  },
+  {
+    "id": 87,
+    "cat": "dora",
+    "meta": "DORA · Alcance",
+    "title": "DORA: qué exige y a quién aplica de verdad",
+    "date": "15 Julio 2026",
+    "desc": "Resiliencia digital obligatoria para el sector financiero: alcance, pilares y punto de partida.",
+    "url": "dora/dora-que-exige-quien-aplica.html",
+    "published": true,
+    "nuevo": true
+  },
+  {
+    "id": 88,
+    "cat": "dora",
+    "meta": "DORA · Gobierno TIC",
+    "title": "DORA y el órgano de dirección: el riesgo TIC ya no se puede delegar",
+    "date": "15 Julio 2026",
+    "desc": "La dirección debe definir, aprobar y supervisar el marco de riesgo TIC.",
+    "url": "dora/dora-organo-direccion-riesgo-tic.html",
+    "published": true,
+    "nuevo": true
+  },
+  {
+    "id": 89,
+    "cat": "dora",
+    "meta": "DORA · Terceros TIC",
+    "title": "Registro de Información DORA: el inventario que expone tus dependencias TIC",
+    "date": "15 Julio 2026",
+    "desc": "Contratos, funciones críticas, proveedores y subcontratación en un registro estructurado.",
+    "url": "dora/dora-registro-informacion-terceros-tic.html",
+    "published": true,
+    "nuevo": true
+  },
+  {
+    "id": 90,
+    "cat": "dora",
+    "meta": "DORA · Incidentes",
+    "title": "Incidentes TIC en DORA: clasificar tarde ya es llegar tarde",
+    "date": "15 Julio 2026",
+    "desc": "Clasificación, notificación inicial, informe intermedio y cierre bajo DORA.",
+    "url": "dora/dora-incidentes-tic-clasificacion-notificacion.html",
+    "published": true,
+    "nuevo": true
+  },
+  {
+    "id": 91,
+    "cat": "dora",
+    "meta": "DORA · Pruebas",
+    "title": "Pruebas de resiliencia y TLPT: DORA quiere evidencia en producción",
+    "date": "15 Julio 2026",
+    "desc": "Del programa de pruebas a los ejercicios avanzados guiados por amenazas.",
+    "url": "dora/dora-pruebas-resiliencia-tlpt.html",
+    "published": true,
+    "nuevo": true
   }
 ]

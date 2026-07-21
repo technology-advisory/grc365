@@ -1,57 +1,251 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
 <title>Novedades · GRCreal</title>
-<meta name="description" content="Últimas novedades, guías, webinars y recursos de GRCreal.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://grcreal.com/novedades/">
-<meta property="og:title" content="Novedades · GRCreal">
-<meta property="og:description" content="Todo el contenido nuevo y actualizaciones.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://grcreal.com/novedades/">
-<meta property="og:image" content="https://grcreal.com/grcreal.png">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="../css/marca.css">
-<link rel="stylesheet" href="../css/global.css">
-<link rel="stylesheet" href="../css/novedades.css">
-</head>
-
+<meta content="Últimas novedades, guías, webinars y recursos de GRCreal." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/novedades/" rel="canonical"/>
+<meta content="Novedades · GRCreal" property="og:title"/>
+<meta content="Todo el contenido nuevo y actualizaciones." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grcreal.com/novedades/" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
+<!-- CSS -->
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/articles.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-articulo.css" rel="stylesheet"/>
+<style>
+/* ===== Novedades: mismo estilo que artículos ===== */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 28px 0 20px;
+}
+.article-card {
+  background: #fff;
+  border: 1px solid var(--border-soft, #eae7e2);
+  border-radius: 16px;
+  padding: 20px 22px 18px;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.article-card:hover {
+  border-color: var(--brand, #0077B5);
+  box-shadow: 0 8px 28px rgba(0,119,181,0.08);
+  transform: translateY(-3px);
+}
+.article-card .art-tag {
+  font-family: var(--mono, monospace);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brand, #0077B5);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.article-card .art-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ds-navy, #14233b);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.article-card .art-desc {
+  font-size: 14px;
+  color: #5a6675;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 14px;
+}
+.article-card .art-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  color: #8a949d;
+  border-top: 1px solid var(--border-soft, #eae7e2);
+  padding-top: 14px;
+}
+.article-card .art-meta .art-badge {
+  background: var(--brand-light, #e8f3fa);
+  color: var(--brand-dark, #005a8e);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.article-card .art-arrow {
+  margin-left: auto;
+  color: var(--brand, #0077B5);
+}
+.article-card .art-cta {
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--brand, #0077B5);
+}
+.article-card--static {
+  cursor: default;
+}
+.article-card--static:hover {
+  border-color: var(--border-soft, #eae7e2);
+  box-shadow: none;
+  transform: none;
+}
+.nota-destacada {
+  margin: 30px 0 16px;
+  padding: 24px 28px;
+  background: var(--brand-light, #e8f3fa);
+  border-left: 4px solid var(--brand, #0077B5);
+  border-radius: 8px;
+}
+.nota-destacada p {
+  font-size: 15px;
+  color: var(--ds-ink, #2b3340);
+  line-height: 1.7;
+  margin: 0;
+}
+.nota-destacada strong {
+  color: var(--brand-dark, #005a8e);
+}
+.nota-linkedin {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  color: var(--brand, #0077B5);
+  transition: color .15s ease, transform .15s ease;
+}
+.nota-linkedin:hover {
+  color: var(--brand-dark, #005a8e);
+  transform: translateY(-1px);
+}
+@media (max-width: 640px) {
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+<link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
 <body>
-
-<div class="card-wrapper">
+<div class="card-wrapper ds-page">
 <div class="card">
-  <div class="accent-bar"></div>
-
-  <!-- CABECERA -->
-  <div class="header">
-    <div class="tag">📢 Novedades</div>
-    <h1 class="headline">
-      Lo último en<br>
-      <span class="accent">GRCreal</span>
-    </h1>
-    <p class="subline">
-      Guías, webinars, checklists y contenido nuevo. Todo lo que necesitas para mantenerte al día.
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: novedades</span>
+<span>actualizado: <strong>junio 2026</strong></span>
+</div>
+<div class="header">
+<a class="art-back" href="/index.html">← Volver a inicio</a>
+<div class="tag">📢 Novedades</div>
+<h1 class="headline">
+    Lo último en<br/>
+<span class="accent">GRCreal</span>
+</h1>
+<p class="subline">
+    Guías, webinars, checklists y contenido nuevo. Todo lo que necesitas para mantenerte al día.
+  </p>
+</div>
+<div class="body">
+<!-- CONTENEDOR DE NOVEDADES (se llena con JS) -->
+<div id="novedades-container">
+<div class="articles-grid" id="novedades-grid"></div>
+</div>
+<!-- NOTA DESTACADA -->
+<div class="nota-destacada">
+<p>
+<strong>Mejora continua.</strong> GRCreal se actualiza de forma constante con nuevo
+      contenido, herramientas y recursos sobre Seguridad, Riesgo y Cumplimiento. Sigue las
+      últimas incorporaciones también en
+      <a aria-label="LinkedIn de GRCreal" class="nota-linkedin" href="https://www.linkedin.com/in/macarriazo/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="currentColor" height="18" viewbox="0 0 24 24" width="18"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"></path></svg>
+</a>.
     </p>
-  </div>
-
-  <!-- CONTENEDOR DE NOVEDADES (se llena con JS) -->
-  <div id="novedades-container" class="body"></div>
-
-  <!-- FOOTER -->
-  <div id="footer-placeholder"></div>
-
 </div>
 </div>
-
-<a href="../index.html" class="home-btn">⌂ Home</a>
-
+<div id="footer-placeholder"></div>
+</div>
+</div>
 <script src="/js/global.js"></script>
-<script src="/js/novedades.js"></script>
+<script>
+  // Cargar footer
+  fetch('/includes/footer-no-share.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error cargando el footer:', error));
 
+  // ===== Cargar novedades desde JSON =====
+  fetch('/data/novedades.json')
+    .then(response => {
+      if (!response.ok) throw new Error('No se pudo cargar novedades.json');
+      return response.json();
+    })
+    .then(data => {
+      const grid = document.getElementById('novedades-grid');
+      if (!grid) return;
+
+      if (!data.items || data.items.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column:1/-1; text-align:center; padding:40px 0; color:#6b7680; font-size:15px;">
+            No hay novedades disponibles en este momento.<br>
+            Vuelve pronto.
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = data.items.map(item => {
+        const tieneEnlace = item.enlace && item.enlace !== '';
+        const cta = item.enlace_texto || 'Ver más';
+        const inner = `
+          <div class="art-tag">${item.fecha || 'Novedad'}</div>
+          <div class="art-title">${item.titulo}</div>
+          <div class="art-desc">${item.descripcion}</div>
+          ${tieneEnlace ? `
+          <div class="art-meta">
+            <span class="art-cta">${cta}</span>
+            <span class="art-arrow">→</span>
+          </div>` : ''}
+        `;
+        return tieneEnlace
+          ? `<a href="${item.enlace}" class="article-card">${inner}</a>`
+          : `<div class="article-card article-card--static">${inner}</div>`;
+      }).join('');
+    })
+    .catch(error => {
+      console.error('Error cargando novedades:', error);
+      const grid = document.getElementById('novedades-grid');
+      if (grid) {
+        grid.innerHTML = `
+          <div style="grid-column:1/-1; text-align:center; padding:40px 0; color:#c0392b; font-size:15px;">
+            Error al cargar las novedades. Inténtalo de nuevo más tarde.
+          </div>
+        `;
+      }
+    });
+</script>
 </body>
 </html>

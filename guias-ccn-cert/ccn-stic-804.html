@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>CCN-STIC 804 — ENS. Medidas de implantación · GRCreal</title>
+<meta content="Guía técnica GRCREAL de la CCN-STIC 804: lectura práctica, explicación técnica, errores habituales, ejemplo real, evidencias y ficha oficial al final." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/guias-ccn-cert/ccn-stic-804.html" rel="canonical"/>
+<meta content="CCN-STIC 804 — ENS. Medidas de implantación" property="og:title"/>
+<meta content="CCN-STIC 804: lectura técnica GRCREAL, aplicación real, error habitual, ejemplo práctico, evidencias y acceso a la fuente oficial al final." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/guias-ccn-cert/ccn-stic-804.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/articles.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-articulo.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CCN-STIC 804 — ENS. Medidas de implantación","description":"CCN-STIC 804 (ENS. Medidas de implantación): qué es, qué contiene, cómo implantarla, su uso en auditoría, mapeo a ISO 27001/NIS2/DORA y checklist. Resumen práctico de GRCreal con enlace oficial.","image":"https://grcreal.com/grcreal.png","author":{"@type":"Person","name":"Miguel Ángel Carriazo","url":"https://grcreal.com/sobre-mi/"},"publisher":{"@type":"Organization","name":"GRCreal","logo":{"@type":"ImageObject","url":"https://grcreal.com/favicon-32x32.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://grcreal.com/guias-ccn-cert/ccn-stic-804.html"}}</script>
+<style>
+.ccn-note{font-family:var(--mono,monospace);font-size:11.5px;color:#6b7680;letter-spacing:.01em;margin:0 0 18px;line-height:1.5;}
+.ccn-note a{color:var(--brand-dark,#005a8e);}
+.ccn-banner{display:flex;align-items:flex-start;gap:10px;background:var(--brand-light,#e8f3fa);
+  border:1px solid var(--brand-mid,#cce4f0);border-radius:6px;padding:11px 15px;margin:0 0 14px;
+  font-size:13px;color:var(--brand-dark,#005a8e);line-height:1.5;}
+.ccn-doctable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:13.5px;}
+.ccn-doctable thead th{background:#1f6fb2;color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+.ccn-doctable thead th:nth-child(3),.ccn-doctable thead th:nth-child(4){white-space:nowrap;}
+.ccn-doctable td{border-bottom:1px solid var(--ds-line,#e2e7ec);padding:11px 12px;vertical-align:top;color:var(--ds-ink,#2b3340);}
+.ccn-doctable tr:nth-child(even) td{background:#f4f8fb;}
+.ccn-doc-a{color:var(--brand-dark,#005a8e);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.ccn-doc-a:hover{text-decoration:underline;}
+.ccn-doc-a .pdf{color:#c0392b;font-weight:700;}
+.ccn-anexos{list-style:none;margin:10px 0 0;padding:0;}
+.ccn-anexos li{position:relative;padding:4px 0 4px 16px;font-size:12.5px;color:#5a6675;}
+.ccn-anexos li:before{content:"\25AA";position:absolute;left:0;color:var(--brand,#0077B5);}
+.ccn-cat{font-size:12.5px;color:#5a6675;}
+.guia-oficial-btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand,#0077B5);color:#fff;
+  text-decoration:none;font-family:var(--mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:10px 20px;border-radius:13px;margin-top:6px;transition:background .15s;}
+.guia-oficial-btn:hover{background:var(--brand-dark,#005a8e);color:#fff;}
+.guia-map{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;}
+.guia-map th{background:var(--ds-navy,#14233b);color:#fff;text-align:left;padding:8px 10px;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono,monospace);}
+.guia-map td{border:1px solid var(--ds-line,#d3dae3);padding:8px 10px;vertical-align:top;}
+.guia-map tr:nth-child(even) td{background:#f4f8fb;}
+.guia-check{list-style:none;padding:0;margin:12px 0 0;}
+.guia-check li{position:relative;padding:7px 0 7px 28px;border-bottom:1px solid #eef2f6;font-size:14px;color:var(--ds-ink,#2b3340);}
+.guia-check li:before{content:"\2713";position:absolute;left:0;top:6px;width:18px;height:18px;line-height:18px;text-align:center;
+  background:var(--brand-light,#e8f3fa);color:var(--brand-dark,#005a8e);border-radius:4px;font-size:12px;font-weight:700;}
+.guia-ul{margin:12px 0 0;padding-left:20px;}
+.guia-ul li{margin:7px 0;font-size:14px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-pasos{list-style:none;counter-reset:p;margin:14px 0 0;padding:0;}
+.guia-pasos li{counter-increment:p;position:relative;padding:0 0 16px 44px;margin-bottom:14px;border-bottom:1px solid #eef2f6;}
+.guia-pasos li:last-child{border-bottom:none;}
+.guia-pasos li:before{content:counter(p);position:absolute;left:0;top:0;width:28px;height:28px;line-height:28px;text-align:center;
+  background:var(--brand,#0077B5);color:#fff;border-radius:50%;font-family:var(--mono,monospace);font-size:13px;font-weight:700;}
+.guia-pasos .pt{display:block;font-weight:700;color:var(--ds-navy,#14233b);font-size:14.5px;margin-bottom:3px;}
+.guia-pasos .pd{font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-concepts dt{font-weight:700;color:var(--brand-dark,#005a8e);font-size:14px;margin-top:12px;}
+.guia-concepts dd{margin:2px 0 0;font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-rel{list-style:none;margin:12px 0 0;padding:0;}
+.guia-rel li{padding:8px 0;border-bottom:1px solid #eef2f6;font-size:13.5px;color:var(--ds-ink,#2b3340);}
+.guia-rel .rn{display:inline-block;background:var(--ds-navy,#14233b);color:#fff;font-family:var(--mono,monospace);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px;}
+.guia-rel a{color:var(--brand-dark,#005a8e);font-weight:600;text-decoration:none;}
+</style>
+<link href="/css/dossier-guias.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="article-page">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html').then(r=>r.text()).then(d=>{document.getElementById('nav-placeholder').outerHTML=d;});
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: guía CCN-STIC</span>
+<span>referencia: <strong>CCN-STIC 804</strong></span>
+</div>
+<div class="header">
+<a class="art-back" href="/guias-ccn-cert/index.html">← Volver a Guías CCN-CERT</a>
+<div class="tag">CCN-STIC · Serie 800 · ENS</div>
+<h1 class="headline">CCN-STIC 804<br/><span class="accent">ENS. Medidas de implantación</span></h1>
+<p class="subline">El cómo. Traduce los principios del ENS en medidas reales.</p>
+<div class="guide-editorial-meta">
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">♙</span>
+<strong>Miguel Ángel Carriazo</strong>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">▣</span>
+<span>18 junio 2026</span>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">◷</span>
+<span data-reading-time="">13 min de lectura</span>
+</div>
+</div></div>
+<div class="body">
+<div class="art-layout">
+<div class="art-main">
+<div class="guia-read-when">
+<span>LEE ESTA GUÍA CUANDO...</span>
+<h2>Necesites trabajar sobre implantación de medidas dentro del ENS.</h2>
+<p>En vez de buscar una frase aislada, sigue el recorrido de la guía y relaciona cada conclusión con el sistema, el responsable y la evidencia que debería existir.</p>
+</div><div class="art-visual guia-roadmap">
+<div class="art-visual-kicker">CCN-STIC 804 · Implantación de medidas</div>
+<div class="art-visual-title">Dónde encaja esta guía en una revisión práctica</div>
+<svg aria-label="Mapa práctico de la guía CCN-STIC 804" role="img" viewbox="0 0 1160 240">
+<rect class="gg-svg-box" height="96" rx="2" width="220" x="70" y="68"></rect><text class="gg-svg-num" x="94" y="99">01</text><text class="gg-svg-label" x="94" y="132">Medida</text><line class="gg-svg-line" x1="290" x2="335" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="326,111 336,116 326,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="335" y="68"></rect><text class="gg-svg-num" x="359" y="99">02</text><text class="gg-svg-label" x="359" y="132">Alcance</text><line class="gg-svg-line" x1="555" x2="600" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="591,111 601,116 591,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="600" y="68"></rect><text class="gg-svg-num" x="624" y="99">03</text><text class="gg-svg-label" x="624" y="132">Implantación</text><line class="gg-svg-line" x1="820" x2="865" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="856,111 866,116 856,121"></polygon><rect class="gg-svg-box is-strong" height="96" rx="2" width="220" x="865" y="68"></rect><text class="gg-svg-num is-light" x="889" y="99">04</text><text class="gg-svg-label is-light" x="889" y="132">Prueba</text>
+<rect class="gg-svg-band" height="28" rx="2" width="840" x="160" y="198"></rect>
+<text class="gg-svg-band-label" text-anchor="middle" x="580" y="217">PREGUNTA → CRITERIO → IMPLANTACIÓN → EVIDENCIA REVISABLE</text>
+</svg>
+<div class="art-visual-note">Utiliza la guía para orientar la revisión y contrasta siempre la versión vigente en el portal oficial del CCN-CERT.</div>
+</div><div class="block" id="s1">
+<div class="block-label">Qué es</div>
+<h2 class="block-title">Qué es y para qué vale</h2>
+<p class="block-text" style="margin-top:10px">La CCN-STIC 804 orienta sobre cómo implantar los principios básicos y los requisitos mínimos del ENS, y cómo desplegar las medidas de seguridad en función de la categoría del sistema. Es el puente entre «qué exige el ENS» y «qué configuro, documento y opero» en la práctica.</p>
+<p class="block-text" style="margin-top:10px">El ENS organiza sus medidas en tres marcos: el organizativo (políticas, normativa, procedimientos, roles), el operacional (planificación, control de acceso, explotación, monitorización, continuidad) y el de protección (instalaciones, personal, equipos, comunicaciones, soportes, aplicaciones, información y servicios). La 804 te ayuda a no dejarte ninguna medida aplicable y a abordarlas en un orden sensato.</p>
+<p class="block-text" style="margin-top:10px">La guía emplea un modelo de niveles de madurez (L0 a L5) para caracterizar la implementación de cada medida. El nivel mínimo exigido depende de la categoría del sistema: BÁSICA exige L2 (Reproducible), MEDIA exige L3 (Proceso definido) y ALTA exige L4 (Gestionado y medible).</p>
+</div><div class="divider"></div><div class="block grc-guide-angle" id="s15">
+<div class="block-label">Mi lectura</div>
+<h2 class="block-title">La medida no está implantada porque figure en una matriz. Está implantada cuando el sistema se comporta como debería.</h2>
+<div class="block-text">La 804 es donde el ENS deja de ser una conversación de cumplimiento y entra en infraestructura, configuración, operación y evidencia. Aquí me siento especialmente cómodo porque muchas medidas solo se entienden bien cuando bajas a cómo está construido el entorno.<br/><br/>
+Una organización puede tener una medida marcada como implantada porque existe una herramienta. EDR comprado, backup contratado, MFA disponible, SIEM desplegado. Yo separaría inmediatamente capacidad adquirida de control operativo. ¿Qué cobertura tiene? ¿Qué exclusiones existen? ¿Quién revisa? ¿Qué ocurre cuando falla? ¿Cómo se detecta una desviación?<br/><br/>
+<strong>Una licencia no es una medida. Un producto tampoco. La medida es el comportamiento de control que consigues mantener.</strong></div>
+</div><div class="divider"></div><div class="art-visual grc-guide-techvisual">
+<div class="art-visual-kicker">CCN-STIC 804 · Controles en operación</div>
+<div class="art-visual-title">De la medida declarada al control realmente operativo</div>
+<svg aria-label="Capas de implantación de controles" role="img" viewbox="0 0 1160 430">
+<rect class="gx-layer1" height="70" width="920" x="120" y="60"></rect>
+<text class="gx-title" x="150" y="103">DISEÑO · arquitectura · configuración · propietario</text>
+<rect class="gx-layer2" height="70" width="820" x="170" y="145"></rect>
+<text class="gx-title" x="200" y="188">COBERTURA · población · exclusiones · dependencias</text>
+<rect class="gx-layer3" height="70" width="720" x="220" y="230"></rect>
+<text class="gx-title-light" x="250" y="273">OPERACIÓN · alertas · revisiones · degradación</text>
+<rect class="gx-layer4" height="70" width="620" x="270" y="315"></rect>
+<text class="gx-title-light" x="300" y="358">EFICACIA · prueba · resultado · mejora</text>
+</svg>
+<div class="art-visual-note">Lectura técnica GRCREAL: una manera práctica de conectar la guía con arquitectura, operación y evidencia.</div>
+</div><div class="divider"></div><div class="block grc-guide-tech" id="s18">
+<div class="block-label">Explicación técnica</div>
+<h2 class="block-title">Qué me interesa técnicamente de esta guía</h2>
+<div class="block-text">La 804 baja el ENS a arquitectura y operación. Aquí una medida deja de ser una afirmación documental y se convierte en un conjunto de decisiones sobre alcance, configuración, cobertura, dependencias y seguimiento. Implantar autenticación fuerte, copias, segregación, protección de endpoint o registro de actividad no consiste en activar una función; consiste en mantener un comportamiento de control verificable.<br/><br/>
+Yo suelo separar cuatro capas: diseño del control, población cubierta, monitorización de la salud del propio control y evidencia de eficacia. Esa separación ayuda mucho a detectar falsas sensaciones de cumplimiento. Un EDR puede estar correctamente diseñado pero con exclusiones excesivas; un backup puede ejecutarse pero no restaurarse; una red puede estar segmentada en el diagrama y abierta por excepciones acumuladas.<br/><br/>
+El valor técnico de esta guía está en obligarte a preguntar cómo vive la medida en el sistema real, no en el PowerPoint del proyecto.<h3>Qué evidencia técnica pediría</h3>
+<p>Baselines, configuración exportada, población cubierta, agentes activos, excepciones, dashboards de salud, fallos recientes, tickets de corrección y pruebas de eficacia. En copias, además de jobs exitosos, restauraciones verificadas. En MFA, cobertura real y cuentas excluidas. En logs, fuentes activas, retención y alertas sobre pérdida de ingesta.</p>
+<p>La evidencia debería permitir reconstruir no solo que el control existe, sino que se mantiene y que la organización detecta su degradación.</p></div>
+</div><div class="divider"></div><div class="block grc-guide-error" id="s19">
+<div class="block-label">Error habitual</div>
+<h2 class="block-title">Dónde suele torcerse en proyectos reales</h2>
+<div class="grc-guide-alert">
+<span>DONDE SUELE TORCERSE</span>
+<div class="block-text">Reducir la implantación a presencia de producto o a existencia de configuración inicial. Este error aparece mucho cuando la organización quiere demostrar madurez rápidamente: compra herramienta, define política, genera una captura y da la medida por cerrada.<br/><br/>
+Sin una revisión posterior de cobertura, excepciones, alertas y respuesta a fallos, el control puede existir solo nominalmente.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-example" id="s20">
+<div class="block-label">Ejemplo práctico</div>
+<h2 class="block-title">Cómo lo aterrizaría en un caso real</h2>
+<div class="grc-guide-example-box">
+<div class="grc-guide-example-mark">CASO</div>
+<div class="block-text">Supón que una medida exige registro y correlación. El SIEM está desplegado, pero un subconjunto de servidores no envía eventos desde hace semanas por un cambio de certificado. La medida sigue “implantada” en documentación, pero el comportamiento esperado está degradado. Técnicamente, eso debería verse en la monitorización del propio control y en los indicadores de cobertura.<br/><br/>
+Mi prueba favorita aquí es pedir un caso real: enséñame cómo sabes que el control funciona y cómo te enterarías si deja de funcionar.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-infra" id="s22">
+<div class="block-label">Ejemplo técnico de infraestructura</div>
+<h2 class="block-title">EDR desplegado, pero con servidores fuera de política y alertas sin revisar</h2>
+<div class="art-visual grc-infra-visual">
+<div class="art-visual-kicker">EJEMPLO TÉCNICO · INFRAESTRUCTURA</div>
+<div class="art-visual-title">Componentes implicados en el caso</div>
+<svg aria-label="Arquitectura técnica del ejemplo CCN-STIC 804" role="img" viewbox="0 0 1160 380">
+<rect class="gi-node" height="82" rx="2" width="190" x="110" y="90"></rect><text class="gi-label" text-anchor="middle" x="205" y="138">EDR</text><rect class="gi-node gi-node-strong" height="82" rx="2" width="190" x="350" y="90"></rect><text class="gi-label gi-label-light" text-anchor="middle" x="445" y="138">SIEM</text><rect class="gi-node" height="82" rx="2" width="190" x="590" y="90"></rect><text class="gi-label" text-anchor="middle" x="685" y="138">CMDB</text><rect class="gi-node" height="82" rx="2" width="190" x="830" y="90"></rect><text class="gi-label" text-anchor="middle" x="925" y="138">Proxy</text>
+<line class="gi-link" x1="300" x2="350" y1="131" y2="131"></line><line class="gi-link" x1="540" x2="590" y1="131" y2="131"></line><line class="gi-link" x1="780" x2="830" y1="131" y2="131"></line><line class="gi-link" x1="685" x2="565" y1="172" y2="265"></line>
+<rect class="gi-band" height="28" rx="2" width="780" x="190" y="330"></rect>
+<text class="gi-band-label" text-anchor="middle" x="580" y="349">SERVICIO → DEPENDENCIA → CONTROL → EVIDENCIA</text>
+</svg>
+</div>
+<div class="grc-infra-case">
+<div class="grc-infra-case-mark">INFRA</div>
+<div class="block-text">La organización declara implantada la protección frente a código dañino porque dispone de EDR. Al revisar cobertura aparecen servidores sin agente, exclusiones permanentes y dispositivos que dejaron de reportar hace semanas.<br/><br/>
+<strong>Arquitectura técnica:</strong> consola EDR, agentes, proxy de comunicación, SIEM e inventario de activos.<br/>
+<strong>Fallo:</strong> se verificó la compra y el despliegue inicial, no la operación continua.<br/>
+<strong>Evidencia necesaria:</strong> cobertura por población, agentes inactivos, exclusiones, alertas tratadas y tiempo de corrección.<br/>
+<strong>Prueba de eficacia:</strong> simulación controlada o validación de detección sobre un conjunto representativo.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-question" id="s16">
+<div class="block-label">Pregunta incómoda</div>
+<h2 class="block-title">Si el control deja de funcionar mañana, ¿cómo y cuándo te enteras?</h2>
+<div class="grc-question-box">
+<span>NO RESPONDAS CON LA POLÍTICA</span>
+<div class="block-text">Esta pregunta cambia muchas revisiones. Un backup puede ejecutar durante meses sin restaurarse. Un agente EDR puede quedar fuera de política. Una regla de firewall puede degradarse con excepciones. El control necesita monitorización de su propia salud.<br/><br/>
+Cuando nadie puede explicar cómo se detecta el fallo del control, considero que la implantación todavía depende demasiado de la ausencia de problemas visibles.</div>
+</div>
+<table class="grc-guide-evidence"><thead><tr><th>Ref.</th><th>Qué pediría</th><th>Qué necesito ver</th></tr></thead><tbody><tr><td>GR-01</td><td>Diseño técnico</td><td>Arquitectura, configuración y alcance del control.</td></tr><tr><td>GR-02</td><td>Cobertura</td><td>Población protegida, exclusiones y justificación.</td></tr><tr><td>GR-03</td><td>Operación</td><td>Registros de revisión, alertas y acciones ante desviaciones.</td></tr><tr><td>GR-04</td><td>Eficacia</td><td>Pruebas o indicadores que muestran que el control consigue su objetivo.</td></tr></tbody></table>
+</div><div class="divider"></div><div class="block grc-guide-approach" id="s17">
+<div class="block-label">Mi enfoque</div>
+<h2 class="block-title">Cómo la aterrizaría yo en un entorno real</h2>
+<div class="grc-approach-box">
+<div class="grc-approach-mark">GRCREAL</div>
+<div class="block-text">Elegiría medidas críticas y seguiría cada una desde el requisito hasta el sistema. Por ejemplo: autenticación, copias, registro, segregación o protección frente a código dañino. Revisaría alcance, configuración, excepciones y monitorización.<br/><br/>
+<strong>Mi lectura del ENS empieza a ser interesante justo donde deja de bastar una política y alguien tiene que enseñarme el sistema.</strong></div>
+</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s2">
+<div class="block-label">Contenido</div>
+<h2 class="block-title">Qué contiene la guía</h2>
+<ul class="guia-ul">
+<li>La estructura de medidas del ENS en marco organizativo, operacional y de protección.</li>
+<li>Cómo se modula la exigencia de cada medida según la categoría (BÁSICA/MEDIA/ALTA).</li>
+<li>Orientaciones de implantación para los principios básicos y los requisitos mínimos.</li>
+<li>La relación entre medidas y las dimensiones de seguridad que protegen.</li>
+<li>Criterios para priorizar y secuenciar la implantación.</li>
+<li>El modelo de niveles de madurez (L0 a L5) y el nivel mínimo exigido por categoría.</li>
+<li>Referencias cruzadas a estándares ISO 27001, NIST SP 800-53 y guías CCN-STIC específicas.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s3">
+<div class="block-label">Conceptos</div>
+<h2 class="block-title">Conceptos clave que debes manejar</h2>
+<dl class="guia-concepts">
+<dt>Marco organizativo</dt>
+<dd>Conjunto de medidas de gobierno: política de seguridad, normativa de seguridad, procedimientos operativos de seguridad (POS) y proceso de autorización. Es la base sobre la que se sostiene todo lo técnico.</dd>
+<dt>Marco operacional</dt>
+<dd>Medidas de planificación (análisis de riesgos, arquitectura de seguridad, adquisiciones), control de acceso, explotación (inventario, configuración, mantenimiento, cambios, incidentes), servicios externos, continuidad del servicio y monitorización del sistema.</dd>
+<dt>Medidas de protección</dt>
+<dd>Salvaguardas sobre activos concretos: instalaciones e infraestructuras, gestión del personal, equipos, comunicaciones, soportes de información, aplicaciones, información y servicios.</dd>
+<dt>Modulación por categoría</dt>
+<dd>Una misma medida se exige con mayor profundidad cuanto más alta es la categoría. Por ejemplo, en autenticación: BÁSICA acepta un solo factor; MEDIA requiere doble factor; ALTA exige doble factor con productos certificados.</dd>
+<dt>Nivel de madurez</dt>
+<dd>Modelo de 6 niveles (L0 a L5) que mide la profesionalización de un proceso. BÁSICA: L2 (Reproducible), MEDIA: L3 (Proceso definido), ALTA: L4 (Gestionado y medible).</dd>
+</dl>
+</div>
+<div class="divider"></div>
+<div class="block" id="s4">
+<div class="block-label">Alcance</div>
+<h2 class="block-title">A quién aplica y cuándo entra en juego</h2>
+<div class="block-text">Aplica en cuanto tienes la categoría del sistema (resultado de la 803). Con la categoría conoces tu conjunto de medidas, y la 804 te dice cómo abordarlas sin sobreingeniería ni lagunas. La guía es aplicable a entidades de distinta naturaleza, dimensión y sensibilidad, y cada organización debe particularizarla a su entorno singular.</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s5">
+<div class="block-label">Implantación</div>
+<h2 class="block-title">Cómo lo implanta una empresa, paso a paso</h2>
+<ol class="guia-pasos">
+<li><span class="pt">Parte de tu conjunto de medidas</span><span class="pd">Deriva del nivel/categoría las medidas que te aplican. Implantar medidas que no te corresponden es malgastar esfuerzo. Revisa la Declaración de Aplicabilidad.</span></li>
+<li><span class="pt">Empieza por el marco organizativo</span><span class="pd">Política, normativa y roles primero: son la base sobre la que se sostiene todo lo técnico. Empezar por lo técnico es el error más común. La Política de Seguridad debe estar aprobada formalmente por el órgano competente.</span></li>
+<li><span class="pt">Despliega el marco operacional</span><span class="pd">Aborda planificación, control de acceso, explotación, monitorización y continuidad. Aquí vive buena parte del trabajo real. Realiza el análisis de riesgos (op.pl.1) y define la arquitectura de seguridad (op.pl.2).</span></li>
+<li><span class="pt">Aplica las medidas de protección</span><span class="pd">Instalaciones, equipos, comunicaciones, soportes, aplicaciones e información, según corresponda a tu categoría. Presta especial atención a la protección de datos personales (mp.info.1).</span></li>
+<li><span class="pt">Traza cada control a su medida</span><span class="pd">Documenta qué control concreto cumple cada medida del Anexo. Sin esa trazabilidad, demostrar cumplimiento en auditoría se complica. Usa la guía 808 para verificar.</span></li>
+</ol>
+</div>
+<div class="divider"></div>
+<div class="block" id="s6">
+<div class="block-label">Auditoría</div>
+<h2 class="block-title">Para qué sirve en una auditoría</h2>
+<ul class="guia-ul">
+<li>El auditor contrasta cada medida aplicable con su implantación real.</li>
+<li>La 804 ayuda a no dejarse medidas «en el tintero».</li>
+<li>Implantar sin trazabilidad a la medida concreta dificulta demostrar el cumplimiento.</li>
+<li>El exceso de medidas no aplicables también es un síntoma de mala valoración.</li>
+<li>El auditor verificará el nivel de madurez alcanzado (L2, L3 o L4 según categoría).</li>
+<li>La guía 808 proporciona las evidencias que el auditor espera para cada medida.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s7">
+<div class="block-label">Serie 800</div>
+<h2 class="block-title">Relación con otras guías de la serie</h2>
+<ul class="guia-rel">
+<li><span class="rn">CCN-STIC 803</span><a href="/guias-ccn-cert/ccn-stic-803.html">803</a> — La categoría obtenida en la valoración define qué medidas implantar.</li>
+<li><span class="rn">CCN-STIC 805</span><a href="/guias-ccn-cert/ccn-stic-805.html">805</a> — La política de seguridad encabeza el marco organizativo.</li>
+<li><span class="rn">CCN-STIC 808</span><a href="/guias-ccn-cert/ccn-stic-808.html">808</a> — La verificación comprueba que cada medida implantada tiene evidencia.</li>
+<li><span class="rn">CCN-STIC 807</span><a href="/guias-ccn-cert/ccn-stic-807.html">807</a> — Guía específica para medidas criptográficas.</li>
+<li><span class="rn">CCN-STIC 823</span><a href="/guias-ccn-cert/ccn-stic-823.html">823</a> — Guía específica para servicios en la nube.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s8">
+<div class="block-label">Mapeo</div>
+<h2 class="block-title">Equivalencia con otros marcos</h2>
+<div class="block-text">Cómo se conecta esta guía con los marcos que probablemente ya manejas:</div>
+<table class="guia-map">
+<tr><th>Aspecto en el ENS</th><th>ISO 27001</th><th>NIS2 / DORA</th></tr>
+<tr><td>Marco organizativo / operacional / protección</td><td>ISO 27001: Anexo A (controles organizativos, personas, físicos, tecnológicos)</td><td>NIS2: medidas técnicas y organizativas (art. 21)</td></tr>
+<tr><td>Conjunto de medidas por categoría</td><td>ISO 27001: Declaración de Aplicabilidad (SoA)</td><td>DORA: requisitos de gestión de riesgo TIC</td></tr>
+<tr><td>Continuidad (operacional)</td><td>ISO 22301</td><td>DORA: resiliencia operativa</td></tr>
+<tr><td>Control de acceso (op.acc)</td><td>ISO 27001: A.5.15, A.5.16, A.5.17, A.5.18</td><td>DORA: control de acceso y autenticación</td></tr>
+<tr><td>Gestión de incidentes (op.exp.7)</td><td>ISO 27001: A.5.24–A.5.28</td><td>NIS2: notificación de incidentes</td></tr>
+</table>
+</div>
+<div class="divider"></div>
+<div class="block" id="s9">
+<div class="block-label">Sin humo</div>
+<h2 class="block-title">Errores típicos</h2>
+<ul class="guia-ul">
+<li>Empezar por lo técnico y dejar el marco organizativo para el final.</li>
+<li>Implantar medidas que no aplican a tu categoría (sobreingeniería).</li>
+<li>No trazar cada control implantado a su medida del Anexo.</li>
+<li>Tratar las medidas como una lista de la compra sin entender qué dimensión protegen.</li>
+<li>No alcanzar el nivel de madurez exigido (ej. intentar certificar ALTA con procesos L2).</li>
+<li>No documentar las medidas compensatorias ni justificar su equivalencia.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s10">
+<div class="block-label">Checklist</div>
+<h2 class="block-title">Checklist práctico</h2>
+<ul class="guia-check">
+<li>Conjunto de medidas derivado de la categoría.</li>
+<li>Marco organizativo implantado y documentado (Política, normativa, POS, autorización).</li>
+<li>Marco operacional desplegado (planificación, acceso, explotación, continuidad, monitorización).</li>
+<li>Medidas de protección aplicadas según categoría (instalaciones, personal, equipos, comunicaciones, soportes, aplicaciones, información, servicios).</li>
+<li>Cada control trazado a su medida del Anexo.</li>
+<li>Nivel de madurez mínimo alcanzado (L2 para BÁSICA, L3 para MEDIA, L4 para ALTA).</li>
+<li>Medidas compensatorias documentadas y justificadas.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s11">
+<div class="block-label">Ficha</div>
+<h2 class="block-title">Ficha y enlace oficial</h2>
+<div class="block-text">Esta es una lectura práctica de GRCreal, no la guía oficial. Consulta siempre la versión vigente en el portal del CCN-CERT, ya que estas guías se actualizan periódicamente (esta ficha: publicada Mar 2010, actualizada Jun 2017).</div>
+<a class="guia-oficial-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/505-ccn-stic-804-medidas-de-implantancion-del-ens/file.html" rel="noopener noreferrer" target="_blank">⬇ CCN-STIC 804 en el portal CCN-CERT</a>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Niveles de madurez -->
+<div class="block" id="s12">
+<div class="block-label">Madurez</div>
+<h2 class="block-title">Niveles de madurez de las medidas</h2>
+<p class="block-text" style="margin-top:10px">La guía utiliza un modelo de niveles de madurez para caracterizar la implementación de cada medida. Los niveles identificados son:</p>
+<ul class="guia-ul">
+<li><strong>L0 — Inexistente</strong>: La medida no está siendo aplicada en este momento.</li>
+<li><strong>L1 — Inicial / ad hoc</strong>: El proceso existe pero no se gestiona. El éxito depende de la competencia y buena voluntad de las personas.</li>
+<li><strong>L2 — Repetible, pero intuitivo</strong>: Existe un mínimo de planificación. El resultado es impredecible si se dan circunstancias nuevas.</li>
+<li><strong>L3 — Proceso definido</strong>: Se dispone de un catálogo de procesos actualizado. Hay normativa establecida y procedimientos.</li>
+<li><strong>L4 — Gestionado y medible</strong>: Se dispone de un sistema de medidas y métricas para conocer el desempeño (eficacia y eficiencia).</li>
+<li><strong>L5 — Optimizado</strong>: Mejora continua de los procesos con mejoras tecnológicas incrementales e innovadoras.</li>
+</ul>
+<p class="block-text" style="margin-top:10px"><strong>Nivel mínimo exigido:</strong> BÁSICA → L2, MEDIA → L3, ALTA → L4.</p>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Marco organizativo detallado -->
+<div class="block" id="s13">
+<div class="block-label">Organizativo</div>
+<h2 class="block-title">Marco organizativo en detalle</h2>
+<p class="block-text" style="margin-top:10px">El marco organizativo es la base de toda la implantación. Incluye cuatro medidas clave:</p>
+<ul class="guia-ul">
+<li><strong>Org.1 — Política de Seguridad</strong>: Documento de alto nivel que define el significado de "seguridad de la información" en la organización. Debe estar accesible y ser conocido por todos los miembros. Establece roles, funciones y autoridades.</li>
+<li><strong>Org.2 — Normativa de Seguridad</strong>: Documentos que establecen la posición del organismo en aspectos concretos. Definen el uso correcto y las consecuencias del incumplimiento. Ejemplos: control de acceso, puesto de trabajo despejado, uso de correo electrónico, etc.</li>
+<li><strong>Org.3 — Procedimientos Operativos de Seguridad (POS)</strong>: Descripción paso a paso de cómo realizar una actividad. Facilitan tareas rutinarias y evitan que se olviden pasos importantes. Deben cubrir al menos el 80% de las actividades rutinarias.</li>
+<li><strong>Org.4 — Proceso de Autorización</strong>: Ningún sistema debería admitir elementos no autorizados. Requiere autorización para: utilización de instalaciones, entrada de equipos en producción, establecimiento de enlaces de comunicaciones, utilización de soportes, equipos móviles, servicios de terceros y BYOD.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Medidas de protección de la información -->
+<div class="block" id="s14">
+<div class="block-label">Protección</div>
+<h2 class="block-title">Medidas de protección de la información</h2>
+<p class="block-text" style="margin-top:10px">La guía dedica especial atención a la protección de la información, con medidas específicas:</p>
+<ul class="guia-ul">
+<li><strong>Mp.info.1 — Datos personales</strong>: Obligatorio cumplir con RGPD y LOPDGDD. El Responsable de Seguridad recoge los requisitos de protección de datos y el DPD asesora.</li>
+<li><strong>Mp.info.2 — Calificación de la información</strong>: Se debe establecer un esquema para asignar un nivel de calificación a la información (BAJO, MEDIO, ALTO). Cada nivel tiene requisitos específicos de control de acceso, almacenamiento, copias, etiquetado y transmisión.</li>
+<li><strong>Mp.info.3 — Cifrado</strong>: La información de nivel ALTO debe cifrarse tanto en almacenamiento como en transmisión. Solo estará en claro mientras se está haciendo uso de ella.</li>
+<li><strong>Mp.info.4 — Firma electrónica</strong>: Debe regirse por una Política de Firma. Nivel BAJO: cualquier tipo de firma; Nivel MEDIO: firma avanzada con certificados cualificados; Nivel ALTO: firma cualificada con productos certificados.</li>
+<li><strong>Mp.info.5 — Sellos de tiempo</strong>: Para prevenir el repudio. Nivel ALTO: se utilizan sellos cualificados de tiempo electrónicos conforme a eIDAS.</li>
+<li><strong>Mp.info.6 — Limpieza de documentos</strong>: Retirar metadatos, comentarios y revisiones anteriores antes de difundir documentos fuera del dominio de seguridad.</li>
+<li><strong>Mp.info.9 — Copias de seguridad</strong>: Deben realizarse con la periodicidad y plazos de retención requeridos. Las copias poseen el mismo nivel de seguridad que los datos originales.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="divider"></div><div class="block grc-guide-official" id="s21"><div class="block-label">Ficha y enlace oficial</div><h2 class="block-title">Contrasta esta lectura con la publicación del CCN-CERT</h2><div class="grc-guide-official-lead">La guía oficial sigue mandando. Aquí queda la ficha documental y el acceso directo a la fuente para cerrar la lectura con el contraste adecuado.</div><div class="ccn-banner">ℹ️ <span><strong>Resumen práctico de GRCreal.</strong> Consulta siempre la versión oficial vigente en el portal del CCN-CERT.</span></div><p class="ccn-note">Resumen realizado a fecha 29/06/2026 con la información disponible en <a href="https://www.ccn-cert.cni.es/es/guias.html" rel="noopener noreferrer" target="_blank">https://www.ccn-cert.cni.es/es/guias.html</a>. Las fechas de publicación y actualización proceden del portal oficial.</p><table class="ccn-doctable"><thead><tr><th>Documento</th><th>Categoría</th><th>Publicado</th><th>Actualizado</th></tr></thead><tbody><tr><td><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/505-ccn-stic-804-medidas-de-implantancion-del-ens/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> CCN-STIC-804 ENS. Medidas de implantación</a></td><td class="ccn-cat">800 Guías Esquema Nacional de Seguridad</td><td>Mar 2010</td><td>Jun 2017</td></tr></tbody></table><p class="grc-guide-official-actions">
+<a class="grc-guide-official-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/505-ccn-stic-804-medidas-de-implantancion-del-ens/file.html" rel="noopener noreferrer" target="_blank">Abrir documento oficial del CCN-CERT</a>
+</p></div></div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">Qué es y para qué vale</a><a data-toc="" href="#s15">Mi lectura</a><a data-toc="" href="#s18">Explicación técnica</a><a data-toc="" href="#s19">Error habitual</a><a data-toc="" href="#s20">Ejemplo práctico</a><a data-toc="" href="#s22">Ejemplo técnico de infraestructura</a><a data-toc="" href="#s16">Pregunta incómoda</a><a data-toc="" href="#s17">Mi enfoque</a>
+<a data-toc="" href="#s2">Qué contiene la guía</a>
+<a data-toc="" href="#s3">Conceptos clave</a>
+<a data-toc="" href="#s4">A quién aplica</a>
+<a data-toc="" href="#s5">Cómo se implanta, paso a paso</a>
+<a data-toc="" href="#s6">Para qué sirve en auditoría</a>
+<a data-toc="" href="#s7">Relación con otras guías</a>
+<a data-toc="" href="#s8">Mapeo a otros marcos</a>
+<a data-toc="" href="#s9">Errores típicos</a>
+<a data-toc="" href="#s10">Checklist práctico</a>
+<a data-toc="" href="#s11">Ficha y enlace oficial</a>
+<a data-toc="" href="#s12">Niveles de madurez</a>
+<a data-toc="" href="#s13">Marco organizativo en detalle</a>
+<a data-toc="" href="#s14">Medidas de protección de la información</a>
+</nav>
+</aside>
+</div><!-- /art-layout -->
+</div><!-- /body -->
+<div class="art-related">
+<div class="art-related-label">Sigue en la serie 800</div>
+<div class="art-related-title">Otras guías CCN-STIC</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-803.html"><span class="art-related-pill">CCN-STIC 803</span><h3>ENS. Valoración de los sistemas</h3><p>Aquí se decide todo: lo que valores marca las medidas que te tocan.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-805.html"><span class="art-related-pill">CCN-STIC 805</span><h3>ENS. Política de Seguridad de la Información</h3><p>El documento que el ENS exige primero. Y el que más se copia mal.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html').then(r=>r.text()).then(d=>{document.getElementById('footer-placeholder').innerHTML=d;});
+    var tl=Array.from(document.querySelectorAll('#artTocNav a'));
+    var ss=tl.map(a=>document.querySelector(a.getAttribute('href')));
+    if('IntersectionObserver' in window){
+      var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id='#'+en.target.id;tl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-20% 0px -70% 0px'});
+      ss.forEach(function(s){if(s)ob.observe(s);});
+    }
+</script>
+</div>
+</div>
+<script defer="True" src="/js/article-zoom.js"></script></body>
+<script src="/js/global.js"></script>
+</html>

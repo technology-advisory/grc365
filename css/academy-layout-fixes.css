@@ -1,0 +1,18 @@
+/* GRCREAL · Academia · maquetación estable de comparativas */
+body .tension,.ds-page .tension{width:100%;max-width:1100px;margin:18px 0 24px;border-collapse:collapse;table-layout:fixed;background:#fff}
+body .tension tr,.ds-page .tension tr{border-bottom:1px solid var(--ds-line,#d7dcdf);background:#fff}
+body .tension tr:last-child,.ds-page .tension tr:last-child{border-bottom:0}
+body .tension tr:hover,.ds-page .tension tr:hover{background:#f8faf9;cursor:default}
+body .tension tr.hi-row,.ds-page .tension tr.hi-row{background:#f8faf9}
+body .tension td,.ds-page .tension td{vertical-align:middle;box-sizing:border-box}
+body .tension-who,.ds-page .tension-who{padding:16px 18px;color:#65727b;font-family:var(--mono,monospace);font-size:13px;font-weight:800;line-height:1.25;letter-spacing:.04em;text-transform:uppercase;white-space:normal;overflow-wrap:normal;word-break:normal;hyphens:none;border-right:1px solid var(--ds-line,#d7dcdf)}
+body .tension-says,.ds-page .tension-says{padding:16px 20px;color:#53616a;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+body .tension-says strong,.ds-page .tension-says strong{color:#111820;font-weight:800}
+body .tension-says .hi,.ds-page .tension-says .hi{color:#111820;font-weight:700}
+body .tension.academy-tension-compact .tension-who,.ds-page .tension.academy-tension-compact .tension-who{width:150px;min-width:150px;max-width:150px;white-space:nowrap;text-align:left}
+body .tension.academy-tension-medium .tension-who,.ds-page .tension.academy-tension-medium .tension-who{width:190px;min-width:190px;max-width:190px}
+body .tension.academy-tension-wide .tension-who,.ds-page .tension.academy-tension-wide .tension-who{width:250px;min-width:250px;max-width:250px;text-transform:none;letter-spacing:.01em}
+body .tension.academy-tension-profile .tension-who,.ds-page .tension.academy-tension-profile .tension-who{width:180px;min-width:180px;max-width:180px;color:#003955;font-size:13px;white-space:nowrap}
+body .block,.ds-page .block{min-width:0}
+body .block-title,.ds-page .block-title,body .block-text,.ds-page .block-text{max-width:1050px;overflow-wrap:normal;word-break:normal}
+@media(max-width:760px){body .tension,.ds-page .tension{display:block;width:100%;max-width:100%;border:0;background:transparent;table-layout:auto}body .tension tbody,.ds-page .tension tbody{display:grid;width:100%;gap:12px}body .tension tr,.ds-page .tension tr{display:block;width:100%;border:1px solid var(--ds-line,#d7dcdf);background:#fff}body .tension-who,.ds-page .tension-who,body .tension.academy-tension-compact .tension-who,.ds-page .tension.academy-tension-compact .tension-who,body .tension.academy-tension-medium .tension-who,.ds-page .tension.academy-tension-medium .tension-who,body .tension.academy-tension-wide .tension-who,.ds-page .tension.academy-tension-wide .tension-who,body .tension.academy-tension-profile .tension-who,.ds-page .tension.academy-tension-profile .tension-who{display:block;width:100%;min-width:0;max-width:none;padding:11px 13px;border-right:0;border-bottom:1px solid var(--ds-line,#d7dcdf);background:#f4f7f7;font-size:12px;line-height:1.35;white-space:normal;text-transform:none}body .tension-says,.ds-page .tension-says{display:block;width:100%;min-width:0;padding:13px;font-size:13px;line-height:1.55}}

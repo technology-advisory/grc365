@@ -1,0 +1,56 @@
+/* GRCREAL · Estabilidad global de maquetación */
+@media screen {
+  html, body {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  img, video, canvas {
+    max-width: 100%;
+  }
+
+  /* Los SVG editoriales no deben abandonar su tarjeta en escritorio. */
+  @media (min-width: 901px) {
+    .art-visual,
+    .grc-infra-visual,
+    .versus-visual,
+    .guia-roadmap,
+    .grc-guide-techvisual,
+    .rx-course-visual,
+    .rx-quiz-visual,
+    .rx-tool-visual,
+    .mk-visual {
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .art-visual > svg,
+    .grc-infra-visual > svg,
+    .versus-visual > svg,
+    .guia-roadmap > svg,
+    .grc-guide-techvisual > svg,
+    .rx-course-visual > svg,
+    .rx-quiz-visual > svg,
+    .rx-tool-visual > svg,
+    .mk-visual > svg {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  /* Ningún bloque de texto debe forzar el ancho del viewport. */
+  .block,
+  .panel,
+  .art-insight,
+  .art-source-card,
+  .tool-method-notice,
+  .tool-scale-box,
+  .tool-explica,
+  .ds-meta,
+  td, th {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}

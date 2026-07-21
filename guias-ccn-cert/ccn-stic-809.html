@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>CCN-STIC 809 — Declaración, certificación y aprobación provisional de conformidad con el ENS y distintivos de cumplimiento · GRCreal</title>
+<meta content="Guía técnica GRCREAL de la CCN-STIC 809: lectura práctica, explicación técnica, errores habituales, ejemplo real, evidencias y ficha oficial al final." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/guias-ccn-cert/ccn-stic-809.html" rel="canonical"/>
+<meta content="CCN-STIC 809 — Declaración, certificación y aprobación provisional de conformidad con el ENS y distintivos de cumplimiento" property="og:title"/>
+<meta content="CCN-STIC 809: lectura técnica GRCREAL, aplicación real, error habitual, ejemplo práctico, evidencias y acceso a la fuente oficial al final." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/guias-ccn-cert/ccn-stic-809.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/articles.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-articulo.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CCN-STIC 809 — Declaración, certificación y aprobación provisional de conformidad con el ENS y distintivos de cumplimiento","description":"CCN-STIC 809 (Declaración, certificación y aprobación provisional de conformidad con el ENS y distintivos de cumplimiento): qué es, qué contiene, cómo implantarla, su uso en auditoría, mapeo a ISO 27001/NIS2/DORA y checklist. Resumen práctico de GRCreal con enlace oficial.","image":"https://grcreal.com/grcreal.png","author":{"@type":"Person","name":"Miguel Ángel Carriazo","url":"https://grcreal.com/sobre-mi/"},"publisher":{"@type":"Organization","name":"GRCreal","logo":{"@type":"ImageObject","url":"https://grcreal.com/favicon-32x32.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://grcreal.com/guias-ccn-cert/ccn-stic-809.html"}}</script>
+<style>
+.ccn-note{font-family:var(--mono,monospace);font-size:11.5px;color:#6b7680;letter-spacing:.01em;margin:0 0 18px;line-height:1.5;}
+.ccn-note a{color:var(--brand-dark,#005a8e);}
+.ccn-banner{display:flex;align-items:flex-start;gap:10px;background:var(--brand-light,#e8f3fa);
+  border:1px solid var(--brand-mid,#cce4f0);border-radius:6px;padding:11px 15px;margin:0 0 14px;
+  font-size:13px;color:var(--brand-dark,#005a8e);line-height:1.5;}
+.ccn-doctable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:13.5px;}
+.ccn-doctable thead th{background:#1f6fb2;color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+.ccn-doctable thead th:nth-child(3),.ccn-doctable thead th:nth-child(4){white-space:nowrap;}
+.ccn-doctable td{border-bottom:1px solid var(--ds-line,#e2e7ec);padding:11px 12px;vertical-align:top;color:var(--ds-ink,#2b3340);}
+.ccn-doctable tr:nth-child(even) td{background:#f4f8fb;}
+.ccn-doc-a{color:var(--brand-dark,#005a8e);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.ccn-doc-a:hover{text-decoration:underline;}
+.ccn-doc-a .pdf{color:#c0392b;font-weight:700;}
+.ccn-anexos{list-style:none;margin:10px 0 0;padding:0;}
+.ccn-anexos li{position:relative;padding:4px 0 4px 16px;font-size:12.5px;color:#5a6675;}
+.ccn-anexos li:before{content:"\25AA";position:absolute;left:0;color:var(--brand,#0077B5);}
+.ccn-cat{font-size:12.5px;color:#5a6675;}
+.guia-oficial-btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand,#0077B5);color:#fff;
+  text-decoration:none;font-family:var(--mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:10px 20px;border-radius:13px;margin-top:6px;transition:background .15s;}
+.guia-oficial-btn:hover{background:var(--brand-dark,#005a8e);color:#fff;}
+.guia-map{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;}
+.guia-map th{background:var(--ds-navy,#14233b);color:#fff;text-align:left;padding:8px 10px;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono,monospace);}
+.guia-map td{border:1px solid var(--ds-line,#d3dae3);padding:8px 10px;vertical-align:top;}
+.guia-map tr:nth-child(even) td{background:#f4f8fb;}
+.guia-check{list-style:none;padding:0;margin:12px 0 0;}
+.guia-check li{position:relative;padding:7px 0 7px 28px;border-bottom:1px solid #eef2f6;font-size:14px;color:var(--ds-ink,#2b3340);}
+.guia-check li:before{content:"\2713";position:absolute;left:0;top:6px;width:18px;height:18px;line-height:18px;text-align:center;
+  background:var(--brand-light,#e8f3fa);color:var(--brand-dark,#005a8e);border-radius:4px;font-size:12px;font-weight:700;}
+.guia-ul{margin:12px 0 0;padding-left:20px;}
+.guia-ul li{margin:7px 0;font-size:14px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-pasos{list-style:none;counter-reset:p;margin:14px 0 0;padding:0;}
+.guia-pasos li{counter-increment:p;position:relative;padding:0 0 16px 44px;margin-bottom:14px;border-bottom:1px solid #eef2f6;}
+.guia-pasos li:last-child{border-bottom:none;}
+.guia-pasos li:before{content:counter(p);position:absolute;left:0;top:0;width:28px;height:28px;line-height:28px;text-align:center;
+  background:var(--brand,#0077B5);color:#fff;border-radius:50%;font-family:var(--mono,monospace);font-size:13px;font-weight:700;}
+.guia-pasos .pt{display:block;font-weight:700;color:var(--ds-navy,#14233b);font-size:14.5px;margin-bottom:3px;}
+.guia-pasos .pd{font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-concepts dt{font-weight:700;color:var(--brand-dark,#005a8e);font-size:14px;margin-top:12px;}
+.guia-concepts dd{margin:2px 0 0;font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-rel{list-style:none;margin:12px 0 0;padding:0;}
+.guia-rel li{padding:8px 0;border-bottom:1px solid #eef2f6;font-size:13.5px;color:var(--ds-ink,#2b3340);}
+.guia-rel .rn{display:inline-block;background:var(--ds-navy,#14233b);color:#fff;font-family:var(--mono,monospace);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px;}
+.guia-rel a{color:var(--brand-dark,#005a8e);font-weight:600;text-decoration:none;}
+</style>
+<link href="/css/dossier-guias.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="article-page">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html').then(r=>r.text()).then(d=>{document.getElementById('nav-placeholder').outerHTML=d;});
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: guía CCN-STIC</span>
+<span>referencia: <strong>CCN-STIC 809</strong></span>
+</div>
+<div class="header">
+<a class="art-back" href="/guias-ccn-cert/index.html">← Volver a Guías CCN-CERT</a>
+<div class="tag">CCN-STIC · Serie 800 · ENS</div>
+<h1 class="headline">CCN-STIC 809<br/><span class="accent">Declaración, certificación y aprobación provisional de conformidad con el ENS y distintivos de cumplimiento</span></h1>
+<p class="subline">El sello final: declarar o certificar tu conformidad con el ENS.</p>
+<div class="guide-editorial-meta">
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">♙</span>
+<strong>Miguel Ángel Carriazo</strong>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">▣</span>
+<span>18 junio 2026</span>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">◷</span>
+<span data-reading-time="">13 min de lectura</span>
+</div>
+</div></div>
+<div class="body">
+<div class="art-layout">
+<div class="art-main">
+<div class="guia-read-when">
+<span>LEE ESTA GUÍA CUANDO...</span>
+<h2>Necesites trabajar sobre conformidad dentro del ENS.</h2>
+<p>En vez de buscar una frase aislada, sigue el recorrido de la guía y relaciona cada conclusión con el sistema, el responsable y la evidencia que debería existir.</p>
+</div><div class="art-visual guia-roadmap">
+<div class="art-visual-kicker">CCN-STIC 809 · Conformidad</div>
+<div class="art-visual-title">Dónde encaja esta guía en una revisión práctica</div>
+<svg aria-label="Mapa práctico de la guía CCN-STIC 809" role="img" viewbox="0 0 1160 240">
+<rect class="gg-svg-box" height="96" rx="2" width="220" x="70" y="68"></rect><text class="gg-svg-num" x="94" y="99">01</text><text class="gg-svg-label" x="94" y="132">Sistema</text><line class="gg-svg-line" x1="290" x2="335" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="326,111 336,116 326,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="335" y="68"></rect><text class="gg-svg-num" x="359" y="99">02</text><text class="gg-svg-label" x="359" y="132">Categoría</text><line class="gg-svg-line" x1="555" x2="600" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="591,111 601,116 591,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="600" y="68"></rect><text class="gg-svg-num" x="624" y="99">03</text><text class="gg-svg-label" x="624" y="132">Proceso</text><line class="gg-svg-line" x1="820" x2="865" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="856,111 866,116 856,121"></polygon><rect class="gg-svg-box is-strong" height="96" rx="2" width="220" x="865" y="68"></rect><text class="gg-svg-num is-light" x="889" y="99">04</text><text class="gg-svg-label is-light" x="889" y="132">Resultado</text>
+<rect class="gg-svg-band" height="28" rx="2" width="840" x="160" y="198"></rect>
+<text class="gg-svg-band-label" text-anchor="middle" x="580" y="217">PREGUNTA → CRITERIO → IMPLANTACIÓN → EVIDENCIA REVISABLE</text>
+</svg>
+<div class="art-visual-note">Utiliza la guía para orientar la revisión y contrasta siempre la versión vigente en el portal oficial del CCN-CERT.</div>
+</div><div class="block" id="s1">
+<div class="block-label">Qué es</div>
+<h2 class="block-title">Qué es y para qué vale</h2>
+<p class="block-text" style="margin-top:10px">La CCN-STIC 809 explica cómo se declara la conformidad con el ENS (categoría BÁSICA), cómo se certifica (categorías MEDIA y ALTA) y cómo funciona la aprobación provisional, junto con los distintivos de cumplimiento. Define qué entidad interviene, qué publicar y cómo se mantiene la conformidad en el tiempo. Sus anexos A, B y C aportan los modelos concretos.</p>
+<p class="block-text" style="margin-top:10px">Es el cierre formal del ciclo de adecuación. La diferencia clave que casi nadie tiene clara: BÁSICA se autodeclara mediante declaración responsable, mientras que MEDIA y ALTA exigen certificación por una entidad acreditada (EC) o reconocida (OAT), con vigencia y renovación. Obtener el distintivo no es el final: hay que mantenerlo.</p>
+<p class="block-text" style="margin-top:10px">El artículo 38 del ENS establece que los sistemas de categoría MEDIA o ALTA precisan de una auditoría para la certificación de su conformidad, mientras que los de categoría BÁSICA solo requieren una autoevaluación para su declaración. El plazo de dos años puede extenderse tres meses por fuerza mayor.</p>
+</div><div class="divider"></div><div class="block grc-guide-angle" id="s15">
+<div class="block-label">Mi lectura</div>
+<h2 class="block-title">La conformidad no empieza cuando buscas auditor. Empieza cuando sabes exactamente qué sistema estás declarando.</h2>
+<div class="block-text">He visto proyectos empezar por preguntar cuánto cuesta certificar ENS antes de poder explicar con claridad el alcance del sistema. Ese orden genera retrabajo. La 809 debe leerse desde la determinación del sistema, su categoría y el tipo de proceso de conformidad que corresponde.<br/><br/>
+El certificado o la declaración son una salida. Antes hay una cadena de decisiones: alcance, valoración, medidas, evidencias, revisión y tratamiento de desviaciones. Si una de esas piezas es débil, preparar la evaluación se convierte en una campaña de recopilación urgente.<br/><br/>
+<strong>Yo no prepararía una certificación. Prepararía un sistema que pueda ser evaluado sin cambiar su comportamiento durante dos meses.</strong></div>
+</div><div class="divider"></div><div class="art-visual grc-guide-techvisual">
+<div class="art-visual-kicker">CCN-STIC 809 · Preparación del expediente</div>
+<div class="art-visual-title">Cómo llegar a la conformidad sin construir un sistema artificial</div>
+<svg aria-label="Embudo de conformidad ENS" role="img" viewbox="0 0 1160 430">
+<polygon class="gx-funnel1" points="110,70 1050,70 930,145 230,145"></polygon>
+<polygon class="gx-funnel2" points="230,160 930,160 820,235 340,235"></polygon>
+<polygon class="gx-funnel3" points="340,250 820,250 720,325 440,325"></polygon>
+<rect class="gx-core" height="60" width="230" x="465" y="340"></rect>
+<text class="gx-title" text-anchor="middle" x="580" y="112">ALCANCE · SISTEMA · CATEGORÍA</text>
+<text class="gx-title" text-anchor="middle" x="580" y="202">MEDIDAS · EXCEPCIONES · PLAN</text>
+<text class="gx-title-light" text-anchor="middle" x="580" y="292">EVIDENCIAS · REVISIÓN</text>
+<text class="gx-title-light" text-anchor="middle" x="580" y="378">CONFORMIDAD</text>
+</svg>
+<div class="art-visual-note">Lectura técnica GRCREAL: una manera práctica de conectar la guía con arquitectura, operación y evidencia.</div>
+</div><div class="divider"></div><div class="block grc-guide-tech" id="s18">
+<div class="block-label">Explicación técnica</div>
+<h2 class="block-title">Qué me interesa técnicamente de esta guía</h2>
+<div class="block-text">La conformidad ENS no es solo un momento de evaluación; es la culminación de decisiones previas sobre alcance, valoración, medidas, evidencias y seguimiento. Técnicamente, preparar un expediente de conformidad exige que esos elementos estén conectados de manera consistente. Si el alcance es difuso, la categoría está mal justificada o las evidencias solo aparecen la semana antes, el proceso se vuelve artificial y frágil.<br/><br/>
+También hay una parte muy práctica: preparar al sistema para ser evaluado significa que otra persona pueda reconstruir cómo se gobierna, qué controles existen, cómo operan y dónde están las desviaciones. Esa reconstrucción debe ser posible sin depender del héroe local que “lo sabe todo”.<br/><br/>
+Yo relacionaría esta guía con preparación honesta. Una evaluación bien superada no empieza cuando se agenda la visita: empieza cuando los procesos ordinarios producen evidencia utilizable de forma natural.<h3>Preparación técnica del expediente</h3>
+<p>Organizaría evidencias por medida y sistema, no solo por departamento. Mantendría referencias cruzadas entre inventario, categoría, medidas, excepciones y plan de adecuación. Cada evidencia debería tener fecha, propietario, alcance y periodo.</p>
+<p>Probaría además la reconstrucción: una persona ajena al control debería poder entender qué se hace, dónde y con qué resultado.</p></div>
+</div><div class="divider"></div><div class="block grc-guide-error" id="s19">
+<div class="block-label">Error habitual</div>
+<h2 class="block-title">Dónde suele torcerse en proyectos reales</h2>
+<div class="grc-guide-alert">
+<span>DONDE SUELE TORCERSE</span>
+<div class="block-text">Convertir la conformidad en un proyecto cosmético de última milla. Se cierran documentos, se ordenan carpetas, se crean revisiones extraordinarias y se intenta presentar la mejor versión posible del sistema aunque no refleje su comportamiento habitual.<br/><br/>
+Eso puede mejorar la puesta en escena, pero empeora la fiabilidad del resultado y hace que cualquier revisión posterior sea más costosa.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-example" id="s20">
+<div class="block-label">Ejemplo práctico</div>
+<h2 class="block-title">Cómo lo aterrizaría en un caso real</h2>
+<div class="grc-guide-example-box">
+<div class="grc-guide-example-mark">CASO</div>
+<div class="block-text">Imagina que el sistema mantiene sus registros, revisiones y planes de forma continua, pero el inventario de excepciones está desactualizado y las evidencias de pruebas de continuidad son débiles. La preparación técnica útil no consistiría en embellecer documentación, sino en corregir la trazabilidad de excepciones y ejecutar o recuperar evidencias de pruebas reales.<br/><br/>
+Mi criterio aquí es directo: si una mejora solo se hace porque viene el auditor y no porque el sistema la necesita, probablemente estás corrigiendo la fachada antes que la estructura.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-infra" id="s22">
+<div class="block-label">Ejemplo técnico de infraestructura</div>
+<h2 class="block-title">Preparar conformidad sin depender del administrador que lo sabe todo</h2>
+<div class="art-visual grc-infra-visual">
+<div class="art-visual-kicker">EJEMPLO TÉCNICO · INFRAESTRUCTURA</div>
+<div class="art-visual-title">Componentes implicados en el caso</div>
+<svg aria-label="Arquitectura técnica del ejemplo CCN-STIC 809" role="img" viewbox="0 0 1160 380">
+<rect class="gi-node" height="82" rx="2" width="190" x="110" y="90"></rect><text class="gi-label" text-anchor="middle" x="205" y="138">GRC</text><rect class="gi-node gi-node-strong" height="82" rx="2" width="190" x="350" y="90"></rect><text class="gi-label gi-label-light" text-anchor="middle" x="445" y="138">CMDB</text><rect class="gi-node" height="82" rx="2" width="190" x="590" y="90"></rect><text class="gi-label" text-anchor="middle" x="685" y="138">ITSM</text><rect class="gi-node" height="82" rx="2" width="190" x="830" y="90"></rect><text class="gi-label" text-anchor="middle" x="925" y="138">Repositorios</text>
+<line class="gi-link" x1="300" x2="350" y1="131" y2="131"></line><line class="gi-link" x1="540" x2="590" y1="131" y2="131"></line><line class="gi-link" x1="780" x2="830" y1="131" y2="131"></line><line class="gi-link" x1="685" x2="565" y1="172" y2="265"></line>
+<rect class="gi-band" height="28" rx="2" width="780" x="190" y="330"></rect>
+<text class="gi-band-label" text-anchor="middle" x="580" y="349">SERVICIO → DEPENDENCIA → CONTROL → EVIDENCIA</text>
+</svg>
+</div>
+<div class="grc-infra-case">
+<div class="grc-infra-case-mark">INFRA</div>
+<div class="block-text">El sistema cumple razonablemente, pero la evidencia está repartida entre carpetas personales, correos y consolas. Solo una persona sabe localizarla y explicar las excepciones.<br/><br/>
+<strong>Arquitectura documental:</strong> repositorio de evidencias, CMDB, gestión de riesgos, ITSM y herramientas técnicas.<br/>
+<strong>Fallo:</strong> controles operativos con baja trazabilidad documental.<br/>
+<strong>Riesgo:</strong> dependencia personal, preparación urgente y conclusiones difíciles de reconstruir.<br/>
+<strong>Qué haría:</strong> expediente por sistema y medida, metadatos mínimos, propietarios, periodo, enlaces a fuente y revisión previa por una persona distinta.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-question" id="s16">
+<div class="block-label">Pregunta incómoda</div>
+<h2 class="block-title">¿El sistema que enseñaremos al auditor es el mismo que opera el resto del año?</h2>
+<div class="grc-question-box">
+<span>NO RESPONDAS CON LA POLÍTICA</span>
+<div class="block-text">Si la respuesta necesita matices —cuentas temporales, revisiones extraordinarias, limpiezas previas, procedimientos recién aprobados— prestaría atención. Preparar documentación es normal. Cambiar temporalmente la realidad para superar la evaluación es otra cosa.<br/><br/>
+La conformidad sostenible depende de procesos ordinarios que producen evidencia de forma natural.</div>
+</div>
+<table class="grc-guide-evidence"><thead><tr><th>Ref.</th><th>Qué pediría</th><th>Qué necesito ver</th></tr></thead><tbody><tr><td>GR-01</td><td>Alcance</td><td>Sistema, servicios, componentes y exclusiones claramente definidos.</td></tr><tr><td>GR-02</td><td>Categoría</td><td>Valoración aprobada y coherente con el servicio.</td></tr><tr><td>GR-03</td><td>Estado de medidas</td><td>Implantación, excepciones y plan de adecuación vigente.</td></tr><tr><td>GR-04</td><td>Preparación</td><td>Revisión interna y evidencias producidas en operación normal.</td></tr></tbody></table>
+</div><div class="divider"></div><div class="block grc-guide-approach" id="s17">
+<div class="block-label">Mi enfoque</div>
+<h2 class="block-title">Cómo la aterrizaría yo en un entorno real</h2>
+<div class="grc-approach-box">
+<div class="grc-approach-mark">GRCREAL</div>
+<div class="block-text">Haría una preevaluación honesta y prohibiría el «esto lo hacemos antes de que venga el auditor» como estrategia recurrente. Lo que deba corregirse se corrige; lo que no llegue se registra, se trata y se asume con transparencia.<br/><br/>
+<strong>La certificación debería ser una consecuencia del sistema. Cuando se convierte en el sistema, la madurez se para.</strong></div>
+</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s2">
+<div class="block-label">Contenido</div>
+<h2 class="block-title">Qué contiene la guía</h2>
+<ul class="guia-ul">
+<li>La distinción entre declaración (BÁSICA) y certificación (MEDIA/ALTA).</li>
+<li>El mecanismo de aprobación provisional de conformidad (APC).</li>
+<li>Los distintivos de cumplimiento y sus condiciones de uso.</li>
+<li>El papel de las entidades de certificación (EC) acreditadas por ENAC y los Órganos de Auditoría Técnica (OAT) reconocidos por el CCN.</li>
+<li>Los modelos de los anexos A, B y C y el mantenimiento de la conformidad.</li>
+<li>El Consejo de Certificación del ENS (CoCENS) como órgano de coordinación.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s3">
+<div class="block-label">Conceptos</div>
+<h2 class="block-title">Conceptos clave que debes manejar</h2>
+<dl class="guia-concepts">
+<dt>Declaración de conformidad</dt>
+<dd>Autodeclaración responsable de cumplimiento, válida para categoría BÁSICA. La firma el titular del órgano superior. Se publica en la sede electrónica con un enlace al documento. El distintivo es de color naranja (Pantone Orange 021C).</dd>
+<dt>Certificación de conformidad</dt>
+<dd>Reconocimiento por una entidad acreditada (EC) o reconocida (OAT), exigible en MEDIA y ALTA. Incluye la categoría del sistema y el número de certificado. El distintivo es de color azul (Pantone 653C).</dd>
+<dt>Aprobación provisional</dt>
+<dd>Reconocimiento temporal emitido por el CCN mientras se completa el proceso de certificación, en condiciones tasadas. Válida para BÁSICA o MEDIA. El distintivo es de color verde (Pantone 348C).</dd>
+<dt>Distintivo de cumplimiento</dt>
+<dd>Sello que acredita la conformidad y cuyo uso está reglado. Debe incluir un enlace al documento de conformidad correspondiente. Solo puede usarse mientras la conformidad esté vigente.</dd>
+<dt>Consejo de Certificación del ENS (CoCENS)</dt>
+<dd>Órgano colegiado que vela por la adecuada implantación de la Certificación del ENS. Presidido por el Director del CCN, con representantes del Ministerio de Política Territorial y ENAC.</dd>
+</dl></div>
+<div class="divider"></div>
+<div class="block" id="s4">
+<div class="block-label">Alcance</div>
+<h2 class="block-title">A quién aplica y cuándo entra en juego</h2>
+<div class="block-text">Aplica al final del proceso de adecuación: BÁSICA mediante declaración responsable; MEDIA y ALTA mediante certificación por entidad acreditada, con vigencia y renovación periódica. La aprobación provisional cubre situaciones de transición. Aplica a todas las entidades del sector público y a los prestadores privados que provean servicios al sector público. Los certificados caducados se mantienen publicados en la web del CCN durante dos meses.</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s5">
+<div class="block-label">Implantación</div>
+<h2 class="block-title">Cómo lo implanta una empresa, paso a paso</h2>
+<ol class="guia-pasos">
+<li><span class="pt">Confirma tu vía según categoría</span><span class="pd">BÁSICA declara; MEDIA/ALTA certifica. Tenerlo claro evita tramitar el procedimiento equivocado. BÁSICA puede someterse voluntariamente a certificación.</span></li>
+<li><span class="pt">Reúne el expediente completo</span><span class="pd">Valoración (803), implantación (804), verificación (808) y, en su caso, auditoría (802). El distintivo se sostiene sobre ese expediente. La declaración/certificación debe renovarse al menos cada dos años.</span></li>
+<li><span class="pt">Tramita la declaración o certificación</span><span class="pd">Sigue el procedimiento y los modelos de los anexos A/B/C según corresponda. La declaración la firma el titular del órgano superior; la certificación, la EC/OAT.</span></li>
+<li><span class="pt">Publica el distintivo correctamente</span><span class="pd">Usa el distintivo conforme a sus condiciones; un uso indebido es un problema de cumplimiento. Debe incluir un enlace al documento de conformidad. Solo puede usarse mientras la conformidad esté vigente.</span></li>
+<li><span class="pt">Planifica el mantenimiento</span><span class="pd">Programa renovaciones y revisiones. Una conformidad caducada deja de ser válida. Los certificados caducados se eliminan de la web del CCN tras dos meses si no se renuevan.</span></li>
+</ol>
+</div>
+<div class="divider"></div>
+<div class="block" id="s6">
+<div class="block-label">Auditoría</div>
+<h2 class="block-title">Para qué sirve en una auditoría</h2>
+<ul class="guia-ul">
+<li>En MEDIA/ALTA, la certificación depende del resultado de la auditoría (802).</li>
+<li>La declaración BÁSICA es responsabilidad de la propia entidad.</li>
+<li>Una conformidad caducada o no mantenida deja de ser válida.</li>
+<li>El uso del distintivo debe ajustarse a sus condiciones.</li>
+<li>El expediente que sostiene el distintivo debe estar completo y vigente.</li>
+<li>El auditor verificará que el distintivo publicado corresponde a la categoría correcta y está enlazado al documento de conformidad.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s7">
+<div class="block-label">Serie 800</div>
+<h2 class="block-title">Relación con otras guías de la serie</h2>
+<ul class="guia-rel">
+<li><span class="rn">CCN-STIC 802</span><a href="/guias-ccn-cert/ccn-stic-802.html">802</a> — La auditoría habilita la certificación en MEDIA/ALTA.</li>
+<li><span class="rn">CCN-STIC 808</span><a href="/guias-ccn-cert/ccn-stic-808.html">808</a> — La verificación del cumplimiento sostiene la declaración/certificación.</li>
+<li><span class="rn">CCN-STIC 806</span><a href="/guias-ccn-cert/ccn-stic-806.html">806</a> — Cerrado el Plan de Adecuación, se aborda la conformidad.</li>
+<li><span class="rn">CCN-CERT IC-01/19</span> — Criterios generales de auditoría y certificación.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s8">
+<div class="block-label">Mapeo</div>
+<h2 class="block-title">Equivalencia con otros marcos</h2>
+<div class="block-text">Cómo se conecta esta guía con los marcos que probablemente ya manejas:</div>
+<table class="guia-map">
+<tr><th>Aspecto en el ENS</th><th>ISO 27001</th><th>NIS2 / DORA</th></tr>
+<tr><td>Declaración / Certificación ENS</td><td>ISO 27001: certificación por entidad acreditada</td><td>NIS2: registro y supervisión por la autoridad</td></tr>
+<tr><td>Distintivo y vigencia</td><td>ISO 27001: ciclo de certificación y vigilancia</td><td>DORA: revisión periódica del marco</td></tr>
+<tr><td>Mantenimiento</td><td>ISO 27001: mejora continua (10)</td><td>DORA: actualización continua</td></tr>
+<tr><td>Auditoría de certificación</td><td>ISO 27001: auditoría externa</td><td>NIS2: auditorías de cumplimiento</td></tr>
+<tr><td>Entidad de certificación (EC)</td><td>ISO 17065: organismos de certificación</td><td>DORA: evaluación por terceros</td></tr>
+</table>
+</div>
+<div class="divider"></div>
+<div class="block" id="s9">
+<div class="block-label">Sin humo</div>
+<h2 class="block-title">Errores típicos</h2>
+<ul class="guia-ul">
+<li>Confundir declaración (BÁSICA) con certificación (MEDIA/ALTA).</li>
+<li>Obtener el sello y no mantenerlo (caduca).</li>
+<li>Publicar el distintivo sin el expediente que lo sostiene.</li>
+<li>Usar el distintivo fuera de sus condiciones.</li>
+<li>No renovar la conformidad en el plazo de dos años (+3 meses por fuerza mayor).</li>
+<li>No comunicar al CCN las certificaciones expedidas (las EC tienen 15 días para hacerlo).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s10">
+<div class="block-label">Checklist</div>
+<h2 class="block-title">Checklist práctico</h2>
+<ul class="guia-check">
+<li>Categoría confirmada (declarar vs certificar).</li>
+<li>Expediente completo reunido.</li>
+<li>Declaración o certificación tramitada con los modelos correctos (Anexos A/B/C).</li>
+<li>Distintivo publicado conforme a sus condiciones (color y enlace correctos).</li>
+<li>Mantenimiento y renovación planificados (cada 2 años).</li>
+<li>EC/OAT ha comunicado la certificación al CCN (plazo 15 días).</li>
+<li>En caso de APC, se ha completado el Plan de Acciones Correctivas.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s11">
+<div class="block-label">Ficha</div>
+<h2 class="block-title">Ficha y enlace oficial</h2>
+<div class="block-text">Esta es una lectura práctica de GRCreal, no la guía oficial. Consulta siempre la versión vigente en el portal del CCN-CERT, ya que estas guías se actualizan periódicamente (esta ficha: publicada Jul 2010, actualizada Abr 2026).</div>
+<a class="guia-oficial-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/1279-ccn-stic-809-declaracion-de-conformidad-con-el-ens/file.html" rel="noopener noreferrer" target="_blank">⬇ CCN-STIC 809 en el portal CCN-CERT</a>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Entidades de certificación (EC y OAT) -->
+<div class="block" id="s12">
+<div class="block-label">EC y OAT</div>
+<h2 class="block-title">Entidades de certificación (EC) y Órganos de Auditoría Técnica (OAT)</h2>
+<p class="block-text" style="margin-top:10px">La certificación de conformidad en MEDIA y ALTA solo puede ser realizada por entidades autorizadas:</p>
+<ul class="guia-ul">
+<li><strong>Entidad de Certificación (EC)</strong>: Entidad del sector privado acreditada por ENAC según UNE-EN ISO/IEC 17065:2012. Debe demostrar ausencia de conflicto de interés (no puede haber prestado consultoría en los dos años anteriores).</li>
+<li><strong>Órgano de Auditoría Técnica (OAT)</strong>: Entidad del sector público reconocida por el CCN. Puede certificar al sector público en el ámbito de sus competencias.</li>
+<li><strong>Imparcialidad</strong>: La EC/OAT no puede certificar a una organización si en los dos años anteriores le prestó servicios de consultoría, análisis de riesgos o implantación de medidas.</li>
+<li><strong>Publicación</strong>: El CCN mantiene una relación actualizada de EC y OAT en su sede electrónica. Las EC deben comunicar las certificaciones expedidas al CCN en un plazo de 15 días.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Anexos A, B y C -->
+<div class="block" id="s13">
+<div class="block-label">Anexos</div>
+<h2 class="block-title">Anexos A, B y C: Modelos de conformidad</h2>
+<p class="block-text" style="margin-top:10px">La guía incluye tres anexos con los modelos oficiales de documentos de conformidad:</p>
+<ul class="guia-ul">
+<li><strong>Anexo A — Declaración de Conformidad (BÁSICA)</strong>:
+        <ul>
+<li>Documento firmado por el titular del órgano superior.</li>
+<li>Incluye identificación de sistemas, categoría, dimensiones y total de medidas.</li>
+<li>Distintivo de color naranja (Pantone Orange 021C).</li>
+</ul>
+</li>
+<li><strong>Anexo B — Certificado de Conformidad (MEDIA/ALTA)</strong>:
+        <ul>
+<li>Documento firmado por la EC/OAT.</li>
+<li>Incluye categoría, dimensiones, número de certificado y fechas de concesión/expiración.</li>
+<li>Distintivo de color azul (Pantone 653C).</li>
+<li>En comunidades con lengua cooficial, puede ser bilingüe.</li>
+</ul>
+</li>
+<li><strong>Anexo C — Aprobación Provisional de Conformidad (APC)</strong>:
+        <ul>
+<li>Documento emitido por el CCN para BÁSICA o MEDIA.</li>
+<li>Distintivo de color verde (Pantone 348C).</li>
+<li>No se publicita en la web del CCN hasta completar el PAC y obtener la certificación.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Consejo de Certificación (CoCENS) -->
+<div class="block" id="s14">
+<div class="block-label">CoCENS</div>
+<h2 class="block-title">Consejo de Certificación del ENS (CoCENS)</h2>
+<p class="block-text" style="margin-top:10px">La guía crea el Consejo de Certificación del ENS como órgano de coordinación:</p>
+<ul class="guia-ul">
+<li><strong>Naturaleza</strong>: Órgano colegiado regulado por la Ley 40/2015.</li>
+<li><strong>Composición</strong>:
+        <ul>
+<li><strong>Presidente</strong>: Director del CCN.</li>
+<li><strong>Miembros permanentes</strong>: Jefe del Área de Normativa del CCN, representante del Ministerio de Política Territorial, Director Técnico de ENAC.</li>
+<li><strong>Miembros no permanentes</strong>: Representantes de OAT y EC, y especialistas externos.</li>
+</ul>
+</li>
+<li><strong>Funciones</strong>:
+        <ul>
+<li>Velar por la adecuada implantación de la Certificación del ENS.</li>
+<li>Proponer normas, informes y buenas prácticas.</li>
+<li>Asesorar sobre métodos, procedimientos y criterios.</li>
+<li>Informar sobre el grado de implantación de la certificación.</li>
+</ul>
+</li>
+<li><strong>Periodicidad</strong>: Se reúne al menos una vez al año.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="divider"></div><div class="block grc-guide-official" id="s21"><div class="block-label">Ficha y enlace oficial</div><h2 class="block-title">Contrasta esta lectura con la publicación del CCN-CERT</h2><div class="grc-guide-official-lead">La guía oficial sigue mandando. Aquí queda la ficha documental y el acceso directo a la fuente para cerrar la lectura con el contraste adecuado.</div><div class="ccn-banner">ℹ️ <span><strong>Resumen práctico de GRCreal.</strong> Consulta siempre la versión oficial vigente en el portal del CCN-CERT.</span></div><p class="ccn-note">Resumen realizado a fecha 29/06/2026 con la información disponible en <a href="https://www.ccn-cert.cni.es/es/guias.html" rel="noopener noreferrer" target="_blank">https://www.ccn-cert.cni.es/es/guias.html</a>. Las fechas de publicación y actualización proceden del portal oficial.</p><table class="ccn-doctable"><thead><tr><th>Documento</th><th>Categoría</th><th>Publicado</th><th>Actualizado</th></tr></thead><tbody><tr><td><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/1279-ccn-stic-809-declaracion-de-conformidad-con-el-ens/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> CCN-STIC-809 Declaración, certificación y aprobación provisional de conformidad con el ENS y distintivos de cumplimiento</a><ul class="ccn-anexos"><li><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/pdf/guias/series-ccn-stic/800-guia-esquema-nacional-de-seguridad/5138-ccn-stic-809-declaracion-de-conformidad-con-el-ens-anexo-a.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> Anexo A. Declaración de Conformidad y Distintivo (categoría BÁSICA)</a></li><li><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/pdf/guias/series-ccn-stic/800-guia-esquema-nacional-de-seguridad/5141-ccn-stic-809-declaracion-de-conformidad-con-el-ens-anexo-b.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> Anexo B. Certificado de Conformidad y Distintivos de Cumplimiento</a></li><li><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/pdf/guias/series-ccn-stic/800-guia-esquema-nacional-de-seguridad/5680-ccn-stic-809-declaracion-de-conformidad-con-el-ens-anexo-c.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> Anexo C. Modelos de Aprobación Provisional de Conformidad y Distintivo</a></li></ul></td><td class="ccn-cat">800 Guías Esquema Nacional de Seguridad</td><td>Jul 2010</td><td>Abr 2026</td></tr></tbody></table><p class="grc-guide-official-actions">
+<a class="grc-guide-official-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/1279-ccn-stic-809-declaracion-de-conformidad-con-el-ens/file.html" rel="noopener noreferrer" target="_blank">Abrir documento oficial del CCN-CERT</a>
+</p></div></div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">Qué es y para qué vale</a><a data-toc="" href="#s15">Mi lectura</a><a data-toc="" href="#s18">Explicación técnica</a><a data-toc="" href="#s19">Error habitual</a><a data-toc="" href="#s20">Ejemplo práctico</a><a data-toc="" href="#s22">Ejemplo técnico de infraestructura</a><a data-toc="" href="#s16">Pregunta incómoda</a><a data-toc="" href="#s17">Mi enfoque</a>
+<a data-toc="" href="#s2">Qué contiene la guía</a>
+<a data-toc="" href="#s3">Conceptos clave</a>
+<a data-toc="" href="#s4">A quién aplica</a>
+<a data-toc="" href="#s5">Cómo se implanta, paso a paso</a>
+<a data-toc="" href="#s6">Para qué sirve en auditoría</a>
+<a data-toc="" href="#s7">Relación con otras guías</a>
+<a data-toc="" href="#s8">Mapeo a otros marcos</a>
+<a data-toc="" href="#s9">Errores típicos</a>
+<a data-toc="" href="#s10">Checklist práctico</a>
+<a data-toc="" href="#s11">Ficha y enlace oficial</a>
+<a data-toc="" href="#s12">Entidades de certificación (EC y OAT)</a>
+<a data-toc="" href="#s13">Anexos A, B y C: Modelos de conformidad</a>
+<a data-toc="" href="#s14">Consejo de Certificación (CoCENS)</a>
+</nav>
+</aside>
+</div><!-- /art-layout -->
+</div><!-- /body -->
+<div class="art-related">
+<div class="art-related-label">Sigue en la serie 800</div>
+<div class="art-related-title">Otras guías CCN-STIC</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-808.html"><span class="art-related-pill">CCN-STIC 808</span><h3>ENS. Verificación del cumplimiento</h3><p>Cómo se demuestra que cumples. La guía de la evidencia.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-817.html"><span class="art-related-pill">CCN-STIC 817</span><h3>ENS. Gestión de Ciberincidentes</h3><p>Cuando algo pasa: clasificar, notificar y responder. Y LUCÍA.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html').then(r=>r.text()).then(d=>{document.getElementById('footer-placeholder').innerHTML=d;});
+    var tl=Array.from(document.querySelectorAll('#artTocNav a'));
+    var ss=tl.map(a=>document.querySelector(a.getAttribute('href')));
+    if('IntersectionObserver' in window){
+      var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id='#'+en.target.id;tl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-20% 0px -70% 0px'});
+      ss.forEach(function(s){if(s)ob.observe(s);});
+    }
+</script>
+</div>
+</div>
+<script defer="True" src="/js/article-zoom.js"></script></body>
+<script src="/js/global.js"></script>
+</html>

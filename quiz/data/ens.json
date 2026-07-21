@@ -38,7 +38,10 @@
     },
     {
       "q": "El equipo auditor deberá informar con sinceridad y precisión los resultados de la auditoría, las conclusiones de la misma, de forma que se vea reflejado de manera veraz y precisa las actividades realizadas. Esto es...",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "Los auditores deben actuar con integridad, honestidad y precisión al informar los resultados y conclusiones de la auditoría."
     },
@@ -117,11 +120,14 @@
         "No está permitido el modo remoto en el ENS."
       ],
       "c": 1,
-      "e": "Las auditorías remotas son posibles siempre que se puedan alcanzar niveles adecuados de garantía usando medios electrónicos o telemáticos."
+      "e": "La utilización de medios remotos depende de que permitan obtener evidencia suficiente y mantener el nivel de garantía requerido. No debe entenderse como una modalidad válida automáticamente para cualquier alcance o circunstancia."
     },
     {
       "q": "Las Entidades de Certificación del ENS deberán disponer de un método para obtener, de cada evaluación realizada, un documento con el número de conformidades detectadas. Esto es...",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "Las entidades deben documentar y registrar las conformidades detectadas en cada evaluación para garantizar la trazabilidad y transparencia del proceso."
     },
@@ -145,7 +151,7 @@
         "Solo si son del mismo grupo de medidas."
       ],
       "c": 1,
-      "e": "Las No Conformidades menores pueden agruparse siempre que pertenezcan al mismo grupo de medidas para facilitar su gestión."
+      "e": "La gestión de no conformidades debe preservar trazabilidad y claridad sobre cada condición observada. La agrupación solo resulta razonable cuando no oculta causas, alcance, responsables ni acciones diferenciadas."
     },
     {
       "q": "En cuanto al número de jornadas de auditor, se deberá considerar...",
@@ -171,13 +177,23 @@
     },
     {
       "q": "Cuando no se evidencie ninguna 'No Conformidad Mayor' o 'No Conformidad Menor', el dictamen del informe de Auditoría será:",
-      "o": ["Favorable.", "Favorable con no conformidades.", "Desfavorable.", "Condicionado."],
+      "o": [
+        "Favorable.",
+        "Favorable con no conformidades.",
+        "Desfavorable.",
+        "Condicionado."
+      ],
       "c": 0,
       "e": "Si no se detectan No Conformidades, el dictamen del informe de auditoría será Favorable (conforme)."
     },
     {
       "q": "Una auditoría de cumplimiento del ENS debe realizarse de una forma metodológica que permita identificar:",
-      "o": ["Alcance, criterio y objetivos.", "Replanificación posterior.", "Los hallazgos encontrados.", "Todas son correctas."],
+      "o": [
+        "Alcance, criterio y objetivos.",
+        "Replanificación posterior.",
+        "Los hallazgos encontrados.",
+        "Todas son correctas."
+      ],
       "c": 3,
       "e": "La auditoría debe identificar alcance, criterios, objetivos y hallazgos, y permitir la replanificación si fuera necesario."
     },
@@ -722,7 +738,12 @@
     },
     {
       "q": "Conjunto de técnicas y herramientas para recopilar información de fuentes abiertas o públicas:",
-      "o": ["INTEL", "OSINT", "INTEC", "OPIC"],
+      "o": [
+        "INTEL",
+        "OSINT",
+        "INTEC",
+        "OPIC"
+      ],
       "c": 1,
       "e": "OSINT (Open Source Intelligence) es la disciplina que se dedica a la recopilación y análisis de información de fuentes abiertas."
     },
@@ -739,7 +760,10 @@
     },
     {
       "q": "El eslabón más débil de la ciberseguridad es el ser humano.",
-      "o": ["Verdadero", "Falso"],
+      "o": [
+        "Verdadero",
+        "Falso"
+      ],
       "c": 0,
       "e": "El factor humano es considerado el eslabón más débil en ciberseguridad, ya que los errores humanos son la causa de la mayoría de los incidentes."
     },
@@ -822,9 +846,14 @@
     },
     {
       "q": "Sea un activo A que soporta un servicio de muy alto valor y está sujeto a una amenaza Z muy improbable. ¿Qué riesgo estimaría para el mismo?",
-      "o": ["Medio.", "Bajo.", "Alto.", "Muy alto."],
+      "o": [
+        "Medio.",
+        "Bajo.",
+        "Alto.",
+        "Muy alto."
+      ],
       "c": 1,
-      "e": "Alto valor multiplicado por baja probabilidad resulta en un riesgo bajo o medio-bajo."
+      "e": "Alto valor multiplicado por baja probabilidad resulta en un riesgo bajo o medio-bajo. La clave es identificar el criterio aplicable y relacionarlo con evidencia suficiente."
     },
     {
       "q": "Fijar el riesgo residual que acepta la Organización corresponde a:",

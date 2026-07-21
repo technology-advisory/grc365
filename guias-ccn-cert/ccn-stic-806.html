@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>CCN-STIC 806 — Plan de Adecuación al ENS · GRCreal</title>
+<meta content="Guía técnica GRCREAL de la CCN-STIC 806: lectura práctica, explicación técnica, errores habituales, ejemplo real, evidencias y ficha oficial al final." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/guias-ccn-cert/ccn-stic-806.html" rel="canonical"/>
+<meta content="CCN-STIC 806 — Plan de Adecuación al ENS" property="og:title"/>
+<meta content="CCN-STIC 806: lectura técnica GRCREAL, aplicación real, error habitual, ejemplo práctico, evidencias y acceso a la fuente oficial al final." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/guias-ccn-cert/ccn-stic-806.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/articles.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-articulo.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CCN-STIC 806 — Plan de Adecuación al ENS","description":"CCN-STIC 806 (Plan de Adecuación al ENS): qué es, qué contiene, cómo implantarla, su uso en auditoría, mapeo a ISO 27001/NIS2/DORA y checklist. Resumen práctico de GRCreal con enlace oficial.","image":"https://grcreal.com/grcreal.png","author":{"@type":"Person","name":"Miguel Ángel Carriazo","url":"https://grcreal.com/sobre-mi/"},"publisher":{"@type":"Organization","name":"GRCreal","logo":{"@type":"ImageObject","url":"https://grcreal.com/favicon-32x32.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://grcreal.com/guias-ccn-cert/ccn-stic-806.html"}}</script>
+<style>
+.ccn-note{font-family:var(--mono,monospace);font-size:11.5px;color:#6b7680;letter-spacing:.01em;margin:0 0 18px;line-height:1.5;}
+.ccn-note a{color:var(--brand-dark,#005a8e);}
+.ccn-banner{display:flex;align-items:flex-start;gap:10px;background:var(--brand-light,#e8f3fa);
+  border:1px solid var(--brand-mid,#cce4f0);border-radius:6px;padding:11px 15px;margin:0 0 14px;
+  font-size:13px;color:var(--brand-dark,#005a8e);line-height:1.5;}
+.ccn-doctable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:13.5px;}
+.ccn-doctable thead th{background:#1f6fb2;color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+.ccn-doctable thead th:nth-child(3),.ccn-doctable thead th:nth-child(4){white-space:nowrap;}
+.ccn-doctable td{border-bottom:1px solid var(--ds-line,#e2e7ec);padding:11px 12px;vertical-align:top;color:var(--ds-ink,#2b3340);}
+.ccn-doctable tr:nth-child(even) td{background:#f4f8fb;}
+.ccn-doc-a{color:var(--brand-dark,#005a8e);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.ccn-doc-a:hover{text-decoration:underline;}
+.ccn-doc-a .pdf{color:#c0392b;font-weight:700;}
+.ccn-anexos{list-style:none;margin:10px 0 0;padding:0;}
+.ccn-anexos li{position:relative;padding:4px 0 4px 16px;font-size:12.5px;color:#5a6675;}
+.ccn-anexos li:before{content:"\25AA";position:absolute;left:0;color:var(--brand,#0077B5);}
+.ccn-cat{font-size:12.5px;color:#5a6675;}
+.guia-oficial-btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand,#0077B5);color:#fff;
+  text-decoration:none;font-family:var(--mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:10px 20px;border-radius:13px;margin-top:6px;transition:background .15s;}
+.guia-oficial-btn:hover{background:var(--brand-dark,#005a8e);color:#fff;}
+.guia-map{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;}
+.guia-map th{background:var(--ds-navy,#14233b);color:#fff;text-align:left;padding:8px 10px;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono,monospace);}
+.guia-map td{border:1px solid var(--ds-line,#d3dae3);padding:8px 10px;vertical-align:top;}
+.guia-map tr:nth-child(even) td{background:#f4f8fb;}
+.guia-check{list-style:none;padding:0;margin:12px 0 0;}
+.guia-check li{position:relative;padding:7px 0 7px 28px;border-bottom:1px solid #eef2f6;font-size:14px;color:var(--ds-ink,#2b3340);}
+.guia-check li:before{content:"\2713";position:absolute;left:0;top:6px;width:18px;height:18px;line-height:18px;text-align:center;
+  background:var(--brand-light,#e8f3fa);color:var(--brand-dark,#005a8e);border-radius:4px;font-size:12px;font-weight:700;}
+.guia-ul{margin:12px 0 0;padding-left:20px;}
+.guia-ul li{margin:7px 0;font-size:14px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-pasos{list-style:none;counter-reset:p;margin:14px 0 0;padding:0;}
+.guia-pasos li{counter-increment:p;position:relative;padding:0 0 16px 44px;margin-bottom:14px;border-bottom:1px solid #eef2f6;}
+.guia-pasos li:last-child{border-bottom:none;}
+.guia-pasos li:before{content:counter(p);position:absolute;left:0;top:0;width:28px;height:28px;line-height:28px;text-align:center;
+  background:var(--brand,#0077B5);color:#fff;border-radius:50%;font-family:var(--mono,monospace);font-size:13px;font-weight:700;}
+.guia-pasos .pt{display:block;font-weight:700;color:var(--ds-navy,#14233b);font-size:14.5px;margin-bottom:3px;}
+.guia-pasos .pd{font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-concepts dt{font-weight:700;color:var(--brand-dark,#005a8e);font-size:14px;margin-top:12px;}
+.guia-concepts dd{margin:2px 0 0;font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-rel{list-style:none;margin:12px 0 0;padding:0;}
+.guia-rel li{padding:8px 0;border-bottom:1px solid #eef2f6;font-size:13.5px;color:var(--ds-ink,#2b3340);}
+.guia-rel .rn{display:inline-block;background:var(--ds-navy,#14233b);color:#fff;font-family:var(--mono,monospace);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px;}
+.guia-rel a{color:var(--brand-dark,#005a8e);font-weight:600;text-decoration:none;}
+</style>
+<link href="/css/dossier-guias.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="article-page">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html').then(r=>r.text()).then(d=>{document.getElementById('nav-placeholder').outerHTML=d;});
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: guía CCN-STIC</span>
+<span>referencia: <strong>CCN-STIC 806</strong></span>
+</div>
+<div class="header">
+<a class="art-back" href="/guias-ccn-cert/index.html">← Volver a Guías CCN-CERT</a>
+<div class="tag">CCN-STIC · Serie 800 · ENS</div>
+<h1 class="headline">CCN-STIC 806<br/><span class="accent">Plan de Adecuación al ENS</span></h1>
+<p class="subline">El punto de entrada. Tu hoja de ruta para cumplir el ENS.</p>
+<div class="guide-editorial-meta">
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">♙</span>
+<strong>Miguel Ángel Carriazo</strong>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">▣</span>
+<span>18 junio 2026</span>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">◷</span>
+<span data-reading-time="">12 min de lectura</span>
+</div>
+</div></div>
+<div class="body">
+<div class="art-layout">
+<div class="art-main">
+<div class="guia-read-when">
+<span>LEE ESTA GUÍA CUANDO...</span>
+<h2>Necesites trabajar sobre plan de adecuación dentro del ENS.</h2>
+<p>En vez de buscar una frase aislada, sigue el recorrido de la guía y relaciona cada conclusión con el sistema, el responsable y la evidencia que debería existir.</p>
+</div><div class="art-visual guia-roadmap">
+<div class="art-visual-kicker">CCN-STIC 806 · Plan de adecuación</div>
+<div class="art-visual-title">Dónde encaja esta guía en una revisión práctica</div>
+<svg aria-label="Mapa práctico de la guía CCN-STIC 806" role="img" viewbox="0 0 1160 240">
+<rect class="gg-svg-box" height="96" rx="2" width="220" x="70" y="68"></rect><text class="gg-svg-num" x="94" y="99">01</text><text class="gg-svg-label" x="94" y="132">Situación</text><line class="gg-svg-line" x1="290" x2="335" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="326,111 336,116 326,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="335" y="68"></rect><text class="gg-svg-num" x="359" y="99">02</text><text class="gg-svg-label" x="359" y="132">Brecha</text><line class="gg-svg-line" x1="555" x2="600" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="591,111 601,116 591,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="600" y="68"></rect><text class="gg-svg-num" x="624" y="99">03</text><text class="gg-svg-label" x="624" y="132">Prioridad</text><line class="gg-svg-line" x1="820" x2="865" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="856,111 866,116 856,121"></polygon><rect class="gg-svg-box is-strong" height="96" rx="2" width="220" x="865" y="68"></rect><text class="gg-svg-num is-light" x="889" y="99">04</text><text class="gg-svg-label is-light" x="889" y="132">Plan</text>
+<rect class="gg-svg-band" height="28" rx="2" width="840" x="160" y="198"></rect>
+<text class="gg-svg-band-label" text-anchor="middle" x="580" y="217">PREGUNTA → CRITERIO → IMPLANTACIÓN → EVIDENCIA REVISABLE</text>
+</svg>
+<div class="art-visual-note">Utiliza la guía para orientar la revisión y contrasta siempre la versión vigente en el portal oficial del CCN-CERT.</div>
+</div><div class="block" id="s1">
+<div class="block-label">Qué es</div>
+<h2 class="block-title">Qué es y para qué vale</h2>
+<p class="block-text" style="margin-top:10px">La CCN-STIC 806 define cómo elaborar el Plan de Adecuación: el documento que recoge la situación actual frente al ENS, el análisis diferencial (gap) respecto a las medidas aplicables, las acciones pendientes, los responsables y el calendario. Es la guía con la que la mayoría de organizaciones empieza el proyecto.</p>
+<p class="block-text" style="margin-top:10px">Su valor no es solo técnico, es de gobierno: da visibilidad y compromiso de la dirección sobre qué falta, quién lo hace y para cuándo. Un Plan de Adecuación bien hecho convierte una obligación difusa («hay que cumplir el ENS») en una hoja de ruta con responsables y fechas, y sirve de referencia durante toda la adecuación y la posterior auditoría.</p>
+<p class="block-text" style="margin-top:10px">El Plan de Adecuación será elaborado por el Responsable de Seguridad. Si no está nombrado oficialmente, hará sus funciones, de forma temporal, quien la Dirección designe, anexándose al plan de adecuación su designación formal.</p>
+</div><div class="divider"></div><div class="block grc-guide-angle" id="s15">
+<div class="block-label">Mi lectura</div>
+<h2 class="block-title">Un Plan de Adecuación no es el lugar donde mandamos las brechas para que envejezcan.</h2>
+<div class="block-text">La 806 me interesa porque convierte diferencias de cumplimiento en trabajo gestionable. Sobre el papel es sencillo: situación actual, brecha, acción, responsable, recursos y plazo. En la práctica, muchos planes terminan siendo cementerios de acciones abiertas con fechas movidas cada trimestre.<br/><br/>
+Una brecha no debería priorizarse solo por la medida ENS afectada. Miraría exposición, dependencia, categoría del sistema, facilidad de explotación, controles compensatorios y capacidad de recuperación. Dos desviaciones sobre requisitos similares pueden necesitar prioridades completamente distintas.<br/><br/>
+<strong>Para mí, el plan empieza a ser serio cuando cada retraso obliga a volver a mirar el riesgo residual.</strong> Si la fecha cambia pero la decisión de riesgo nunca se revisa, solo estamos administrando calendario.</div>
+</div><div class="divider"></div><div class="art-visual grc-guide-techvisual">
+<div class="art-visual-kicker">CCN-STIC 806 · Brechas y priorización</div>
+<div class="art-visual-title">Cómo una desviación se convierte en un plan defendible</div>
+<svg aria-label="Kanban de plan de adecuación" role="img" viewbox="0 0 1160 430">
+<rect class="gx-column" height="310" width="235" x="70" y="60"></rect>
+<text class="gx-code" x="100" y="95">IDENTIFICADO</text>
+<rect class="gx-card" height="65" width="175" x="100" y="125"></rect>
+<rect class="gx-card" height="65" width="175" x="100" y="205"></rect>
+<rect class="gx-column" height="310" width="235" x="330" y="60"></rect>
+<text class="gx-code" x="360" y="95">PRIORIZADO</text>
+<rect class="gx-card-strong" height="65" width="175" x="360" y="125"></rect>
+<rect class="gx-card" height="65" width="175" x="360" y="205"></rect>
+<rect class="gx-column" height="310" width="235" x="590" y="60"></rect>
+<text class="gx-code" x="620" y="95">EN TRATAMIENTO</text>
+<rect class="gx-card" height="65" width="175" x="620" y="125"></rect>
+<rect class="gx-card-strong" height="65" width="175" x="620" y="205"></rect>
+<rect class="gx-column" height="310" width="235" x="850" y="60"></rect>
+<text class="gx-code" x="880" y="95">VERIFICADO</text>
+<rect class="gx-card-strong" height="65" width="175" x="880" y="125"></rect>
+<text class="gx-small" x="100" y="330">brecha + riesgo + dueño</text>
+<text class="gx-small" x="360" y="330">criterio de urgencia</text>
+<text class="gx-small" x="620" y="330">acción + bloqueo</text>
+<text class="gx-small" x="880" y="330">prueba de cierre</text>
+</svg>
+<div class="art-visual-note">Lectura técnica GRCREAL: una manera práctica de conectar la guía con arquitectura, operación y evidencia.</div>
+</div><div class="divider"></div><div class="block grc-guide-tech" id="s18">
+<div class="block-label">Explicación técnica</div>
+<h2 class="block-title">Qué me interesa técnicamente de esta guía</h2>
+<div class="block-text">El Plan de Adecuación es el lugar donde las diferencias entre estado actual y exigencia ENS pasan a convertirse en cartera de trabajo. Técnicamente necesita, al menos, trazabilidad con la medida, comprensión del riesgo asociado, priorización y una lógica de seguimiento. Sin esas cuatro piezas, el plan es solo una lista de tareas abiertas.<br/><br/>
+La dificultad real está en priorizar bien. Dos brechas similares pueden no merecer la misma urgencia si afectan a sistemas con distinta categoría, si cuentan con controles compensatorios o si una de ellas incrementa notablemente la exposición a un escenario de incidente. Por eso el plan no debería gestionarse como una simple tabla de project management.<br/><br/>
+Yo lo utilizaría como mecanismo de gobierno del riesgo residual: cada prórroga, dependencia o bloqueo debería obligar a revisar si la decisión sigue siendo aceptable.<h3>Qué campos mínimos exigiría</h3>
+<p>Medida afectada, sistema, condición observada, riesgo, propietario, acción, dependencia, coste estimado, fecha objetivo, control compensatorio y criterio de cierre. Añadiría una fecha de reevaluación del riesgo para acciones aplazadas.</p>
+<p>El estado “cerrado” debería requerir una verificación independiente o, al menos, evidencia objetiva de que la brecha dejó de existir.</p></div>
+</div><div class="divider"></div><div class="block grc-guide-error" id="s19">
+<div class="block-label">Error habitual</div>
+<h2 class="block-title">Dónde suele torcerse en proyectos reales</h2>
+<div class="grc-guide-alert">
+<span>DONDE SUELE TORCERSE</span>
+<div class="block-text">Confundir “planificado” con “controlado”. La acción tiene dueño, fecha y comentario; eso da sensación de orden. Pero si no cambia el entendimiento del riesgo ni existe seguimiento de la eficacia cuando se cierre, el plan solo está administrando pendientes.<br/><br/>
+Otro error frecuente es no separar las acciones estructurales de los quick wins, lo que termina ocultando prioridades reales bajo un volumen excesivo de tareas.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-example" id="s20">
+<div class="block-label">Ejemplo práctico</div>
+<h2 class="block-title">Cómo lo aterrizaría en un caso real</h2>
+<div class="grc-guide-example-box">
+<div class="grc-guide-example-mark">CASO</div>
+<div class="block-text">Imagina una brecha sobre segmentación en un sistema medio y otra sobre gestión de cuentas privilegiadas en un sistema alto. Ambas pueden aparecer como “pendientes”, pero no deberían competir con el mismo criterio. La exposición, la criticidad del servicio, la facilidad de explotación y la dependencia de terceros cambian por completo la secuencia de actuación.<br/><br/>
+Yo pediría siempre una explicación de por qué esa acción tiene esa prioridad y qué exposición queda mientras no se cierre. Si nadie puede responder, el plan ha perdido su parte más valiosa.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-infra" id="s22">
+<div class="block-label">Ejemplo técnico de infraestructura</div>
+<h2 class="block-title">Plan de adecuación con segmentación pendiente durante dieciocho meses</h2>
+<div class="art-visual grc-infra-visual">
+<div class="art-visual-kicker">EJEMPLO TÉCNICO · INFRAESTRUCTURA</div>
+<div class="art-visual-title">Componentes implicados en el caso</div>
+<svg aria-label="Arquitectura técnica del ejemplo CCN-STIC 806" role="img" viewbox="0 0 1160 380">
+<rect class="gi-node" height="82" rx="2" width="190" x="110" y="90"></rect><text class="gi-label" text-anchor="middle" x="205" y="138">VLAN</text><rect class="gi-node gi-node-strong" height="82" rx="2" width="190" x="350" y="90"></rect><text class="gi-label gi-label-light" text-anchor="middle" x="445" y="138">Firewall</text><rect class="gi-node" height="82" rx="2" width="190" x="590" y="90"></rect><text class="gi-label" text-anchor="middle" x="685" y="138">EDR</text><rect class="gi-node" height="82" rx="2" width="190" x="830" y="90"></rect><text class="gi-label" text-anchor="middle" x="925" y="138">ACL</text>
+<line class="gi-link" x1="300" x2="350" y1="131" y2="131"></line><line class="gi-link" x1="540" x2="590" y1="131" y2="131"></line><line class="gi-link" x1="780" x2="830" y1="131" y2="131"></line><line class="gi-link" x1="685" x2="565" y1="172" y2="265"></line>
+<rect class="gi-band" height="28" rx="2" width="780" x="190" y="330"></rect>
+<text class="gi-band-label" text-anchor="middle" x="580" y="349">SERVICIO → DEPENDENCIA → CONTROL → EVIDENCIA</text>
+</svg>
+</div>
+<div class="grc-infra-case">
+<div class="grc-infra-case-mark">INFRA</div>
+<div class="block-text">Una brecha de segmentación permanece abierta porque depende de renovar firewalls y rediseñar direccionamiento. La fecha se mueve cada trimestre, pero no cambia el tratamiento del riesgo.<br/><br/>
+<strong>Arquitectura técnica:</strong> red plana, VLAN, firewalls, reglas, servidores críticos y acceso de terceros.<br/>
+<strong>Exposición:</strong> movimiento lateral y dificultad para contener incidentes.<br/>
+<strong>Control compensatorio:</strong> reglas host-based, EDR, restricciones de administración y monitorización reforzada.<br/>
+<strong>Gestión correcta:</strong> dividir el proyecto por zonas, priorizar activos críticos y reevaluar el riesgo en cada prórroga.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-question" id="s16">
+<div class="block-label">Pregunta incómoda</div>
+<h2 class="block-title">¿Qué ha cambiado en el riesgo cada vez que prorrogamos esta acción?</h2>
+<div class="grc-question-box">
+<span>NO RESPONDAS CON LA POLÍTICA</span>
+<div class="block-text">Hay acciones que llevan abiertas años con el mismo texto. Cuando pregunto por qué, aparecen dependencias presupuestarias, proyectos, legacy o proveedores. Todo eso puede ser cierto. Pero entonces necesito saber qué mitigación temporal existe y quién acepta seguir expuesto.<br/><br/>
+Mover la fecha no es un tratamiento de riesgo. Es una modificación administrativa del plan.</div>
+</div>
+<table class="grc-guide-evidence"><thead><tr><th>Ref.</th><th>Qué pediría</th><th>Qué necesito ver</th></tr></thead><tbody><tr><td>GR-01</td><td>Brecha trazable</td><td>Medida, sistema, condición observada y riesgo relacionado.</td></tr><tr><td>GR-02</td><td>Priorización</td><td>Criterio que explica urgencia y secuencia de acciones.</td></tr><tr><td>GR-03</td><td>Propiedad</td><td>Responsable con capacidad para ejecutar o escalar.</td></tr><tr><td>GR-04</td><td>Prórrogas</td><td>Reevaluación de riesgo y medidas compensatorias.</td></tr></tbody></table>
+</div><div class="divider"></div><div class="block grc-guide-approach" id="s17">
+<div class="block-label">Mi enfoque</div>
+<h2 class="block-title">Cómo la aterrizaría yo en un entorno real</h2>
+<div class="grc-approach-box">
+<div class="grc-approach-mark">GRCREAL</div>
+<div class="block-text">Separaría acciones estructurales de correcciones rápidas. Haría visible qué brechas afectan a funciones o activos críticos y revisaría mensualmente solo las que necesitan decisión, no las cien filas del Excel.<br/><br/>
+<strong>Un buen plan de adecuación reduce incertidumbre. Uno malo solo documenta que sabemos dónde fallamos.</strong></div>
+</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s2">
+<div class="block-label">Contenido</div>
+<h2 class="block-title">Qué contiene la guía</h2>
+<ul class="guia-ul">
+<li>La política de seguridad y el marco normativo de partida.</li>
+<li>El alcance del sistema y la valoración (apoyada en la 803).</li>
+<li>La declaración de aplicabilidad de medidas según la categoría.</li>
+<li>El análisis diferencial: situación actual frente a la exigida.</li>
+<li>El plan de mejora: acciones, responsables, prioridades y calendario.</li>
+<li>La ficha de servicio (Anexo I) como herramienta para identificar y valorar servicios.</li>
+<li>Orientaciones para la interconexión de sistemas y la adecuación incremental.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s3">
+<div class="block-label">Conceptos</div>
+<h2 class="block-title">Conceptos clave que debes manejar</h2>
+<dl class="guia-concepts">
+<dt>Análisis diferencial (gap)</dt>
+<dd>Comparación entre lo que el ENS exige y lo que la organización tiene implantado. Es el corazón del Plan de Adecuación y determina las acciones necesarias.</dd>
+<dt>Declaración de aplicabilidad</dt>
+<dd>Relación de medidas que aplican al sistema según su categoría. Puede ser provisional (antes del análisis de riesgos) o definitiva (después).</dd>
+<dt>Plan de mejora de la seguridad</dt>
+<dd>Conjunto de acciones priorizadas para cerrar las brechas detectadas en el análisis diferencial. Incluye responsable, plazo y estimación de coste.</dd>
+<dt>Hoja de ruta</dt>
+<dd>Calendario con hitos, responsables y plazos de implantación. Las fechas de inicio pueden limitarse al año; la fecha de terminación se calcula en función del tiempo estimado.</dd>
+</dl>
+</div>
+<div class="divider"></div>
+<div class="block" id="s4">
+<div class="block-label">Alcance</div>
+<h2 class="block-title">A quién aplica y cuándo entra en juego</h2>
+<div class="block-text">Es el arranque formal de cualquier adecuación. Se elabora una vez definidos alcance, roles (801) y valoración (803), y se mantiene vivo hasta cerrar todas las brechas. Es el documento que la dirección aprueba para comprometer recursos. También aplica a sistemas que manejan información de terceros o prestan servicios a terceros, requiriendo conocer la valoración realizada por los responsables del otro sistema.</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s5">
+<div class="block-label">Implantación</div>
+<h2 class="block-title">Cómo lo implanta una empresa, paso a paso</h2>
+<ol class="guia-pasos">
+<li><span class="pt">Define alcance y valora</span><span class="pd">Delimita qué sistemas entran y valóralos con la 803. Sin alcance y categoría no hay plan posible. Usa la Ficha de Servicio del Anexo I para inventariar servicios e información.</span></li>
+<li><span class="pt">Determina las medidas aplicables</span><span class="pd">Elabora la declaración de aplicabilidad: qué medidas te tocan por categoría. Puede ser provisional antes del análisis de riesgos.</span></li>
+<li><span class="pt">Haz el análisis diferencial</span><span class="pd">Compara, medida a medida, lo exigido con lo que ya tienes. El gap resultante es el corazón del plan. También se completa con medidas derivadas del análisis de riesgos.</span></li>
+<li><span class="pt">Prioriza y asigna</span><span class="pd">Ordena las brechas por riesgo y esfuerzo, y asigna responsable y fecha a cada acción. Un gap sin responsable ni plazo no se cierra. Incluye estimación de coste.</span></li>
+<li><span class="pt">Aprueba y haz seguimiento</span><span class="pd">Lleva el plan a la dirección para su aprobación y revísalo periódicamente conforme cierras acciones. El Plan de mejora de la seguridad debe ser aprobado formalmente por el Comité de Seguridad.</span></li>
+</ol>
+</div>
+<div class="divider"></div>
+<div class="block" id="s6">
+<div class="block-label">Auditoría</div>
+<h2 class="block-title">Para qué sirve en una auditoría</h2>
+<ul class="guia-ul">
+<li>El auditor usa el Plan de Adecuación como referencia de partida del expediente.</li>
+<li>Comprueba que las brechas detectadas se han cerrado o tienen plan vigente.</li>
+<li>Verifica la aprobación por la dirección y el seguimiento.</li>
+<li>Un plan sin seguimiento ni aprobación pierde su valor probatorio.</li>
+<li>La coherencia entre gap, acciones y estado real es objeto de revisión.</li>
+<li>El auditor comprobará que el análisis de riesgos se ha realizado con la metodología adecuada a la categoría (MAGERIT, PILAR, etc.).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s7">
+<div class="block-label">Serie 800</div>
+<h2 class="block-title">Relación con otras guías de la serie</h2>
+<ul class="guia-rel">
+<li><span class="rn">CCN-STIC 803</span><a href="/guias-ccn-cert/ccn-stic-803.html">803</a> — La valoración alimenta el alcance y la declaración de aplicabilidad.</li>
+<li><span class="rn">CCN-STIC 804</span><a href="/guias-ccn-cert/ccn-stic-804.html">804</a> — Las acciones del plan se ejecutan según la guía de implantación.</li>
+<li><span class="rn">CCN-STIC 809</span><a href="/guias-ccn-cert/ccn-stic-809.html">809</a> — Cerrado el plan y superada la auditoría, se declara/certifica la conformidad.</li>
+<li><span class="rn">CCN-STIC 805</span><a href="/guias-ccn-cert/ccn-stic-805.html">805</a> — La política de seguridad es un entregable temprano del plan.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s8">
+<div class="block-label">Mapeo</div>
+<h2 class="block-title">Equivalencia con otros marcos</h2>
+<div class="block-text">Cómo se conecta esta guía con los marcos que probablemente ya manejas:</div>
+<table class="guia-map">
+<tr><th>Aspecto en el ENS</th><th>ISO 27001</th><th>NIS2 / DORA</th></tr>
+<tr><td>Plan de Adecuación / gap</td><td>ISO 27001: plan de tratamiento de riesgos (6.1.3)</td><td>NIS2: medidas y plazos de implantación</td></tr>
+<tr><td>Declaración de aplicabilidad</td><td>ISO 27001: SoA (Statement of Applicability)</td><td>DORA: marco de gestión de riesgo TIC</td></tr>
+<tr><td>Seguimiento del plan</td><td>ISO 27001: seguimiento y mejora (9, 10)</td><td>DORA: revisión periódica del marco</td></tr>
+<tr><td>Análisis diferencial (gap)</td><td>ISO 27001: análisis de brechas</td><td>NIS2: evaluación de cumplimiento</td></tr>
+<tr><td>Plan de mejora con responsables y plazos</td><td>ISO 27001: planes de acción</td><td>DORA: planes de remediación</td></tr>
+</table>
+</div>
+<div class="divider"></div>
+<div class="block" id="s9">
+<div class="block-label">Sin humo</div>
+<h2 class="block-title">Errores típicos</h2>
+<ul class="guia-ul">
+<li>Confundir el Plan de Adecuación con la auditoría: es el inicio, no el final.</li>
+<li>Un gap sin responsables ni fechas.</li>
+<li>No actualizar el plan a medida que cierras brechas.</li>
+<li>No conseguir la aprobación de la dirección.</li>
+<li>No realizar el análisis de riesgos como parte del plan.</li>
+<li>No documentar la valoración de servicios e información.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s10">
+<div class="block-label">Checklist</div>
+<h2 class="block-title">Checklist práctico</h2>
+<ul class="guia-check">
+<li>Alcance definido y sistemas valorados.</li>
+<li>Declaración de aplicabilidad elaborada (provisional y definitiva).</li>
+<li>Análisis diferencial completo, medida a medida.</li>
+<li>Brechas priorizadas con responsable y plazo.</li>
+<li>Plan aprobado por la dirección.</li>
+<li>Seguimiento periódico en marcha.</li>
+<li>Análisis de riesgos realizado con metodología adecuada a la categoría.</li>
+<li>Plan de mejora con estimación de costes.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s11">
+<div class="block-label">Ficha</div>
+<h2 class="block-title">Ficha y enlace oficial</h2>
+<div class="block-text">Esta es una lectura práctica de GRCreal, no la guía oficial. Consulta siempre la versión vigente en el portal del CCN-CERT, ya que estas guías se actualizan periódicamente (esta ficha: publicada Ago 2010, actualizada Jun 2020).</div>
+<a class="guia-oficial-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/511-ccn-stic-806-plan-de-adecuacion-al-ens/file.html" rel="noopener noreferrer" target="_blank">⬇ CCN-STIC 806 en el portal CCN-CERT</a>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Componentes del Plan de Adecuación -->
+<div class="block" id="s12">
+<div class="block-label">Componentes</div>
+<h2 class="block-title">Componentes del Plan de Adecuación</h2>
+<p class="block-text" style="margin-top:10px">El Plan de Adecuación está compuesto por las siguientes actuaciones:</p>
+<ul class="guia-ul">
+<li><strong>1. Política de Seguridad y Normativa Interna</strong>: Documento de alto nivel que define el compromiso de la entidad con la seguridad. Si no se dispone de política, se debe planificar su desarrollo en el plan de mejora.</li>
+<li><strong>2. Identificación de servicios y categorización</strong>: Identificar los servicios prestados y la información tratada. La Ficha de Servicio (Anexo I) permite disponer ordenadamente de los datos esenciales de cada servicio.</li>
+<li><strong>3. Análisis de riesgos</strong>: Se desarrolla conforme al art. 13 y Anexo II del ENS. Se recomienda utilizar la metodología MAGERIT y la herramienta PILAR.</li>
+<li><strong>4. Declaración de Aplicabilidad definitiva</strong>: Relación de medidas del ENS que son de aplicación, aprobada formalmente por el Responsable de Seguridad.</li>
+<li><strong>5. Plan de mejora de la seguridad</strong>: Informe de deficiencias (gap analysis) y plan de acciones para subsanarlas.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Ficha de Servicio (Anexo I) -->
+<div class="block" id="s13">
+<div class="block-label">Ficha de Servicio</div>
+<h2 class="block-title">Ficha de Servicio (Anexo I)</h2>
+<p class="block-text" style="margin-top:10px">La guía incluye una Ficha de Servicio como herramienta para inventariar y valorar servicios e información. Contiene:</p>
+<ul class="guia-ul">
+<li><strong>Identificación del servicio</strong>: Nombre, código y descripción.</li>
+<li><strong>Datos (información) que trata</strong>: Distinción entre datos personales (con indicación de categorías especiales) y no personales, origen y destinatarios.</li>
+<li><strong>Dependencias entre servicios</strong>: Identifica si el servicio depende de otros o si otros dependen de él.</li>
+<li><strong>Responsables</strong>: Responsable funcional del servicio.</li>
+<li><strong>Valoración de niveles de seguridad</strong>: C, I, T, A, D con sus niveles (BAJO/MEDIO/ALTO). Para Disponibilidad, se incluye el RTO (tiempo máximo de interrupción).</li>
+</ul>
+<p class="block-text" style="margin-top:10px">La Ficha de Servicio permite detectar la conveniencia o no de segregar varios servicios en sistemas de información diferenciados.</p>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Interconexión de sistemas -->
+<div class="block" id="s14">
+<div class="block-label">Interconexión</div>
+<h2 class="block-title">Interconexión de sistemas y adecuación incremental</h2>
+<p class="block-text" style="margin-top:10px">La guía aborda específicamente cómo tratar la interconexión de sistemas:</p>
+<ul class="guia-ul">
+<li><strong>Cuando un sistema maneja información de terceros</strong>: La valoración de la información y los servicios será la determinada por dicho tercero. Si se carece de valoración, el Responsable de Seguridad establece valores a su mejor criterio como "compromiso de prestación de servicios".</li>
+<li><strong>Cuando un sistema utiliza sistemas de terceros</strong>: La valoración propia se impone al tercero, que la tendrá en cuenta en su propio plan. Si el prestatario está sujeto al ENS, incorpora estos requisitos a su propio plan de adecuación.</li>
+<li><strong>Adecuación incremental</strong>: Si los responsables del otro sistema elevan las exigencias en materia de seguridad, se recurre a un "plan de adecuación incremental" que contemple las actuaciones para subsanar las insuficiencias del nuevo escenario.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="divider"></div><div class="block grc-guide-official" id="s21"><div class="block-label">Ficha y enlace oficial</div><h2 class="block-title">Contrasta esta lectura con la publicación del CCN-CERT</h2><div class="grc-guide-official-lead">La guía oficial sigue mandando. Aquí queda la ficha documental y el acceso directo a la fuente para cerrar la lectura con el contraste adecuado.</div><div class="ccn-banner">ℹ️ <span><strong>Resumen práctico de GRCreal.</strong> Consulta siempre la versión oficial vigente en el portal del CCN-CERT.</span></div><p class="ccn-note">Resumen realizado a fecha 29/06/2026 con la información disponible en <a href="https://www.ccn-cert.cni.es/es/guias.html" rel="noopener noreferrer" target="_blank">https://www.ccn-cert.cni.es/es/guias.html</a>. Las fechas de publicación y actualización proceden del portal oficial.</p><table class="ccn-doctable"><thead><tr><th>Documento</th><th>Categoría</th><th>Publicado</th><th>Actualizado</th></tr></thead><tbody><tr><td><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/511-ccn-stic-806-plan-de-adecuacion-al-ens/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> CCN-STIC-806 Plan de Adecuación al ENS</a></td><td class="ccn-cat">800 Guías Esquema Nacional de Seguridad</td><td>Ago 2010</td><td>Jun 2020</td></tr></tbody></table><p class="grc-guide-official-actions">
+<a class="grc-guide-official-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/511-ccn-stic-806-plan-de-adecuacion-al-ens/file.html" rel="noopener noreferrer" target="_blank">Abrir documento oficial del CCN-CERT</a>
+</p></div></div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">Qué es y para qué vale</a><a data-toc="" href="#s15">Mi lectura</a><a data-toc="" href="#s18">Explicación técnica</a><a data-toc="" href="#s19">Error habitual</a><a data-toc="" href="#s20">Ejemplo práctico</a><a data-toc="" href="#s22">Ejemplo técnico de infraestructura</a><a data-toc="" href="#s16">Pregunta incómoda</a><a data-toc="" href="#s17">Mi enfoque</a>
+<a data-toc="" href="#s2">Qué contiene la guía</a>
+<a data-toc="" href="#s3">Conceptos clave</a>
+<a data-toc="" href="#s4">A quién aplica</a>
+<a data-toc="" href="#s5">Cómo se implanta, paso a paso</a>
+<a data-toc="" href="#s6">Para qué sirve en auditoría</a>
+<a data-toc="" href="#s7">Relación con otras guías</a>
+<a data-toc="" href="#s8">Mapeo a otros marcos</a>
+<a data-toc="" href="#s9">Errores típicos</a>
+<a data-toc="" href="#s10">Checklist práctico</a>
+<a data-toc="" href="#s11">Ficha y enlace oficial</a>
+<a data-toc="" href="#s12">Componentes del Plan de Adecuación</a>
+<a data-toc="" href="#s13">Ficha de Servicio (Anexo I)</a>
+<a data-toc="" href="#s14">Interconexión de sistemas</a>
+</nav>
+</aside>
+</div><!-- /art-layout -->
+</div><!-- /body -->
+<div class="art-related">
+<div class="art-related-label">Sigue en la serie 800</div>
+<div class="art-related-title">Otras guías CCN-STIC</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-805.html"><span class="art-related-pill">CCN-STIC 805</span><h3>ENS. Política de Seguridad de la Información</h3><p>El documento que el ENS exige primero. Y el que más se copia mal.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-807.html"><span class="art-related-pill">CCN-STIC 807</span><h3>Criptología de empleo en el ENS</h3><p>Qué cifrado vale y cuál no para el ENS. Aquí no se improvisa.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html').then(r=>r.text()).then(d=>{document.getElementById('footer-placeholder').innerHTML=d;});
+    var tl=Array.from(document.querySelectorAll('#artTocNav a'));
+    var ss=tl.map(a=>document.querySelector(a.getAttribute('href')));
+    if('IntersectionObserver' in window){
+      var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id='#'+en.target.id;tl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-20% 0px -70% 0px'});
+      ss.forEach(function(s){if(s)ob.observe(s);});
+    }
+</script>
+</div>
+</div>
+<script defer="True" src="/js/article-zoom.js"></script></body>
+<script src="/js/global.js"></script>
+</html>

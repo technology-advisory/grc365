@@ -1,83 +1,83 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
 <title>Quizzes · GRCreal</title>
-<meta name="description" content="Pon a prueba tu conocimiento en ciberseguridad, compliance e inteligencia artificial. Múltiples quizzes disponibles.">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="Quizzes · GRCreal">
-<meta property="og:description" content="Compliance, ciberseguridad, IA y normativa. ¿Cuánto sabes realmente?">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://grcreal.com/quiz/">
-<meta property="og:image" content="https://grcreal.com/grcreal.png">
-<link rel="canonical" href="https://grcreal.com/quiz/">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="stylesheet" href="../css/marca.css">
-<link rel="stylesheet" href="../css/global.css">
-<link rel="stylesheet" href="../css/quiz.css">
-</head>
-
-<body>
-<div class="card-wrapper">
+<meta content="Pon a prueba tu conocimiento en ciberseguridad, compliance e inteligencia artificial. Múltiples quizzes disponibles." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Quizzes · GRCreal" property="og:title"/>
+<meta content="Compliance, ciberseguridad, IA y normativa. ¿Cuánto sabes realmente?" property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grcreal.com/quiz/" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<link href="https://grcreal.com/quiz/" rel="canonical"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/quiz.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-quiz.css" rel="stylesheet"/>
+<link href="/css/recursos-revision.css" rel="stylesheet"/><link href="/css/quiz-revision.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="quiz-layout-reviewed">
+<div class="card-wrapper ds-page">
 <div class="card">
-
-  <div class="accent-bar"></div>
-
-  <!-- NAV -->
-  <div class="quiz-nav">
-    <span class="quiz-logo">GRCreal</span>
-    <span class="quiz-badge">Quizzes · Catálogo</span>
-  </div>
-
-  <div class="header">
-    <div class="tag">GRCreal · Quizzes</div>
-    <h1 class="headline">
-      ¿Cuánto sabes<br>
-      <span class="accent">realmente</span><span class="dim">?</span>
-    </h1>
-    <p class="subline">
-      Elige un tema. <strong>20 preguntas aleatorias</strong>.<br>
-      <strong>Sin trampa. Sin PDF. Solo conocimiento real.</strong>
-    </p>
-  </div>
-
-  <div class="body">
-    <div id="catalog-container" class="quiz-catalog-grid">
-      <div class="quiz-catalog-card disabled">
-        <div class="quiz-catalog-tag">Cargando...</div>
-        <div class="quiz-catalog-title">Cargando quizzes</div>
-        <div class="quiz-catalog-desc">Por favor, espera un momento.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-inner">
-      <div class="author-block">
-        <div class="author-avatar">MA</div>
-        <div>
-          <div class="author-name">Miguel Ángel Carriazo · <span>vCISO</span></div>
-          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
-        </div>
-      </div>
-      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" rel="noopener noreferrer" class="li-btn">
-        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-        <div>
-          <span class="li-main">"Merece la pena la experiencia."</span>
-          <span class="li-sub">Hablemos en LinkedIn →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: quiz</span>
+<span>archivo: <strong>8 quizzes</strong></span>
 </div>
+<!-- NAV -->
+<div class="quiz-nav">
+<span class="quiz-logo">GRCreal</span>
+<span class="quiz-badge">Quizzes · Catálogo</span>
 </div>
-
-<a href="/index.html" class="home-btn">⌂ Home</a>
-
+<div class="header">
+<div class="tag">Quiz · Criterio · Decisión</div>
+<h1 class="headline">¿Sabes la respuesta <span class="accent">o sabes decidir?</span></h1>
+<p class="subline">Preguntas para comprobar conceptos, pero también para detectar dónde el razonamiento se rompe.<br/><strong>Sin registro. Resultado inmediato. Explicación tras cada respuesta.</strong></p>
+</div>
+<div class="body quiz-body">
+<section class="rx-intro rx-intro-quiz">
+<div class="rx-copy">
+<span class="rx-kicker">NO ES MEMORIZAR SIGLAS</span>
+<h2>La respuesta correcta importa. El motivo importa más.</h2>
+<p>Utiliza cada quiz como una prueba rápida de criterio. Cuando falles, no memorices la opción: identifica qué concepto, alcance o decisión estabas interpretando mal.</p>
+</div>
+<div class="rx-quiz-map">
+<div><b>Pregunta</b><span>Lee el contexto</span></div>
+<i>→</i><div><b>Decisión</b><span>Elige criterio</span></div>
+<i>→</i><div><b>Explicación</b><span>Contrasta</span></div>
+<i>→</i><div class="is-strong"><b>Revisión</b><span>Corrige el modelo mental</span></div>
+</div>
+</section>
+<section class="rx-library">
+<div class="rx-section-head">
+<div><span class="rx-kicker">BIBLIOTECA DE QUIZ</span><h2>Elige el contexto que quieres poner a prueba</h2></div>
+<p>Normas, regulación, defensa y gobierno. Cada recorrido mantiene su propio criterio de evaluación.</p>
+</div>
+<div class="quiz-catalog-grid" id="catalog-container"></div>
+</section>
+<section class="rx-footnote">
+<span>REGLA DE ORO</span>
+<h2>Un 100 % en el quiz no sustituye experiencia. Un fallo bien entendido sí puede cambiar cómo revisas mañana.</h2>
+</section>
+</div>
+<div class="quiz-global-footer"><div id="footer-placeholder"></div></div><script>
+      fetch('/includes/footer-no-share.html')
+          .then(response => response.text())
+          .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+  </script></div>
+</div>
 <script>
 // Cargar catálogo desde /data/quiz.json
 async function loadCatalog() {
@@ -141,6 +141,5 @@ function escapeHtml(str) {
 // Inicializar
 document.addEventListener('DOMContentLoaded', loadCatalog);
 </script>
-
 </body>
 </html>

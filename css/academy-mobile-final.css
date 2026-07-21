@@ -1,0 +1,608 @@
+/* GRCREAL · Academia · revisión móvil integral */
+
+@media screen and (max-width: 760px) {
+  body.article-page,
+  .ds-page,
+  .card-wrapper,
+  .card,
+  .academia-body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  .ds-page .header,
+  .ds-page .body,
+  .academia-body {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .ds-page .ds-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 12px 18px;
+    font-size: 9px;
+    line-height: 1.4;
+  }
+
+  .ds-page .art-back {
+    display: inline-flex;
+    margin: 14px 18px 0 !important;
+    font-size: 11px;
+  }
+
+  .course-hero,
+  .rx-module-compass,
+  .rx-course-roadmap,
+  .academy-deepening,
+  .academy-example-lab,
+  .academy-case-block,
+  .academy-deep-block,
+  .block,
+  .quote-block,
+  .cta-block,
+  .summary-highlight,
+  .error-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .course-title,
+  .headline {
+    font-size: clamp(36px, 13vw, 52px) !important;
+    line-height: .98 !important;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .course-desc,
+  .subline {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+
+  .course-meta {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .meta-item {
+    min-width: 0;
+    font-size: 11px !important;
+  }
+
+  /* SVG: en móvil se reemplazan por bloques legibles. */
+  .rx-course-visual > svg {
+    display: none !important;
+  }
+
+  .rx-course-mobile-map {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-top: 16px;
+  }
+
+  .rx-course-mobile-step {
+    min-width: 0;
+    padding: 14px 13px;
+    border: 1px solid var(--ds-line, #d7dcdf);
+    background: #fff;
+  }
+
+  .rx-course-mobile-step.is-strong {
+    border-color: var(--ds-deep, #003955);
+    background: var(--ds-deep, #003955);
+  }
+
+  .rx-course-mobile-step b {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--brand, #0077b5);
+    font-family: var(--mono, monospace);
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+
+  .rx-course-mobile-step span {
+    display: block;
+    color: var(--ds-ink, #111820);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.25;
+  }
+
+  .rx-course-mobile-step.is-strong b,
+  .rx-course-mobile-step.is-strong span {
+    color: #fff;
+  }
+
+  .rx-course-mobile-band {
+    grid-column: 1 / -1;
+    padding: 11px 13px;
+    background: #e8f0f3;
+    color: var(--ds-deep, #003955);
+    font-family: var(--mono, monospace);
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: .06em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .art-visual.rx-course-visual {
+    overflow: visible !important;
+    padding: 17px !important;
+  }
+
+  .art-visual-title {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  .rx-section-head {
+    display: block !important;
+  }
+
+  .rx-section-head h2,
+  .module-section-title {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+
+  .rx-section-head > p {
+    margin-top: 10px !important;
+    font-size: 14px !important;
+  }
+
+  /* Rutas: tarjetas verticales, sin flechas flotantes. */
+  .nav-path {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100%;
+  }
+
+  .nav-step {
+    display: block !important;
+    min-width: 0;
+  }
+
+  .nav-step-label {
+    display: flex !important;
+    align-items: center;
+    min-height: 48px;
+    padding: 10px 12px !important;
+    font-size: 10px !important;
+    line-height: 1.3 !important;
+    text-align: left !important;
+  }
+
+  .nav-arrow {
+    display: none !important;
+  }
+
+  /* Índices de curso y módulos. */
+  .module-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .module-card {
+    display: grid !important;
+    grid-template-columns: 50px minmax(0, 1fr) 22px !important;
+    gap: 12px !important;
+    align-items: start !important;
+    min-height: 0 !important;
+    padding: 15px !important;
+  }
+
+  .module-number {
+    font-size: 24px !important;
+    line-height: 1 !important;
+  }
+
+  .module-name {
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+  }
+
+  .module-desc {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+  .module-arrow {
+    align-self: center;
+  }
+
+  /* Menú interno del curso. */
+  .academy-module-menu {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .academy-course-links {
+    max-height: 58vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  /* Contenido editorial. */
+  .block {
+    padding: 18px 16px !important;
+  }
+
+  .block-title {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  .block-text,
+  .quote-text,
+  .summary-highlight,
+  .rx-module-copy,
+  .rx-module-reflection-note,
+  .rx-module-checkpoint-copy {
+    font-size: 14px !important;
+    line-height: 1.62 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  .quote-block {
+    padding: 18px 16px !important;
+  }
+
+  /* Tablas/comparativas como tarjetas. */
+  body .tension,
+  .ds-page .tension {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 15px 0 20px !important;
+  }
+
+  body .tension tbody,
+  .ds-page .tension tbody {
+    display: grid !important;
+    gap: 10px !important;
+  }
+
+  body .tension tr,
+  .ds-page .tension tr {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body .tension-who,
+  .ds-page .tension-who,
+  body .tension-says,
+  .ds-page .tension-says {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  body .tension-who,
+  .ds-page .tension-who {
+    padding: 10px 12px !important;
+    font-size: 11px !important;
+    white-space: normal !important;
+  }
+
+  body .tension-says,
+  .ds-page .tension-says {
+    padding: 13px 12px !important;
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+
+  /* Nuevos bloques de ampliación y ejemplos. */
+  .academy-deepening,
+  .academy-example-lab {
+    margin-top: 22px !important;
+  }
+
+  .academy-deep-block,
+  .academy-case-block,
+  .academy-example-lab {
+    padding: 17px 15px !important;
+  }
+
+  .academy-case-grid,
+  .academy-example-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .academy-case-card,
+  .academy-example-card,
+  .academy-solved-exercise,
+  .academy-what-if,
+  .academy-example-questions {
+    padding: 14px !important;
+  }
+
+  .academy-example-context {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 5px !important;
+    padding: 13px !important;
+  }
+
+  .academy-deep-title,
+  .academy-example-title {
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+  }
+
+  .academy-deep-text,
+  .academy-deep-list li,
+  .academy-example-intro,
+  .academy-example-card li,
+  .academy-exercise-question,
+  .academy-exercise-answer,
+  .academy-what-if p {
+    font-size: 13.5px !important;
+    line-height: 1.58 !important;
+  }
+
+  /* Botones y CTA sin cortes. */
+  .cta-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 9px !important;
+  }
+
+  .cta-button,
+  .course-home-btn {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .rx-course-mobile-map,
+  .nav-path {
+    grid-template-columns: 1fr !important;
+  }
+
+  .rx-course-mobile-band {
+    grid-column: auto;
+  }
+
+  .module-card {
+    grid-template-columns: 42px minmax(0, 1fr) 18px !important;
+    padding: 13px !important;
+  }
+}
+
+
+/* =========================================================
+   CORRECCIÓN 2026-07-21 · Ancho real de la portada Academia
+   Evita que el grid desktop de 650px quede recortado en móvil.
+   ========================================================= */
+@media screen and (max-width: 760px) {
+  html,
+  body {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  body.article-page .card-wrapper,
+  body.article-page .card,
+  body.article-page .ds-page,
+  body.article-page .header,
+  body.article-page .body,
+  body.article-page .academia-body,
+  body.article-page .rx-intro,
+  body.article-page .rx-library,
+  body.article-page .rx-footnote,
+  body.article-page .rx-copy,
+  body.article-page .rx-section-head,
+  body.article-page .academy-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-page .card-wrapper,
+  body.article-page .card {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  body.article-page .ds-page .rx-intro {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 26px !important;
+    align-items: stretch !important;
+    padding: 34px 18px !important;
+  }
+
+  body.article-page .ds-page .rx-copy {
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  body.article-page .ds-page .rx-copy h2,
+  body.article-page .ds-page .rx-section-head h2,
+  body.article-page .ds-page .rx-footnote h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    font-size: clamp(24px, 8vw, 31px) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -.025em !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
+  }
+
+  body.article-page .ds-page .rx-copy p,
+  body.article-page .ds-page .rx-section-head > p,
+  body.article-page .ds-page .rx-footnote p {
+    width: 100% !important;
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 1.62 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    border: 1px solid var(--ds-line, #d7dcdf) !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle > div {
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 116px !important;
+    padding: 16px 14px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--ds-line, #d7dcdf) !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle > div:nth-child(odd) {
+    border-right: 1px solid var(--ds-line, #d7dcdf) !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle > div:nth-last-child(-n+2) {
+    border-bottom: 0 !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle b {
+    margin-bottom: 24px !important;
+    font-size: 9px !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle span {
+    display: block !important;
+    max-width: 100% !important;
+    font-size: 14px !important;
+    line-height: 1.28 !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.article-page .ds-page .rx-library {
+    padding: 38px 18px !important;
+  }
+
+  body.article-page .ds-page .rx-section-head {
+    display: block !important;
+    margin-bottom: 22px !important;
+  }
+
+  body.article-page .ds-page .rx-section-head > p {
+    margin-top: 12px !important;
+  }
+
+  body.article-page .academy-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  body.article-page .academy-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 20px 17px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  body.article-page .academy-title,
+  body.article-page .academy-desc,
+  body.article-page .academy-link,
+  body.article-page .academy-tag {
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  body.article-page .academy-title {
+    padding-right: 0 !important;
+    font-size: 21px !important;
+    line-height: 1.2 !important;
+  }
+
+  body.article-page .lock-badge-card {
+    position: static !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 0 0 15px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.article-page .ds-page .rx-footnote {
+    padding: 42px 18px !important;
+  }
+
+  /* Ningún hijo de Academia puede imponer un ancho de escritorio. */
+  body.article-page .academia-body * {
+    min-width: 0;
+  }
+
+  body.article-page .academia-body img,
+  body.article-page .academia-body svg,
+  body.article-page .academia-body canvas,
+  body.article-page .academia-body video {
+    max-width: 100% !important;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  body.article-page .ds-page .rx-academy-cycle {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle > div,
+  body.article-page .ds-page .rx-academy-cycle > div:nth-child(odd),
+  body.article-page .ds-page .rx-academy-cycle > div:nth-last-child(-n+2) {
+    min-height: 92px !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--ds-line, #d7dcdf) !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle > div:last-child {
+    border-bottom: 0 !important;
+  }
+
+  body.article-page .ds-page .rx-academy-cycle b {
+    margin-bottom: 13px !important;
+  }
+}

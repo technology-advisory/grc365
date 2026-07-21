@@ -1,0 +1,221 @@
+/* GRCREAL · Revisión pública de Quiz */
+
+.ds-page .quiz-public-note{
+  display:grid;
+  grid-template-columns:220px minmax(0,1fr);
+  gap:24px;
+  margin-top:24px;
+  padding:18px 20px;
+  border:1px solid var(--ds-line);
+  background:#fff;
+}
+
+.ds-page .quiz-public-note strong{
+  color:var(--ds-ink);
+  font-size:13px;
+}
+
+.ds-page .quiz-public-note span{
+  color:#65727b;
+  font-size:13px;
+  line-height:1.65;
+}
+
+.ds-page .quiz-review-item{
+  display:block;
+  padding:0;
+  border:1px solid var(--ds-line);
+  background:#fff;
+}
+
+.ds-page .quiz-review-item + .quiz-review-item{
+  margin-top:9px;
+}
+
+.ds-page .quiz-review-item summary{
+  display:grid;
+  grid-template-columns:30px minmax(0,1fr);
+  gap:10px;
+  align-items:start;
+  padding:15px 17px;
+  cursor:pointer;
+  list-style:none;
+  color:var(--ds-ink);
+  font-size:13.5px;
+  line-height:1.55;
+}
+
+.ds-page .quiz-review-item summary::-webkit-details-marker{display:none;}
+
+.ds-page .quiz-review-detail{
+  padding:17px 20px 20px 57px;
+  border-top:1px solid var(--ds-line);
+  background:#f6f8f7;
+}
+
+.ds-page .quiz-review-detail p{
+  margin:0 0 9px;
+  color:#53616a;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.ds-page .quiz-review-explanation{
+  margin-top:13px;
+  padding-top:13px;
+  border-top:1px solid #d7e0e4;
+  color:#46545d;
+  font-size:13.5px;
+  line-height:1.72;
+}
+
+
+/* ==============================
+   Ajustes de maquetación quiz PC
+   ============================== */
+.ds-page .screen .body{
+  padding-left:48px;
+  padding-right:48px;
+}
+
+.ds-page .screen#screen-quiz .body > .q-counter,
+.ds-page .screen#screen-quiz .body > .progress-wrap,
+.ds-page .screen#screen-quiz .body > .q-tags,
+.ds-page .screen#screen-quiz .body > .q-text,
+.ds-page .screen#screen-quiz .body > #options-container,
+.ds-page .screen#screen-quiz .body > #explain-container,
+.ds-page .screen#screen-quiz .body > #next-container,
+.ds-page .screen#screen-result .body > .score-badge,
+.ds-page .screen#screen-result .body > .block-label,
+.ds-page .screen#screen-result .body > .block-title,
+.ds-page .screen#screen-result .body > #history-list,
+.ds-page .screen#screen-result .body > .divider,
+.ds-page .screen#screen-result .body > .btn-row{
+  max-width:1280px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ds-page .q-text{
+  max-width:1280px;
+  margin:0 auto 28px;
+}
+
+.ds-page #options-container .option,
+.ds-page #options-container .quiz-option,
+.ds-page #options-container button{
+  max-width:1280px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ds-page .rx-quiz-guide,
+.ds-page .art-foot,
+.ds-page .art-related,
+.ds-page #footer-placeholder{
+  max-width:1280px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ds-page #footer-placeholder{
+  display:block !important;
+  width:100%;
+  margin-top:46px;
+  padding-top:18px;
+  border-top:1px solid var(--ds-line);
+  clear:both;
+}
+
+.ds-page #footer-placeholder:empty{
+  min-height:56px;
+}
+
+.ds-page .art-foot{
+  margin-top:42px;
+}
+
+.ds-page .quiz-public-note{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.ds-page .quiz-review-item{
+  overflow:hidden;
+}
+
+.ds-page .history-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* Footer global de Quiz: visible durante preguntas y resultados */
+.ds-page .quiz-global-footer{
+  display:block;
+  width:100%;
+  clear:both;
+  margin-top:52px;
+  border-top:1px solid var(--ds-line);
+}
+
+.ds-page .quiz-global-footer #footer-placeholder{
+  display:block !important;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+  border-top:0;
+}
+
+.ds-page .quiz-global-footer #footer-placeholder:empty{
+  min-height:72px;
+}
+
+
+/* Quiz review disclosure affordance */
+.ds-page .quiz-review-item summary{
+  position:relative;
+  grid-template-columns:30px minmax(0,1fr) 28px;
+  padding-right:14px;
+  transition:background .18s ease,border-color .18s ease;
+}
+.ds-page .quiz-review-item summary::after{
+  content:'›';
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:26px;
+  height:26px;
+  margin-top:-3px;
+  border:1px solid var(--ds-line,#d7dcdf);
+  color:var(--ds-deep,#003955);
+  font-family:Arial,sans-serif;
+  font-size:20px;
+  line-height:1;
+  transform:rotate(90deg);
+  transition:transform .18s ease,background .18s ease,color .18s ease;
+}
+.ds-page .quiz-review-item[open] summary::after{
+  transform:rotate(-90deg);
+  background:var(--ds-deep,#003955);
+  color:#fff;
+}
+.ds-page .quiz-review-item summary:hover{
+  background:#f4f7f7;
+}
+.ds-page .quiz-review-item summary:focus-visible{
+  outline:2px solid var(--brand,#0077b5);
+  outline-offset:-2px;
+}
+@media (max-width:600px){
+  .ds-page .quiz-review-item summary{
+    grid-template-columns:26px minmax(0,1fr) 24px;
+    padding:13px 12px;
+    gap:8px;
+  }
+  .ds-page .quiz-review-item summary::after{
+    width:22px;height:22px;font-size:17px;
+  }
+}

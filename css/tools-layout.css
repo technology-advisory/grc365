@@ -1,0 +1,239 @@
+/* GRCREAL · Maquetación corporativa de Herramientas */
+@media screen {
+  body.grc-report-tool {
+    background: #f3f6f8;
+  }
+
+  body.grc-report-tool .wrap {
+    width: min(1280px, calc(100% - 48px));
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 0 82px;
+  }
+
+  body.grc-report-tool .card {
+    width: min(1320px, calc(100% - 40px));
+    max-width: 1320px;
+    margin: 0 auto;
+    background: #fff;
+  }
+
+  body.grc-report-tool .card > .header,
+  body.grc-report-tool .card > .body {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  body.grc-report-tool .btn-volver,
+  body.grc-report-tool .chk-back {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    margin: 0 0 16px;
+    padding: 0 14px;
+    border: 1px solid #0077b5;
+    border-radius: 999px;
+    background: #0077b5;
+    color: #fff;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .06em;
+    text-decoration: none;
+  }
+
+  body.grc-report-tool .grc-print-toolbar {
+    width: 100%;
+    max-width: none;
+    margin: 0 0 24px;
+  }
+
+  body.grc-report-tool .ds-meta {
+    width: 100%;
+    margin: 0 0 28px;
+    padding: 12px 16px;
+    gap: 12px 18px;
+  }
+
+  body.grc-report-tool .ds-meta > span:not(.ds-ref):not(.ds-cat) {
+    flex: 1 1 240px;
+  }
+
+  body.grc-report-tool h1,
+  body.grc-report-tool .headline {
+    max-width: 1050px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: clamp(30px, 3.4vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -.025em;
+  }
+
+  body.grc-report-tool .lead,
+  body.grc-report-tool .subline,
+  body.grc-report-tool .aia-intro {
+    max-width: 900px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* Estas reglas corrigen el fallo original: antes estaban limitadas a .ds-page. */
+  body.grc-report-tool .tool-method-notice {
+    width: 100%;
+    max-width: none;
+    margin: 22px 0 18px;
+    padding: 22px 24px;
+    border: 1px solid #cfdae0;
+    border-left: 5px solid #0077b5;
+    background: #eef5f8;
+  }
+
+  body.grc-report-tool .tool-method-notice > span {
+    display: block;
+    margin-bottom: 7px;
+    color: #0077b5;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+  }
+
+  body.grc-report-tool .tool-method-notice h2 {
+    margin: 0 0 8px;
+    color: #14233b;
+    font-size: clamp(21px, 2.4vw, 29px);
+    line-height: 1.22;
+    letter-spacing: -.015em;
+  }
+
+  body.grc-report-tool .tool-method-notice p {
+    max-width: 1050px;
+    margin: 0;
+    color: #53616a;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  body.grc-report-tool .nostore {
+    margin: 0 0 20px;
+  }
+
+  body.grc-report-tool .tool-scale-box,
+  body.grc-report-tool .tool-current-status {
+    width: 100%;
+    max-width: none;
+    margin: 18px 0 20px;
+    padding: 16px 18px;
+    border: 1px solid #d3dae3;
+    border-left: 4px solid #91a7b2;
+    background: #fff;
+    color: #53616a;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  body.grc-report-tool .tool-scale-box strong,
+  body.grc-report-tool .tool-current-status strong {
+    color: #14233b;
+  }
+
+  body.grc-report-tool .tool-explica {
+    display: grid;
+    grid-template-columns: minmax(180px, 230px) minmax(0, 1fr);
+    align-items: start;
+    gap: 22px;
+    width: 100%;
+    margin: 0 0 28px;
+    padding: 18px 20px;
+    border: 1px solid #d3dae3;
+    border-left: 4px solid #0077b5;
+    border-radius: 2px;
+    background: #f7fafd;
+  }
+
+  body.grc-report-tool .tool-explica .te-h {
+    margin: 0;
+    color: #005a8e;
+    font-family: var(--mono, ui-monospace, monospace);
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  body.grc-report-tool .tool-explica p {
+    margin: 0;
+    color: #44525c;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+
+  body.grc-report-tool .panel {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 21px 22px;
+  }
+
+  body.grc-report-tool .kpis {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+  body.grc-report-tool .tbl-scroll {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  body.grc-report-tool table {
+    max-width: none;
+  }
+
+  body.grc-report-tool #footer-placeholder {
+    margin-top: 54px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  body.grc-report-tool .wrap,
+  body.grc-report-tool .card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  body.grc-report-tool .wrap {
+    padding: 18px 16px 60px;
+  }
+
+  body.grc-report-tool .card > .header,
+  body.grc-report-tool .card > .body {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  body.grc-report-tool .grc-print-toolbar {
+    margin-bottom: 18px;
+  }
+
+  body.grc-report-tool .tool-method-notice,
+  body.grc-report-tool .tool-scale-box,
+  body.grc-report-tool .tool-current-status,
+  body.grc-report-tool .tool-explica,
+  body.grc-report-tool .panel {
+    padding: 16px;
+  }
+
+  body.grc-report-tool .tool-explica {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  body.grc-report-tool h1,
+  body.grc-report-tool .headline {
+    font-size: 29px;
+  }
+}

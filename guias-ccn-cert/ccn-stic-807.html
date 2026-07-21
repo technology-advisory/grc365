@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>CCN-STIC 807 — Criptología de empleo en el ENS · GRCreal</title>
+<meta content="Guía técnica GRCREAL de la CCN-STIC 807: lectura práctica, explicación técnica, errores habituales, ejemplo real, evidencias y ficha oficial al final." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/guias-ccn-cert/ccn-stic-807.html" rel="canonical"/>
+<meta content="CCN-STIC 807 — Criptología de empleo en el ENS" property="og:title"/>
+<meta content="CCN-STIC 807: lectura técnica GRCREAL, aplicación real, error habitual, ejemplo práctico, evidencias y acceso a la fuente oficial al final." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/guias-ccn-cert/ccn-stic-807.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/articles.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-articulo.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CCN-STIC 807 — Criptología de empleo en el ENS","description":"CCN-STIC 807 (Criptología de empleo en el ENS): qué es, qué contiene, cómo implantarla, su uso en auditoría, mapeo a ISO 27001/NIS2/DORA y checklist. Resumen práctico de GRCreal con enlace oficial.","image":"https://grcreal.com/grcreal.png","author":{"@type":"Person","name":"Miguel Ángel Carriazo","url":"https://grcreal.com/sobre-mi/"},"publisher":{"@type":"Organization","name":"GRCreal","logo":{"@type":"ImageObject","url":"https://grcreal.com/favicon-32x32.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://grcreal.com/guias-ccn-cert/ccn-stic-807.html"}}</script>
+<style>
+.ccn-note{font-family:var(--mono,monospace);font-size:11.5px;color:#6b7680;letter-spacing:.01em;margin:0 0 18px;line-height:1.5;}
+.ccn-note a{color:var(--brand-dark,#005a8e);}
+.ccn-banner{display:flex;align-items:flex-start;gap:10px;background:var(--brand-light,#e8f3fa);
+  border:1px solid var(--brand-mid,#cce4f0);border-radius:6px;padding:11px 15px;margin:0 0 14px;
+  font-size:13px;color:var(--brand-dark,#005a8e);line-height:1.5;}
+.ccn-doctable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:13.5px;}
+.ccn-doctable thead th{background:#1f6fb2;color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+.ccn-doctable thead th:nth-child(3),.ccn-doctable thead th:nth-child(4){white-space:nowrap;}
+.ccn-doctable td{border-bottom:1px solid var(--ds-line,#e2e7ec);padding:11px 12px;vertical-align:top;color:var(--ds-ink,#2b3340);}
+.ccn-doctable tr:nth-child(even) td{background:#f4f8fb;}
+.ccn-doc-a{color:var(--brand-dark,#005a8e);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.ccn-doc-a:hover{text-decoration:underline;}
+.ccn-doc-a .pdf{color:#c0392b;font-weight:700;}
+.ccn-anexos{list-style:none;margin:10px 0 0;padding:0;}
+.ccn-anexos li{position:relative;padding:4px 0 4px 16px;font-size:12.5px;color:#5a6675;}
+.ccn-anexos li:before{content:"\25AA";position:absolute;left:0;color:var(--brand,#0077B5);}
+.ccn-cat{font-size:12.5px;color:#5a6675;}
+.guia-oficial-btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand,#0077B5);color:#fff;
+  text-decoration:none;font-family:var(--mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:10px 20px;border-radius:13px;margin-top:6px;transition:background .15s;}
+.guia-oficial-btn:hover{background:var(--brand-dark,#005a8e);color:#fff;}
+.guia-map{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;}
+.guia-map th{background:var(--ds-navy,#14233b);color:#fff;text-align:left;padding:8px 10px;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono,monospace);}
+.guia-map td{border:1px solid var(--ds-line,#d3dae3);padding:8px 10px;vertical-align:top;}
+.guia-map tr:nth-child(even) td{background:#f4f8fb;}
+.guia-check{list-style:none;padding:0;margin:12px 0 0;}
+.guia-check li{position:relative;padding:7px 0 7px 28px;border-bottom:1px solid #eef2f6;font-size:14px;color:var(--ds-ink,#2b3340);}
+.guia-check li:before{content:"\2713";position:absolute;left:0;top:6px;width:18px;height:18px;line-height:18px;text-align:center;
+  background:var(--brand-light,#e8f3fa);color:var(--brand-dark,#005a8e);border-radius:4px;font-size:12px;font-weight:700;}
+.guia-ul{margin:12px 0 0;padding-left:20px;}
+.guia-ul li{margin:7px 0;font-size:14px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-pasos{list-style:none;counter-reset:p;margin:14px 0 0;padding:0;}
+.guia-pasos li{counter-increment:p;position:relative;padding:0 0 16px 44px;margin-bottom:14px;border-bottom:1px solid #eef2f6;}
+.guia-pasos li:last-child{border-bottom:none;}
+.guia-pasos li:before{content:counter(p);position:absolute;left:0;top:0;width:28px;height:28px;line-height:28px;text-align:center;
+  background:var(--brand,#0077B5);color:#fff;border-radius:50%;font-family:var(--mono,monospace);font-size:13px;font-weight:700;}
+.guia-pasos .pt{display:block;font-weight:700;color:var(--ds-navy,#14233b);font-size:14.5px;margin-bottom:3px;}
+.guia-pasos .pd{font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-concepts dt{font-weight:700;color:var(--brand-dark,#005a8e);font-size:14px;margin-top:12px;}
+.guia-concepts dd{margin:2px 0 0;font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-rel{list-style:none;margin:12px 0 0;padding:0;}
+.guia-rel li{padding:8px 0;border-bottom:1px solid #eef2f6;font-size:13.5px;color:var(--ds-ink,#2b3340);}
+.guia-rel .rn{display:inline-block;background:var(--ds-navy,#14233b);color:#fff;font-family:var(--mono,monospace);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px;}
+.guia-rel a{color:var(--brand-dark,#005a8e);font-weight:600;text-decoration:none;}
+</style>
+<link href="/css/dossier-guias.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="article-page">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html').then(r=>r.text()).then(d=>{document.getElementById('nav-placeholder').outerHTML=d;});
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: guía CCN-STIC</span>
+<span>referencia: <strong>CCN-STIC 807</strong></span>
+</div>
+<div class="header">
+<a class="art-back" href="/guias-ccn-cert/index.html">← Volver a Guías CCN-CERT</a>
+<div class="tag">CCN-STIC · Serie 800 · ENS</div>
+<h1 class="headline">CCN-STIC 807<br/><span class="accent">Criptología de empleo en el ENS</span></h1>
+<p class="subline">Qué cifrado vale y cuál no para el ENS. Aquí no se improvisa.</p>
+<div class="guide-editorial-meta">
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">♙</span>
+<strong>Miguel Ángel Carriazo</strong>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">▣</span>
+<span>18 junio 2026</span>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">◷</span>
+<span data-reading-time="">13 min de lectura</span>
+</div>
+</div></div>
+<div class="body">
+<div class="art-layout">
+<div class="art-main">
+<div class="guia-read-when">
+<span>LEE ESTA GUÍA CUANDO...</span>
+<h2>Necesites trabajar sobre criptología dentro del ENS.</h2>
+<p>En vez de buscar una frase aislada, sigue el recorrido de la guía y relaciona cada conclusión con el sistema, el responsable y la evidencia que debería existir.</p>
+</div><div class="art-visual guia-roadmap">
+<div class="art-visual-kicker">CCN-STIC 807 · Criptología</div>
+<div class="art-visual-title">Dónde encaja esta guía en una revisión práctica</div>
+<svg aria-label="Mapa práctico de la guía CCN-STIC 807" role="img" viewbox="0 0 1160 240">
+<rect class="gg-svg-box" height="96" rx="2" width="220" x="70" y="68"></rect><text class="gg-svg-num" x="94" y="99">01</text><text class="gg-svg-label" x="94" y="132">Necesidad</text><line class="gg-svg-line" x1="290" x2="335" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="326,111 336,116 326,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="335" y="68"></rect><text class="gg-svg-num" x="359" y="99">02</text><text class="gg-svg-label" x="359" y="132">Mecanismo</text><line class="gg-svg-line" x1="555" x2="600" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="591,111 601,116 591,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="600" y="68"></rect><text class="gg-svg-num" x="624" y="99">03</text><text class="gg-svg-label" x="624" y="132">Gestión</text><line class="gg-svg-line" x1="820" x2="865" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="856,111 866,116 856,121"></polygon><rect class="gg-svg-box is-strong" height="96" rx="2" width="220" x="865" y="68"></rect><text class="gg-svg-num is-light" x="889" y="99">04</text><text class="gg-svg-label is-light" x="889" y="132">Evidencia</text>
+<rect class="gg-svg-band" height="28" rx="2" width="840" x="160" y="198"></rect>
+<text class="gg-svg-band-label" text-anchor="middle" x="580" y="217">PREGUNTA → CRITERIO → IMPLANTACIÓN → EVIDENCIA REVISABLE</text>
+</svg>
+<div class="art-visual-note">Utiliza la guía para orientar la revisión y contrasta siempre la versión vigente en el portal oficial del CCN-CERT.</div>
+</div><div class="block" id="s1">
+<div class="block-label">Qué es</div>
+<h2 class="block-title">Qué es y para qué vale</h2>
+<p class="block-text" style="margin-top:10px">La CCN-STIC 807 establece los algoritmos, longitudes de clave y usos criptográficos admitidos en el marco del ENS, así como cuándo se exige el empleo de productos certificados o cualificados. Es la referencia para no «inventar» criptografía en sistemas sujetos al Esquema, y su Anexo 1 aborda los Prestadores de Servicios de Confianza.</p>
+<p class="block-text" style="margin-top:10px">La criptografía es uno de los puntos donde más se improvisa y donde un error pasa desapercibido hasta que llega el auditor. Asumir que «TLS por defecto basta» o seguir usando algoritmos y longitudes ya desaconsejados es habitual. La 807 fija qué es aceptable, en qué condiciones y con qué productos, especialmente en categorías MEDIA y ALTA.</p>
+<p class="block-text" style="margin-top:10px">La guía clasifica los mecanismos criptográficos en dos categorías: <strong>Recomendados (R)</strong> (ofrecen seguridad a largo plazo) y <strong>Legacy (L)</strong> (solo aceptables a corto plazo, con fecha límite). La fortaleza de seguridad se mide en bits (112, 128, 192, 256).</p>
+</div><div class="divider"></div><div class="block grc-guide-angle" id="s15">
+<div class="block-label">Mi lectura</div>
+<h2 class="block-title">La criptografía suele parecer fuerte justo hasta que preguntas quién gestiona las claves.</h2>
+<div class="block-text">En criptología es fácil dejarse impresionar por algoritmos, tamaños de clave y nombres de productos. Yo empezaría por algo menos elegante: inventario de usos, propiedad de claves y ciclo de vida. Porque un algoritmo robusto con una clave compartida por correo sigue siendo un problema.<br/><br/>
+La 807 debe aterrizarse en decisiones de arquitectura. Qué información necesita protección, en tránsito o reposo, qué mecanismos están autorizados, quién genera y custodia claves, cómo se rotan, qué ocurre ante compromiso y cómo se retiran mecanismos obsoletos.<br/><br/>
+<strong>No pregunto solo “¿cifráis?”. Pregunto “¿qué cifráis, con qué, quién controla la clave y cómo sabéis que sigue siendo seguro?”.</strong></div>
+</div><div class="divider"></div><div class="art-visual grc-guide-techvisual">
+<div class="art-visual-kicker">CCN-STIC 807 · Ciclo de vida criptográfico</div>
+<div class="art-visual-title">Cómo pasar del algoritmo a la gestión real de claves</div>
+<svg aria-label="Ciclo de vida criptográfico" role="img" viewbox="0 0 1160 430">
+<circle class="gx-ring" cx="580" cy="215" r="155"></circle>
+<circle class="gx-core-circle" cx="580" cy="215" r="72"></circle>
+<text class="gx-title-light" text-anchor="middle" x="580" y="208">CLAVE</text>
+<text class="gx-small-light" text-anchor="middle" x="580" y="232">activo crítico</text>
+<circle class="gx-node" cx="580" cy="60" r="52"></circle>
+<text class="gx-title" text-anchor="middle" x="580" y="64">GENERAR</text>
+<circle class="gx-node" cx="735" cy="215" r="52"></circle>
+<text class="gx-title" text-anchor="middle" x="735" y="219">USAR</text>
+<circle class="gx-node" cx="580" cy="370" r="52"></circle>
+<text class="gx-title" text-anchor="middle" x="580" y="374">ROTAR</text>
+<circle class="gx-node" cx="425" cy="215" r="52"></circle>
+<text class="gx-title" text-anchor="middle" x="425" y="219">REVOCAR</text>
+<path class="gx-arc" d="M625 78 A155 155 0 0 1 717 170"></path>
+<path class="gx-arc" d="M717 260 A155 155 0 0 1 625 352"></path>
+<path class="gx-arc" d="M535 352 A155 155 0 0 1 443 260"></path>
+<path class="gx-arc" d="M443 170 A155 155 0 0 1 535 78"></path>
+</svg>
+<div class="art-visual-note">Lectura técnica GRCREAL: una manera práctica de conectar la guía con arquitectura, operación y evidencia.</div>
+</div><div class="divider"></div><div class="block grc-guide-tech" id="s18">
+<div class="block-label">Explicación técnica</div>
+<h2 class="block-title">Qué me interesa técnicamente de esta guía</h2>
+<div class="block-text">La dimensión técnica de la 807 no se reduce a elegir algoritmos fuertes. En la práctica, el punto crítico es el ciclo de vida criptográfico: qué información o flujo requiere protección, qué mecanismo se emplea, quién gestiona el secreto, cómo se distribuye, cuándo se rota y qué ocurre si el material criptográfico se compromete o expira.<br/><br/>
+También conviene separar claramente protección en tránsito, en reposo, firma, autenticación y gestión de certificados. Muchas organizaciones creen tener “la criptografía resuelta” porque fuerzan TLS en el frontal, mientras internamente mantienen claves compartidas, certificados olvidados o cifrados de base de datos sin una gobernanza clara de acceso y rotación.<br/><br/>
+Para mí, la guía aporta mucho cuando se usa para revisar arquitectura y no solo inventario de algoritmos. Cada decisión criptográfica tiene implicaciones operativas: compatibilidad, recuperación, segregación de funciones y dependencia de proveedores.<h3>Inventario criptográfico mínimo</h3>
+<p>Algoritmo, longitud de clave, protocolo, ubicación, propietario, almacén de claves, fecha de expiración, rotación, dependencias y procedimiento de revocación. En aplicaciones, buscaría secretos embebidos, reutilización entre entornos y certificados sin dueño.</p>
+<p>La capacidad de rotación debería probarse en servicios críticos. Una clave que no puede cambiarse sin una interrupción grave es una deuda operativa.</p></div>
+</div><div class="divider"></div><div class="block grc-guide-error" id="s19">
+<div class="block-label">Error habitual</div>
+<h2 class="block-title">Dónde suele torcerse en proyectos reales</h2>
+<div class="grc-guide-alert">
+<span>DONDE SUELE TORCERSE</span>
+<div class="block-text">Confiar en la fortaleza del algoritmo e ignorar la debilidad del ciclo de vida. El secreto incrustado en código, la clave compartida entre entornos, el certificado sin propietario o la falta de inventario suelen generar más riesgo que el hecho de usar una suite concreta u otra.<br/><br/>
+El otro error clásico es no preparar la respuesta: el día que una clave se compromete, la organización descubre que rotarla afecta a más sistemas de los que pensaba.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-example" id="s20">
+<div class="block-label">Ejemplo práctico</div>
+<h2 class="block-title">Cómo lo aterrizaría en un caso real</h2>
+<div class="grc-guide-example-box">
+<div class="grc-guide-example-mark">CASO</div>
+<div class="block-text">Piensa en una aplicación que expone TLS hacia Internet, cifra copias de seguridad y firma integraciones con terceros. A simple vista “usa criptografía” en tres puntos. Sin embargo, la pregunta técnica útil es otra: ¿quién controla cada clave, dónde se almacena, con qué acceso, cómo se rota, cómo se audita el uso y qué plan existe si un certificado caduca o un secreto se filtra?<br/><br/>
+Cuando haces ese ejercicio, la criptología deja de ser un checkbox de cumplimiento y se convierte en una conversación seria sobre arquitectura y operación segura.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-infra" id="s22">
+<div class="block-label">Ejemplo técnico de infraestructura</div>
+<h2 class="block-title">Certificados TLS en el frontal y secretos embebidos en la aplicación</h2>
+<div class="art-visual grc-infra-visual">
+<div class="art-visual-kicker">EJEMPLO TÉCNICO · INFRAESTRUCTURA</div>
+<div class="art-visual-title">Componentes implicados en el caso</div>
+<svg aria-label="Arquitectura técnica del ejemplo CCN-STIC 807" role="img" viewbox="0 0 1160 380">
+<rect class="gi-node" height="82" rx="2" width="190" x="110" y="90"></rect><text class="gi-label" text-anchor="middle" x="205" y="138">ADC</text><rect class="gi-node gi-node-strong" height="82" rx="2" width="190" x="350" y="90"></rect><text class="gi-label gi-label-light" text-anchor="middle" x="445" y="138">PKI</text><rect class="gi-node" height="82" rx="2" width="190" x="590" y="90"></rect><text class="gi-label" text-anchor="middle" x="685" y="138">Vault</text><rect class="gi-node" height="82" rx="2" width="190" x="830" y="90"></rect><text class="gi-label" text-anchor="middle" x="925" y="138">App</text><rect class="gi-node gi-node-strong" height="82" rx="2" width="190" x="470" y="265"></rect><text class="gi-label gi-label-light" text-anchor="middle" x="565" y="313">SQL</text>
+<line class="gi-link" x1="300" x2="350" y1="131" y2="131"></line><line class="gi-link" x1="540" x2="590" y1="131" y2="131"></line><line class="gi-link" x1="780" x2="830" y1="131" y2="131"></line><line class="gi-link" x1="685" x2="565" y1="172" y2="265"></line>
+<rect class="gi-band" height="28" rx="2" width="780" x="190" y="330"></rect>
+<text class="gi-band-label" text-anchor="middle" x="580" y="349">SERVICIO → DEPENDENCIA → CONTROL → EVIDENCIA</text>
+</svg>
+</div>
+<div class="grc-infra-case">
+<div class="grc-infra-case-mark">INFRA</div>
+<div class="block-text">El servicio usa TLS correctamente en el balanceador, pero la aplicación contiene credenciales de base de datos en un fichero de configuración y comparte la misma clave entre preproducción y producción.<br/><br/>
+<strong>Arquitectura técnica:</strong> ADC, servidores web, aplicación, base de datos, vault y PKI.<br/>
+<strong>Fallo:</strong> se protege el canal externo, pero no el ciclo de vida de secretos internos.<br/>
+<strong>Riesgo:</strong> exposición de credenciales, dificultad de rotación y compromiso cruzado entre entornos.<br/>
+<strong>Qué haría:</strong> secret vault, identidades administradas, separación por entorno, rotación automatizada e inventario de certificados y claves.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-question" id="s16">
+<div class="block-label">Pregunta incómoda</div>
+<h2 class="block-title">¿Puedes revocar una clave comprometida sin detener medio negocio?</h2>
+<div class="grc-question-box">
+<span>NO RESPONDAS CON LA POLÍTICA</span>
+<div class="block-text">La respuesta revela mucho sobre arquitectura y dependencia. Si las claves están embebidas en aplicaciones, compartidas entre entornos o sin inventario, la respuesta a un compromiso será lenta y arriesgada.<br/><br/>
+También miraría certificados vencidos, algoritmos heredados y excepciones. La deuda criptográfica suele permanecer invisible porque el sistema sigue funcionando.</div>
+</div>
+<table class="grc-guide-evidence"><thead><tr><th>Ref.</th><th>Qué pediría</th><th>Qué necesito ver</th></tr></thead><tbody><tr><td>GR-01</td><td>Inventario criptográfico</td><td>Usos, algoritmos, certificados y propietarios.</td></tr><tr><td>GR-02</td><td>Gestión de claves</td><td>Generación, custodia, acceso, rotación y destrucción.</td></tr><tr><td>GR-03</td><td>Configuración</td><td>Protocolos y suites realmente habilitados en sistemas.</td></tr><tr><td>GR-04</td><td>Respuesta</td><td>Procedimiento y pruebas ante compromiso o expiración.</td></tr></tbody></table>
+</div><div class="divider"></div><div class="block grc-guide-approach" id="s17">
+<div class="block-label">Mi enfoque</div>
+<h2 class="block-title">Cómo la aterrizaría yo en un entorno real</h2>
+<div class="grc-approach-box">
+<div class="grc-approach-mark">GRCREAL</div>
+<div class="block-text">Elegiría un servicio importante y seguiría la criptografía completa: cliente, balanceador, aplicación, base de datos, copias y comunicaciones con terceros. Muchas inconsistencias aparecen entre capas.<br/><br/>
+<strong>La criptografía no se gobierna desde una lista de algoritmos permitidos. Se gobierna desde un ciclo de vida que puedas operar bajo presión.</strong></div>
+</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s2">
+<div class="block-label">Contenido</div>
+<h2 class="block-title">Qué contiene la guía</h2>
+<ul class="guia-ul">
+<li>Los algoritmos y longitudes de clave admitidos para cada uso (cifrado simétrico, firma digital, resumen, acuerdo de claves, cifrado asimétrico, MAC y AEAD).</li>
+<li>Las condiciones de empleo de la criptografía en tránsito y en reposo.</li>
+<li>Cuándo se exigen productos certificados o cualificados (catálogo CPSTIC).</li>
+<li>Pautas de gestión del ciclo de vida de las claves (generación, transporte, custodia, archivado y destrucción).</li>
+<li>El Anexo 1 sobre Prestadores de Servicios de Confianza y la transición algorítmica de RSA.</li>
+<li>Protocolos criptográficos autorizados: TLS (1.2 y 1.3), SSH (v2), IPsec (IKEv2).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s3">
+<div class="block-label">Conceptos</div>
+<h2 class="block-title">Conceptos clave que debes manejar</h2>
+<dl class="guia-concepts">
+<dt>Algoritmo conforme</dt>
+<dd>Algoritmo y longitud de clave admitidos por el ENS para un uso concreto. La guía clasifica los mecanismos en "Recomendados" (R) y "Legacy" (L).</dd>
+<dt>Producto cualificado/certificado</dt>
+<dd>Producto criptográfico evaluado (Common Criteria / CCN) exigible en ciertos casos. El catálogo CPSTIC (CCN-STIC 105) recoge los productos certificados.</dd>
+<dt>Gestión de claves</dt>
+<dd>Generación, distribución, custodia, rotación y destrucción de claves a lo largo de su vida. Los medios de generación deben estar aislados de los medios de explotación.</dd>
+<dt>Prestador de Servicios de Confianza</dt>
+<dd>Entidad que presta servicios de firma, sello, certificados u otros conforme a la normativa eIDAS. El Anexo 1 extiende la autorización de RSA para estos prestadores.</dd>
+<dt>Fortaleza de seguridad</dt>
+<dd>Medida en bits (112, 128, 192, 256). Ejemplo: AES-128 ofrece 128 bits; RSA-2048 ofrece 112 bits; RSA-3072 ofrece 128 bits.</dd>
+</dl>
+</div>
+<div class="divider"></div>
+<div class="block" id="s4">
+<div class="block-label">Alcance</div>
+<h2 class="block-title">A quién aplica y cuándo entra en juego</h2>
+<div class="block-text">Aplica en cuanto manejas confidencialidad o autenticidad relevantes, y se vuelve crítica en categorías MEDIA y ALTA, donde se exige cifrado conforme y, en ciertos casos, productos cualificados. Cualquier sistema con datos sensibles entra en su ámbito. La guía es aplicable a todas las entidades del ámbito del ENS, incluyendo prestadores de servicios de confianza.</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s5">
+<div class="block-label">Implantación</div>
+<h2 class="block-title">Cómo lo implanta una empresa, paso a paso</h2>
+<ol class="guia-pasos">
+<li><span class="pt">Inventaría tus usos de criptografía</span><span class="pd">Localiza dónde ciframos (en tránsito, en reposo), dónde firmamos y dónde hay funciones resumen. No puedes proteger lo que no has mapeado.</span></li>
+<li><span class="pt">Sustituye lo no conforme</span><span class="pd">Reemplaza algoritmos y longitudes desaconsejados por los admitidos en la 807. Esto incluye configuraciones TLS heredadas (SSL, TLS 1.0, TLS 1.1).</span></li>
+<li><span class="pt">Usa productos cualificados donde se exija</span><span class="pd">En MEDIA/ALTA, prioriza productos certificados/cualificados (catálogo CPSTIC) allí donde la guía lo requiera (ej. cifrado de disco, VPN, firma electrónica).</span></li>
+<li><span class="pt">Gestiona las claves con ciclo de vida</span><span class="pd">Documenta generación, custodia, rotación y destrucción. La gestión de claves improvisada es un riesgo y un hallazgo. Usa KDF autorizadas (PBKDF2, scrypt) para derivar claves.</span></li>
+<li><span class="pt">Revisa periódicamente la conformidad</span><span class="pd">Los criterios criptográficos evolucionan; revisa que tus algoritmos siguen siendo admitidos. Ejemplo: RSA 2048 es Legacy desde 2025; RSA 3072+ es Recomendado.</span></li>
+</ol>
+</div>
+<div class="divider"></div>
+<div class="block" id="s6">
+<div class="block-label">Auditoría</div>
+<h2 class="block-title">Para qué sirve en una auditoría</h2>
+<ul class="guia-ul">
+<li>El auditor revisa algoritmos, longitudes y gestión de claves.</li>
+<li>Comprueba el uso de productos certificados donde la categoría lo exige (CPSTIC).</li>
+<li>Verifica la configuración real de TLS (versiones 1.2 o 1.3, cipher suites autorizadas) y del cifrado en reposo.</li>
+<li>Cifrado «casero» o algoritmos obsoletos son hallazgo directo (ej. RC4, MD5, SHA-1, RSA 1024).</li>
+<li>La ausencia de gestión de claves documentada se señala.</li>
+<li>Verifica que las suites TLS usadas están en la lista autorizada y no usan "NULL" o "anon".</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s7">
+<div class="block-label">Serie 800</div>
+<h2 class="block-title">Relación con otras guías de la serie</h2>
+<ul class="guia-rel">
+<li><span class="rn">CCN-STIC 804</span><a href="/guias-ccn-cert/ccn-stic-804.html">804</a> — La criptografía es una de las medidas de protección a implantar (mp.com, mp.si, mp.info).</li>
+<li><span class="rn">CCN-STIC 823</span><a href="/guias-ccn-cert/ccn-stic-823.html">823</a> — En cloud, el cifrado y la gestión de claves requieren atención específica.</li>
+<li><span class="rn">CCN-STIC 808</span><a href="/guias-ccn-cert/ccn-stic-808.html">808</a> — La verificación comprueba que la criptografía empleada es conforme.</li>
+<li><span class="rn">CCN-STIC 105</span> — Catálogo CPSTIC de productos certificados.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s8">
+<div class="block-label">Mapeo</div>
+<h2 class="block-title">Equivalencia con otros marcos</h2>
+<div class="block-text">Cómo se conecta esta guía con los marcos que probablemente ya manejas:</div>
+<table class="guia-map">
+<tr><th>Aspecto en el ENS</th><th>ISO 27001</th><th>NIS2 / DORA</th></tr>
+<tr><td>Criptografía conforme</td><td>ISO 27001: A.8.24 (uso de criptografía)</td><td>DORA: protección de datos en tránsito y reposo</td></tr>
+<tr><td>Productos certificados</td><td>Common Criteria / productos cualificados CCN</td><td>NIS2: seguridad de la cadena de suministro TIC</td></tr>
+<tr><td>Gestión de claves</td><td>ISO 27001: gestión de claves (A.8.24)</td><td>DORA: gestión de activos criptográficos</td></tr>
+<tr><td>TLS/SSL configuración</td><td>ISO 27001: A.8.24 (criptografía)</td><td>DORA: comunicaciones seguras</td></tr>
+<tr><td>Firma electrónica</td><td>ISO 27001: A.5.13 (identificación)</td><td>eIDAS: servicios de confianza</td></tr>
+</table>
+</div>
+<div class="divider"></div>
+<div class="block" id="s9">
+<div class="block-label">Sin humo</div>
+<h2 class="block-title">Errores típicos</h2>
+<ul class="guia-ul">
+<li>Usar algoritmos o longitudes ya desaconsejados (ej. SHA-1, MD5, RC4, RSA 1024, SSL).</li>
+<li>Gestión de claves improvisada, sin ciclo de vida documentado.</li>
+<li>Asumir que «TLS por defecto» basta sin verificar la conformidad de la cipher suite.</li>
+<li>No emplear productos cualificados donde la categoría los exige (CPSTIC).</li>
+<li>Usar funciones hash débiles en firmas o resúmenes.</li>
+<li>No considerar la transición de RSA Legacy (2048 bits) a Recomendado (3072+ bits).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s10">
+<div class="block-label">Checklist</div>
+<h2 class="block-title">Checklist práctico</h2>
+<ul class="guia-check">
+<li>Inventario de usos criptográficos completo.</li>
+<li>Algoritmos y longitudes conformes a la 807 (Recomendados vs Legacy).</li>
+<li>Configuraciones TLS y cifrado en reposo revisadas (TLS 1.2/1.3).</li>
+<li>Productos certificados donde la categoría lo exige (CPSTIC).</li>
+<li>Gestión de claves documentada (ciclo de vida completo).</li>
+<li>Funciones hash autorizadas (SHA-2, SHA-3, no SHA-1).</li>
+<li>Firma electrónica conforme al nivel (BÁSICA/MEDIA/ALTA).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s11">
+<div class="block-label">Ficha</div>
+<h2 class="block-title">Ficha y enlace oficial</h2>
+<div class="block-text">Esta es una lectura práctica de GRCreal, no la guía oficial. Consulta siempre la versión vigente en el portal del CCN-CERT, ya que estas guías se actualizan periódicamente (esta ficha: publicada Jul 2011, actualizada May 2022).</div>
+<a class="guia-oficial-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/513-ccn-stic-807-criptologia-de-empleo-en-el-ens/file.html" rel="noopener noreferrer" target="_blank">⬇ CCN-STIC 807 en el portal CCN-CERT</a>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Mecanismos criptográficos autorizados -->
+<div class="block" id="s12">
+<div class="block-label">Mecanismos</div>
+<h2 class="block-title">Mecanismos criptográficos autorizados</h2>
+<p class="block-text" style="margin-top:10px">La guía detalla los mecanismos criptográficos autorizados para cada uso, clasificados en Recomendados (R) y Legacy (L):</p>
+<ul class="guia-ul">
+<li><strong>Cifrado simétrico</strong>: AES en modos CBC, CTR, CFB, OFB, XTS (R), con claves de 128, 192 o 256 bits.</li>
+<li><strong>Primitivas asimétricas</strong>: RSA (2048 L / 3072+ R), Diffie-Hellman MODP (2048 L / 3072+ R), curvas elípticas (Brainpool, NIST, Curve25519, Curve448) todas R.</li>
+<li><strong>Funciones resumen</strong>: SHA-2 (SHA-256, SHA-384, SHA-512) y SHA-3 (SHA3-256, SHA3-384, SHA3-512) todas R. SHA-1 solo en HMAC Legacy.</li>
+<li><strong>Firma electrónica</strong>: RSA-PSS (R), RSA-PKCS#1v1.5 (L), DSA, ECDSA (R), XMSS (R).</li>
+<li><strong>MAC</strong>: HMAC-SHA2 (R), AES-CMAC (R), GMAC (R).</li>
+<li><strong>AEAD</strong>: AES-GCM, AES-CCM, ChaCha20+Poly1305 (todos R).</li>
+<li><strong>KDF</strong>: PBKDF2, scrypt, NIST SP 800-56A (todos R).</li>
+</ul>
+<p class="block-text" style="margin-top:10px"><strong>Nota</strong>: Los mecanismos Legacy (L) tienen fecha límite (31/12/2025 para la mayoría) y deben ser reemplazados por Recomendados.</p>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Protocolos criptográficos autorizados -->
+<div class="block" id="s13">
+<div class="block-label">Protocolos</div>
+<h2 class="block-title">Protocolos criptográficos autorizados</h2>
+<p class="block-text" style="margin-top:10px">La guía especifica qué versiones y configuraciones de protocolos criptográficos son aceptables:</p>
+<ul class="guia-ul">
+<li><strong>TLS</strong>: Solo TLS 1.2 y TLS 1.3. Prohibidas TLS 1.1, 1.0 y SSL. Cipher suites autorizadas: ECDHE con AES-GCM/CCM/ChaCha20. No se autorizan suites con NULL, anon, PSK, RC4, IDEA o MD5.</li>
+<li><strong>SSH</strong>: Solo SSHv2. Key exchange: diffie-hellman-group14-sha256, ecdh-sha2-nistp256 (R). Cifrado: AES-CTR y AEAD. MAC: HMAC-SHA2.</li>
+<li><strong>IPsec</strong>: IKEv2 (R), IKEv1 solo Legacy con Main/Quick mode. ESP con confidencialidad + integridad. Grupos DH: 2048/3072/4096 bits o curvas elípticas. Autenticación: certificados X.509 con ECDSA o RSA (3072+ bits).</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Anexo 1 - Prestadores de Servicios de Confianza -->
+<div class="block" id="s14">
+<div class="block-label">PSC</div>
+<h2 class="block-title">Anexo 1: Prestadores de Servicios de Confianza</h2>
+<p class="block-text" style="margin-top:10px">El Anexo 1 de la guía, actualizado en octubre de 2025, aborda específicamente a los Prestadores de Servicios de Confianza (PSC):</p>
+<ul class="guia-ul">
+<li><strong>Autorización RSA extendida</strong>: Se autoriza el uso de RSA para servicios de firma y autenticación con módulos entre 1900 y 3000 bits hasta el 31 de diciembre de 2026.</li>
+<li><strong>Validez de certificados</strong>: Los certificados emitidos con RSA entre 1900 y 3000 bits tienen validez máxima hasta el 31 de diciembre de 2028.</li>
+<li><strong>Transición</strong>: A partir del 1 de enero de 2027, los certificados basados en RSA deberán emitirse con módulos de al menos 3000 bits.</li>
+<li><strong>Esquema de firma</strong>: Se recomienda RSA-PSS, aunque RSA-PKCS#1v1.5 se acepta hasta el 31 de diciembre de 2030.</li>
+<li><strong>Recomendación</strong>: Se insta a implementar mecanismos más robustos (RSA de mayor longitud y algoritmos postcuánticos) a la mayor brevedad posible.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="divider"></div><div class="block grc-guide-official" id="s21"><div class="block-label">Ficha y enlace oficial</div><h2 class="block-title">Contrasta esta lectura con la publicación del CCN-CERT</h2><div class="grc-guide-official-lead">La guía oficial sigue mandando. Aquí queda la ficha documental y el acceso directo a la fuente para cerrar la lectura con el contraste adecuado.</div><div class="ccn-banner">ℹ️ <span><strong>Resumen práctico de GRCreal.</strong> Consulta siempre la versión oficial vigente en el portal del CCN-CERT.</span></div><p class="ccn-note">Resumen realizado a fecha 29/06/2026 con la información disponible en <a href="https://www.ccn-cert.cni.es/es/guias.html" rel="noopener noreferrer" target="_blank">https://www.ccn-cert.cni.es/es/guias.html</a>. Las fechas de publicación y actualización proceden del portal oficial.</p><table class="ccn-doctable"><thead><tr><th>Documento</th><th>Categoría</th><th>Publicado</th><th>Actualizado</th></tr></thead><tbody><tr><td><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/513-ccn-stic-807-criptologia-de-empleo-en-el-ens/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> CCN-STIC-807 Criptología de empleo en el ENS</a><ul class="ccn-anexos"><li><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/7310-ccn-stic-807-anexo-1-prestadores-de-servicios-de-confianza/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> Anexo 1: Prestadores de Servicios de Confianza</a></li></ul></td><td class="ccn-cat">800 Guías Esquema Nacional de Seguridad</td><td>Jul 2011</td><td>May 2022</td></tr></tbody></table><p class="grc-guide-official-actions">
+<a class="grc-guide-official-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/513-ccn-stic-807-criptologia-de-empleo-en-el-ens/file.html" rel="noopener noreferrer" target="_blank">Abrir documento oficial del CCN-CERT</a>
+</p></div></div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">Qué es y para qué vale</a><a data-toc="" href="#s15">Mi lectura</a><a data-toc="" href="#s18">Explicación técnica</a><a data-toc="" href="#s19">Error habitual</a><a data-toc="" href="#s20">Ejemplo práctico</a><a data-toc="" href="#s22">Ejemplo técnico de infraestructura</a><a data-toc="" href="#s16">Pregunta incómoda</a><a data-toc="" href="#s17">Mi enfoque</a>
+<a data-toc="" href="#s2">Qué contiene la guía</a>
+<a data-toc="" href="#s3">Conceptos clave</a>
+<a data-toc="" href="#s4">A quién aplica</a>
+<a data-toc="" href="#s5">Cómo se implanta, paso a paso</a>
+<a data-toc="" href="#s6">Para qué sirve en auditoría</a>
+<a data-toc="" href="#s7">Relación con otras guías</a>
+<a data-toc="" href="#s8">Mapeo a otros marcos</a>
+<a data-toc="" href="#s9">Errores típicos</a>
+<a data-toc="" href="#s10">Checklist práctico</a>
+<a data-toc="" href="#s11">Ficha y enlace oficial</a>
+<a data-toc="" href="#s12">Mecanismos criptográficos autorizados</a>
+<a data-toc="" href="#s13">Protocolos criptográficos autorizados</a>
+<a data-toc="" href="#s14">Anexo 1: Prestadores de Servicios de Confianza</a>
+</nav>
+</aside>
+</div><!-- /art-layout -->
+</div><!-- /body -->
+<div class="art-related">
+<div class="art-related-label">Sigue en la serie 800</div>
+<div class="art-related-title">Otras guías CCN-STIC</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-806.html"><span class="art-related-pill">CCN-STIC 806</span><h3>Plan de Adecuación al ENS</h3><p>El punto de entrada. Tu hoja de ruta para cumplir el ENS.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-808.html"><span class="art-related-pill">CCN-STIC 808</span><h3>ENS. Verificación del cumplimiento</h3><p>Cómo se demuestra que cumples. La guía de la evidencia.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html').then(r=>r.text()).then(d=>{document.getElementById('footer-placeholder').innerHTML=d;});
+    var tl=Array.from(document.querySelectorAll('#artTocNav a'));
+    var ss=tl.map(a=>document.querySelector(a.getAttribute('href')));
+    if('IntersectionObserver' in window){
+      var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id='#'+en.target.id;tl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-20% 0px -70% 0px'});
+      ss.forEach(function(s){if(s)ob.observe(s);});
+    }
+</script>
+</div>
+</div>
+<script defer="True" src="/js/article-zoom.js"></script></body>
+<script src="/js/global.js"></script>
+</html>

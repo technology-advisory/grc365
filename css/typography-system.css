@@ -1,0 +1,40 @@
+/* GRCREAL · Sistema tipográfico global */
+:root{
+  --grc-fs-display:clamp(42px,4.4vw,60px);
+  --grc-fs-page:clamp(31px,3vw,44px);
+  --grc-fs-section:clamp(25px,2.3vw,34px);
+  --grc-fs-subsection:clamp(20px,1.8vw,26px);
+  --grc-fs-lead:clamp(17px,1.35vw,20px);
+  --grc-lh-body:1.68;
+}
+.ds-page .gh-hero h1,.ds-page .mf-copy h1,.ds-page .fw-hero h1,.ds-page .ct-hero h1,.ct-hero h1,.legal-hero h1,.md-hero h1,.sm-hero h1{
+  font-size:var(--grc-fs-display)!important;line-height:1.01!important;letter-spacing:-.04em!important;
+}
+.ds-page .ct-hero h1{max-width:820px}
+.ds-page .header .headline,.ds-page .headline,body.grc-report-tool h1,body.grc-report-tool .headline,body.grc-report-checklist h1,body.grc-report-checklist .headline,.bia-app .headline,.ar-app .headline,.ptr-app .headline,.md-app .headline,.prov-app .headline{
+  font-size:var(--grc-fs-page)!important;line-height:1.08!important;letter-spacing:-.028em!important;
+}
+.ds-page .ai-section-head h2,.ds-page .fw-dark-copy h2,.ds-page .fw-close h2,.ds-page .gg-copy h2,.ds-page .gg-final h2,.ds-page .gh-position-copy h2,.ds-page .gh-final h2,.ds-page .mf-ccn h2,.ds-page .mf-final h2,.ds-page .vi-overview h2,.ds-page .vi-group-head h2,.ds-page .vi-final h2,.ds-page .ct-cta h2,
+.ds-page .block-title,.ds-page .art-main h2,.ds-page .guide-main h2,.ds-page .versus-main h2,.ds-page .editorial-expansion-v2 h2{
+  font-size:var(--grc-fs-section)!important;line-height:1.18!important;letter-spacing:-.02em!important;
+}
+.ds-page .art-main h3,.ds-page .guide-main h3,.ds-page .versus-main h3,.ds-page .editorial-expansion-v2 h3{
+  font-size:var(--grc-fs-subsection)!important;line-height:1.25!important;letter-spacing:-.012em!important;
+}
+.ds-page .lead,.ds-page .hero-lead,.ds-page .header .subheadline,.ds-page .ct-hero p,.ds-page .gh-hero p,.ds-page .mf-copy>p,.ds-page .fw-hero p{
+  font-size:var(--grc-fs-lead)!important;line-height:1.62!important;
+}
+.ds-page .block-text,.ds-page .block-text p,.ds-page .art-main p,.ds-page .guide-main p,.ds-page .versus-main p,.ds-page .editorial-expansion-v2 p{line-height:var(--grc-lh-body)!important}
+.ds-page .block-label,.ds-page .tag,.ds-page [class*="kicker"],.ds-page [class*="eyebrow"],.ds-page .ds-meta,.ds-page .tool-ref,.ds-page .chk-ref{
+  font-size:10px!important;line-height:1.45!important;letter-spacing:.1em!important;
+}
+.score-number{font-size:clamp(44px,5vw,60px)!important;line-height:1!important}
+@media(max-width:900px){
+  :root{--grc-fs-display:clamp(34px,10vw,46px);--grc-fs-page:clamp(28px,8vw,38px);--grc-fs-section:clamp(23px,6.5vw,30px);--grc-fs-subsection:clamp(19px,5vw,24px);--grc-fs-lead:16px}
+  .ds-page .ct-hero h1,.ct-hero h1{font-size:clamp(34px,10.5vw,46px)!important}
+  .ds-page .block-title,.ds-page .art-main h2,.ds-page .guide-main h2,.ds-page .versus-main h2{max-width:100%;overflow-wrap:anywhere}
+}
+@media(max-width:480px){
+  :root{--grc-fs-display:clamp(31px,10.5vw,40px);--grc-fs-page:clamp(27px,9vw,34px);--grc-fs-section:clamp(22px,7vw,28px);--grc-fs-subsection:clamp(18px,5.5vw,22px)}
+  .ds-page .block-label,.ds-page .tag,.ds-page [class*="kicker"],.ds-page [class*="eyebrow"]{font-size:9px!important}
+}

@@ -1,21 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
 <title>Security by Design: la seguridad no puede ser un parche · GRCreal</title>
-<meta name="description" content="Añadir seguridad al final de un proyecto cuesta diez veces más que diseñarla desde el principio. Por qué Security by Design no es una opción sino una necesidad.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://grcreal.com/articulos/tecnico/security-by-design.html">
-<meta property="og:title" content="Security by Design: por qué la seguridad no puede ser un parche al final">
-<meta property="og:description" content="La seguridad añadida al final cuesta diez veces más y funciona diez veces peor. Cómo diseñarla desde el principio.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://grcreal.com/articulos/security-by-design.html">
-<meta property="og:image" content="https://grcreal.com/grcreal.png">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="stylesheet" href="../../css/marca.css">
-<link rel="stylesheet" href="../../css/articles.css">
-<link rel="stylesheet" href="../../css/global.css">
+<meta content="Añadir seguridad al final de un proyecto cuesta diez veces más que diseñarla desde el principio. Por qué Security by Design no es una opción sino una necesidad." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/articulos/tecnico/security-by-design.html" rel="canonical"/>
+<meta content="Security by Design: por qué la seguridad no puede ser un parche al final" property="og:title"/>
+<meta content="La seguridad añadida al final cuesta diez veces más y funciona diez veces peor. Cómo diseñarla desde el principio." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/articulos/security-by-design.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../../css/marca.css" rel="stylesheet"/>
+<link href="../../css/articles.css" rel="stylesheet"/>
+<link href="../../css/global.css" rel="stylesheet"/>
+<link href="../../css/dossier-core.css" rel="stylesheet"/>
+<link href="../../css/dossier-articulo.css" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,124 +72,303 @@
   ]
 }
 </script>
-</head>
-
+<link href="/css/article-expansion.css?v=20260718-2" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
 <body class="article-page">
-<div class="card-wrapper">
+<div class="card-wrapper ds-page">
 <div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
 <div class="accent-bar"></div>
-
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: artículo</span>
+<span>categoría: <strong>Técnico</strong></span>
+</div>
 <div class="header">
-  <div class="tag">Arquitectura · Security by Design · Infraestructura</div>
-  <div class="article-date">24 Abril 2026</div>
-  <h1 class="headline">
-    Security<br>
-    <span class="accent">by Design:</span><br>
-    <span class="dim">la seguridad no puede</span><br>
-    <span class="accent">ser un parche</span>
-  </h1>
-  <p class="subline">
-    Añadir seguridad al final cuesta diez veces más<br>
-    <strong>y funciona diez veces peor.</strong>
-  </p>
+<a class="art-back" href="/articulos/index.html">← Volver a artículos</a>
+<div class="tag">Arquitectura · Security by Design · Infraestructura</div>
+<h1 class="headline">
+    Security <span class="accent">by Design:</span> <span class="dim">la seguridad no puede</span> <span class="accent">ser un parche</span>
+</h1>
+<p class="subline">
+    Añadir seguridad al final cuesta diez veces más<br/>
+<strong>y funciona diez veces peor.</strong>
+</p>
+<div class="art-meta">
+<span class="art-meta-item">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 18 18"><circle cx="9" cy="6" r="2.6"></circle><path d="M3.5 15c0-2.6 2.5-4.6 5.5-4.6s5.5 2 5.5 4.6"></path></svg>
+<strong>Miguel Ángel Carriazo</strong>
+</span>
+<span class="art-meta-item">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 18 18"><rect height="12.5" rx="1.3" width="13" x="2.5" y="3"></rect><path d="M2.5 6.5h13M6 2v2.4M12 2v2.4"></path></svg>
+      24 abril 2026
+    </span>
+<span class="art-meta-item"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 18 18"><circle cx="9" cy="9" r="6.8"></circle><path d="M9 5.3V9l2.8 1.7"></path></svg> 8 min de lectura</span>
 </div>
-
+</div>
 <div class="body">
-
-  <div class="block">
-    <div class="block-label">El patrón que se repite</div>
-    <h2 class="block-title">Seguridad como afterthought</h2>
-    <div class="block-text">
+<div class="art-layout">
+<div class="art-main">
+<div class="block" id="s1">
+<div class="block-label">El patrón que se repite</div>
+<h2 class="block-title">Seguridad como afterthought</h2>
+<div class="block-text">
       El proyecto se diseña, se desarrolla y se despliega. Cuando ya está en producción, alguien recuerda que hay que "revisar la seguridad".
-      <br><br>
+      <br/><br/>
       Se llama a un consultor, se hace un análisis, se encuentran problemas. Y entonces empieza el trabajo más caro y más frustrante de la seguridad: intentar añadir controles a un sistema que no fue diseñado para tenerlos.
-      <br><br>
+      <br/><br/>
       Parches sobre parches. Configuraciones que compensan decisiones de arquitectura que no se pueden cambiar fácilmente. Controles que funcionan a medias porque el sistema subyacente no los soporta bien.
-      <br><br>
-      <strong>Este patrón no es infrecuente. Es la norma en la mayoría de organizaciones que no aplican Security by Design desde el principio.</strong>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="block">
-    <div class="block-label">Qué es Security by Design</div>
-    <h2 class="block-title">No es una metodología — es una mentalidad</h2>
-    <div class="block-text">
-      Security by Design significa integrar los requisitos y controles de seguridad desde el inicio del diseño de cualquier sistema, aplicación o infraestructura — no al final.
-      <br><br>
-      No es una fase del proyecto. Es una forma de pensar que impregna todas las fases.
-      <br><br>
-      <strong>La diferencia está en diseñar sistemas seguros, no en intentar protegerlos después.</strong>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="block">
-    <div class="block-label">Los principios</div>
-    <h2 class="block-title">Lo que guía un diseño seguro</h2>
-
-    <table class="tension" style="margin-top:20px;">
-      <tr>
-        <td class="tension-who">Mínimo privilegio</td>
-        <td class="tension-says">Acceso solo a lo necesario.</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Defensa en profundidad</td>
-        <td class="tension-says">Capas de protección.</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Fail secure</td>
-        <td class="tension-says">Fallar de forma segura.</td>
-      </tr>
-      <tr>
-        <td class="tension-who">Superficie mínima</td>
-        <td class="tension-says">Exponer solo lo necesario.</td>
-      </tr>
-      <tr class="hi-row">
-        <td class="tension-who">Trazabilidad</td>
-        <td class="tension-says"><span class="hi">Diseñar para auditar.</span></td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="block">
-    <div class="block-label">En la práctica</div>
-    <h2 class="block-title">Cómo se aplica</h2>
-    <div class="block-text">
-      Infraestructura, software y cloud deben diseñarse con seguridad desde el inicio.
-      <br><br>
-      <strong>El coste es menor. El resultado es infinitamente mejor.</strong>
-    </div>
-  </div>
-
-  <div class="cta-block">
-    <div class="cta-headline">
-      ¿Tus proyectos incorporan<br>
-      <span>seguridad desde el diseño?</span>
-    </div>
-    <div class="cta-sub">
-    </div>
-  </div>
-
+      <br/><br/>
+<strong>Este patrón no es infrecuente. Es la norma en la mayoría de organizaciones que no aplican Security by Design desde el principio.</strong>
 </div>
-
+</div><div class="art-visual art-visual-wide">
+<div class="art-visual-kicker">Capas de control · Técnico</div>
+<div class="art-visual-title">La protección real no depende de una sola medida</div>
+<svg aria-label="La protección real no depende de una sola medida aplicado a Security by Design: la seguridad no puede ser un parche" role="img" viewbox="0 0 1180 400"><rect class="av-box" height="44" rx="2" width="1000" x="90" y="42"></rect><text class="av-label" text-anchor="middle" x="590" y="69">Seguridad como afterthought</text><rect class="av-box-strong" height="44" rx="2" width="840" x="170" y="100"></rect><text class="av-label-strong" text-anchor="middle" x="590" y="127">No es una metodología —…</text><rect class="av-box" height="44" rx="2" width="680" x="250" y="158"></rect><text class="av-label" text-anchor="middle" x="590" y="185">Lo que guía un diseño…</text><rect class="av-box" height="44" rx="2" width="520" x="330" y="216"></rect><text class="av-label" text-anchor="middle" x="590" y="243">De la tecnología al…</text><rect class="av-box" height="44" rx="2" width="360" x="410" y="274"></rect><text class="av-label" text-anchor="middle" x="590" y="301">Qué esperaría encontrar…</text><text class="av-band-label" text-anchor="middle" x="590" y="360">LA FORTALEZA DEPENDE DE LA CAPA MÁS DÉBIL</text></svg>
+<div class="art-visual-note">Las capas se complementan; una medida aislada no sustituye al diseño y la verificación del conjunto.</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s2">
+<div class="block-label">Qué es Security by Design</div>
+<h2 class="block-title">No es una metodología — es una mentalidad</h2>
+<div class="block-text">
+      Security by Design significa integrar los requisitos y controles de seguridad desde el inicio del diseño de cualquier sistema, aplicación o infraestructura — no al final.
+      <br/><br/>
+      No es una fase del proyecto. Es una forma de pensar que impregna todas las fases.
+      <br/><br/>
+<strong>La diferencia está en diseñar sistemas seguros, no en intentar protegerlos después.</strong>
+</div>
+</div><div class="art-insight"><div class="art-insight-head">Lectura operativa GRCREAL</div><div class="art-insight-grid">
+<div class="art-insight-item"><b>Qué entender</b><p>Seguridad como afterthought. Delimita el problema antes de elegir una respuesta.</p></div>
+<div class="art-insight-item"><b>Qué comprobar</b><p>No es una metodología — es una mentalidad. Busca una práctica observable, no solo una declaración.</p></div>
+<div class="art-insight-item"><b>Qué poder demostrar</b><p>Cómo se aplica. La decisión y su revisión deben dejar trazabilidad.</p></div></div></div>
+<div class="divider"></div>
+<div class="block" id="s3">
+<div class="block-label">Los principios</div>
+<h2 class="block-title">Lo que guía un diseño seguro</h2>
+<table class="tension" style="margin-top:20px;">
+<tr>
+<td class="tension-who">Mínimo privilegio</td>
+<td class="tension-says">Acceso solo a lo necesario.</td>
+</tr>
+<tr>
+<td class="tension-who">Defensa en profundidad</td>
+<td class="tension-says">Capas de protección.</td>
+</tr>
+<tr>
+<td class="tension-who">Fail secure</td>
+<td class="tension-says">Fallar de forma segura.</td>
+</tr>
+<tr>
+<td class="tension-who">Superficie mínima</td>
+<td class="tension-says">Exponer solo lo necesario.</td>
+</tr>
+<tr class="hi-row">
+<td class="tension-who">Trazabilidad</td>
+<td class="tension-says"><span class="hi">Diseñar para auditar.</span></td>
+</tr>
+</table>
+</div>
+<div class="divider"></div>
+<div class="block" id="aterrizaje-practico"><div class="block-label">Mi enfoque</div><h2 class="block-title">De la tecnología al control verificable</h2><div class="art-practice"><div class="art-practice-label">Aplicación práctica</div><p>No evaluaría este tema únicamente preguntando si la tecnología existe. Revisaría alcance, configuración, excepciones, dependencia operativa y la forma en que se detecta una desviación. La presencia de una herramienta no demuestra por sí sola que el control esté funcionando.</p><p>También buscaría el punto de fallo silencioso: cuentas fuera del proceso, segmentos heredados, tareas manuales, activos sin propietario o alertas que nadie revisa. En infraestructura y ciberseguridad, la realidad suele esconderse en las excepciones acumuladas.</p><p>Mi criterio sería convertir la capacidad técnica en una evidencia repetible: qué se comprueba, quién lo revisa, cada cuánto y qué ocurre cuando el resultado no es el esperado. Ahí empieza el gobierno del control.</p></div></div><div class="block" id="evidencia-operativa"><div class="block-label">Evidencia operativa</div><h2 class="block-title">Qué esperaría encontrar para demostrar que esto funciona</h2>
+<div class="block-text">La evidencia concreta depende del alcance y del contexto de la organización. Aun así, una revisión seria debería poder reconstruir al menos estas tres capas:</div>
+<table class="art-evidence"><thead><tr><th>Ref.</th><th>Capa de evidencia</th><th>Qué debería permitir comprobar</th></tr></thead><tbody>
+<tr><td>EV-01</td><td>Configuración y alcance</td><td>Quién es responsable, qué alcance se ha definido y qué decisión se ha tomado.</td></tr>
+<tr><td>EV-02</td><td>Muestras de operación del control</td><td>Que el control o proceso se aplica sobre casos reales y no existe únicamente en la documentación.</td></tr>
+<tr><td>EV-03</td><td>Excepciones y revisiones periódicas</td><td>Que las desviaciones se detectan, se corrigen y vuelven a revisarse con una frecuencia razonable.</td></tr>
+</tbody></table></div><div class="block" id="s4">
+<div class="block-label">En la práctica</div>
+<h2 class="block-title">Cómo se aplica</h2>
+<div class="block-text">
+      Infraestructura, software y cloud deben diseñarse con seguridad desde el inicio.
+      <br/><br/>
+<strong>El coste es menor. El resultado es infinitamente mejor.</strong>
+</div>
+</div>
+<div class="block editorial-expansion" id="guia-aplicacion">
+<div class="block-label">Guía de aplicación</div>
+<h2 class="block-title">Cómo llevar «Security by Design: la seguridad no puede ser un parche» a un modelo operativo</h2>
+<div class="block-text">
+<p>El error habitual al abordar este tema es convertirlo demasiado pronto en un documento o en una lista de tareas. En Seguridad técnica, yo lo llevaría primero a un <strong>modelo operativo verificable</strong>: qué queda dentro del alcance, quién puede decidir, qué condiciones activan una revisión y qué rastro queda después de cada actuación.</p>
+<p>Para este caso partiría de <strong>inventario y exposición</strong>. No porque sea el único punto importante, sino porque permite fijar el contexto antes de discutir controles. A partir de ahí conectaría <strong>priorización por riesgo</strong> con la realidad del servicio tecnológico y cerraría el ciclo con <strong>despliegue, excepción y verificación</strong>.</p>
+<p>La pregunta que utilizaría para probar la madurez sería sencilla: <strong>¿puede una persona que no participó en el proyecto reconstruir la decisión, entender el riesgo y localizar la evidencia sin depender de una explicación oral?</strong> Si la respuesta es no, existe conocimiento, pero el gobierno todavía depende de personas concretas.</p>
+</div>
+<div class="art-practice">
+<div class="art-practice-label">Mi enfoque</div>
+<p>No intentaría implantar todo de una vez. Seleccionaría un caso representativo, documentaría la cadena <strong>arquitectura, exposición, control, operación y evidencia</strong> y comprobaría dónde se pierde la trazabilidad.</p>
+<p>El primer objetivo no sería «tener más documentación», sino conseguir que el propietario técnico y de negocio pueda demostrar qué decidió, por qué lo decidió y cómo sabe que el control sigue funcionando.</p>
+</div>
+<table class="art-matrix editorial-table">
+<thead><tr><th>Plano de revisión</th><th>Qué comprobaría</th><th>Señal de debilidad</th><th>Evidencia útil</th></tr></thead>
+<tbody>
+<tr><td>Contexto</td><td>Inventario y exposición; límites, dependencias y supuestos.</td><td>El alcance cambia según quién lo explique.</td><td>Ficha de alcance, inventario o mapa de dependencias vigente.</td></tr>
+<tr><td>Gobierno</td><td>Propietario, capacidad de decisión, escalado y excepciones.</td><td>IT ejecuta, pero nadie de negocio acepta el riesgo.</td><td>RACI, acta, ticket de decisión o registro de aceptación.</td></tr>
+<tr><td>Control</td><td>Priorización por riesgo; diseño, cobertura y operación real.</td><td>Se describe el control, pero no su población ni frecuencia.</td><td>Configuración, procedimiento, muestra de ejecución y resultado.</td></tr>
+<tr><td>Supervisión</td><td>Despliegue, excepción y verificación; umbrales, desviaciones y revisión.</td><td>Solo se revisa cuando llega una auditoría o un incidente.</td><td>KPI/KRI, revisión periódica, hallazgo y acción de mejora.</td></tr>
+</tbody></table>
+<div class="art-insight">
+<div class="art-insight-head">Secuencia de trabajo</div>
+<div class="art-insight-grid">
+<div class="art-insight-item"><b>01 · Reconstruir</b><p>Utilizar «Seguridad como afterthought» como punto de entrada para describir la realidad actual, incluidas excepciones y dependencias que no aparecen en el procedimiento.</p></div>
+<div class="art-insight-item"><b>02 · Contrastar</b><p>Tomar «No es una metodología — es una mentalidad» y comprobarlo con una muestra real. La documentación debe coincidir con usuarios, activos, configuraciones, decisiones o registros.</p></div>
+<div class="art-insight-item"><b>03 · Cerrar el ciclo</b><p>Relacionar «Lo que guía un diseño seguro» con un responsable, una fecha y una evidencia de revisión. Una desviación sin seguimiento es información, no gobierno.</p></div>
+</div></div>
+</div><div class="block editorial-expansion" id="preguntas-revision">
+<div class="block-label">Revisión crítica</div>
+<h2 class="block-title">Diez preguntas que utilizaría para revisar este tema</h2>
+<div class="block-text"><p>Estas preguntas no sustituyen una auditoría ni una evaluación formal. Sirven como <strong>prueba rápida de coherencia</strong>: si varias respuestas dependen de «creo», «normalmente» o «lo lleva otra persona», ya existe una línea de trabajo.</p></div>
+<ol class="editorial-questions">
+<li><strong>¿Qué está exactamente dentro del alcance?</strong> Debe poder delimitarse el servicio tecnológico sin recurrir a una descripción ambigua.</li>
+<li><strong>¿Quién es el propietario real?</strong> El propietario técnico y de negocio debe conocer su responsabilidad y tener capacidad para escalar o decidir.</li>
+<li><strong>¿Qué escenario de riesgo estamos intentando evitar o limitar?</strong> Un control sin escenario asociado se evalúa por presencia, no por eficacia.</li>
+<li><strong>¿Qué depende de inventario y exposición?</strong> Hay que identificar supuestos, datos de entrada, servicios y terceros que cambian la exposición.</li>
+<li><strong>¿Cómo sabemos que priorización por riesgo funciona sobre toda la población?</strong> Una muestra positiva no demuestra cobertura completa.</li>
+<li><strong>¿Qué excepciones existen hoy?</strong> Deben tener propietario, motivo, riesgo aceptado, compensación y caducidad cuando proceda.</li>
+<li><strong>¿Qué evidencia queda después de ejecutar el control?</strong> La evidencia debe ser recuperable, fechada y entendible por una tercera persona.</li>
+<li><strong>¿Qué indicador obliga a actuar?</strong> Medir sin umbral, tendencia o decisión asociada termina creando cuadros de mando decorativos.</li>
+<li><strong>¿Cuándo se revisó por última vez despliegue, excepción y verificación?</strong> El cambio de contexto puede invalidar una decisión que era razonable seis meses antes.</li>
+<li><strong>¿Qué aprendimos de la última desviación?</strong> Si el hallazgo se cierra corrigiendo el síntoma y no cambia el sistema, probablemente volverá.</li>
+</ol>
+<div class="art-practice"><div class="art-practice-label">Pregunta incómoda</div><p>Si mañana la persona que domina este tema deja la organización, <strong>¿el sistema seguiría funcionando y podríamos demostrar por qué se tomaron las decisiones?</strong> Esa respuesta suele revelar el nivel real de institucionalización.</p></div>
+</div><div class="block editorial-expansion" id="evidencias-minimas">
+<div class="block-label">Evidencia mínima</div>
+<h2 class="block-title">Qué conservaría para poder demostrar que el control está vivo</h2>
+<div class="block-text">
+<p>La cantidad de documentación no es una medida de madurez. Para «Security by Design: la seguridad no puede ser un parche» prefiero una cadena corta de evidencias conectadas a la operación. Cada pieza debe responder a una pregunta distinta: <strong>qué decidimos, qué hicimos, qué ocurrió y qué revisamos después</strong>.</p>
+<p>La siguiente matriz es el paquete mínimo que intentaría localizar en una revisión. El formato puede ser un acta, un ticket, una exportación, una configuración o un registro de una herramienta; lo importante es la trazabilidad y la coherencia entre las piezas.</p>
+</div>
+<table class="art-evidence editorial-evidence">
+<thead><tr><th>Ref.</th><th>Evidencia</th><th>Qué debería demostrar</th><th>Qué revisaría</th></tr></thead>
+<tbody>
+<tr><td>EV-01</td><td>Alcance y propietario</td><td>Qué cubre el control y quién responde por él.</td><td>Vigencia, exclusiones, dependencias y aceptación del propietario.</td></tr>
+<tr><td>EV-02</td><td>Criterio de riesgo</td><td>Por qué se ha priorizado o diseñado de una forma concreta.</td><td>Inventario y exposición, escenario, impacto y supuestos utilizados.</td></tr>
+<tr><td>EV-03</td><td>Diseño del control</td><td>Qué debe ocurrir, sobre qué población y con qué frecuencia.</td><td>Priorización por riesgo, responsables, entradas, salidas y excepciones.</td></tr>
+<tr><td>EV-04</td><td>Muestra de ejecución</td><td>Que el control opera fuera del documento.</td><td>Fecha, población, resultado, anomalías y trazabilidad técnica u operativa.</td></tr>
+<tr><td>EV-05</td><td>Desviación y tratamiento</td><td>Cómo responde la organización cuando el control falla.</td><td>Causa, riesgo residual, responsable, plazo y medida compensatoria.</td></tr>
+<tr><td>EV-06</td><td>Revisión y mejora</td><td>Que despliegue, excepción y verificación se evalúa y puede cambiar.</td><td>Indicadores, tendencia, decisiones, cambios aprobados y seguimiento.</td></tr>
+</tbody></table>
+<div class="art-practice"><div class="art-practice-label">Visión de auditor</div><p>Yo intentaría seguir una sola muestra de extremo a extremo. Si EV-01 dice una cosa, EV-03 otra y EV-04 no permite identificar la población afectada, el problema no es «falta de un PDF»: es una ruptura de trazabilidad.</p></div>
+</div><div class="divider editorial-expansion-v2-divider"></div><div class="block editorial-expansion-v2" id="documentacion-operativa">
+<div class="block-label">Documentación operativa</div>
+<h2 class="block-title">Cómo convertir este tema en un expediente verificable</h2>
+<div class="block-text">
+<p>La forma más útil de trabajar este tema es convertirlo en una cadena verificable de decisiones, responsables y evidencias. No basta con afirmar que existe un control: hay que poder reconstruir qué se decidió, con qué información, quién lo ejecutó y cómo se comprobó después.</p>
+<p>En <strong>Security by Design: la seguridad no puede ser un parche</strong>, el análisis debería cubrir al menos arquitectura, activos, identidades, redes, configuraciones, logs, copias, cambios y recuperación. Esto exige coordinar a Arquitectura, Infraestructura, Redes, Seguridad, Operaciones, Desarrollo y propietarios del servicio y trabajar sobre servidores, identidades, redes, aplicaciones, almacenamiento, logs, copias, configuraciones y secretos. Cuando cada área conserva una parte distinta de la información, se retrasan decisiones, se duplican controles y se aceptan excepciones sin una visión completa.</p>
+<p>Una forma práctica de evitarlo es utilizar un expediente único por servicio, sistema, proceso o decisión relevante. Puede ser una herramienta GRC, un repositorio documental controlado o un registro estructurado. Lo importante es conectar alcance, propietario, riesgo, control, evidencia, excepción y acción, con fecha, fuente y estado.</p>
+<p>Ese expediente debe mantenerse durante la operación ordinaria. Si solo se completa antes de una auditoría, la organización obtiene una fotografía preparada, pero no una visión fiable del control. La actualización debería activarse ante cambios de arquitectura, proveedor, alcance, responsables, requisitos, incidentes o resultados de pruebas. También conviene definir una revisión periódica para detectar documentación formalmente vigente pero materialmente obsoleta.</p>
+<p>La revisión debe separar cuatro preguntas: si el control está bien diseñado, si se ha implantado en todo el alcance, si funciona de forma sostenida y si reduce realmente el riesgo o cumple el objetivo. Mezclar estas preguntas lleva a conclusiones débiles: una política aprobada puede no haberse desplegado, una herramienta instalada puede no cubrir toda la población y una actividad ejecutada puede no producir el efecto esperado.</p>
+</div>
+<div class="doc-table-wrap">
+<table class="doc-table">
+<thead><tr><th>Dimensión</th><th>Qué debe quedar definido</th><th>Evidencia esperada</th></tr></thead>
+<tbody><tr><td><strong>Alcance</strong></td><td>Procesos, servicios, sistemas y terceros incluidos en «Security by Design: la seguridad no puede ser un parche».</td><td>Alcance aprobado, inventario y exclusiones justificadas.</td></tr><tr><td><strong>Responsabilidad</strong></td><td>Quién decide, ejecuta, valida y acepta desviaciones.</td><td>RACI, actas, aprobaciones y propietarios nominativos.</td></tr><tr><td><strong>Operación</strong></td><td>Actividades repetibles, entradas, salidas, plazos y escalados.</td><td>Procedimiento, tickets, registros, alertas y métricas.</td></tr><tr><td><strong>Eficacia</strong></td><td>Cómo se comprueba que el control cambia el riesgo o el resultado.</td><td>Pruebas, tendencias, incidencias, muestreo y acciones.</td></tr></tbody>
+</table>
+</div>
+<section class="doc-section"><div class="doc-kicker">Escenario de validación</div><h3>Prueba de extremo a extremo</h3><ol class="doc-steps"><li>Partir de un servicio híbrido con componentes on-premises, cloud e integraciones de terceros y delimitar arquitectura, activos, identidades, redes, configuraciones, logs, copias, cambios y recuperación.</li><li>Contrastar la documentación declarada con arquitectura, proceso, responsables y operación real.</li><li>Seleccionar una muestra reciente y seguirla desde el evento de origen hasta su cierre.</li><li>Distinguir entre fallo puntual, deficiencia de diseño y problema operativo recurrente.</li><li>Verificar la corrección mediante una prueba posterior y no solo mediante una declaración de cierre.</li></ol><div class="doc-insight">
+<div class="doc-insight-label">Punto de control</div>
+<p>Una captura demuestra un estado puntual. Un expediente completo demuestra el proceso, el criterio, la trazabilidad y la capacidad de corregir.</p>
+</div></section>
+<section class="doc-section"><div class="doc-kicker">Evidencias mínimas</div><h3>Qué conservaría para una revisión seria</h3><ul class="doc-list"><li>diagramas, configuraciones exportadas, inventario, reglas, logs, pruebas, tickets, excepciones y resultados de recuperación</li><li>criterio aplicado y versión de la referencia utilizada</li><li>población, periodo y muestra revisados</li><li>excepciones, aceptación de riesgo y fecha de caducidad</li><li>resultado de eficacia y acciones derivadas</li></ul></section>
+<section class="doc-section"><div class="doc-kicker">Preguntas de contraste</div><h3>Qué preguntaría antes de darlo por implantado</h3><ul class="doc-list"><li>¿Qué parte de «Security by Design: la seguridad no puede ser un parche» está dentro del alcance y qué queda fuera?</li><li>¿Quién aprueba una excepción, por qué y durante cuánto tiempo?</li><li>¿Qué evidencia nace automáticamente de la operación y cuál se prepara manualmente?</li><li>¿Cómo se detecta que el diseño seguro, el hardening, la segmentación, las identidades, la monitorización, el respaldo, la recuperación y los cambios deja de funcionar?</li><li>¿Cuál fue la última prueba que cambió una decisión, un diseño o una prioridad?</li><li>¿Puede una persona ajena al proceso reconstruir el expediente sin explicaciones adicionales?</li></ul><div class="block-text">
+<p>El objetivo no es generar más documentación, sino conservar la documentación que permite gobernar, operar y demostrar. La madurez aparece cuando las evidencias nacen del proceso ordinario y no de una campaña previa a la auditoría.</p>
+</div></section>
+</div></div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">El patrón que se repite</a>
+<a data-toc="" href="#s2">Qué es Security by Design</a>
+<a data-toc="" href="#s3">Los principios</a>
+<a data-toc="" href="#s4">En la práctica</a>
+<a data-toc="" href="#aterrizaje-practico">Mi enfoque práctico</a><a data-toc="" href="#evidencia-operativa">Evidencia operativa</a><a data-toc="" href="#documentacion-operativa">Documentación operativa</a></nav>
+</aside>
+</div><!-- /art-layout -->
+<div class="cta-block">
+<div class="cta-headline">
+      ¿Tus proyectos incorporan<br/>
+<span>seguridad desde el diseño?</span>
+</div>
+<div class="cta-sub">
+</div>
+</div>
+</div>
 <!-- FINAL DEL BODY -->
+<!-- SOBRE EL AUTOR + COMPARTIR -->
+<div class="art-foot">
+<div class="art-author">
+<div class="art-foot-label">Sobre el autor</div>
+<div class="art-author-name">Miguel Ángel Carriazo <span>· vCISO</span></div>
+<p class="art-author-bio">vCISO · Arquitecto de Soluciones de Infraestructura y Ciberseguridad | Gobierno, Riesgo y Cumplimiento (GRC) | Gobierno de IA · ISO 42001 | Fundador de GRCreal</p>
+</div>
+<div class="art-share">
+<div class="art-foot-label">Compartir artículo</div>
+<a aria-label="Compartir en LinkedIn" class="art-share-btn" href="#" id="shareLinkedin" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+<!-- ARTÍCULOS RELACIONADOS -->
+<div class="art-related">
+<div class="art-related-label">Sigue leyendo</div>
+<div class="art-related-title">Artículos relacionados</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/articulos/tecnico/phishing-2026.html">
+<span class="art-related-pill">Técnico</span>
+<h3>Phishing 2026: ya no es lo que crees</h3>
+<p>Los ataques han cambiado. Tus controles no.</p>
+<div class="art-related-meta"><span>5 mayo 2026</span><span>3 min</span></div>
+</a>
+<a class="art-related-card" href="/articulos/tecnico/ransomware-defensa-real.html">
+<span class="art-related-pill">Técnico</span>
+<h3>Ransomware: la defensa que casi nadie tiene</h3>
+<p>No es si te atacan. Es si puedes seguir operando.</p>
+<div class="art-related-meta"><span>28 abril 2026</span><span>3 min</span></div>
+</a>
+<a class="art-related-card" href="/articulos/tecnico/el-incidente-ocurrio.html">
+<span class="art-related-pill">Técnico</span>
+<h3>El incidente ocurrió. ¿Y ahora qué?</h3>
+<p>Las primeras horas son críticas.</p>
+<div class="art-related-meta"><span>25 abril 2026</span><span>3 min</span></div>
+</a>
+</div>
+</div>
 <div id="footer-placeholder"></div>
 <script>
-    fetch('/includes/footer.html')
+    fetch('/includes/footer-no-share.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
         });
-</script>
 
+
+    // Compartir en LinkedIn
+    var shareBtn = document.getElementById('shareLinkedin');
+    if (shareBtn) {
+        shareBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+    }
+
+    // Índice lateral: resalta la sección visible
+    var tocLinks = Array.from(document.querySelectorAll('#artTocNav a'));
+    var sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                    var id = '#' + entry.target.id;
+                    tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(function(s){ if (s) observer.observe(s); });
+    }
+</script>
 </div>
 </div>
-<a href="/articulos" class="home-btn">⌂ Home Artículos</a>
-</body>
+<script defer="True" src="/js/article-zoom.js"></script></body>
 <script src="/js/global.js"></script>
 </html>

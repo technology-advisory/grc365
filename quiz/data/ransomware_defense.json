@@ -15,15 +15,15 @@
       "e": "El Crypto ransomware cifra archivos y documentos. El Locker ransomware bloquea el acceso al dispositivo pero no cifra archivos."
     },
     {
-      "q": "¿Cuál es el vector de ataque más común utilizado por el ransomware para infiltrarse en una organización?",
+      "q": "¿Cuál de estos vectores sigue siendo una vía frecuente de entrada para campañas de ransomware?",
       "o": [
-        "Ataques de fuerza bruta",
-        "Ingeniería social y phishing con adjuntos maliciosos",
-        "Ataques Man-in-the-Middle",
-        "Explotación de hardware"
+        "Phishing y robo de credenciales",
+        "Únicamente acceso físico al centro de datos",
+        "Solo vulnerabilidades de impresoras",
+        "Exclusivamente ataques a dispositivos móviles"
       ],
-      "c": 1,
-      "e": "El phishing con enlaces o adjuntos maliciosos sigue siendo el método principal. Más del 70% de los ataques comienzan con un correo de phishing."
+      "c": 0,
+      "e": "El phishing, el robo de credenciales, la explotación de servicios expuestos y las vulnerabilidades sin corregir son vías habituales. No conviene reducir la defensa a un único vector."
     },
     {
       "q": "Según el marco NIST CSF, ¿en qué fase del ciclo de respuesta a incidentes se debe aislar un sistema infectado?",
@@ -147,15 +147,15 @@
       "e": "A.8.21 (Security of network services) incluye asegurar servicios como RDP, VPN y acceso remoto, cerrando puertos innecesarios expuestos a Internet."
     },
     {
-      "q": "Según estudios del sector (Sophos State of Ransomware), ¿qué porcentaje de organizaciones que pagan el rescate NO recuperan todos sus datos?",
+      "q": "¿Por qué pagar un rescate no garantiza la recuperación completa?",
       "o": [
-        "Menos del 10%",
-        "Aproximadamente el 20-30%",
-        "Más del 50%",
-        "El 100% recupera todos los datos"
+        "Porque el descifrador puede fallar, los datos pueden estar dañados y el atacante puede conservar copias exfiltradas",
+        "Porque los sistemas operativos impiden técnicamente usar descifradores",
+        "Porque el pago elimina automáticamente las copias de seguridad",
+        "Porque la aseguradora siempre bloquea la recuperación"
       ],
-      "c": 2,
-      "e": "Según el informe State of Ransomware de Sophos, más del 50% de las organizaciones que pagan el rescate no recuperan todos sus datos. La recuperación completa es la excepción, no la norma."
+      "c": 0,
+      "e": "El pago no asegura que el descifrador funcione, que todos los datos puedan recuperarse ni que la información exfiltrada sea eliminada. La recuperación debe apoyarse en copias verificadas, reconstrucción y respuesta técnica."
     },
     {
       "q": "¿Qué framework de ciberseguridad es ampliamente utilizado para evaluar la madurez frente a ransomware?",
@@ -301,15 +301,15 @@
       "e": "MFA (Autenticación Multifactor) bloquea accesos no autorizados incluso si la contraseña es robada por phishing, un vector común de entrada de ransomware."
     },
     {
-      "q": "Según múltiples informes del sector, ¿cuál es el rango habitual del 'dwell time' (tiempo entre infección y detección) del ransomware?",
+      "q": "¿Por qué es importante detectar el tiempo de permanencia del atacante antes del cifrado?",
       "o": [
-        "Menos de 1 hora",
-        "1-2 días",
-        "Semanas o meses en muchos casos",
-        "Siempre se detecta inmediatamente"
+        "Porque puede haber movimiento lateral, escalada de privilegios y exfiltración previos al impacto visible",
+        "Porque el ransomware siempre cifra en el mismo minuto de entrada",
+        "Porque solo importa para calcular la multa",
+        "Porque evita tener que preservar evidencias"
       ],
-      "c": 2,
-      "e": "El dwell time puede ser de semanas o meses. Durante ese tiempo, el atacante se mueve lateralmente, escala privilegios y exfiltra datos antes de activar el cifrado."
+      "c": 0,
+      "e": "Antes del cifrado pueden producirse reconocimiento, robo de credenciales, persistencia, movimiento lateral y exfiltración. La investigación no debe comenzar y terminar en el momento visible del cifrado."
     },
     {
       "q": "¿Qué práctica de hardening de sistemas reduce la superficie de ataque del ransomware?",

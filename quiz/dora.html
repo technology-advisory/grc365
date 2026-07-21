@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>Quiz · Reglamento DORA · Resiliencia Operativa Digital · GRCreal</title>
+<meta content="Pon a prueba tu conocimiento del Reglamento DORA. Preguntas aleatorias sobre gestión de riesgos TIC, notificación de incidentes, pruebas de resiliencia, riesgo de terceros y supervisión del sector financiero." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="Quiz Reglamento DORA · GRCreal" property="og:title"/>
+<meta content="Quiz sobre el Reglamento DORA: resiliencia operativa digital del sector financiero de la UE." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grcreal.com/quiz/dora.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<link href="https://grcreal.com/quiz/dora.html" rel="canonical"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/quiz.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-quiz.css" rel="stylesheet"/>
+<style>
+/* Estilos para el modal de resultado */
+.modal-result {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-result.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: 32px;
+  padding: 40px 48px;
+  text-align: center;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.modal-result.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-icon {
+  font-size: 72px;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.modal-message {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.modal-score {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--brand);
+  margin-bottom: 24px;
+}
+
+.modal-btn {
+  background: var(--brand);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-btn:hover {
+  background: var(--brand-dark);
+}
+
+.modal-celebration {
+  background: linear-gradient(135deg, #1a5c8c 0%, #2d8a4e 100%);
+  color: white;
+}
+
+.modal-celebration .modal-title,
+.modal-celebration .modal-message,
+.modal-celebration .modal-score {
+  color: white;
+}
+
+.modal-celebration .modal-btn {
+  background: white;
+  color: var(--brand);
+}
+
+.modal-celebration .modal-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Ajuste para opciones verdaderero/falso */
+.opt-btn {
+  justify-content: flex-start;
+  gap: 16px;
+}
+</style>
+<link href="/css/recursos-revision.css" rel="stylesheet"/><link href="/css/quiz-revision.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="quiz-layout-reviewed">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: quiz</span>
+<span>marco: <strong>DORA</strong></span>
+</div>
+<a class="art-back" href="/quiz/index.html" style="margin:18px 0 0 48px;">← Volver al catálogo</a>
+<!-- NAV -->
+<div class="quiz-nav">
+<span class="quiz-logo">GRCreal</span>
+<span class="quiz-badge" id="nav-badge">Reglamento DORA · Quiz</span>
+</div>
+<!-- PANTALLA QUIZ -->
+<div class="screen active" id="screen-quiz">
+<div class="body"><div class="rx-quiz-guide">
+<div>
+<span class="rx-kicker">RUTA MENTAL · DORA</span>
+<h2>Resiliencia operativa digital y conexión entre sus pilares.</h2>
+<p>No busques palabras clave en la pregunta. Identifica primero el objeto, el alcance y la decisión que se está evaluando.</p>
+</div>
+<div class="art-visual rx-quiz-visual">
+<svg aria-label="Mapa mental del quiz DORA" role="img" viewbox="0 0 1160 170"><rect class="rx-svg-box" height="82" rx="2" width="210" x="80" y="44"></rect><text class="rx-svg-num" x="102" y="72">01</text><text class="rx-svg-label" x="102" y="102">Riesgo TIC</text><rect class="rx-svg-box" height="82" rx="2" width="210" x="340" y="44"></rect><text class="rx-svg-num" x="362" y="72">02</text><text class="rx-svg-label" x="362" y="102">Incidente</text><rect class="rx-svg-box" height="82" rx="2" width="210" x="600" y="44"></rect><text class="rx-svg-num" x="622" y="72">03</text><text class="rx-svg-label" x="622" y="102">Prueba</text><rect class="rx-svg-box is-strong" height="82" rx="2" width="210" x="860" y="44"></rect><text class="rx-svg-num is-light" x="882" y="72">04</text><text class="rx-svg-label is-light" x="882" y="102">Terceros</text></svg>
+</div>
+<div class="quiz-public-note">
+<strong>Cómo interpretar el resultado</strong>
+<span>Es una práctica formativa. No acredita competencia profesional ni sustituye la lectura de la norma o regulación aplicable.</span>
+</div></div>
+<div class="q-counter" id="q-counter">Pregunta 1 de 20</div>
+<div class="progress-wrap">
+<div class="progress-bar" id="progress-bar" style="width:0%"></div>
+</div>
+<div class="q-tags">
+<span class="q-tag topic" id="q-topic-tag">Reglamento (UE) 2022/2554 · DORA</span>
+</div>
+<div class="q-text fade-up" id="q-text"></div>
+<div id="options-container"></div>
+<div id="explain-container"></div>
+<div id="next-container" style="display:none;margin-top:22px;">
+<button class="cta-quiz" id="next-btn" onclick="nextQuestion()">Siguiente pregunta →</button>
+</div>
+</div>
+</div>
+<!-- PANTALLA RESULTADO (oculta, se muestra al final) -->
+<div class="screen" id="screen-result">
+<div class="header">
+<div class="tag">Resultado · Quiz</div>
+<h1 class="headline" id="result-headline">Bien hecho,<br/><span class="accent">Lead Auditor</span></h1>
+</div>
+<div class="body">
+<div class="score-badge">
+<div class="score-number" id="result-score">—</div>
+<div class="score-label" id="result-label">—</div>
+<div class="score-pct" id="result-pct">—</div>
+</div>
+<div class="block-label">Resumen</div>
+<div class="block-title">Pregunta a pregunta</div>
+<div id="history-list" style="margin-top:14px;margin-bottom:32px;"></div>
+<div class="divider"></div>
+<div class="btn-row">
+<button class="cta-quiz" onclick="resetQuiz()" style="flex:1;">🔄 Repetir quiz</button>
+<button class="cta-quiz secondary" onclick="goBack()" style="flex:1;">← Volver al catálogo</button>
+</div>
+</div>
+<!-- SOBRE EL AUTOR + COMPARTIR -->
+<div class="art-foot">
+<div class="art-author">
+<div class="art-foot-label">Sobre el autor</div>
+<div class="art-author-name">Miguel Ángel Carriazo <span>· vCISO</span></div>
+<p class="art-author-bio">vCISO · Arquitecto de Soluciones de Infraestructura y Ciberseguridad | Gobierno, Riesgo y Cumplimiento (GRC) | Gobierno de IA · ISO 42001 | Fundador de GRCreal</p>
+</div>
+<div class="art-share">
+<div class="art-foot-label">Compartir resultado</div>
+<a aria-label="Compartir en LinkedIn" class="art-share-btn" href="#" id="shareLinkedin" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+<!-- OTROS QUIZZES -->
+<div class="art-related">
+<div class="art-related-label">Sigue practicando</div>
+<div class="art-related-title">Otros quizzes</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/quiz/iso27001.html">
+<span class="art-related-pill">Seguridad</span>
+<h3>ISO/IEC 27001</h3>
+<p>Gestión de la seguridad de la información. Controles, riesgos, SoA y ciclo PDCA.</p>
+</a>
+<a class="art-related-card" href="/quiz/ens.html">
+<span class="art-related-pill">Administración Pública</span>
+<h3>ENS (Esquema Nacional de Seguridad)</h3>
+<p>Esquema Nacional de Seguridad. Categorías, medidas y auditoría en AA.PP.</p>
+</a>
+<a class="art-related-card" href="/quiz/rgpd_gdpr.html">
+<span class="art-related-pill">Protección de datos</span>
+<h3>RGPD / GDPR</h3>
+<p>Reglamento europeo de protección de datos personales. Bases, derechos y DPO.</p>
+</a>
+</div>
+</div>
+</div>
+<div class="quiz-global-footer"><div id="footer-placeholder"></div></div><script>
+      fetch('/includes/footer-no-share.html')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('footer-placeholder').innerHTML = data;
+              var shareBtn = document.getElementById('shareLinkedin');
+              if (shareBtn) {
+                  shareBtn.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+              }
+          });
+  </script></div>
+</div>
+<!-- Modal de resultado emergente -->
+<div class="modal-result" id="result-modal">
+<div class="modal-content" id="modal-content">
+<div class="modal-icon" id="modal-icon">🏆</div>
+<div class="modal-title" id="modal-title">¡Excelente!</div>
+<div class="modal-message" id="modal-message">Has demostrado un gran conocimiento</div>
+<div class="modal-score" id="modal-score">0%</div>
+<button class="modal-btn" onclick="closeModal()">Continuar</button>
+</div>
+</div>
+<script>
+let QUIZ_DATA = null;
+let TOTAL_QUESTIONS = 20;
+let S = { 
+  questions: [], 
+  current: 0, 
+  score: 0, 
+  history: [], 
+  answered: false 
+};
+const LETTERS = ['A', 'B', 'C', 'D'];
+
+// Cargar JSON y empezar quiz
+async function startQuiz() {
+  try {
+    // Cargar el JSON de DORA
+    const response = await fetch('./data/dora.json');
+    if (!response.ok) {
+      throw new Error('No se pudo cargar el archivo JSON. Asegúrate de que existe en /quiz/data/dora.json');
+    }
+    QUIZ_DATA = await response.json();
+    
+    // Validación mínima de estructura
+    if (!QUIZ_DATA.preguntas || !Array.isArray(QUIZ_DATA.preguntas) || QUIZ_DATA.preguntas.length === 0) {
+      throw new Error('Estructura inválida en JSON: falta array preguntas');
+    }
+    
+    // Seleccionar hasta 20 preguntas aleatorias del banco disponible
+    const shuffledPool = [...QUIZ_DATA.preguntas];
+    shuffle(shuffledPool);
+    S.questions = shuffledPool.slice(0, Math.min(TOTAL_QUESTIONS, shuffledPool.length));
+    
+    S.current = 0;
+    S.score = 0;
+    S.history = [];
+    S.answered = false;
+    
+    document.getElementById('nav-badge').textContent = QUIZ_DATA.titulo + ' · Quiz';
+    document.getElementById('q-topic-tag').textContent = QUIZ_DATA.tema || 'Reglamento (UE) 2022/2554 · DORA';
+    
+    show('quiz');
+    renderQ();
+  } catch (error) {
+    console.error('Error:', error);
+    document.getElementById('q-text').innerHTML = '⚠️ Error al cargar las preguntas.<br><br>Asegúrate de que el archivo JSON existe en:<br><code>/quiz/data/dora.json</code><br><br>Detalle: ' + error.message;
+    document.getElementById('options-container').innerHTML = '<button class="cta-quiz" onclick="location.reload()">Reintentar</button>';
+  }
+}
+
+function renderQ() {
+  if (!S.questions.length) return;
+  const q = S.questions[S.current];
+  const num = S.current + 1;
+  const tot = S.questions.length;
+
+  document.getElementById('q-counter').textContent = `Pregunta ${num} de ${tot}`;
+  document.getElementById('progress-bar').style.width = `${((num - 1) / tot) * 100}%`;
+
+  const qEl = document.getElementById('q-text');
+  qEl.textContent = q.q;
+  qEl.classList.remove('fade-up');
+  void qEl.offsetWidth;
+  qEl.classList.add('fade-up');
+
+  const cont = document.getElementById('options-container');
+  cont.innerHTML = '';
+  q.o.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn';
+    btn.innerHTML = `<span class="opt-letter">${LETTERS[idx]}</span><span>${opt}</span>`;
+    btn.onclick = () => answer(idx);
+    cont.appendChild(btn);
+  });
+
+  document.getElementById('explain-container').innerHTML = '';
+  document.getElementById('next-container').style.display = 'none';
+  S.answered = false;
+}
+
+function answer(idx) {
+  if (S.answered) return;
+  S.answered = true;
+  const q = S.questions[S.current];
+  const ok = idx === q.c;
+  if (ok) S.score++;
+  S.history.push({ text: q.q, ok, selected: q.o[idx], correct: q.o[q.c], explanation: q.e });
+
+  document.querySelectorAll('.opt-btn').forEach((btn, i) => {
+    btn.disabled = true;
+    const l = btn.querySelector('.opt-letter');
+    if (i === q.c) {
+      btn.classList.add('correct');
+      l.textContent = '✓';
+    } else if (i === idx && !ok) {
+      btn.classList.add('wrong');
+      l.textContent = '✗';
+    } else {
+      btn.classList.add('dimmed');
+    }
+  });
+
+  document.getElementById('explain-container').innerHTML = `
+    <div class="explain-block ${ok ? '' : 'wrong-explain'} fade-up">
+      <div class="explain-label">${ok ? '✅ Correcto' : '❌ Incorrecto'}</div>
+      ${q.e}
+    </div>
+  `;
+
+  const isLast = S.current + 1 >= S.questions.length;
+  document.getElementById('next-btn').textContent = isLast ? 'Ver resultados 🏁' : 'Siguiente pregunta →';
+  document.getElementById('next-container').style.display = 'block';
+}
+
+function nextQuestion() {
+  S.current++;
+  if (S.current >= S.questions.length) {
+    showResult();
+    return;
+  }
+  renderQ();
+  document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showResult() {
+  const pct = Math.round((S.score / S.questions.length) * 100);
+  let nivel, emoji;
+  
+  if (pct >= 90) { nivel = 'Especialista en DORA'; emoji = '🏆'; }
+  else if (pct >= 70) { nivel = 'Buen dominio de DORA'; emoji = '⭐'; }
+  else if (pct >= 50) { nivel = 'Conocimiento en desarrollo'; emoji = '📚'; }
+  else { nivel = 'Necesitas reforzar DORA'; emoji = '💪'; }
+
+  document.getElementById('result-headline').innerHTML = `${emoji} Resultado: <span class="accent">${nivel}</span>`;
+  document.getElementById('result-score').textContent = `${S.score}/${S.questions.length}`;
+  document.getElementById('result-label').textContent = QUIZ_DATA.titulo || 'Quiz DORA';
+  document.getElementById('result-pct').textContent = `${pct}% de acierto`;
+
+  const list = document.getElementById('history-list');
+  list.innerHTML = '';
+  S.history.forEach((h, index) => {
+    list.insertAdjacentHTML('beforeend', `
+      <details class="history-item quiz-review-item">
+        <summary>
+          <span class="history-icon">${h.ok ? '✅' : '❌'}</span>
+          <span>${h.text.length > 120 ? h.text.substring(0, 120) + '…' : h.text}</span>
+        </summary>
+        <div class="quiz-review-detail">
+          ${!h.ok ? `<p><strong>Tu respuesta:</strong> ${h.selected}</p>` : ''}
+          <p><strong>Respuesta correcta:</strong> ${h.correct}</p>
+          <div class="quiz-review-explanation">${h.explanation}</div>
+        </div>
+      </details>
+    `);
+  });
+
+  show('result');
+  
+  // Mostrar modal emergente según el porcentaje
+  showResultModal(pct);
+}
+
+function showResultModal(pct) {
+  const modal = document.getElementById('result-modal');
+  const modalContent = document.getElementById('modal-content');
+  const modalIcon = document.getElementById('modal-icon');
+  const modalTitle = document.getElementById('modal-title');
+  const modalMessage = document.getElementById('modal-message');
+  const modalScore = document.getElementById('modal-score');
+  
+  modalScore.textContent = `${pct}% de acierto`;
+  
+  if (pct >= 70) {
+    modalContent.classList.add('modal-celebration');
+    modalIcon.textContent = '🏆🤖🎉';
+    modalTitle.textContent = '¡Enhorabuena!';
+    if (pct >= 90) {
+      modalMessage.textContent = 'Dominas el Reglamento DORA: gestión de riesgos TIC, notificación de incidentes, pruebas de resiliencia y riesgo de terceros.';
+    } else if (pct >= 80) {
+      modalMessage.textContent = 'Muy buen resultado. Tienes un sólido conocimiento sobre requisitos y controles de IA.';
+    } else {
+      modalMessage.textContent = 'Buen trabajo. Vas por buen camino para certificarte como Lead Auditor en IA.';
+    }
+  } else {
+    modalContent.classList.remove('modal-celebration');
+    modalIcon.textContent = '💪📘🤖';
+    modalTitle.textContent = '¡Sigue practicando!';
+    modalMessage.textContent = 'Has hecho un gran esfuerzo. Revisa las explicaciones y vuelve a intentarlo para afianzar los conceptos de DORA.';
+  }
+  
+  modal.classList.add('active');
+}
+
+function closeModal() {
+  const modal = document.getElementById('result-modal');
+  modal.classList.remove('active');
+}
+
+function resetQuiz() {
+  if (!QUIZ_DATA || !QUIZ_DATA.preguntas) {
+    startQuiz();
+    return;
+  }
+  // Reiniciar con NUEVAS 20 preguntas aleatorias del mismo pool
+  const shuffledPool = [...QUIZ_DATA.preguntas];
+  shuffle(shuffledPool);
+  S.questions = shuffledPool.slice(0, Math.min(TOTAL_QUESTIONS, shuffledPool.length));
+  S.current = 0;
+  S.score = 0;
+  S.history = [];
+  S.answered = false;
+  
+  show('quiz');
+  renderQ();
+  document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function goBack() {
+  window.location.href = 'index.html';
+}
+
+function show(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(`screen-${name}`).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function shuffle(a) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+}
+
+// Iniciar
+startQuiz();
+</script>
+<script defer="True" src="/js/article-zoom.js"></script></body>
+</html>

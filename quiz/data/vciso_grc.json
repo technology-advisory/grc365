@@ -111,7 +111,7 @@
         "El peso es exactamente igual entre tecnología, personas y procesos"
       ],
       "c": 2,
-      "e": "El GRC efectivo se construye principalmente sobre personas y procesos. La tecnología es un habilitador, no el fin. Un programa de compliance sin cultura y procesos sólidos fracasa independientemente de las herramientas."
+      "e": "Un programa GRC eficaz combina personas, procesos y tecnología. La herramienta facilita inventario, workflow, trazabilidad y reporting, pero no sustituye responsabilidades claras, criterio ni capacidad de ejecutar decisiones."
     },
     {
       "q": "¿Qué documento define los controles que una organización ha decidido implementar y justifica las exclusiones?",
@@ -232,7 +232,7 @@
         "Reemplazar los controles técnicos"
       ],
       "c": 1,
-      "e": "El error humano es la causa principal de brechas. La concientización reduce el riesgo de phishing, uso indebido de credenciales y malas prácticas."
+      "e": "La concienciación busca reducir conductas de riesgo y mejorar la capacidad de reconocer, comunicar y responder ante situaciones como phishing, uso indebido de credenciales o tratamiento incorrecto de información. Debe combinarse con controles técnicos y procesos."
     },
     {
       "q": "¿Qué documento debe aprobar la dirección antes de implementar un SGSI?",
@@ -254,7 +254,7 @@
         "Un gestor de incidentes de seguridad"
       ],
       "c": 1,
-      "e": "El DPO es una figura obligatoria en el RGPD para autoridades públicas y organizaciones que traten datos sensibles o realicen vigilancia a gran escala."
+      "e": "El DPO o delegado de protección de datos es obligatorio en los supuestos del artículo 37 del RGPD, entre ellos autoridades u organismos públicos —con las excepciones previstas— y determinadas actividades principales que impliquen observación habitual y sistemática a gran escala o tratamiento a gran escala de categorías especiales o datos penales."
     },
     {
       "q": "¿Qué métrica mide el tiempo que tarda la organización en detectar un incidente?",

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>Clasificador de Riesgo AI Act · Reglamento (UE) 2024/1689 · GRCreal</title>
+<meta content="Clasificador preliminar del AI Act con prácticas prohibidas, artículo 6.3, alto riesgo, transparencia, GPAI y calendario de aplicación actualizado. Sin registro." name="description"/>
+<meta content="Clasificador de Riesgo AI Act · GRCreal" property="og:title"/>
+<meta content="Clasificador preliminar del AI Act con prácticas prohibidas, artículo 6.3, alto riesgo, transparencia, GPAI y calendario de aplicación actualizado. Sin registro." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grcreal.com/herramientas/ai-act-clasificador/" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/herramientas/ai-act-clasificador/" rel="canonical"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../../css/marca.css" rel="stylesheet"/>
+<link href="../../css/global.css" rel="stylesheet"/>
+<link href="../../css/dossier-core.css" rel="stylesheet"/>
+<style>
+/* ===== Clasificador AI Act · dossier (tokens: --ds-deep,--brand,--ds-line,--ds-ink,--mono,--ds-flag) ===== */
+.aia-intro{color:#5a6675;font-size:15px;line-height:1.65;max-width:760px;}
+.aia-note{display:inline-flex;gap:8px;align-items:center;font-family:var(--mono,monospace);font-size:11.5px;
+  color:#1e8449;border:1px solid var(--ds-line,#D7DCDF);padding:6px 12px;margin:14px 0 0;}
+
+/* progreso */
+.aia-prog-wrap{height:8px;background:#e7ecef;border:1px solid var(--ds-line,#D7DCDF);margin:6px 0 6px}
+.aia-prog-wrap > i{display:block;height:100%;background:var(--brand,#0077B5);width:0;transition:width .25s}
+.aia-prog-label{font-family:var(--mono,monospace);font-size:12px;color:#7c8790;margin-bottom:22px}
+
+/* pregunta */
+.aia-step{display:none}
+.aia-step.on{display:block;animation:aiaFade .25s ease}
+@keyframes aiaFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.aia-q-num{font-family:var(--mono,monospace);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand,#0077B5);margin-bottom:8px}
+.aia-q-title{font-size:20px;font-weight:800;color:var(--ds-ink,#10161B);line-height:1.3;margin-bottom:6px}
+.aia-q-help{font-size:13.5px;color:#5a6675;line-height:1.6;margin-bottom:20px;max-width:720px}
+.aia-q-ref{font-family:var(--mono,monospace);font-size:11px;color:#9aa4ad;margin-bottom:18px}
+
+/* opciones */
+.aia-opts{display:grid;gap:10px;max-width:760px}
+.aia-opt{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--ds-line,#D7DCDF);
+  border-left:3px solid var(--ds-line,#D7DCDF);padding:14px 16px;cursor:pointer;text-align:left;font:inherit;
+  transition:border-color .15s,transform .12s,box-shadow .15s;width:100%}
+.aia-opt:hover{border-left-color:var(--brand,#0077B5);transform:translateX(2px);box-shadow:0 4px 14px rgba(0,57,85,.06)}
+.aia-opt b{display:block;font-size:14.5px;color:var(--ds-ink,#10161B);margin-bottom:2px}
+.aia-opt span{font-size:12.5px;color:#7c8790;line-height:1.5}
+.aia-opt .mk{flex-shrink:0;width:20px;height:20px;border:1.5px solid var(--ds-line,#D7DCDF);border-radius:50%;margin-top:2px}
+
+.aia-multi-hint{font-family:var(--mono,monospace);font-size:11px;color:#9aa4ad;margin:0 0 10px}
+.aia-opt.sel{border-left-color:var(--brand,#0077B5);background:#f3f9fc}
+.aia-opt.sel .mk{background:var(--brand,#0077B5);border-color:var(--brand,#0077B5);box-shadow:inset 0 0 0 3px #fff}
+
+/* botones */
+.aia-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:24px}
+.aia-btn{font-family:var(--mono,monospace);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;border:1.5px solid var(--ds-deep,#003955);background:var(--ds-deep,#003955);color:#fff;padding:13px 26px}
+.aia-btn:hover{background:#002a40}
+.aia-btn:disabled{opacity:.4;cursor:not-allowed}
+.aia-btn.ghost{background:transparent;color:var(--ds-deep,#003955)}
+.aia-btn.ghost:hover{background:#eef3f5}
+
+/* resultado */
+.aia-result{display:none}
+.aia-result.on{display:block}
+.aia-verdict{border:1px solid var(--ds-line,#D7DCDF);border-top:5px solid var(--vc,#003955);background:#fff;padding:26px 28px;margin-bottom:22px}
+.aia-verdict-kicker{font-family:var(--mono,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9aa4ad;margin-bottom:8px}
+.aia-verdict-title{font-size:28px;font-weight:800;color:var(--vc,#003955);line-height:1.15;margin-bottom:12px}
+.aia-verdict-desc{font-size:14.5px;color:#3d4751;line-height:1.65}
+.aia-badge{display:inline-block;font-family:var(--mono,monospace);font-size:11px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:#fff;background:var(--vc,#003955);padding:5px 12px;margin-bottom:14px}
+
+.aia-sec{border:1px solid var(--ds-line,#D7DCDF);background:#fff;padding:20px 22px;margin-bottom:14px}
+.aia-sec h3{margin:0 0 12px;font-size:13px;font-family:var(--mono,monospace);letter-spacing:.06em;text-transform:uppercase;color:var(--ds-deep,#003955)}
+.aia-sec ul{margin:0;padding-left:20px}
+.aia-sec li{font-size:14px;color:#3d4751;line-height:1.7;margin-bottom:6px}
+.aia-deadline{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.aia-deadline .d{font-size:24px;font-weight:800;color:var(--ds-deep,#003955)}
+.aia-deadline .t{font-size:13px;color:#5a6675}
+.aia-arts{font-family:var(--mono,monospace);font-size:12px;color:#7c8790;line-height:1.7}
+
+.aia-disc{font-size:12px;color:#9aa4ad;line-height:1.6;margin-top:18px;border-top:1px dashed var(--ds-line,#D7DCDF);padding-top:14px}
+
+@media (max-width:640px){
+  .aia-verdict-title{font-size:23px}
+  .aia-q-title{font-size:18px}
+}
+</style>
+<link href="/css/herramientas-revision.css" rel="stylesheet"/><link href="/css/grcreal-print.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/tools-layout.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="grc-report-page grc-report-tool" data-report-framework="Clasificación preliminar AI Act" data-report-kind="tool" data-report-title="Clasificador de Riesgo Reglamento (UE) 2024/1689" data-report-type="Ficha técnica de trabajo">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+      .then(r => r.text())
+      .then(d => { document.getElementById('nav-placeholder').outerHTML = d; });
+  </script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: herramienta</span>
+<span>marco: <strong>AI Act</strong></span>
+</div>
+<div class="header">
+<a class="chk-back grc-no-print" href="/herramientas/index.html">← Volver a herramientas</a><div class="grc-print-toolbar">
+<div class="grc-print-toolbar-copy">
+<span>INFORME CORPORATIVO</span>
+<p>Imprime o guarda en PDF el estado visible, con cabecera GRCREAL y pie OpenTrust Group.</p>
+</div>
+<button class="grc-print-button grc-print-compatible" data-grc-print="" type="button">Imprimir / Guardar PDF</button>
+</div>
+<div class="tag">AI Act · Clasificador de riesgo</div>
+<h1 class="headline">Clasificador de <span class="accent">Riesgo</span><br/><span class="dim">Reglamento (UE) 2024/1689</span></h1>
+<p class="aia-intro">Responde unas preguntas y obtén una <strong>clasificación preliminar</strong>: posible práctica prohibida, alto riesgo, excepción del artículo 6.3, transparencia o riesgo mínimo. Incluye el calendario de aplicación publicado por la Comisión a julio de 2026. No sustituye un análisis jurídico ni una evaluación de conformidad.</p>
+<div class="aia-note">⚲ Sin registro · sin almacenamiento · orientativo, no es asesoramiento jurídico</div>
+</div>
+<div class="body"><div class="tool-method-notice">
+<span>ALCANCE DE LA HERRAMIENTA</span>
+<h2>Clasificación preliminar, no dictamen jurídico</h2>
+<p>El resultado se basa en las respuestas introducidas y en el Reglamento (UE) 2024/1689. Las directrices y modificaciones de simplificación siguen evolucionando; confirma siempre la versión vigente y el rol concreto de la organización.</p>
+</div>
+<!-- WIZARD -->
+<div id="aiaWizard">
+<div class="aia-prog-wrap"><i id="aiaProgBar"></i></div>
+<div class="aia-prog-label" id="aiaProgLabel">Paso 1</div>
+<div id="aiaSteps"></div>
+<div class="aia-actions">
+<button class="aia-btn ghost" id="aiaBack" onclick="AIA.back()">← Atrás</button>
+<button class="aia-btn" id="aiaNext" onclick="AIA.next()" style="display:none">Siguiente →</button>
+</div>
+</div>
+<!-- RESULT -->
+<div class="aia-result" id="aiaResult">
+<div class="aia-verdict" id="aiaVerdict"></div>
+<div id="aiaDetails"></div>
+<div class="aia-actions">
+<button class="aia-btn grc-print-compatible" data-grc-print="" type="button">⬇ Exportar informe (PDF)</button>
+<button class="aia-btn ghost" onclick="AIA.restart()">↺ Empezar de nuevo</button>
+</div>
+<div class="aia-disc">
+        Esta clasificación es orientativa y se basa en la información que has facilitado. No constituye asesoramiento jurídico
+        ni una evaluación de conformidad formal. La clasificación definitiva depende del análisis caso por caso frente al texto
+        del Reglamento (UE) 2024/1689, sus anexos y las directrices de la Comisión Europea. Ante la duda, consulta con un profesional.
+      </div>
+</div>
+</div><!-- /body -->
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html')
+      .then(r => r.text())
+      .then(d => { document.getElementById('footer-placeholder').innerHTML = d; })
+      .catch(() => { document.getElementById('footer-placeholder').innerHTML = '<div class="footer-mini">© GRCreal · Clasificador AI Act · Sin almacenamiento de datos</div>'; });
+  </script>
+</div><!-- /card -->
+</div><!-- /card-wrapper -->
+<script src="/js/jspdf.umd.min.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var STEPS = [
+    {
+      id:"sistema", type:"single", ref:"AI Act · Art. 3",
+      num:"Paso 1 · Definición",
+      title:"¿Encaja en la definición de «sistema de IA»?",
+      help:"Comprueba si es un sistema basado en máquinas que, con distintos niveles de autonomía, infiere a partir de entradas cómo generar predicciones, contenido, recomendaciones o decisiones. Una regla fija o automatización determinista puede quedar fuera.",
+      opts:[
+        {v:"si", b:"Sí, existe inferencia para generar salidas", s:"Incluye ML, IA generativa u otros métodos que infieren resultados"},
+        {v:"no", b:"No, funciona únicamente con reglas fijas", s:"Software tradicional o automatización determinista sin inferencia"}
+      ]
+    },
+    {
+      id:"prohibido", type:"multi", ref:"AI Act · Art. 5 · aplicable desde 02/02/2025",
+      num:"Paso 2 · Prácticas prohibidas",
+      title:"¿Podría realizar alguna de estas prácticas?",
+      help:"Marca todas las que apliquen. Son descripciones resumidas: la finalidad, el daño, el contexto y las excepciones tasadas pueden cambiar la conclusión. Una coincidencia exige revisión jurídica antes de desplegar.",
+      opts:[
+        {v:"manip", b:"Manipulación o engaño dañino / explotación de vulnerabilidades", s:"Técnicas subliminales o explotación de edad, discapacidad o situación socioeconómica con el daño exigido por la norma"},
+        {v:"social", b:"Social scoring o determinadas predicciones individuales de criminalidad", s:"Puntuación social indebida o predicción basada únicamente en perfilado/rasgos"},
+        {v:"biom", b:"Scraping facial indiscriminado, emociones en trabajo/educación o categorización biométrica sensible", s:"Sujeto a los supuestos y excepciones exactos del artículo 5"},
+        {v:"rbi", b:"Identificación biométrica remota en tiempo real en espacios públicos para fines policiales", s:"Salvo las excepciones y salvaguardas estrictas previstas"},
+        {v:"ninguna", b:"Ninguna de las anteriores", s:"", exclusive:true}
+      ]
+    },
+    {
+      id:"altoriesgo", type:"multi", ref:"AI Act · Art. 6 · Anexos I y III",
+      num:"Paso 3 · Posible alto riesgo",
+      title:"¿En qué supuesto se utiliza el sistema?",
+      help:"Seleccionar un ámbito del Anexo III no basta siempre para cerrar la clasificación: después se comprueba la excepción del artículo 6.3. Para productos del Anexo I también debe concurrir el requisito de evaluación de conformidad por tercero.",
+      opts:[
+        {v:"producto", b:"Producto regulado del Anexo I y evaluación por tercero", s:"El sistema es componente de seguridad o producto y su evaluación de conformidad requiere un tercero"},
+        {v:"biometria", b:"Biometría incluida en el Anexo III", s:"Identificación, categorización o reconocimiento de emociones en usos permitidos"},
+        {v:"infra", b:"Infraestructuras digitales o servicios esenciales incluidos", s:"Uso como componente de seguridad en los supuestos concretos del Anexo III"},
+        {v:"educacion", b:"Educación y formación profesional", s:"Admisión, asignación, evaluación o supervisión en los supuestos del Anexo III"},
+        {v:"empleo", b:"Empleo y gestión de trabajadores", s:"Selección, decisiones laborales, asignación de tareas o monitorización"},
+        {v:"servicios", b:"Acceso a servicios esenciales", s:"Crédito, determinados seguros, prestaciones o triaje en los supuestos definidos"},
+        {v:"leyes", b:"Aplicación de la ley, migración, asilo o justicia", s:"Solo los casos concretos enumerados en el Anexo III"},
+        {v:"ninguna", b:"Ninguno de estos supuestos", s:"", exclusive:true}
+      ]
+    },
+    {
+      id:"art63", type:"single", ref:"AI Act · Art. 6.3-6.4",
+      num:"Paso 4 · Excepción del artículo 6.3",
+      title:"Para los usos del Anexo III, ¿qué describe mejor el caso?",
+      help:"Un sistema del Anexo III puede no considerarse de alto riesgo cuando no plantea un riesgo significativo de daño y realiza una tarea estrecha, procedimental, preparatoria o de mejora sin sustituir la evaluación humana. La excepción no opera cuando realiza perfilado de personas.",
+      opts:[
+        {v:"significativo", b:"Puede influir materialmente o causar un riesgo significativo", s:"Afecta el resultado, la decisión o los derechos de las personas"},
+        {v:"perfilado", b:"Realiza perfilado de personas", s:"La excepción del artículo 6.3 no resulta aplicable"},
+        {v:"excepcion", b:"Parece una tarea estrecha/procedimental/preparatoria sin riesgo significativo", s:"Requiere evaluación documentada antes de concluir que no es alto riesgo"},
+        {v:"na", b:"No aplica o todavía no puedo determinarlo", s:"Necesita análisis individual; no cierres la clasificación automáticamente"}
+      ]
+    },
+    {
+      id:"transparencia", type:"multi", ref:"AI Act · Art. 50 · aplicable desde 02/08/2026",
+      num:"Paso 5 · Transparencia",
+      title:"¿Interactúa con personas o genera contenido sintético?",
+      help:"Las obligaciones cambian según seas proveedor o responsable del despliegue y según el tipo de contenido. El marcado técnico del proveedor no equivale siempre a un aviso visible al usuario.",
+      opts:[
+        {v:"chatbot", b:"Interactúa directamente con personas", s:"Puede exigir informar de que se interactúa con un sistema de IA, salvo que resulte evidente"},
+        {v:"genera", b:"Genera o manipula contenido sintético", s:"El proveedor debe facilitar detección y marcado en formato legible por máquina cuando proceda"},
+        {v:"deepfake", b:"Despliega deepfakes o determinado texto de interés público", s:"Puede exigir divulgación clara y visible por quien despliega el contenido"},
+        {v:"ninguna", b:"Ninguna de estas situaciones", s:"", exclusive:true}
+      ]
+    },
+    {
+      id:"gpai", type:"single", ref:"AI Act · Arts. 51-55 · obligaciones aplicables desde 02/08/2025",
+      num:"Paso 6 · Modelos de propósito general",
+      title:"¿Actúas como proveedor de un modelo GPAI?",
+      help:"La integración de un modelo de tercero no te convierte por sí sola en proveedor del modelo, aunque una modificación sustancial, reetiquetado u otras circunstancias pueden alterar el rol. Valida la cadena contractual y técnica.",
+      opts:[
+        {v:"si", b:"Sí, desarrollo o pongo en el mercado un modelo GPAI", s:"Se añaden obligaciones específicas del modelo y, en su caso, de riesgo sistémico"},
+        {v:"no", b:"No, uso o integro un modelo de tercero", s:"Debo identificar mis obligaciones como proveedor/deployer del sistema resultante"}
+      ]
+    }
+  ];
+
+  var state={i:0,ans:{}};
+  STEPS.forEach(function(s){state.ans[s.id]=s.type==="multi"?[]:null;});
+  var elSteps=document.getElementById("aiaSteps");
+
+  function render(){
+    elSteps.innerHTML="";
+    STEPS.forEach(function(step,idx){
+      var d=document.createElement("div");d.className="aia-step"+(idx===state.i?" on":"");
+      var hint=step.type==="multi"?'<div class="aia-multi-hint">Selección múltiple — marca todas las que apliquen</div>':'';
+      var opts=step.opts.map(function(o){
+        var selected=step.type==="multi"?state.ans[step.id].indexOf(o.v)>=0:state.ans[step.id]===o.v;
+        return '<button class="aia-opt'+(selected?' sel':'')+'" data-step="'+step.id+'" data-v="'+o.v+'"><span class="mk"></span><span><b>'+o.b+'</b>'+(o.s?'<span>'+o.s+'</span>':'')+'</span></button>';
+      }).join('');
+      d.innerHTML='<div class="aia-q-num">'+step.num+'</div><div class="aia-q-title">'+step.title+'</div><div class="aia-q-help">'+step.help+'</div><div class="aia-q-ref">'+step.ref+'</div>'+hint+'<div class="aia-opts">'+opts+'</div>';
+      elSteps.appendChild(d);
+    });
+    elSteps.querySelectorAll('.aia-opt').forEach(function(btn){btn.onclick=function(){choose(btn.dataset.step,btn.dataset.v);};});
+    updateChrome();
+  }
+
+  function choose(stepId,v){
+    var step=STEPS.find(function(s){return s.id===stepId;});
+    if(step.type==='single'){
+      state.ans[stepId]=v;render();
+      setTimeout(function(){
+        if(stepId==='sistema'&&v==='no')finish();else advance();
+      },150);
+      return;
+    }
+    var arr=state.ans[stepId];var opt=step.opts.find(function(o){return o.v===v;});
+    if(opt.exclusive){state.ans[stepId]=(arr.length===1&&arr[0]===v)?[]:[v];}
+    else{
+      arr=arr.filter(function(x){var ox=step.opts.find(function(o){return o.v===x;});return !(ox&&ox.exclusive);});
+      var k=arr.indexOf(v);if(k>=0)arr.splice(k,1);else arr.push(v);state.ans[stepId]=arr;
+    }
+    render();
+  }
+
+  function updateChrome(){
+    var pct=Math.round(state.i/STEPS.length*100);
+    document.getElementById('aiaProgBar').style.width=pct+'%';
+    document.getElementById('aiaProgLabel').textContent='Paso '+(state.i+1)+' de '+STEPS.length;
+    document.getElementById('aiaBack').style.visibility=state.i===0?'hidden':'visible';
+    var step=STEPS[state.i],next=document.getElementById('aiaNext');
+    if(step.type==='multi'){
+      next.style.display='inline-block';next.disabled=state.ans[step.id].length===0;
+      next.textContent=state.i===STEPS.length-1?'Ver resultado →':'Siguiente →';
+    }else next.style.display='none';
+  }
+  function advance(){if(state.i<STEPS.length-1){state.i++;render();}else finish();}
+
+  function selected(id){return (state.ans[id]||[]).filter(function(x){return x!=='ninguna';});}
+  function classify(){
+    var a=state.ans,prohib=selected('prohibido'),alto=selected('altoriesgo'),transp=selected('transparencia');
+    if(a.sistema==='no')return{key:'fuera'};
+    if(prohib.length)return{key:'prohibido',prohib:prohib,gpai:a.gpai==='si'};
+    var product=alto.indexOf('producto')>=0;
+    var annex3=alto.filter(function(x){return x!=='producto';});
+    if(product)return{key:'alto',alto:alto,product:true,transp:transp,gpai:a.gpai==='si'};
+    if(annex3.length){
+      if(a.art63==='significativo'||a.art63==='perfilado')return{key:'alto',alto:annex3,product:false,transp:transp,gpai:a.gpai==='si'};
+      if(a.art63==='excepcion')return{key:'excepcion',alto:annex3,transp:transp,gpai:a.gpai==='si'};
+      return{key:'revision',alto:annex3,transp:transp,gpai:a.gpai==='si'};
+    }
+    if(transp.length)return{key:'transparencia',transp:transp,gpai:a.gpai==='si'};
+    return{key:'minimo',gpai:a.gpai==='si'};
+  }
+
+  var COLORS={fuera:'#5a6675',prohibido:'#991b1b',alto:'#b45309',revision:'#6b4f9b',excepcion:'#276678',transparencia:'#0077B5',minimo:'#1e8449'};
+  var AMAP={producto:'Producto del Anexo I sujeto a evaluación de conformidad por tercero',biometria:'Biometría',infra:'Infraestructuras digitales o servicios esenciales',educacion:'Educación y formación profesional',empleo:'Empleo y gestión de trabajadores',servicios:'Acceso a servicios esenciales',leyes:'Aplicación de la ley, migración, asilo o justicia'};
+  var PMAP={manip:'Manipulación/engaño dañino o explotación de vulnerabilidades',social:'Social scoring o determinada predicción individual de criminalidad',biom:'Prácticas biométricas prohibidas señaladas',rbi:'Identificación biométrica remota en tiempo real para fines policiales'};
+  var TMAP={chatbot:'Interacción con personas: informar de la naturaleza artificial cuando no sea evidente y resulte exigible.',genera:'Contenido sintético: marcado técnico legible por máquina por el proveedor cuando proceda.',deepfake:'Deepfakes o determinado contenido de interés público: divulgación clara por el responsable del despliegue, con las excepciones previstas.'};
+  var GPAI={h:'Además: obligaciones como proveedor GPAI',items:['Mantener documentación técnica e información para proveedores downstream.','Aplicar una política de cumplimiento del derecho de autor y publicar el resumen del contenido utilizado para entrenamiento conforme a la plantilla aplicable.','Para modelos con riesgo sistémico: evaluación, mitigación, ciberseguridad y notificación de incidentes graves.'],foot:'Arts. 51-55. Las obligaciones GPAI se aplican desde 02/08/2025; comprueba régimen transitorio y rol concreto.'};
+
+  function commonHigh(secs){
+    secs.push({h:'Bloques de cumplimiento a validar',items:['Gestión continua de riesgos y gobernanza de datos.','Documentación técnica, registros y trazabilidad.','Información al deployer y supervisión humana efectiva.','Precisión, robustez y ciberseguridad.','Evaluación de conformidad, registro y vigilancia poscomercialización cuando proceda.']});
+    secs.push({h:'Responsable del despliegue',items:['Uso conforme a instrucciones, supervisión y monitorización.','FRIA cuando el artículo 27 resulte aplicable.','Información a trabajadores o personas afectadas en los supuestos exigidos.']});
+  }
+
+  function buildResult(r){
+    var verdict={},secs=[];
+    if(r.key==='fuera'){
+      verdict={kicker:'Resultado preliminar',badge:'Fuera de ámbito potencial',title:'Podría no ser un sistema de IA',desc:'La respuesta apunta a software determinista sin inferencia. Documenta el análisis frente al artículo 3 y a las directrices oficiales: la etiqueta comercial del producto no decide la clasificación.'};
+      secs.push({h:'Qué conservar',items:['Descripción funcional y arquitectura.','Explicación de por qué las salidas proceden de reglas fijas y no de inferencia.','Reevaluación cuando cambie el componente o la finalidad.']});
+    }else if(r.key==='prohibido'){
+      verdict={kicker:'Resultado preliminar',badge:'Revisión urgente',title:'Posible práctica prohibida · validar jurídicamente',desc:'Una o varias respuestas se aproximan a supuestos del artículo 5. La herramienta no confirma la prohibición: hay elementos, umbrales y excepciones que deben contrastarse antes de cualquier uso.'};
+      secs.push({h:'Coincidencias señaladas',items:r.prohib.map(function(x){return PMAP[x];})});
+      secs.push({h:'Acción inmediata',items:['Suspender el despliegue o limitarlo hasta completar la revisión.','Contrastar finalidad, contexto, daño y excepciones frente al texto oficial y las directrices.','Documentar la decisión y obtener revisión jurídica especializada.']});
+      secs.push({type:'deadline',d:'02/02/2025',t:'Las prohibiciones del artículo 5 ya son aplicables.'});
+      secs.push({type:'penalty',txt:'Las infracciones de prácticas prohibidas pueden alcanzar los máximos previstos en el artículo 99; valida el supuesto y el régimen aplicable.'});
+    }else if(r.key==='alto'){
+      verdict={kicker:'Resultado preliminar',badge:'Alto riesgo potencial',title:'El caso apunta a un sistema de alto riesgo',desc:'Con las respuestas dadas concurren elementos del artículo 6. La conclusión debe validarse contra el uso concreto, el Anexo aplicable, el rol del operador y las directrices vigentes.'};
+      secs.push({h:'Supuestos señalados',items:r.alto.map(function(x){return AMAP[x];})});commonHigh(secs);
+      secs.push({type:'deadline',d:r.product?'02/08/2028':'02/12/2027',t:r.product?'Calendario actual de la Comisión para sistemas de alto riesgo integrados en productos del Anexo I.':'Calendario actual de la Comisión para los sistemas de alto riesgo del Anexo III.'});
+      secs.push({type:'arts',txt:'Arts. 6, 8-17, 26-27 y anexos aplicables. Confirma el calendario oficial antes de cerrar el plan.'});
+      if(r.transp.length)secs.push({h:'Además: artículo 50',items:r.transp.map(function(x){return TMAP[x];})});
+    }else if(r.key==='excepcion'){
+      verdict={kicker:'Resultado preliminar',badge:'Posible excepción Art. 6.3',title:'Podría no clasificarse como alto riesgo',desc:'Has indicado una tarea estrecha, procedimental, preparatoria o de mejora que no plantea un riesgo significativo. No es una exclusión automática: debe realizarse y conservarse una evaluación documentada; el perfilado impediría aplicar esta excepción.'};
+      secs.push({h:'Uso del Anexo III señalado',items:r.alto.map(function(x){return AMAP[x];})});
+      secs.push({h:'Qué documentar',items:['Finalidad, alcance y grado de influencia sobre la decisión.','Por qué no sustituye ni condiciona materialmente la evaluación humana.','Análisis de daño potencial y confirmación de ausencia de perfilado.','Reevaluación ante cambios de datos, modelo, finalidad o integración.']});
+      secs.push({type:'arts',txt:'Art. 6.3-6.4. La evaluación debe poder defenderse frente a la autoridad competente.'});
+      if(r.transp.length)secs.push({h:'Transparencia que puede seguir aplicando',items:r.transp.map(function(x){return TMAP[x];})});
+    }else if(r.key==='revision'){
+      verdict={kicker:'Resultado preliminar',badge:'Clasificación abierta',title:'Potencial alto riesgo · faltan datos del artículo 6',desc:'El uso aparece en el Anexo III, pero no has podido determinar si existe riesgo significativo o si cabe una excepción del artículo 6.3. No lo clasifiques como bajo o mínimo hasta completar el análisis.'};
+      secs.push({h:'Uso señalado',items:r.alto.map(function(x){return AMAP[x];})});
+      secs.push({h:'Siguiente paso',items:['Analizar la influencia real sobre decisiones y derechos.','Comprobar si existe perfilado.','Documentar si la tarea es estrecha, procedimental, preparatoria o de mejora.','Aplicar por prudencia los controles de alto riesgo mientras la clasificación siga abierta.']});
+      secs.push({type:'arts',txt:'Art. 6 y Anexo III.'});
+    }else if(r.key==='transparencia'){
+      verdict={kicker:'Resultado preliminar',badge:'Obligaciones de transparencia',title:'Artículo 50 aplicable potencialmente',desc:'No se ha identificado alto riesgo con las respuestas dadas, pero sí situaciones de transparencia. Determina qué obligaciones recaen en el proveedor y cuáles en quien despliega el sistema.'};
+      secs.push({h:'Situaciones señaladas',items:r.transp.map(function(x){return TMAP[x];})});
+      secs.push({type:'deadline',d:'02/08/2026',t:'Aplicación de las obligaciones del artículo 50.'});
+      secs.push({type:'arts',txt:'Art. 50 y código/directrices aplicables de marcado y etiquetado.'});
+    }else{
+      verdict={kicker:'Resultado preliminar',badge:'Sin categoría específica detectada',title:'Riesgo mínimo o no clasificado en los supuestos anteriores',desc:'No se han identificado prácticas prohibidas, alto riesgo ni obligaciones del artículo 50. Esto no elimina obligaciones de alfabetización en IA, protección de datos, consumo, propiedad intelectual, ciberseguridad u otra legislación aplicable.'};
+      secs.push({h:'Controles recomendados',items:['Mantener inventario, propietario y finalidad.','Aplicar alfabetización en IA adecuada al rol.','Reevaluar ante cambios del modelo, datos, uso o población afectada.','Documentar controles voluntarios proporcionados al riesgo.']});
+    }
+    if(r.gpai)secs.push({h:GPAI.h,items:GPAI.items,foot:GPAI.foot});
+    return{verdict:verdict,secs:secs};
+  }
+
+  function finish(){
+    var r=classify(),out=buildResult(r),color=COLORS[r.key]||'#003955';
+    var v=document.getElementById('aiaVerdict');v.style.setProperty('--vc',color);
+    v.innerHTML='<div class="aia-verdict-kicker">'+out.verdict.kicker+'</div><div class="aia-badge" style="--vc:'+color+'">'+out.verdict.badge+'</div><div class="aia-verdict-title">'+out.verdict.title+'</div><div class="aia-verdict-desc">'+out.verdict.desc+'</div>';
+    var det=document.getElementById('aiaDetails');det.innerHTML='';
+    out.secs.forEach(function(s){
+      var box=document.createElement('div');box.className='aia-sec';
+      if(s.type==='deadline')box.innerHTML='<h3>Fecha de aplicación</h3><div class="aia-deadline"><span class="d">'+s.d+'</span><span class="t">'+s.t+'</span></div>';
+      else if(s.type==='penalty')box.innerHTML='<h3>Régimen sancionador</h3><div class="aia-deadline"><span class="t" style="font-size:14px;color:#3d4751">'+s.txt+'</span></div>';
+      else if(s.type==='arts')box.innerHTML='<h3>Base normativa</h3><div class="aia-arts">'+s.txt+'</div>';
+      else box.innerHTML='<h3>'+s.h+'</h3><ul>'+s.items.map(function(i){return'<li>'+i+'</li>';}).join('')+'</ul>'+(s.foot?'<div class="aia-arts" style="margin-top:10px">'+s.foot+'</div>':'');
+      det.appendChild(box);
+    });
+    document.getElementById('aiaWizard').style.display='none';document.getElementById('aiaResult').classList.add('on');window.scrollTo({top:0,behavior:'smooth'});AIA._last={r:r,out:out};
+  }
+
+  var AIA={
+    next:advance,
+    back:function(){if(state.i>0){state.i--;render();}},
+    restart:function(){state.i=0;STEPS.forEach(function(s){state.ans[s.id]=s.type==='multi'?[]:null;});document.getElementById('aiaResult').classList.remove('on');document.getElementById('aiaWizard').style.display='block';render();window.scrollTo({top:0,behavior:'smooth'});},
+    pdf:function(){window.print();},
+    _state:state,
+    _classify:classify
+  };
+  window.AIA=AIA;render();
+})();
+</script>
+<script defer="True" src="/js/grcreal-print.js"></script></body>
+</html>

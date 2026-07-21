@@ -389,15 +389,15 @@
       "e": "El art. 45.3 LOPDGDD establece que la Presidencia de la AEPD podrá autorizar modificaciones presupuestarias de hasta el 5% de la cifra inicial del presupuesto total de gastos, siempre que no se incrementen los créditos para gastos de personal."
     },
     {
-      "q": "Según el RGPD, el interesado tiene derecho de acceso a sus datos y a determinada información. Señale cuál de las siguientes opciones NO forma parte de esa información:",
+      "q": "¿Qué exige el principio de protección de datos desde el diseño y por defecto del artículo 25 del RGPD?",
       "o": [
-        "Los fines del tratamiento",
-        "Las categorías de datos personales de que se trate",
-        "Los destinatarios o categorías de destinatarios a los que se comunicaron los datos",
-        "La indicación de que podrán usar sus datos, una vez disociados, para fines comerciales"
+        "Aplicar medidas técnicas y organizativas apropiadas desde la concepción del tratamiento y limitar por defecto los datos a los necesarios",
+        "Cifrar obligatoriamente todos los datos personales sin atender al riesgo",
+        "Solicitar siempre autorización previa de la autoridad de control",
+        "Conservar todos los datos por si fueran útiles en el futuro"
       ],
-      "c": 3,
-      "e": "El art. 15 RGPD regula el derecho de acceso y no contempla ninguna indicación sobre uso comercial de datos disociados. Las opciones A, B y C sí forman parte de la información que el responsable debe proporcionar al ejercer el derecho de acceso."
+      "c": 0,
+      "e": "El artículo 25 exige integrar garantías adecuadas desde el diseño y configurar por defecto el tratamiento para que solo se traten los datos necesarios para cada finalidad. No impone una tecnología única ni autorización previa general."
     },
     {
       "q": "Según el RGPD, ¿qué término corresponde a 'toda información sobre una persona física identificada o identificable'?",
@@ -411,15 +411,15 @@
       "e": "El art. 4.1 RGPD define 'datos personales' como toda información sobre una persona física identificada o identificable. La persona identificable es aquella que puede ser determinada directa o indirectamente, en particular por un identificador."
     },
     {
-      "q": "Según el artículo 14 del RGPD, cuando los datos no se hayan obtenido del interesado, señale la información que NO debe facilitarse obligatoriamente:",
+      "q": "Ante una violación de seguridad de datos personales, ¿qué criterio determina si debe comunicarse a los interesados?",
       "o": [
-        "La normativa por la cual queda afectado el tratamiento, así como su justificación inequívoca y transparente",
-        "El plazo durante el cual se conservarán los datos o los criterios para determinarlo",
-        "La existencia del derecho a solicitar acceso, rectificación, supresión, limitación y portabilidad",
-        "El derecho a presentar una reclamación ante una autoridad de control"
+        "Que la violación sea conocida por más de diez personas",
+        "Que sea probable que entrañe un alto riesgo para los derechos y libertades de las personas físicas",
+        "Que el responsable no disponga de seguro de ciberriesgo",
+        "Que el incidente afecte a cualquier sistema conectado a Internet"
       ],
-      "c": 0,
-      "e": "El art. 14 RGPD no exige informar sobre la 'normativa que afecta al tratamiento con justificación inequívoca'. Sí exige el plazo de conservación (B), los derechos del interesado (C) y el derecho de reclamación (D). La opción A describe una obligación inexistente en el texto del RGPD."
+      "c": 1,
+      "e": "El artículo 34 vincula la comunicación a los interesados a la probabilidad de un alto riesgo para sus derechos y libertades, teniendo en cuenta las circunstancias y las medidas aplicadas."
     },
     {
       "q": "Señale la respuesta correcta sobre el derecho de supresión según el artículo 17 del RGPD:",

@@ -17,6 +17,14 @@
       "activo": true
     },
     {
+      "id": "ai-act",
+      "titulo": "AI Act",
+      "pagina": "ai-act.html",
+      "tag": "IA · Reglamento (UE) 2024/1689",
+      "descripcion": "Reglamento Europeo de IA. Niveles de riesgo, prácticas prohibidas, obligaciones de alto riesgo, GPAI, transparencia y calendario.",
+      "activo": true
+    },
+    {
       "id": "ens",
       "titulo": "ENS (Esquema Nacional de Seguridad)",
       "pagina": "ens.html",
@@ -26,11 +34,11 @@
     },
     {
       "id": "nis2",
-      "titulo": "NIS2 Directive",
+      "titulo": "NIS2",
       "pagina": "nis2.html",
       "tag": "Directiva europea",
-      "descripcion": "Resiliencia de redes y sistemas. Sectores esenciales, notificación y sanciones.",
-      "activo": false
+      "descripcion": "Directiva europea de ciberseguridad: aplicabilidad, gobierno, medidas de gestión del riesgo y notificación de incidentes.",
+      "activo": true
     },
     {
       "id": "rgpd",
@@ -54,14 +62,14 @@
       "pagina": "dora.html",
       "tag": "Sector financiero",
       "descripcion": "Resiliencia operativa digital en el sector financiero europeo.",
-      "activo": false
+      "activo": true
     },
     {
       "id": "ransomware",
       "titulo": "Ransomware Defense",
       "pagina": "ransomware_defense.html",
       "tag": "Ciberamenazas · IR",
-      "descripcion": "Defensa, respuesta y recuperación ante ataques de ransomware.",
+      "descripcion": "Prevención, detección, respuesta, preservación de evidencias y recuperación ante ransomware.",
       "activo": true
     },
     {
@@ -69,7 +77,7 @@
       "titulo": "vCISO / GRC",
       "pagina": "vciso_grc.html",
       "tag": "Gobierno · Estrategia",
-      "descripcion": "Gobierno, riesgo y cumplimiento. El rol del vCISO y la estrategia de seguridad.",
+      "descripcion": "Gobierno, riesgo y cumplimiento: decisiones, responsabilidades, evidencia y función vCISO.",
       "activo": true
     }
   ]

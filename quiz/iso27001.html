@@ -1,22 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
 <title>ISO 27001 · GRCreal</title>
-<meta name="description" content="Elige tu camino en ISO 27001: Lead Auditor o Lead Implementer.">
-<meta name="robots" content="index, follow">
-<meta property="og:title" content="ISO 27001 · GRCreal">
-<meta property="og:description" content="Elige tu especialización en ISO 27001.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://grcreal.com/quiz/iso27001.html">
-<meta property="og:image" content="https://grcreal.com/grcreal.png">
-<link rel="canonical" href="https://grcreal.com/quiz/iso27001.html">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="stylesheet" href="../css/marca.css">
-<link rel="stylesheet" href="../css/global.css">
-<link rel="stylesheet" href="../css/quiz.css">
-
+<meta content="Elige tu camino en ISO 27001: Lead Auditor o Lead Implementer." name="description"/>
+<meta content="index, follow" name="robots"/>
+<meta content="ISO 27001 · GRCreal" property="og:title"/>
+<meta content="Elige tu especialización en ISO 27001." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grcreal.com/quiz/iso27001.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<link href="https://grcreal.com/quiz/iso27001.html" rel="canonical"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/quiz.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-quiz.css" rel="stylesheet"/>
 <style>
 .variant-grid {
   display: grid;
@@ -126,91 +128,83 @@
   }
 }
 </style>
-</head>
-
-<body>
-<div class="card-wrapper">
+<link href="/css/recursos-revision.css" rel="stylesheet"/><link href="/css/quiz-revision.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="quiz-layout-reviewed">
+<div class="card-wrapper ds-page">
 <div class="card">
-
-  <div class="accent-bar"></div>
-
-  <!-- NAV -->
-  <div class="quiz-nav">
-    <span class="quiz-logo">GRCreal</span>
-    <span class="quiz-badge">ISO 27001 · Especialización</span>
-  </div>
-
-  <div class="header">
-    <div class="tag">ISO/IEC 27001</div>
-    <h1 class="headline">
-      Elige tu<br>
-      <span class="accent">camino</span>
-    </h1>
-    <p class="subline">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').outerHTML = data;
+        });
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: quiz</span>
+<span>marco: <strong>ISO 27001</strong></span>
+</div>
+<!-- NAV -->
+<div class="quiz-nav">
+<span class="quiz-logo">GRCreal</span>
+<span class="quiz-badge">ISO 27001 · Especialización</span>
+</div>
+<div class="header">
+<a class="art-back" href="/quiz/index.html">← Volver al catálogo</a>
+<div class="tag">ISO/IEC 27001</div>
+<h1 class="headline">
+      Elige tu <span class="accent">camino</span>
+</h1>
+<p class="subline">
       Dos enfoques diferentes. Elige el que mejor se adapte a tu perfil profesional.
     </p>
-  </div>
-
-  <div class="body">
-    <div class="variant-grid">
-      
-      <!-- Opción 1: Lead Auditor (ACTIVO) -->
-      <a href="iso27001_lead_auditor.html" class="variant-card active">
-        <div class="variant-icon">🔍</div>
-        <div class="variant-tag">ISO/IEC 27001 · Auditoría</div>
-        <div class="variant-title">Lead Auditor</div>
-        <div class="variant-desc">
+</div>
+<div class="body quiz-body"><div class="rx-quiz-guide rx-quiz-choice">
+<div>
+<span class="rx-kicker">ISO 27001 · DOS RECORRIDOS</span>
+<h2>No es la misma pregunta implantar un SGSI que auditarlo.</h2>
+<p>Elige el recorrido según el criterio que quieres entrenar: aplicación del sistema o razonamiento de auditoría.</p>
+</div>
+<div class="rx-choice-flow">
+<div><b>IMPLEMENTACIÓN</b><span>riesgo · tratamiento · control · mejora</span></div>
+<div class="is-strong"><b>AUDITORÍA</b><span>criterio · evidencia · muestra · hallazgo</span></div>
+</div>
+</div>
+<div class="variant-grid">
+<!-- Opción 1: Lead Auditor (ACTIVO) -->
+<a class="variant-card active" href="iso27001_lead_auditor.html">
+<div class="variant-icon">🔍</div>
+<div class="variant-tag">ISO/IEC 27001 · Auditoría</div>
+<div class="variant-title">Lead Auditor</div>
+<div class="variant-desc">
           Auditoría ISO 27001 desde la práctica. Evidencias, hallazgos, no conformidades y evaluación de controles más allá del checklist.
         </div>
-        <div class="variant-link">Empezar quiz →</div>
-      </a>
-
-      <!-- Opción 2: Lead Implementer (DESHABILITADO - Próximamente) -->
-      <div class="variant-card disabled" onclick="showComingSoon()">
-        <div class="coming-badge">🔒 Próximamente</div>
-        <div class="variant-icon">⚙️</div>
-        <div class="variant-tag">ISO/IEC 27001 · Implementación</div>
-        <div class="variant-title">Lead Implementer</div>
-        <div class="variant-desc">
+<div class="variant-link">Empezar quiz →</div>
+</a>
+<!-- Opción 2: Lead Implementer (DESHABILITADO - Próximamente) -->
+<div class="variant-card disabled" onclick="showComingSoon()">
+<div class="coming-badge">🔒 Próximamente</div>
+<div class="variant-icon">⚙️</div>
+<div class="variant-tag">ISO/IEC 27001 · Implementación</div>
+<div class="variant-title">Lead Implementer</div>
+<div class="variant-desc">
           Implementación real de un SGSI. Desde GAP Analysis hasta la mejora continua: riesgos, alcance, SoA y evidencias reales.
         </div>
-        <div class="variant-link">Próximamente</div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-inner">
-      <div class="author-block">
-        <div class="author-avatar">MA</div>
-        <div>
-          <div class="author-name">Miguel Ángel Carriazo · <span>vCISO</span></div>
-          <div class="author-title">Cybersecurity &amp; Infrastructure Architect</div>
-        </div>
-      </div>
-      <a href="https://www.linkedin.com/in/macarriazo/" target="_blank" rel="noopener noreferrer" class="li-btn">
-        <svg class="li-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-        </svg>
-        <div>
-          <span class="li-main">"Merece la pena la experiencia."</span>
-          <span class="li-sub">Hablemos en LinkedIn →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-
+<div class="variant-link">Próximamente</div>
 </div>
 </div>
-
-<a href="/quiz" class="home-btn">⌂ Home Quiz</a>
-
+</div>
+<div class="quiz-global-footer"><div id="footer-placeholder"></div></div><script>
+      fetch('/includes/footer-no-share.html')
+          .then(response => response.text())
+          .then(data => { document.getElementById('footer-placeholder').innerHTML = data; });
+  </script></div>
+</div>
 <script>
 function showComingSoon() {
   alert('🔒 ISO 27001 Lead Implementer estará disponible próximamente.\n\nMientras tanto, puedes practicar con Lead Auditor.');
 }
 </script>
-
 </body>
 </html>

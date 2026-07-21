@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
+<title>CCN-STIC 800 — Glosario de Términos y Abreviaturas del ENS · GRCreal</title>
+<meta content="Guía técnica GRCREAL de la CCN-STIC 800: lectura práctica, explicación técnica, errores habituales, ejemplo real, evidencias y ficha oficial al final." name="description"/>
+<meta content="index, follow" name="robots"/>
+<link href="https://grcreal.com/guias-ccn-cert/ccn-stic-800.html" rel="canonical"/>
+<meta content="CCN-STIC 800 — Glosario de Términos y Abreviaturas del ENS" property="og:title"/>
+<meta content="CCN-STIC 800: lectura técnica GRCREAL, aplicación real, error habitual, ejemplo práctico, evidencias y acceso a la fuente oficial al final." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://grcreal.com/guias-ccn-cert/ccn-stic-800.html" property="og:url"/>
+<meta content="https://grcreal.com/grcreal.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="/favicon.ico" rel="icon" sizes="any"/>
+<link href="../css/marca.css" rel="stylesheet"/>
+<link href="../css/articles.css" rel="stylesheet"/>
+<link href="../css/global.css" rel="stylesheet"/>
+<link href="../css/dossier-core.css" rel="stylesheet"/>
+<link href="../css/dossier-articulo.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CCN-STIC 800 — Glosario de Términos y Abreviaturas del ENS","description":"CCN-STIC 800 (Glosario de Términos y Abreviaturas del ENS): qué es, qué contiene, cómo implantarla, su uso en auditoría, mapeo a ISO 27001/NIS2/DORA y checklist. Resumen práctico de GRCreal con enlace oficial.","image":"https://grcreal.com/grcreal.png","author":{"@type":"Person","name":"Miguel Ángel Carriazo","url":"https://grcreal.com/sobre-mi/"},"publisher":{"@type":"Organization","name":"GRCreal","logo":{"@type":"ImageObject","url":"https://grcreal.com/favicon-32x32.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://grcreal.com/guias-ccn-cert/ccn-stic-800.html"}}</script>
+<style>
+.ccn-note{font-family:var(--mono,monospace);font-size:11.5px;color:#6b7680;letter-spacing:.01em;margin:0 0 18px;line-height:1.5;}
+.ccn-note a{color:var(--brand-dark,#005a8e);}
+.ccn-banner{display:flex;align-items:flex-start;gap:10px;background:var(--brand-light,#e8f3fa);
+  border:1px solid var(--brand-mid,#cce4f0);border-radius:6px;padding:11px 15px;margin:0 0 14px;
+  font-size:13px;color:var(--brand-dark,#005a8e);line-height:1.5;}
+.ccn-doctable{width:100%;border-collapse:collapse;margin:8px 0 26px;font-size:13.5px;}
+.ccn-doctable thead th{background:#1f6fb2;color:#fff;text-align:left;padding:10px 12px;font-weight:600;font-size:12.5px;}
+.ccn-doctable thead th:nth-child(3),.ccn-doctable thead th:nth-child(4){white-space:nowrap;}
+.ccn-doctable td{border-bottom:1px solid var(--ds-line,#e2e7ec);padding:11px 12px;vertical-align:top;color:var(--ds-ink,#2b3340);}
+.ccn-doctable tr:nth-child(even) td{background:#f4f8fb;}
+.ccn-doc-a{color:var(--brand-dark,#005a8e);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:7px;}
+.ccn-doc-a:hover{text-decoration:underline;}
+.ccn-doc-a .pdf{color:#c0392b;font-weight:700;}
+.ccn-anexos{list-style:none;margin:10px 0 0;padding:0;}
+.ccn-anexos li{position:relative;padding:4px 0 4px 16px;font-size:12.5px;color:#5a6675;}
+.ccn-anexos li:before{content:"\25AA";position:absolute;left:0;color:var(--brand,#0077B5);}
+.ccn-cat{font-size:12.5px;color:#5a6675;}
+.guia-oficial-btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand,#0077B5);color:#fff;
+  text-decoration:none;font-family:var(--mono,monospace);font-size:12.5px;font-weight:600;letter-spacing:.02em;
+  padding:10px 20px;border-radius:13px;margin-top:6px;transition:background .15s;}
+.guia-oficial-btn:hover{background:var(--brand-dark,#005a8e);color:#fff;}
+.guia-map{width:100%;border-collapse:collapse;margin-top:12px;font-size:13px;}
+.guia-map th{background:var(--ds-navy,#14233b);color:#fff;text-align:left;padding:8px 10px;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em;font-family:var(--mono,monospace);}
+.guia-map td{border:1px solid var(--ds-line,#d3dae3);padding:8px 10px;vertical-align:top;}
+.guia-map tr:nth-child(even) td{background:#f4f8fb;}
+.guia-check{list-style:none;padding:0;margin:12px 0 0;}
+.guia-check li{position:relative;padding:7px 0 7px 28px;border-bottom:1px solid #eef2f6;font-size:14px;color:var(--ds-ink,#2b3340);}
+.guia-check li:before{content:"\2713";position:absolute;left:0;top:6px;width:18px;height:18px;line-height:18px;text-align:center;
+  background:var(--brand-light,#e8f3fa);color:var(--brand-dark,#005a8e);border-radius:4px;font-size:12px;font-weight:700;}
+.guia-ul{margin:12px 0 0;padding-left:20px;}
+.guia-ul li{margin:7px 0;font-size:14px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-pasos{list-style:none;counter-reset:p;margin:14px 0 0;padding:0;}
+.guia-pasos li{counter-increment:p;position:relative;padding:0 0 16px 44px;margin-bottom:14px;border-bottom:1px solid #eef2f6;}
+.guia-pasos li:last-child{border-bottom:none;}
+.guia-pasos li:before{content:counter(p);position:absolute;left:0;top:0;width:28px;height:28px;line-height:28px;text-align:center;
+  background:var(--brand,#0077B5);color:#fff;border-radius:50%;font-family:var(--mono,monospace);font-size:13px;font-weight:700;}
+.guia-pasos .pt{display:block;font-weight:700;color:var(--ds-navy,#14233b);font-size:14.5px;margin-bottom:3px;}
+.guia-pasos .pd{font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-concepts dt{font-weight:700;color:var(--brand-dark,#005a8e);font-size:14px;margin-top:12px;}
+.guia-concepts dd{margin:2px 0 0;font-size:13.5px;line-height:1.55;color:var(--ds-ink,#2b3340);}
+.guia-rel{list-style:none;margin:12px 0 0;padding:0;}
+.guia-rel li{padding:8px 0;border-bottom:1px solid #eef2f6;font-size:13.5px;color:var(--ds-ink,#2b3340);}
+.guia-rel .rn{display:inline-block;background:var(--ds-navy,#14233b);color:#fff;font-family:var(--mono,monospace);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:8px;}
+.guia-rel a{color:var(--brand-dark,#005a8e);font-weight:600;text-decoration:none;}
+</style>
+<link href="/css/dossier-guias.css" rel="stylesheet"/><link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
+<body class="article-page">
+<div class="card-wrapper ds-page">
+<div class="card">
+<div id="nav-placeholder"></div>
+<script>
+    fetch('/includes/nav.html').then(r=>r.text()).then(d=>{document.getElementById('nav-placeholder').outerHTML=d;});
+</script>
+<div class="accent-bar"></div>
+<div class="ds-meta">
+<span><span class="dot"></span>GRCreal // expediente: guía CCN-STIC</span>
+<span>referencia: <strong>CCN-STIC 800</strong></span>
+</div>
+<div class="header">
+<a class="art-back" href="/guias-ccn-cert/index.html">← Volver a Guías CCN-CERT</a>
+<div class="tag">CCN-STIC · Serie 800 · ENS</div>
+<h1 class="headline">CCN-STIC 800<br/><span class="accent">Glosario de Términos y Abreviaturas del ENS</span></h1>
+<p class="subline">El diccionario del ENS. Aburrida, sí; imprescindible, también.</p>
+<div class="guide-editorial-meta">
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">♙</span>
+<strong>Miguel Ángel Carriazo</strong>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">▣</span>
+<span>18 junio 2026</span>
+</div>
+<div class="guide-editorial-meta-item">
+<span class="guide-meta-icon">◷</span>
+<span data-reading-time="">14 min de lectura</span>
+</div>
+</div></div>
+<div class="body">
+<div class="art-layout">
+<div class="art-main">
+<div class="guia-read-when">
+<span>LEE ESTA GUÍA CUANDO...</span>
+<h2>Necesites trabajar sobre lenguaje común dentro del ENS.</h2>
+<p>En vez de buscar una frase aislada, sigue el recorrido de la guía y relaciona cada conclusión con el sistema, el responsable y la evidencia que debería existir.</p>
+</div><div class="art-visual guia-roadmap">
+<div class="art-visual-kicker">CCN-STIC 800 · Lenguaje común</div>
+<div class="art-visual-title">Dónde encaja esta guía en una revisión práctica</div>
+<svg aria-label="Mapa práctico de la guía CCN-STIC 800" role="img" viewbox="0 0 1160 240">
+<rect class="gg-svg-box" height="96" rx="2" width="220" x="70" y="68"></rect><text class="gg-svg-num" x="94" y="99">01</text><text class="gg-svg-label" x="94" y="132">Término</text><line class="gg-svg-line" x1="290" x2="335" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="326,111 336,116 326,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="335" y="68"></rect><text class="gg-svg-num" x="359" y="99">02</text><text class="gg-svg-label" x="359" y="132">Significado</text><line class="gg-svg-line" x1="555" x2="600" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="591,111 601,116 591,121"></polygon><rect class="gg-svg-box" height="96" rx="2" width="220" x="600" y="68"></rect><text class="gg-svg-num" x="624" y="99">03</text><text class="gg-svg-label" x="624" y="132">Contexto</text><line class="gg-svg-line" x1="820" x2="865" y1="116" y2="116"></line><polygon class="gg-svg-arrow" points="856,111 866,116 856,121"></polygon><rect class="gg-svg-box is-strong" height="96" rx="2" width="220" x="865" y="68"></rect><text class="gg-svg-num is-light" x="889" y="99">04</text><text class="gg-svg-label is-light" x="889" y="132">Uso</text>
+<rect class="gg-svg-band" height="28" rx="2" width="840" x="160" y="198"></rect>
+<text class="gg-svg-band-label" text-anchor="middle" x="580" y="217">PREGUNTA → CRITERIO → IMPLANTACIÓN → EVIDENCIA REVISABLE</text>
+</svg>
+<div class="art-visual-note">Utiliza la guía para orientar la revisión y contrasta siempre la versión vigente en el portal oficial del CCN-CERT.</div>
+</div><div class="block" id="s1">
+<div class="block-label">Qué es</div>
+<h2 class="block-title">Qué es y para qué vale</h2>
+<p class="block-text" style="margin-top:10px">La CCN-STIC 800 fija el vocabulario común del Esquema Nacional de Seguridad. Define con precisión qué se entiende por sistema de información, servicio, información, categoría, dimensión de seguridad, responsable, medida, principio básico o requisito mínimo. No es una guía de implantación: es la base semántica sobre la que se sostienen todas las demás guías de la serie 800.</p>
+<p class="block-text" style="margin-top:10px">Parece un documento menor, pero es justo lo contrario. La mayoría de los errores graves en una adecuación al ENS nacen de un malentendido de vocabulario: confundir «servicio» con «sistema», «categoría del sistema» con «nivel de una dimensión», o usar «activo» en el sentido de MAGERIT cuando el ENS razona en términos de servicios e información. Tener el glosario interiorizado evita discusiones estériles y documentación incoherente.</p>
+<p class="block-text" style="margin-top:10px">El glosario se estructura en tres partes: términos (con definiciones extraídas del ENS y de estándares como ISO/IEC 27000), abreviaturas (más de 170 siglas de uso frecuente) y referencias a otras guías CCN-STIC y normativa aplicable.</p>
+</div><div class="divider"></div><div class="block grc-guide-angle" id="s14">
+<div class="block-label">Mi lectura</div>
+<h2 class="block-title">Un glosario no parece crítico hasta que dos equipos usan la misma palabra para cosas distintas.</h2>
+<div class="block-text">La 800 me interesa por una razón poco espectacular: evita discusiones absurdas. En seguridad usamos términos que parecen evidentes hasta que intentas convertirlos en una decisión. «Activo», «amenaza», «riesgo», «incidente», «evidencia» o «responsable» pueden significar cosas distintas para Operaciones, Auditoría, Legal y un proveedor.<br/><br/>
+Cuando eso ocurre, el problema no es lingüístico. Un ticket puede cerrarse porque alguien entiende «resuelto» como mitigado y otro como erradicado. Una auditoría puede pedir «evidencia» y recibir una captura sin fecha ni relación con el sistema. Un comité puede aprobar un «riesgo aceptado» cuando en realidad solo se ha documentado una excepción técnica.<br/><br/>
+<strong>Yo utilizaría la 800 como diccionario de trabajo, no como material de lectura lineal.</strong> La abriría cuando una palabra esté empezando a sostener una conclusión demasiado importante.</div>
+</div><div class="divider"></div><div class="art-visual grc-guide-techvisual">
+<div class="art-visual-kicker">CCN-STIC 800 · Lenguaje compartido</div>
+<div class="art-visual-title">Cómo un término termina afectando a una decisión</div>
+<svg aria-label="Mapa semántico de términos ENS" role="img" viewbox="0 0 1160 430">
+<circle class="gx-core" cx="580" cy="210" r="82"></circle>
+<text class="gx-title-light" text-anchor="middle" x="580" y="203">TÉRMINO</text>
+<text class="gx-small-light" text-anchor="middle" x="580" y="228">definición común</text>
+<rect class="gx-box" height="90" width="230" x="85" y="70"></rect>
+<text class="gx-title" x="110" y="110">PROCEDIMIENTO</text>
+<text class="gx-small" x="110" y="136">cómo se usa</text>
+<rect class="gx-box" height="90" width="230" x="845" y="70"></rect>
+<text class="gx-title" x="870" y="110">HERRAMIENTA</text>
+<text class="gx-small" x="870" y="136">cómo se registra</text>
+<rect class="gx-box" height="90" width="230" x="85" y="280"></rect>
+<text class="gx-title" x="110" y="320">MÉTRICA</text>
+<text class="gx-small" x="110" y="346">cómo se cuenta</text>
+<rect class="gx-box" height="90" width="230" x="845" y="280"></rect>
+<text class="gx-title" x="870" y="320">DECISIÓN</text>
+<text class="gx-small" x="870" y="346">qué se concluye</text>
+<line class="gx-line" x1="315" x2="505" y1="115" y2="180"></line>
+<line class="gx-line" x1="845" x2="655" y1="115" y2="180"></line>
+<line class="gx-line" x1="315" x2="505" y1="325" y2="240"></line>
+<line class="gx-line" x1="845" x2="655" y1="325" y2="240"></line>
+<rect class="gx-band" height="26" width="780" x="190" y="392"></rect>
+<text class="gx-band-label" text-anchor="middle" x="580" y="410">UNA DEFINICIÓN INCONSISTENTE PROPAGA ERRORES POR TODO EL MODELO</text>
+</svg>
+<div class="art-visual-note">Lectura técnica GRCREAL: una manera práctica de conectar la guía con arquitectura, operación y evidencia.</div>
+</div><div class="divider"></div><div class="block grc-guide-tech" id="s17">
+<div class="block-label">Explicación técnica</div>
+<h2 class="block-title">Qué me interesa técnicamente de esta guía</h2>
+<div class="block-text">Aunque la 800 parezca un glosario, su valor práctico está en la normalización semántica de todo el ecosistema ENS. Cuando un término crítico cambia de significado entre procedimientos, herramientas y personas, se rompe la trazabilidad. Un activo en el inventario puede no equivaler a un activo en el análisis de riesgos; un incidente en el SOC puede no ser un incidente a efectos de reporte; una medida implantada puede no ser una medida eficaz.<br/><br/>
+Técnicamente esto impacta en modelos de datos, taxonomías, catálogos y métricas. Si el CMDB, el sistema de tickets, el registro de riesgos y la evidencia de auditoría no hablan el mismo idioma, consolidar información produce ruido. Lo que aparenta ser un problema de documentación termina siendo un problema de diseño de información.<br/><br/>
+Por eso, yo conectaría la 800 con cualquier iniciativa que dependa de clasificación: activos, incidentes, servicios, propietarios, evidencias y excepciones. No como teoría, sino como criterio mínimo para que los procesos se entiendan entre sí.<h3>Qué revisaría en sistemas y datos</h3>
+<p>Buscaría inconsistencias en taxonomías y campos. Por ejemplo, si el inventario clasifica “servicio” por una lógica y el registro de incidentes por otra, las métricas de impacto serán difíciles de reconciliar. También revisaría valores libres frente a catálogos controlados, reglas de normalización y quién puede introducir nuevas categorías.</p>
+<p>En un entorno maduro, el glosario debería estar reflejado en esquemas de datos y no solo en un PDF. Eso significa nombres de campos, estados, etiquetas y criterios de cierre coherentes entre herramientas.</p></div>
+</div><div class="divider"></div><div class="block grc-guide-error" id="s18">
+<div class="block-label">Error habitual</div>
+<h2 class="block-title">Dónde suele torcerse en proyectos reales</h2>
+<div class="grc-guide-alert">
+<span>DONDE SUELE TORCERSE</span>
+<div class="block-text">Dar por supuesto que todos entienden lo mismo cuando usan la misma palabra. Este error es especialmente común en proyectos maduros, porque la familiaridad sustituye a la precisión. El término “resuelto” en un ticket puede significar “sin alerta abierta”, mientras que para continuidad o cumplimiento todavía existe impacto, causa no determinada o acciones pendientes.<br/><br/>
+El síntoma clásico es que dos informes sobre el mismo asunto no cuadran y nadie sabe exactamente por qué. La raíz suele estar en definiciones distintas, no en mala intención.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-example" id="s19">
+<div class="block-label">Ejemplo práctico</div>
+<h2 class="block-title">Cómo lo aterrizaría en un caso real</h2>
+<div class="grc-guide-example-box">
+<div class="grc-guide-example-mark">CASO</div>
+<div class="block-text">Imagina que la organización quiere medir “activos críticos”. Arquitectura entiende activo como sistema; negocio como servicio; protección de datos como repositorio de información; y continuidad como capacidad necesaria para un proceso. Si no se unifica el criterio, cada lista saldrá correcta para quien la emite y equivocada para cualquiera que intente compararlas.<br/><br/>
+Mi enfoque sería seleccionar diez términos que sostienen decisiones y validarlos en cuatro sitios: procedimiento, herramienta, reporte y entrevista. Si el término cambia de significado en alguno de ellos, ya tienes una mejora de gobierno perfectamente justificada.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-infra" id="s21">
+<div class="block-label">Ejemplo técnico de infraestructura</div>
+<h2 class="block-title">CMDB, SIEM y continuidad usando definiciones distintas</h2>
+<div class="art-visual grc-infra-visual">
+<div class="art-visual-kicker">EJEMPLO TÉCNICO · INFRAESTRUCTURA</div>
+<div class="art-visual-title">Componentes implicados en el caso</div>
+<svg aria-label="Arquitectura técnica del ejemplo CCN-STIC 800" role="img" viewbox="0 0 1160 380">
+<rect class="gi-node" height="82" rx="2" width="190" x="110" y="90"></rect><text class="gi-label" text-anchor="middle" x="205" y="138">CMDB</text><rect class="gi-node gi-node-strong" height="82" rx="2" width="190" x="350" y="90"></rect><text class="gi-label gi-label-light" text-anchor="middle" x="445" y="138">SIEM</text><rect class="gi-node" height="82" rx="2" width="190" x="590" y="90"></rect><text class="gi-label" text-anchor="middle" x="685" y="138">Catálogo de servicios</text><rect class="gi-node" height="82" rx="2" width="190" x="830" y="90"></rect><text class="gi-label" text-anchor="middle" x="925" y="138">BCM</text>
+<line class="gi-link" x1="300" x2="350" y1="131" y2="131"></line><line class="gi-link" x1="540" x2="590" y1="131" y2="131"></line><line class="gi-link" x1="780" x2="830" y1="131" y2="131"></line><line class="gi-link" x1="685" x2="565" y1="172" y2="265"></line>
+<rect class="gi-band" height="28" rx="2" width="780" x="190" y="330"></rect>
+<text class="gi-band-label" text-anchor="middle" x="580" y="349">SERVICIO → DEPENDENCIA → CONTROL → EVIDENCIA</text>
+</svg>
+</div>
+<div class="grc-infra-case">
+<div class="grc-infra-case-mark">INFRA</div>
+<div class="block-text">Una organización mantiene tres fuentes. La CMDB registra “activo” como elemento técnico; el SIEM agrupa alertas por hostname; continuidad trabaja con servicios de negocio. Cuando llega un incidente, el equipo intenta responder cuántos activos críticos están afectados y obtiene tres cifras diferentes.<br/><br/>
+<strong>Arquitectura técnica:</strong> CMDB, inventario de aplicaciones, catálogo de servicios, SIEM y herramienta de continuidad.<br/>
+<strong>Fallo:</strong> no existe una relación normalizada entre servicio, aplicación, servidor e información.<br/>
+<strong>Consecuencia:</strong> impacto mal calculado, métricas inconsistentes y escalado tardío.<br/>
+<strong>Qué haría:</strong> definir identificadores comunes, relaciones obligatorias y reglas de sincronización. Después probaría la trazabilidad con un incidente real o simulado.</div>
+</div>
+</div><div class="divider"></div><div class="block grc-guide-question" id="s15">
+<div class="block-label">Pregunta incómoda</div>
+<h2 class="block-title">¿Estamos de acuerdo en el término o solo estamos usando la misma palabra?</h2>
+<div class="grc-question-box">
+<span>NO RESPONDAS CON LA POLÍTICA</span>
+<div class="block-text">En una reunión preguntaría a tres personas qué entienden por «incidente de seguridad» o por «activo». No para hacer un examen, sino para comprobar si el lenguaje común existe de verdad. Si las respuestas cambian de forma relevante, ya sé que los procedimientos, tickets y métricas pueden estar mezclando objetos distintos.<br/><br/>
+El lenguaje de un marco tiene impacto en el dato. Si el catálogo de activos usa una definición, el procedimiento de riesgos otra y el CMDB una tercera, cualquier consolidación será frágil.</div>
+</div>
+<table class="grc-guide-evidence"><thead><tr><th>Ref.</th><th>Qué pediría</th><th>Qué necesito ver</th></tr></thead><tbody><tr><td>GR-01</td><td>Glosario corporativo</td><td>Términos críticos, definición, fuente y ámbito de uso.</td></tr><tr><td>GR-02</td><td>Procedimientos</td><td>Uso coherente de conceptos en riesgos, incidentes y auditoría.</td></tr><tr><td>GR-03</td><td>Modelos de datos</td><td>Campos y categorías alineados con el significado definido.</td></tr><tr><td>GR-04</td><td>Formación</td><td>Que los roles relevantes entienden el lenguaje que utilizan.</td></tr></tbody></table>
+</div><div class="divider"></div><div class="block grc-guide-approach" id="s16">
+<div class="block-label">Mi enfoque</div>
+<h2 class="block-title">Cómo la aterrizaría yo en un entorno real</h2>
+<div class="grc-approach-box">
+<div class="grc-approach-mark">GRCREAL</div>
+<div class="block-text">No intentaría copiar cientos de definiciones a una política interna. Seleccionaría los términos que sostienen decisiones: activo, sistema, servicio, incidente, responsable, riesgo, medida, evidencia y excepción. Después comprobaría dónde aparecen y si significan lo mismo.<br/><br/>
+<strong>Cuando el lenguaje es ambiguo, la evidencia también termina siéndolo.</strong></div>
+</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s2">
+<div class="block-label">Contenido</div>
+<h2 class="block-title">Qué contiene la guía</h2>
+<ul class="guia-ul">
+<li>Definiciones formales de los conceptos centrales del ENS (sistema, servicio, información, activo, categoría, dimensión).</li>
+<li>Las cinco dimensiones de seguridad: Confidencialidad, Integridad, Trazabilidad, Autenticidad y Disponibilidad.</li>
+<li>Terminología de roles y responsabilidades alineada con la CCN-STIC 801.</li>
+<li>Abreviaturas y siglas de uso común en el marco del ENS y del CCN-CERT (más de 170 entradas).</li>
+<li>Referencias cruzadas que conectan los términos con el articulado del Real Decreto del ENS.</li>
+<li>Definiciones específicas de cloud computing (IaaS, PaaS, SaaS, modelos de despliegue, etc.) según ISO/IEC 17788.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s3">
+<div class="block-label">Conceptos</div>
+<h2 class="block-title">Conceptos clave que debes manejar</h2>
+<dl class="guia-concepts">
+<dt>Dimensión de seguridad</dt>
+<dd>Cada una de las cinco propiedades (C, I, T, A, D) sobre las que se valora la información y los servicios. La guía define cada una con precisión: Confidencialidad (la información ni se pone a disposición ni se revela a no autorizados), Integridad (el activo no ha sido alterado de manera no autorizada), Trazabilidad (las actuaciones pueden imputarse exclusivamente a una entidad), Autenticidad (una entidad es quien dice ser o garantiza la fuente de los datos) y Disponibilidad (las entidades autorizadas tienen acceso cuando lo requieren).</dd>
+<dt>Categoría del sistema</dt>
+<dd>Clasificación del sistema (BÁSICA, MEDIA o ALTA) que resulta de la dimensión valorada más alta. Representa la visión holística del conjunto de activos como un todo armónico orientado a la prestación de servicios.</dd>
+<dt>Servicio</dt>
+<dd>Función o prestación desempeñada por alguna entidad oficial destinada a cuidar intereses o satisfacer necesidades de los ciudadanos. Puede ser finalista (de cara al ciudadano) o instrumental (de soporte interno).</dd>
+<dt>Principio básico vs. requisito mínimo</dt>
+<dd>Los principios orientan el «cómo» de la seguridad (ej. seguridad como proceso integral, gestión basada en riesgos); los requisitos mínimos son obligaciones concretas exigibles que se detallan en el Anexo II del ENS.</dd>
+<dt>Activo</dt>
+<dd>Componente o funcionalidad de un sistema de información susceptible de ser atacado deliberada o accidentalmente con consecuencias para la organización. Incluye información, datos, servicios, aplicaciones, equipos, comunicaciones, recursos administrativos, físicos y humanos.</dd>
+<dt>Riesgo</dt>
+<dd>Estimación del grado de exposición a que una amenaza se materialice sobre uno o más activos causando daños o perjuicios a la organización.</dd>
+</dl>
+</div>
+<div class="divider"></div>
+<div class="block" id="s4">
+<div class="block-label">Alcance</div>
+<h2 class="block-title">A quién aplica y cuándo entra en juego</h2>
+<div class="block-text">Aplica a cualquiera que trabaje con el ENS, pero es especialmente útil en dos momentos: al arrancar el proyecto, para alinear el lenguaje entre TI, negocio y seguridad desde la primera reunión; y en auditoría, donde un término mal empleado en la documentación delata que el trabajo se ha hecho «de memoria» y no sobre la norma. Es el punto de partida para cualquier profesional que se acerque al ENS por primera vez.</div>
+</div>
+<div class="divider"></div>
+<div class="block" id="s5">
+<div class="block-label">Implantación</div>
+<h2 class="block-title">Cómo lo implanta una empresa, paso a paso</h2>
+<ol class="guia-pasos">
+<li><span class="pt">No se implanta: se adopta</span><span class="pd">El glosario no se «implanta». Se adopta como referencia oficial y se cita en políticas y procedimientos para no inventar definiciones propias.</span></li>
+<li><span class="pt">Alinea el lenguaje del equipo</span><span class="pd">Comparte el glosario con todo el equipo del proyecto (TI, negocio, seguridad) en el arranque, para que todos hablen del mismo «servicio» y la misma «categoría». La guía recomienda utilizar la terminología de forma consistente en toda la documentación.</span></li>
+<li><span class="pt">Úsalo como filtro de coherencia</span><span class="pd">Antes de cerrar cualquier documento del expediente ENS, comprueba que los términos coinciden con la 800. Es un control de calidad barato y muy eficaz.</span></li>
+<li><span class="pt">Mantén la versión actualizada</span><span class="pd">La guía se actualiza periódicamente (última actualización Feb 2016). Consulta siempre la versión vigente en el portal del CCN-CERT.</span></li>
+</ol>
+</div>
+<div class="divider"></div>
+<div class="block" id="s6">
+<div class="block-label">Auditoría</div>
+<h2 class="block-title">Para qué sirve en una auditoría</h2>
+<ul class="guia-ul">
+<li>El auditor espera que uses la terminología del ENS con precisión.</li>
+<li>Los errores de vocabulario en la documentación son una señal de alarma temprana sobre la madurez del proyecto.</li>
+<li>Definiciones contradictorias entre documentos generan no conformidades evitables.</li>
+<li>Tener el lenguaje alineado con la 800 agiliza la auditoría y reduce malentendidos.</li>
+<li>La guía incluye definiciones específicas de conceptos de auditoría como «evidencia de auditoría», «criterios de auditoría» y «dictamen» que el auditor espera que conozcas.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s7">
+<div class="block-label">Serie 800</div>
+<h2 class="block-title">Relación con otras guías de la serie</h2>
+<ul class="guia-rel">
+<li><span class="rn">CCN-STIC 801</span><a href="/guias-ccn-cert/ccn-stic-801.html">801</a> — Comparte y consolida la terminología de roles y responsabilidades.</li>
+<li><span class="rn">CCN-STIC 803</span><a href="/guias-ccn-cert/ccn-stic-803.html">803</a> — Aporta las definiciones de dimensión y categoría que la 803 utiliza para valorar.</li>
+<li><span class="rn">CCN-STIC 804</span><a href="/guias-ccn-cert/ccn-stic-804.html">804</a> — Da el vocabulario con el que la guía de implantación describe las medidas.</li>
+<li><span class="rn">CCN-STIC 802</span><a href="/guias-ccn-cert/ccn-stic-802.html">802</a> — El glosario define términos clave de auditoría que la 802 utiliza.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s8">
+<div class="block-label">Mapeo</div>
+<h2 class="block-title">Equivalencia con otros marcos</h2>
+<div class="block-text">Cómo se conecta esta guía con los marcos que probablemente ya manejas:</div>
+<table class="guia-map">
+<tr><th>Aspecto en el ENS</th><th>ISO 27001</th><th>NIS2 / DORA</th></tr>
+<tr><td>Terminología y dimensiones ENS</td><td>ISO/IEC 27000 (vocabulario del SGSI)</td><td>NIS2/DORA: nociones equivalentes de gestión de riesgos</td></tr>
+<tr><td>Dimensiones C, I, T, A, D</td><td>ISO 27001: C/I/D + Trazabilidad y Autenticidad como atributos de seguridad</td><td>DORA: propiedades de seguridad de la información</td></tr>
+<tr><td>Definición de «activo»</td><td>ISO 27001: activo de información (A.5.9)</td><td>NIS2: activos TIC esenciales</td></tr>
+<tr><td>Gestión de riesgos</td><td>ISO 31000 / ISO 27005</td><td>DORA: gestión de riesgos TIC</td></tr>
+</table>
+</div>
+<div class="divider"></div>
+<div class="block" id="s9">
+<div class="block-label">Sin humo</div>
+<h2 class="block-title">Errores típicos</h2>
+<ul class="guia-ul">
+<li>Inventar definiciones propias en las políticas en vez de usar las del ENS.</li>
+<li>Confundir «categoría del sistema» con «nivel de una dimensión».</li>
+<li>Usar «activo» en sentido MAGERIT cuando el ENS habla de servicios e información.</li>
+<li>Mezclar terminología de ISO 27001 y de ENS sin traducir entre ambas.</li>
+<li>Confundir «responsable de la seguridad» con «responsable del sistema» (son roles distintos y separados).</li>
+<li>Usar «incidente» y «evento» como sinónimos cuando en el ENS tienen significados diferentes.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s10">
+<div class="block-label">Checklist</div>
+<h2 class="block-title">Checklist práctico</h2>
+<ul class="guia-check">
+<li>Las políticas y procedimientos usan la terminología del ENS.</li>
+<li>El equipo comparte un único glosario desde el inicio.</li>
+<li>No hay definiciones contradictorias entre documentos.</li>
+<li>Los términos clave (servicio, sistema, categoría, dimensión) se usan correctamente.</li>
+<li>Se distingue entre principios básicos y requisitos mínimos.</li>
+<li>La terminología de roles (RINFO, RSERV, RSEG, RSIS) es la correcta.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="block" id="s11">
+<div class="block-label">Ficha</div>
+<h2 class="block-title">Ficha y enlace oficial</h2>
+<div class="block-text">Esta es una lectura práctica de GRCreal, no la guía oficial. Consulta siempre la versión vigente en el portal del CCN-CERT, ya que estas guías se actualizan periódicamente (esta ficha: publicada Mar 2011, actualizada Feb 2016).</div>
+<a class="guia-oficial-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/499-ccn-stic-800-glosario-de-terminos-y-abreviaturas-del-ens/file.html" rel="noopener noreferrer" target="_blank">⬇ CCN-STIC 800 en el portal CCN-CERT</a>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Términos destacados del glosario -->
+<div class="block" id="s12">
+<div class="block-label">Términos destacados</div>
+<h2 class="block-title">Términos que no pueden faltar en tu vocabulario ENS</h2>
+<p class="block-text" style="margin-top:10px">La guía contiene más de 180 definiciones. Estos son algunos de los términos más relevantes que debes conocer:</p>
+<ul class="guia-ul">
+<li><strong>Acreditación</strong>: Autorización otorgada por la Autoridad responsable para manejar información de un grado determinado, o en unas determinadas condiciones de integridad o disponibilidad.</li>
+<li><strong>Amenaza</strong>: Eventos que pueden desencadenar un incidente en la Organización, produciendo daños materiales o pérdidas inmateriales en sus activos.</li>
+<li><strong>Análisis o valoración de riesgos</strong>: Utilización sistemática de la información disponible para identificar peligros y estimar los riesgos.</li>
+<li><strong>Auditoría de la seguridad</strong>: Revisión y examen independientes de los registros y actividades del sistema para verificar la idoneidad de los controles, asegurar que se cumplen la política y los procedimientos, detectar infracciones y recomendar modificaciones.</li>
+<li><strong>Confidencialidad</strong>: Propiedad consistente en que la información ni se pone a disposición ni se revela a individuos, entidades o procesos no autorizados.</li>
+<li><strong>Disponibilidad</strong>: Propiedad consistente en que las entidades o procesos autorizados tienen acceso a los activos cuando lo requieren.</li>
+<li><strong>Integridad</strong>: Propiedad consistente en que el activo de información no ha sido alterado de manera no autorizada.</li>
+<li><strong>Medida de seguridad</strong>: Conjunto de disposiciones encaminadas a protegerse de los riesgos posibles sobre el sistema de información, con el fin de asegurar sus objetivos de seguridad.</li>
+<li><strong>Vulnerabilidad</strong>: Debilidad que puede ser aprovechada por una amenaza. Error de programación o diseño que permite explotar el sistema de una manera diferente a la original.</li>
+</ul>
+</div>
+<div class="divider"></div>
+<!-- Nuevo bloque: Abreviaturas esenciales -->
+<div class="block" id="s13">
+<div class="block-label">Abreviaturas</div>
+<h2 class="block-title">Abreviaturas esenciales del ENS</h2>
+<p class="block-text" style="margin-top:10px">El glosario incluye más de 170 siglas. Estas son las que más verás en el día a día del ENS:</p>
+<ul class="guia-ul">
+<li><strong>AA</strong> — Autoridad de Acreditación</li>
+<li><strong>ADA</strong> — Autoridad Delegada de Acreditación</li>
+<li><strong>ASS</strong> — Administrador de Seguridad del Sistema</li>
+<li><strong>CCN</strong> — Centro Criptológico Nacional</li>
+<li><strong>CCN-CERT</strong> — Centro Criptológico Nacional – Computer Emergency Response Team</li>
+<li><strong>ENS</strong> — Esquema Nacional de Seguridad</li>
+<li><strong>RINFO</strong> — Responsable de la Información</li>
+<li><strong>RSEG</strong> — Responsable de la Seguridad</li>
+<li><strong>RSERV</strong> — Responsable del Servicio</li>
+<li><strong>RSIS</strong> — Responsable del Sistema</li>
+<li><strong>SGSI</strong> — Sistema de Gestión de la Seguridad de la Información</li>
+<li><strong>SIEM</strong> — Security Information and Event Management</li>
+<li><strong>TIC</strong> — Tecnologías de la Información y las Comunicaciones</li>
+</ul>
+</div>
+<div class="divider"></div>
+<div class="divider"></div><div class="block grc-guide-official" id="s20"><div class="block-label">Ficha y enlace oficial</div><h2 class="block-title">Contrasta esta lectura con la publicación del CCN-CERT</h2><div class="grc-guide-official-lead">La guía oficial sigue mandando. Aquí queda la ficha documental y el acceso directo a la fuente para cerrar la lectura con el contraste adecuado.</div><div class="ccn-banner">ℹ️ <span><strong>Resumen práctico de GRCreal.</strong> Consulta siempre la versión oficial vigente en el portal del CCN-CERT.</span></div><p class="ccn-note">Resumen realizado a fecha 29/06/2026 con la información disponible en <a href="https://www.ccn-cert.cni.es/es/guias.html" rel="noopener noreferrer" target="_blank">https://www.ccn-cert.cni.es/es/guias.html</a>. Las fechas de publicación y actualización proceden del portal oficial.</p><table class="ccn-doctable"><thead><tr><th>Documento</th><th>Categoría</th><th>Publicado</th><th>Actualizado</th></tr></thead><tbody><tr><td><a class="ccn-doc-a" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/499-ccn-stic-800-glosario-de-terminos-y-abreviaturas-del-ens/file.html" rel="noopener noreferrer" target="_blank"><span class="pdf">⬇ PDF</span> CCN-STIC-800 Glosario de Términos y Abreviaturas del ENS</a></td><td class="ccn-cat">800 Guías Esquema Nacional de Seguridad</td><td>Mar 2011</td><td>Feb 2016</td></tr></tbody></table><p class="grc-guide-official-actions">
+<a class="grc-guide-official-btn" href="https://www.ccn-cert.cni.es/es/800-guia-esquema-nacional-de-seguridad/499-ccn-stic-800-glosario-de-terminos-y-abreviaturas-del-ens/file.html" rel="noopener noreferrer" target="_blank">Abrir documento oficial del CCN-CERT</a>
+</p></div></div><!-- /art-main -->
+<aside class="art-toc">
+<div class="art-toc-label">Contenido</div>
+<nav class="art-toc-nav" id="artTocNav">
+<a data-toc="" href="#s1">Qué es y para qué vale</a><a data-toc="" href="#s14">Mi lectura</a><a data-toc="" href="#s17">Explicación técnica</a><a data-toc="" href="#s18">Error habitual</a><a data-toc="" href="#s19">Ejemplo práctico</a><a data-toc="" href="#s21">Ejemplo técnico de infraestructura</a><a data-toc="" href="#s15">Pregunta incómoda</a><a data-toc="" href="#s16">Mi enfoque</a>
+<a data-toc="" href="#s2">Qué contiene la guía</a>
+<a data-toc="" href="#s3">Conceptos clave</a>
+<a data-toc="" href="#s4">A quién aplica</a>
+<a data-toc="" href="#s5">Cómo se implanta, paso a paso</a>
+<a data-toc="" href="#s6">Para qué sirve en auditoría</a>
+<a data-toc="" href="#s7">Relación con otras guías</a>
+<a data-toc="" href="#s8">Mapeo a otros marcos</a>
+<a data-toc="" href="#s9">Errores típicos</a>
+<a data-toc="" href="#s10">Checklist práctico</a>
+<a data-toc="" href="#s11">Ficha y enlace oficial</a>
+<a data-toc="" href="#s12">Términos destacados del glosario</a>
+<a data-toc="" href="#s13">Abreviaturas esenciales</a>
+</nav>
+</aside>
+</div><!-- /art-layout -->
+</div><!-- /body -->
+<div class="art-related">
+<div class="art-related-label">Sigue en la serie 800</div>
+<div class="art-related-title">Otras guías CCN-STIC</div>
+<div class="art-related-grid">
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-823.html"><span class="art-related-pill">CCN-STIC 823</span><h3>Cloud Computing en el ENS</h3><p>Nube y ENS: el reparto de responsabilidades que casi nadie documenta.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+<a class="art-related-card" href="/guias-ccn-cert/ccn-stic-801.html"><span class="art-related-pill">CCN-STIC 801</span><h3>ENS. Responsabilidades y Funciones</h3><p>Quién responde de qué. Sin esto, el ENS no tiene dueño.</p><div class="art-related-meta"><span>Serie 800 · ENS</span></div></a>
+</div>
+</div>
+<div id="footer-placeholder"></div>
+<script>
+    fetch('/includes/footer-no-share.html').then(r=>r.text()).then(d=>{document.getElementById('footer-placeholder').innerHTML=d;});
+    var tl=Array.from(document.querySelectorAll('#artTocNav a'));
+    var ss=tl.map(a=>document.querySelector(a.getAttribute('href')));
+    if('IntersectionObserver' in window){
+      var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var id='#'+en.target.id;tl.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-20% 0px -70% 0px'});
+      ss.forEach(function(s){if(s)ob.observe(s);});
+    }
+</script>
+</div>
+</div>
+<script defer="True" src="/js/article-zoom.js"></script></body>
+<script src="/js/global.js"></script>
+</html>
