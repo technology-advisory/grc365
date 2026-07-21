@@ -5,11 +5,11 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=3.0" name="viewport"/>
 <title>Novedades · GRCreal</title>
-<meta content="Últimas novedades, guías, webinars y recursos de GRCreal." name="description"/>
+<meta content="Novedades de GRCREAL: DORA, herramientas operativas, Academia ampliada, nuevos artículos, quiz, checklists y mejoras móviles." name="description"/>
 <meta content="index, follow" name="robots"/>
 <link href="https://grcreal.com/novedades/" rel="canonical"/>
 <meta content="Novedades · GRCreal" property="og:title"/>
-<meta content="Todo el contenido nuevo y actualizaciones." property="og:description"/>
+<meta content="DORA, herramientas, Academia con casos prácticos y una revisión completa de GRCREAL." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://grcreal.com/novedades/" property="og:url"/>
 <meta content="https://grcreal.com/grcreal.png" property="og:image"/>
@@ -138,9 +138,12 @@
     grid-template-columns: 1fr;
   }
 }
-</style>
+
+
+/* Resumen de la actualización */
+.nov-release-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 0 30px;border:1px solid var(--ds-line,#d7dcdf);background:#fff}.nov-release-stat{padding:22px 24px;border-right:1px solid var(--ds-line,#d7dcdf)}.nov-release-stat:last-child{border-right:0}.nov-release-stat b{display:block;margin-bottom:6px;color:var(--ds-deep,#003955);font-size:28px;line-height:1}.nov-release-stat span{font-family:var(--mono,monospace);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#6f7b83}.article-card:first-child,.article-card:nth-child(2),.article-card:nth-child(3){border-top:4px solid var(--brand,#0077B5)}@media(max-width:800px){.nov-release-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.nov-release-stat:nth-child(2){border-right:0}.nov-release-stat:nth-child(-n+2){border-bottom:1px solid var(--ds-line,#d7dcdf)}}@media(max-width:480px){.nov-release-summary{grid-template-columns:1fr}.nov-release-stat{border-right:0;border-bottom:1px solid var(--ds-line,#d7dcdf)}.nov-release-stat:last-child{border-bottom:0}}</style>
 <link href="/css/layout-fixes.css" rel="stylesheet"/><link href="/css/typography-system.css" rel="stylesheet"/></head>
-<body>
+<body class="article-page">
 <div class="card-wrapper ds-page">
 <div class="card">
 <div id="nav-placeholder"></div>
@@ -154,7 +157,7 @@
 <div class="accent-bar"></div>
 <div class="ds-meta">
 <span><span class="dot"></span>GRCreal // expediente: novedades</span>
-<span>actualizado: <strong>junio 2026</strong></span>
+<span>actualizado: <strong>julio 2026</strong></span>
 </div>
 <div class="header">
 <a class="art-back" href="/index.html">← Volver a inicio</a>
@@ -163,13 +166,11 @@
     Lo último en<br/>
 <span class="accent">GRCreal</span>
 </h1>
-<p class="subline">
-    Guías, webinars, checklists y contenido nuevo. Todo lo que necesitas para mantenerte al día.
-  </p>
+<p class="subline">DORA, herramientas, Academia, contenidos y experiencia móvil. <strong>La mayor revisión de GRCREAL hasta ahora.</strong></p>
 </div>
 <div class="body">
 <!-- CONTENEDOR DE NOVEDADES (se llena con JS) -->
-<div id="novedades-container">
+<section aria-label="Resumen de la actualización" class="nov-release-summary"><div class="nov-release-stat"><b>DORA</b><span>Nuevo marco</span></div><div class="nov-release-stat"><b>6</b><span>Herramientas</span></div><div class="nov-release-stat"><b>54</b><span>Casos prácticos</span></div><div class="nov-release-stat"><b>Móvil</b><span>Revisión completa</span></div></section><div id="novedades-container">
 <div class="articles-grid" id="novedades-grid"></div>
 </div>
 <!-- NOTA DESTACADA -->
@@ -183,20 +184,19 @@
 </a>.
     </p>
 </div>
-</div>
+</div><!-- /body -->
+<!-- FOOTER -->
 <div id="footer-placeholder"></div>
-</div>
-</div>
-<script src="/js/global.js"></script>
 <script>
-  // Cargar footer
   fetch('/includes/footer-no-share.html')
     .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    })
+    .then(data => { document.getElementById('footer-placeholder').innerHTML = data; })
     .catch(error => console.error('Error cargando el footer:', error));
-
+</script>
+</div><!-- /card -->
+</div><!-- /card-wrapper -->
+<script src="/js/global.js"></script>
+<script>
   // ===== Cargar novedades desde JSON =====
   fetch('/data/novedades.json')
     .then(response => {

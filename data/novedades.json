@@ -1,6 +1,58 @@
 {
   "items": [
     {
+      "fecha": "21 Julio 2026",
+      "titulo": "🛡️ DORA se incorpora a GRCREAL",
+      "descripcion": "Nuevo bloque de contenidos sobre alcance, gobierno del riesgo TIC, responsabilidad del órgano de dirección, registro de información de terceros, clasificación y notificación de incidentes, pruebas de resiliencia y TLPT. Todo aterrizado a decisiones, evidencias y operación.",
+      "enlace": "/marcos/dora/index.html",
+      "enlace_texto": "Explorar DORA",
+      "tipo_enlace": "primary"
+    },
+    {
+      "fecha": "21 Julio 2026",
+      "titulo": "🧰 Herramientas operativas: de la teoría al trabajo real",
+      "descripcion": "Nueva área de herramientas para análisis de riesgos, BIA, gestión de proveedores, matriz de dependencias, planes de tratamiento y clasificación de sistemas de IA según el AI Act. Pensadas para estructurar decisiones y obtener documentación utilizable.",
+      "enlace": "/herramientas/index.html",
+      "enlace_texto": "Abrir herramientas",
+      "tipo_enlace": "primary"
+    },
+    {
+      "fecha": "21 Julio 2026",
+      "titulo": "🎓 Academia ampliada con 54 casos prácticos",
+      "descripcion": "Revisión completa de AI Act, ISO 22301, ISO 27001 e ISO 42001. Cada módulo incorpora contexto técnico, decisiones, evidencias, errores frecuentes, ejercicio resuelto y variaciones para razonar sobre escenarios reales.",
+      "enlace": "/academia/index.html",
+      "enlace_texto": "Entrar en Academia",
+      "tipo_enlace": "primary"
+    },
+    {
+      "fecha": "21 Julio 2026",
+      "titulo": "📚 Artículos con más profundidad y mejor navegación",
+      "descripcion": "Contenido ampliado, nuevos bloques de documentación operativa, referencias, filtros más visibles, selector de meses dinámico y señalización de publicaciones nuevas. También se han corregido páginas con problemas estructurales.",
+      "enlace": "/articulos/index.html",
+      "enlace_texto": "Explorar artículos",
+      "tipo_enlace": "primary"
+    },
+    {
+      "fecha": "21 Julio 2026",
+      "titulo": "📱 Revisión móvil completa",
+      "descripcion": "Academia, tablas, comparativas, SVG, tarjetas, herramientas, quiz y navegación se han revisado para que el contenido sea legible y utilizable en pantallas pequeñas, sin cortes ni desplazamientos horizontales.",
+      "tipo_enlace": ""
+    },
+    {
+      "fecha": "21 Julio 2026",
+      "titulo": "✅ Quiz y checklists más claros y accionables",
+      "descripcion": "Mejoras de navegación, resultados, explicaciones desplegables, impresión y maquetación. El objetivo sigue siendo el mismo: comprobar comprensión y convertir requisitos en acciones verificables.",
+      "enlace": "/quiz/index.html",
+      "enlace_texto": "Ver Quiz",
+      "tipo_enlace": "primary"
+    },
+    {
+      "fecha": "21 Julio 2026",
+      "titulo": "✨ Una experiencia más clara y coherente",
+      "descripcion": "Se han unificado la tipografía, los espacios, las tarjetas, los gráficos, la impresión y la adaptación móvil. El resultado es una navegación más clara y una experiencia consistente en artículos, Academia, herramientas, Quiz y Checklists.",
+      "tipo_enlace": ""
+    },
+    {
       "fecha": "29 Junio 2026",
       "titulo": "🎓 Nuevo curso: AI Act (Reglamento UE 2024/1689)",
       "descripcion": "Curso completo de 6 módulos sobre el Reglamento Europeo de IA, explicado para practicantes: qué es y a quién aplica, los 4 niveles de riesgo y el calendario real tras el AI Omnibus, prácticas prohibidas (Art. 5), obligaciones de alto riesgo (Arts. 8-27), GPAI y transparencia (Art. 50), y gobernanza, sanciones y su relación con ISO 42001.",
@@ -90,11 +142,6 @@
       "fecha": "24 Mayo 2026",
       "titulo": "🖥️ Nueva interfaz gráfica del portal",
       "descripcion": "Hemos renovado completamente la interfaz del portal. Más intuitiva, más rápida y con una experiencia de usuario mejorada para la gestión de riesgos y cumplimiento."
-    },
-    {
-      "fecha": "Próximamente",
-      "titulo": "🛠️ Herramientas GRCreal",
-      "descripcion": "Nueva sección interactiva para acelerar tus análisis de continuidad de negocio (BIA), evaluar riesgos y fortalecer la resiliencia operativa."
     }
   ]
 }
